@@ -23,8 +23,6 @@
 
 	    public function validate(){
 
-	    	$this->load->database();
-
 	    	// get users information
 	    	$un = $this->security->xss_clean($this->input->post("username"));
 	    	$email = $this->security->xss_clean($this->input->post("r-email"));

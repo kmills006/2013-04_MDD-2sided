@@ -10,13 +10,73 @@ class login extends CI_Controller {
 		public function index(){
 			$data["main_content"] = "login";
 			$this->load->view("includes/landingTemplate", $data);
-
-			$this->load->library('fbconnect');
 		} // End of Index
 
 
 		// facebookRequest
 		public function facebookRequest(){
+			$this->load->library('fbconnect');
+
+			$data = array(
+				'redirect_uri' => site_url('login/handleFacebookLogin'),
+				'scope' => 'email'
+			);
+
+			redirect($this->fbconnect->getLoginUrl($data));
+		}
+
+		// handleFacebookLogin
+		public function handleFacebookLogin(){
+			// echo "Handle Facebook Login";
+
+			$this->load->library('fbconnect');
+			$this->load->model('user_model');
+
+			if($this->fbconnect->user){
+				// If user exists, check it against the database
+				// If user is already in the database, direct them to their home page with all their decks
+				// If user has never logged in before, add user to the database
+
+				$facebookUser = $this->fbconnect->user;
+
+				if($this->user_model->isMemeber($facebookUser)){
+
+					$result = $this->user_model->login($facebookUser);
+
+					if(!$result){
+						// No Results Found
+					}else{
+
+						// Send user to logged in screen
+						redirect("user");
+					}
+				
+				}else{
+					
+					$result = $this->user_model->registerFromFacebook($facebookUser);
+
+					if(!$result){
+
+						// Could not add user to the database
+						// Present error message
+						echo $result;
+
+					}else{
+						$result = $this->user_model->login($facebookUser);
+						
+						if(!$result){
+							// No Results Found
+						}else{
+
+							// Send user to logged in screen
+							redirect("user");
+						}						
+
+					}
+				}
+			}else{
+				echo "Could not log in at this time.";
+			}
 
 		}
 
@@ -58,9 +118,13 @@ class login extends CI_Controller {
 			}
 
 		}
+
+
+
 		public function usererror(){
 			$this->index();
 		}
+		
 		public function loginerror(){
 			$this->index();
 		}
