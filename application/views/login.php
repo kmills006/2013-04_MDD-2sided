@@ -11,6 +11,7 @@
 		<div class="sizer">
 			<img id="welcome" src="<? echo base_url(); ?>/imgs/welcome.png" alt="2sided Logo" width="314" height="142" /></a>
 
+			<a href="login/facebook"><img id="fb-login" src="<? echo base_url(); ?>/imgs/fb_login.png" alt="Login with Facebook" width="154" height="25"/></a>
 
 			<div id="forms">
 

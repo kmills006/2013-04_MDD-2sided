@@ -10,8 +10,35 @@ class login extends CI_Controller {
 		public function index(){
 			$data["main_content"] = "login";
 			$this->load->view("includes/landingTemplate", $data);
-
 		} // End of Index
+
+
+		public function facebook(){
+			// Facebook Credentials
+			$app_id = "517156441658987";
+			$app_secret = "6a118834cf54a6a3f96345af2c0c087f";
+			$app_url = base_url();
+
+			$this->load->library('facebook');
+			$user = $this->facebook->getUser();
+
+			if($user){
+	            try{
+	                $data['user_profile'] = $this->facebook->api('/me');
+	                $data['user_friends'] = $this->facebook->api('/me/friends');
+	            } catch (FacebookApiException $e) {
+	                $user = null;
+	            }
+	        }
+
+	        if($user){
+	            $data['logout_url'] = $this->facebook->getLogoutUrl();
+	        } else {
+	            $data['login_url'] = $this->facebook->getLoginUrl();
+	        }
+
+	        var_dump($user);
+		}
 
 
 		// process function
