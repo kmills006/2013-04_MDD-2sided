@@ -13,7 +13,7 @@
 
 		public function register(){
 			$this->load->model("newuser_model");
-			$this->load->model("login_model");
+			$this->load->model("user_model");
 
 			// Form-Validation
 			$this->load->library('form_validation');
@@ -45,18 +45,29 @@
 			
 			if($this->form_validation->run() == FALSE){
 				echo "false";
+
 				$data["main_content"] = "login";
+
 				$this->load->view("includes/landingTemplate", $data);
+
 			}else{
-				$results = $this->newuser_model->validate();
-				if($results === true){
-					$v = $this->login_model->validate();
-					// Users added, load deck screen
-					redirect("user");
+				$result = $this->user_model->validateNewUser();
+
+				if(!$result){
+					// Could not add user to database
 				}else{
-					redirect("login/usererror");
-					return false;
+					// New user added
+					redirect('user');
 				}
+
+				// if($result === true){
+				// 	// $v = $this->user_model->validateNewUser();
+				// 	// Users added, load deck screen
+				// 	// redirect("user");
+				// }else{
+				// 	// redirect("login/usererror");
+				// 	return false;
+				// }
 			} 
 		}
 	}

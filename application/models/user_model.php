@@ -80,6 +80,48 @@
 	    }
 
 
+	    // validateNewUser
+	    function validateNewUser(){
+
+	    	// get users information
+	    	$un = $this->security->xss_clean($this->input->post("username"));
+	    	$email = $this->security->xss_clean($this->input->post("r-email"));
+	    	$pass = $this->security->xss_clean($this->input->post("password"));
+	    	$dateofreg = date("Y-m-d");
+			$userID = uniqid();
+
+			$exi = $this->check_if_username_exists('username', $un);
+
+			if(!$exi){
+				$data = array(
+					"user_id" => $userID,
+					"email" => $email,
+					"username" => $un,
+					"pword" => md5($pass),
+					"date_of_reg" => $dateofreg
+				);
+
+		    	$q = $this->db->insert("users", $data);
+
+		    	$sdata = array(
+					"userid" => $userID,
+					"email" => $email,
+					"username" => $un,
+					"is_logged_in" => 1,
+					"validated" => true
+    			);
+
+	    		$this->session->set_userdata($sdata);
+
+		    	return true;
+			
+			}else{
+				return false;
+			}
+
+	    } // End of Validate
+
+
 	    // login
 	    // Login user
 	    function login($facebookUser){
@@ -89,11 +131,6 @@
 	    	$q = $this->db->get("users");
 
 	    	if($q->num_rows == 1){
-	    		foreach($q->result() as $row){
-	    			$data_results[] = $row;
-	    		}
-
-	    		return $data_results;
 
 			    $sdata = array(
 					"userid" => $row->user_id,
@@ -104,6 +141,8 @@
 				);
 
 				$this->session->set_userdata($sdata);
+
+				return true;
 
 	    	}else{
 	    		// No Results
