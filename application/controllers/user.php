@@ -18,10 +18,7 @@
 			$q["userInfo"] = $this->User_model->loadUser();
 			$q["decks"] = $this->Decks_model->getDecks();
 			
-			//var_dump($q);
-	
 			$this->load->view("yourdecks", $q);
-			//var_dump($q);
 
 			// User Footer
 			$this->load->view("includes/userFooter");
@@ -92,11 +89,10 @@
 			echo json_encode($r);
 		}
 		
+	
 		
-		
+		// do_upload
 		// upload profile image
-		
-		// uploadImg
 		public function do_upload(){
 			$userID = $this->session->userdata("userid");
 			
@@ -137,14 +133,10 @@
 				$this->load->library('image_lib',$config2); 
 				$this->image_lib->resize();
 				
-				if ( ! $this->image_lib->resize()){
+				if (!$this->image_lib->resize()){
 					//echo $this->image_lib->display_errors();
 				}
 			}
-			
-			//$r = $this->cards_model->uploadImage($_FILES);
-			//$imgPath = $_FILES["userfile"]["name"];
-			//$this->newcard($imgPath);
 		}
 
 	}
