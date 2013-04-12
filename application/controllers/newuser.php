@@ -12,7 +12,6 @@
 		}
 
 		public function register(){
-			$this->load->model("newuser_model");
 			$this->load->model("user_model");
 
 			// Form-Validation
@@ -51,7 +50,7 @@
 				$this->load->view("includes/landingTemplate", $data);
 
 			}else{
-				$result = $this->user_model->validateNewUser();
+				$result = $this->user_model->registerNewUser();
 
 				if(!$result){
 					// Could not add user to database

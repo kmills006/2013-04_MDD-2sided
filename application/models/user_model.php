@@ -10,6 +10,13 @@
 
 
 
+	    /* LOGIN/REGISTER
+	    -----------------------
+	   	-----------------------
+	   	---------------------*/
+
+
+
 	    // checkIfUsernameExists
 	    // Checks if username already exists
 		function check_if_username_exists($value, $variable) {
@@ -80,9 +87,9 @@
 	    }
 
 
-	    // validateNewUser
+	    // registerNewUser
 	    // Submit new user to the database
-	    function validateNewUser(){
+	    function registerNewUser(){
 	    	$un = $this->security->xss_clean($this->input->post("username"));
 	    	$email = $this->security->xss_clean($this->input->post("r-email"));
 	    	$pass = $this->security->xss_clean($this->input->post("password"));
@@ -191,7 +198,10 @@
 	    }
 
 
-		
+		/* USER IS LOGGED IN
+	    -----------------------
+	   	-----------------------
+	   	---------------------*/
 
 
 		// loadUser
