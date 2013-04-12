@@ -1,15 +1,12 @@
 <?php
 
 	class Decks_model extends CI_Model {
-	    function __construct()
-	    {
+	    function __construct(){
 	        parent::__construct();
-
-	        $this->load->database();
 	    }
 		
 		
-		public function check_if_rating_exists($deckID, $userID) {
+		public function check_if_rating_exists($deckID, $userID){
 			$q = $this->db->get_where("ratings", array("deck_id" => $deckID,
 													   "user_id" => $userID));
 													   
@@ -21,8 +18,7 @@
 	    }  
 		
 		// Get All Decks
-	    public function getDecks(){			
-			$data_results = array();
+	    public function getDecks(){						
 			$userID= $this->session->userdata("userid");
 			
 			$this->db->select("*, users.profile_img");
@@ -33,17 +29,15 @@
 			$q = $this->db->get();
 
 	   		if($q->num_rows() > 0){
-	   			 foreach ($q->result() as $row)
-				{	
+	   			 foreach ($q->result() as $row){	
 				    $data_results[] = $row;
-					
-					//var_dump($row);
 				}
 	    	}else{
 	    		//echo "No Results";
 	    	}
 
 	    	return $data_results;
+
 		}
 
 
@@ -60,8 +54,7 @@
 			$q = $this->db->get();
 	    	
 	    	if($q->num_rows() > 0){
-	   			 foreach ($q->result() as $row)
-				{	
+	   			 foreach ($q->result() as $row){	
 				    $data_results[] = $row;
 				}
 
@@ -71,6 +64,7 @@
 	    	}
 	    	
 	    	return $data_results;
+
 		}
 
 
@@ -87,10 +81,10 @@
 	    	}
 			
 	    	$data = array(
-	    				"deck_id" => $deckid,
-	    				"user_id" => $uid,
-	    				"title" => $deckTitle,
-	    				"privacy" => $privacy
+				"deck_id" => $deckid,
+				"user_id" => $uid,
+				"title" => $deckTitle,
+				"privacy" => $privacy
 	    	);
 
 	    	$query = $this->db->insert("decks", $data);
@@ -103,7 +97,10 @@
 				foreach($tags as $tag){
 					$tagID = uniqid();
 				
-					$tagData = array("deck_id" => $deckid, "tag_id" => $tagID, "tagName" => $tag);
+					$tagData = array(
+						"deck_id" => $deckid, 
+						"tag_id" => $tagID, 
+						"tagName" => $tag);
 					
 					$tagsData[] = $tagData;
 				};
@@ -114,16 +111,21 @@
 				
 				// inserting UPVOTE for user into DB
 				$dateRated = date('Y/m/d h:i:s', time());
-				$userUpvote = array("deck_id" => $deckid,
-									"rating_id" => uniqid(), 
-									"user_id" => $uid,
-									"rating" => 1,
-									"date_rated" => $dateRated
+
+				$userUpvote = array(
+					"deck_id" => $deckid,
+					"rating_id" => uniqid(), 
+					"user_id" => $uid,
+					"rating" => 1,
+					"date_rated" => $dateRated
 				);
+
 				$this->db->insert("ratings", $userUpvote);
 				
 				$ra = array("query" => $query, "deckid" => $deckid);
+
 	    		return $ra;
+	    	
 	    	}else{
 	    		return false;
 	    	}

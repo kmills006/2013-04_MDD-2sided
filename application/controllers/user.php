@@ -59,13 +59,6 @@
 			}else{
 				$this->index();
 			}
-
-			/* if($this->form_validation->run() == FALSE){
-				$this->createDecks();
-			}else{
-
-				
-			} */
 		}
 		
 		public function editDeck(){
