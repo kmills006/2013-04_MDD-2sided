@@ -81,9 +81,8 @@
 
 
 	    // validateNewUser
+	    // Submit new user to the database
 	    function validateNewUser(){
-
-	    	// get users information
 	    	$un = $this->security->xss_clean($this->input->post("username"));
 	    	$email = $this->security->xss_clean($this->input->post("r-email"));
 	    	$pass = $this->security->xss_clean($this->input->post("password"));
@@ -116,15 +115,18 @@
 		    	return true;
 			
 			}else{
+				// Username already exists
 				return false;
 			}
 
-	    } // End of Validate
+	    }
 
 
-	    // login
-	    // Login user
-	    function login($facebookUser){
+
+
+	    // loginFacebookUser
+	    // Login Facebook user
+	    function loginFacebookUser($facebookUser){
 	    	$this->db->where('username', $facebookUser['username']);
 	    	$this->db->where('email', $facebookUser['email']);
 
@@ -132,6 +134,10 @@
 
 	    	if($q->num_rows == 1){
 
+	    		foreach($q->result() as $row){
+					$data_results[] = $row;
+				}
+			    
 			    $sdata = array(
 					"userid" => $row->user_id,
 					"email" => $row->email,
@@ -146,6 +152,41 @@
 
 	    	}else{
 	    		// No Results
+	    	}
+	    }
+
+
+
+	    // loginUser
+	    function loginRegularUser(){
+	    	// echo "loginRegularUser";
+
+	    	$un = $this->security->xss_clean($this->input->post("username"));
+	    	$pass = $this->security->xss_clean($this->input->post("password"));
+
+			$this->db->where("username", $un); 
+	    	$this->db->where("pword", md5($pass));
+
+	    	$q = $this->db->get("users");
+
+
+	    	if($q->num_rows == 1){
+	    		$row = $q->row();
+	    		
+	    		$sdata = array(
+					"userid" => $row->user_id,
+					"email" => $row->email,
+					"username" => $row->username,
+					"is_logged_in" => 1,
+					"validated" => true
+    			);
+
+	    		$this->session->set_userdata($sdata);
+				
+	    		return true;
+
+	    	}else{
+	    		return false;
 	    	}
 	    }
 

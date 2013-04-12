@@ -59,15 +59,6 @@
 					// New user added
 					redirect('user');
 				}
-
-				// if($result === true){
-				// 	// $v = $this->user_model->validateNewUser();
-				// 	// Users added, load deck screen
-				// 	// redirect("user");
-				// }else{
-				// 	// redirect("login/usererror");
-				// 	return false;
-				// }
 			} 
 		}
 	}

@@ -16,7 +16,7 @@
 			<div id="forms">
 
 				<!-- Login Form -->
-				<?php echo form_open("login/process", $att1); ?>
+				<?php echo form_open("login/checkLogin", $att1); ?>
 					<h1>Log In</h1>
 					<h2 class="error"></h2>
 

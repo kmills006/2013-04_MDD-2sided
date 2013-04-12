@@ -4,6 +4,8 @@ class login extends CI_Controller {
 		
 		function __construct(){
 			parent:: __construct();
+
+			$this->load->model('user_model');
 		}
 
 
@@ -30,7 +32,6 @@ class login extends CI_Controller {
 			// echo "Handle Facebook Login";
 
 			$this->load->library('fbconnect');
-			$this->load->model('user_model');
 
 			if($this->fbconnect->user){
 				// If user exists, check it against the database
@@ -41,7 +42,7 @@ class login extends CI_Controller {
 
 				if($this->user_model->isMemeber($facebookUser)){
 
-					$result = $this->user_model->login($facebookUser);
+					$result = $this->user_model->loginFacebookUser($facebookUser);
 
 					if(!$result){
 						// No Results Found
@@ -62,7 +63,7 @@ class login extends CI_Controller {
 						echo $result;
 
 					}else{
-						$result = $this->user_model->login($facebookUser);
+						$result = $this->user_model->loginFacebookUser($facebookUser);
 						
 						if(!$result){
 							// No Results Found
@@ -81,9 +82,10 @@ class login extends CI_Controller {
 		}
 
 
-		// process login
-		public function process(){
-			$this->load->model("login_model");
+		// checkLogin
+		// Checks login on non-facebook members
+		public function checkLogin(){
+			// $this->load->model("login_model");
 			
 			// Form-Validation
 			$this->load->library('form_validation');
@@ -99,33 +101,41 @@ class login extends CI_Controller {
 							"rules" => "required"
 						)
 			);
+
 			$this->form_validation->set_rules($config);
 
 			// If the form validation fails, return users to login screen w/ form error
 			if($this->form_validation->run() == FALSE){
 				$data["main_content"] = "login";
+
 				$this->load->view("includes/landingTemplate", $data);
 			}else{
-				// If passes, run login validation to check if user exists in db
-				$results = $this->login_model->validate();
 
-				// if user exists, load site; if not, load home page
-				if($results){
-					redirect("user");
+				$result = $this->user_model->loginRegularUser();
+				
+				if(!$result){
+					// No user found
+					redirect('login/loginError');
 				}else{
-					redirect("login/loginerror");
+					redirect('user');
 				}
+
+				// if($results){
+				// 	redirect("user");
+				// }else{
+				// 	redirect("login/loginerror");
+				// }
 			}
 
 		}
 
 
 
-		public function usererror(){
+		public function userError(){
 			$this->index();
 		}
 		
-		public function loginerror(){
+		public function loginError(){
 			$this->index();
 		}
 }
