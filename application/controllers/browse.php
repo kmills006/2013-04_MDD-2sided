@@ -45,7 +45,7 @@ class Browse extends CI_Controller {
 				
 				// About Content
 				// Selected Decks Cards
-				$deckID = '50f7812d8d18d';
+				$deckID = '50f94afe8cd87';
 				$c["cards"] = $this->cards_model->getCards($deckID);
 				$this->load->view("about", $c);
 	
@@ -57,9 +57,11 @@ class Browse extends CI_Controller {
 	
 				// About Content
 				// Selected Decks Cards
-				$deckID = '50f7812d8d18d';
+				$deckID = '50f94afe8cd87';
 				$c["cards"] = $this->cards_model->getCards($deckID);
 				$this->load->view("about", $c);
+
+				// var_dump($c);
 	
 				// User Footer
 				$this->load->view("includes/userFooter.php");
