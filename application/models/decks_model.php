@@ -18,7 +18,8 @@
 	    }  
 		
 		// Get All Decks
-	    public function getDecks(){						
+	    public function getDecks(){
+	    	$data_results = array();			
 			$userID= $this->session->userdata("userid");
 			
 			$this->db->select("*, users.profile_img");
@@ -36,7 +37,11 @@
 	    		//echo "No Results";
 	    	}
 
-	    	return $data_results;
+	    	if($data_results){
+	    		return $data_results;
+	    	}else{
+	    		return false;
+	    	}
 
 		}
 
@@ -148,9 +153,6 @@
 			$this->db->where("deck_id", $deckID);
 			$this->db->update("decks", $data);
 			
-			//$q = $this->db->get();
-			
-			//return $q;
 		}
 		
 		
@@ -364,6 +366,7 @@
 
 			return 'nice';
 		}
+		
 		public function getUserName($post){
 			$userID = $post["userID"];
 
