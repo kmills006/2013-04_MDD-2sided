@@ -175,6 +175,7 @@
 										  "deckTitle" => $row->title);
 				}
 
+
 				return $data_results;
 	    	}else{
 	    		echo "No Search Results";
@@ -359,6 +360,7 @@
 	    		echo "No Search Results";
 	    	}
 		}
+
 		public function deleteTag($post){
 			$deckID = $post["tagID"];
 
