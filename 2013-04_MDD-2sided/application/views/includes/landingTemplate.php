@@ -4,7 +4,11 @@
 	$this->load->view("includes/landingHeader.php");
 
 	// Main Content
-	$this->load->view($view);
+	if($decks){
+		$this->load->view($view, $decks);
+	}else{
+
+	}
 
 	// Footer
 	$this->load->view("includes/landingFooter.php");

@@ -1,3 +1,11 @@
+<?
+	$this->load->helper('objectToArray.php');
+	$this->load->helper('isMulti.php');
+
+	// converting results from query from StdObject to array
+	$decks = objectToArray($decks);
+?>
+
 <div id="content">
 		<div class="sizer">
 			<article id="topDeck">
@@ -17,11 +25,15 @@
 			</section>
 
 			<section id="decks"> 
-				<article class="deck">
-					<h1 class="username">Username</h1>
-					<h1 class="votes">Rating</h1>
-					<h1 class="deckname">Deckname</h1>
-				</article>
+				<!-- looping through all the decks and presenting them in order of top rated -->
+				<? foreach($decks as $deck){ ?>
+					<article class="deck">
+						<h1 class="username"><? echo anchor("user/getDecks/{$deck["user_id"]}", $deck['username'], 'title="View all of users decks"'); ?></h1>
+						<h1 class="votes"><? echo $deck['rating'] ?></h1>
+						<h1 class="deckname"><? echo $deck['title'] ?></h1>
+					</article>
+				<? } ?>
 			</section> <!-- end of decks -->
+
 		</div> <!-- end of sizer -->
 	</div> <!-- end of content -->

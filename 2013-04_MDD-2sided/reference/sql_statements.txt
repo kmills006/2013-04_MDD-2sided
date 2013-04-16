@@ -1,0 +1,13 @@
+SQL Statements
+
+// Decks in order of top rating
+
+SELECT d.deck_id, u.user_id, u.username, d.title, COUNT(rating) as rating
+FROM decks as d
+JOIN users as u
+ON d.user_id = u.user_id
+JOIN ratings as r
+ON d.deck_id = r.deck_id
+WHERE rating = 1 AND d.privacy = 0
+GROUP BY d.deck_id
+ORDER BY rating DESC;
