@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://localhost:9999/mdd/2sided/';
+$config['base_url']	= 'http://localhost:9999/mdd/2sided/2013-01_ASL-2sided/';
 
 
 /*

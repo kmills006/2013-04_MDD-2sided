@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= '';
+$config['base_url']	= 'http://localhost:9999/mdd/2sided/2013-04_MDD-2sided/';
 
 /*
 |--------------------------------------------------------------------------
@@ -224,7 +224,7 @@ $config['cache_path'] = '';
 | MUST set an encryption key.  See the user guide for info.
 |
 */
-$config['encryption_key'] = '';
+$config['encryption_key'] = 'yOS%Eko2uVcfAMvi8N5Ds4YbnQ^hh-E3';
 
 /*
 |--------------------------------------------------------------------------
