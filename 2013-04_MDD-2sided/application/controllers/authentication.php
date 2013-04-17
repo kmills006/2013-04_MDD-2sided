@@ -41,10 +41,38 @@ class Authentication extends CI_Controller {
 			$fbUser = $this->fbconnect->user;
 
 			if($this->userModel->isMember($fbUser)){
-				echo "isMember";
+
+				$data = $this->userModel->loginFbUser($fbUser);
+
+				if(!$data){
+					// No user found
+				}else{
+					// Send user to logged in screen
+					redirect('user');
+				}
+
 			}else{
-				echo "not member";
-			};
+					$data = $this->userModel->registerFromFacebook($fbUser);
+
+					if(!$data){
+
+						// Could not add user to the database
+						// Present error message
+						echo $data;
+
+					}else{
+						$result = $this->userModel->loginFbUser($fbUser);
+						
+						if(!$result){
+							// No Results Found
+						}else{
+
+							// Send user to logged in screen
+							redirect('user');
+						}						
+
+					}
+			}
 
 		}
 	}

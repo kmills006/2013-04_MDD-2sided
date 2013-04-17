@@ -6,6 +6,26 @@ class UserModel extends CI_Model {
         parent::__construct();
     }
 
+
+
+	// checkIfUsernameExists
+    // Checks if username already exists
+	function checkIfUsernameExists($value, $variable) {
+        $this->db->select($value);
+        $this->db->where($value, $variable);
+
+        $query = $this->db->get('users');
+
+        if ($query->num_rows() > 0) {
+            return TRUE;
+        } else {
+            return FALSE;
+        }
+    } 
+
+
+
+
     // isMember
     // Checking to see if the facebook user is already a member with 2sided
     public function isMember($fbUser){
@@ -24,6 +44,49 @@ class UserModel extends CI_Model {
     		return false;
     	}
     }
+
+
+
+    // registerFromFacebook
+    public function registerFromFacebook($fbUser){
+    	$un = $this->security->xss_clean($fbUser['username']);
+    	$email = $this->security->xss_clean($fbUser['email']);
+    	$fbID = $this->security->xss_clean($fbUser['id']);
+    	$dateofreg = date("Y-m-d");
+		$userID = uniqid();
+
+		$exi = $this->checkIfUsernameExists('username', $un);
+
+		if(!$exi){
+			$data = array(
+				"user_id" => $userID,
+				"email" => $email,
+				"username" => $un,
+				"facebook_id" => $fbID,
+				"date_of_reg" => $dateofreg
+			);
+
+	    	$query = $this->db->insert("users", $data);
+
+	    	if(!$query){
+	    		return false;
+	    	}else{
+	    		return true;
+	    	}
+
+		}else{
+			return false;
+		}
+    }
+
+
+
+    // loginFbUser
+    public function loginFbUser($fbUser){
+    	echo "Here";
+    }
+
+
 
     // getProfile 
     // get all of users information
