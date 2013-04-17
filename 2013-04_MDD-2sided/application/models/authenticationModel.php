@@ -1,0 +1,98 @@
+<?
+
+class AuthenticationModel extends CI_Model {
+
+    function __construct(){
+        parent::__construct();
+    }
+
+
+    // checkIfUsernameExists
+    // Checks if username already exists
+	function checkIfUsernameExists($value, $variable) {
+        $this->db->select($value);
+        $this->db->where($value, $variable);
+
+        $query = $this->db->get('users');
+
+        if ($query->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    } 
+
+
+
+
+    // isMember
+    // Checking to see if the facebook user is already a member with 2sided
+    public function isMember($fbUser){
+    	$query = $this->db->get_where('users', array('email' => $fbUser['email']));
+
+    	if($query->num_rows() == 1){
+    		foreach($query->result() as $row){
+    			$dataResults[] = $row;
+    		}
+
+    		return $dataResults;
+
+    	}else{
+
+    		// No user found
+    		return false;
+    	}
+    }
+
+
+
+    // registerFromFacebook
+    public function registerFromFacebook($fbUser){
+    	$un = $this->security->xss_clean($fbUser['username']);
+    	$email = $this->security->xss_clean($fbUser['email']);
+    	$fbID = $this->security->xss_clean($fbUser['id']);
+    	$dateofreg = date("Y-m-d");
+		$userID = uniqid();
+
+		$exi = $this->checkIfUsernameExists('username', $un);
+
+		if(!$exi){
+			$data = array(
+				"user_id" => $userID,
+				"email" => $email,
+				"username" => $un,
+				"facebook_id" => $fbID,
+				"date_of_reg" => $dateofreg
+			);
+
+	    	$query = $this->db->insert("users", $data);
+
+	    	if(!$query){
+	    		return false;
+	    	}else{
+	    		return true;
+	    	}
+
+		}else{
+			return false;
+		}
+    }
+
+
+
+    // loginFbUser
+    public function loginFbUser($fbUser){
+    	$this->db->where('username', $fbUser['username']);
+    	$this->db->where('email', $fbUser['email']);
+
+    	$query = $this->db->get('users');
+
+    	if($query->num_rows == 1){
+    		foreach($query->result() as $row){
+    			var_dump($row);
+    		}
+    	}
+    }
+
+
+}

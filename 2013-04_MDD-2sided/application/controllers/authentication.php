@@ -5,8 +5,7 @@ class Authentication extends CI_Controller {
 	function __construct(){
 		parent:: __construct();
 
-		$this->load->model('decksModel');
-		$this->load->model('userModel');
+		$this->load->model('authenticationModel');
 	}
 
 	public function index(){
@@ -40,9 +39,9 @@ class Authentication extends CI_Controller {
 
 			$fbUser = $this->fbconnect->user;
 
-			if($this->userModel->isMember($fbUser)){
+			if($this->authenticationModel->isMember($fbUser)){
 
-				$data = $this->userModel->loginFbUser($fbUser);
+				$data = $this->authenticationModel->loginFbUser($fbUser);
 
 				if(!$data){
 					// No user found
@@ -52,16 +51,18 @@ class Authentication extends CI_Controller {
 				}
 
 			}else{
-					$data = $this->userModel->registerFromFacebook($fbUser);
+					$data = $this->authenticationModel->registerFromFacebook($fbUser);
 
 					if(!$data){
 
 						// Could not add user to the database
 						// Present error message
-						echo $data;
+						// If username is already taken in the database, have user select a different username
+
+						echo "Username already exists in DB";
 
 					}else{
-						$result = $this->userModel->loginFbUser($fbUser);
+						$result = $this->authenticationModel->loginFbUser($fbUser);
 						
 						if(!$result){
 							// No Results Found
