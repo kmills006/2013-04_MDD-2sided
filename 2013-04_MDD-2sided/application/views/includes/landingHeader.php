@@ -23,7 +23,7 @@
 				<a href="<? echo base_url(); ?>"><img src="<? echo base_url(); ?>imgs/logo.png" alt="2sided Logo" width="66" height="43" /></a>
 				<nav>
 					<ul id="navigation">
-						<li class="yourdecks"><? echo anchor('login', 'Your Decks', 'Your personal decks') ?></li>
+						<li class="yourdecks"><? echo anchor('authentication', 'Your Decks', 'Your personal decks') ?></li>
 						<li class="browse"><? echo anchor('browse', 'Browse', 'Browse all decks') ?></li>
 						<li class="about"><? echo anchor('browse/about', 'About', 'About 2sided') ?></li>
 						<li class="tags"><? echo anchor('browse/tags', 'Tags', 'Search by tags') ?></li>
@@ -35,8 +35,8 @@
 					<ul id="searchResults"></ul>
 					
 					<ul id="tools">
-						<li><? echo anchor('login', "Log In", 'title="User Login"'); ?></li>
-						<li><? echo anchor('login', "Sign Up", 'title="New User Registration"'); ?></li>
+						<li><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
+						<li><? echo anchor('authentication', "Sign Up", 'title="New User Registration"'); ?></li>
 					</ul>
 				</nav>
 			</div>
