@@ -1,6 +1,6 @@
 <?
 
-class Decks extends CI_Model {
+class DecksModel extends CI_Model {
 
     function __construct(){
         parent::__construct();
@@ -9,8 +9,6 @@ class Decks extends CI_Model {
     // getAllDecks
     // returns all decks in order from most popular to least
 	public function getAllDecks(){
-		
-		$dataResults = array();
 
 		$this->db->select('decks.deck_id, COUNT(rating) as rating, users.user_id, users.username, decks.title');
 		$this->db->from('decks');
@@ -26,22 +24,18 @@ class Decks extends CI_Model {
 		if($query->num_rows > 0){
 
 			foreach($query->result() as $row){
-				$data_results[] = $row;
+				$dataResults[] = $row;
 			}
 
 		}else{
 			// No Results Found
 		}
 
-		// var_dump($data_results);
-
-		// if($data_results){
-		// 	return $data_results;
-		// }else{
-		// 	return false;
-		// }
-
-		return $data_results;
+		if($dataResults){
+			return $dataResults;
+		}else{
+			return false;
+		}
 
 	} // end of getAllDecks    
 

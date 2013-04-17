@@ -11,3 +11,50 @@ ON d.deck_id = r.deck_id
 WHERE rating = 1 AND d.privacy = 0
 GROUP BY d.deck_id
 ORDER BY rating DESC;
+
+
+
+
+
+// Profile Join
+
+SELECT *
+FROM
+	(
+		SELECT COUNT(c.card_id) as card_count, u.user_id
+		FROM users as u
+		JOIN decks as d
+		ON u.user_id = d.user_id
+		JOIN cards as c
+		ON d.deck_id = c.deck_id
+		WHERE u.user_id = "5168c94dd332e"
+	) as a
+JOIN
+	(
+		SELECT COUNT(uf.friend_id) as friends_count, u.user_id, u.username
+		FROM users as u
+		JOIN user_friends as uf
+		ON u.user_id = uf.user_id
+		WHERE u.user_id = "5168c94dd332e"
+	) as b
+ON a.user_id = b.user_id
+JOIN
+	(
+		SELECT COUNT(t.tag_id) as tag_count, u.user_id
+		FROM users as u
+		JOIN decks as d
+		ON u.user_id = d.user_id
+		JOIN tags as t
+		ON d.deck_id = t.deck_id
+		WHERE u.user_id = "5168c94dd332e"
+	) as c
+ON b.user_id = c.user_id
+JOIN
+	(
+		SELECT COUNT(d.deck_id) as deck_count, u.user_id
+		FROM users as u
+		JOIN decks as d
+		ON u.user_id = d.user_id
+		WHERE u.user_id = "5168c94dd332e"
+	) as d
+ON c.user_id = d.user_id;

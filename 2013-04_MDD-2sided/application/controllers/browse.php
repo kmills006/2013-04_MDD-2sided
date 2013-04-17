@@ -5,12 +5,12 @@ class Browse extends CI_Controller {
 	function __construct(){
 		parent:: __construct();
 
-		$this->load->model('decks');
+		$this->load->model('decksModel');
 	}
 
 	public function index(){
 
-		$results = $this->decks->getAllDecks();
+		$results = $this->decksModel->getAllDecks();
 
 		if($results){
 			$data['decks'] = $results;

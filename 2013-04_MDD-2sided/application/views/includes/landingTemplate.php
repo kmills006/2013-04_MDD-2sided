@@ -4,8 +4,14 @@
 	$this->load->view("includes/landingHeader.php");
 
 	// Main Content
-	if($decks){
+	if(isset($decks)){
+		
 		$this->load->view($view, $decks);
+	
+	}elseif(isset($usersDecks)){
+	
+		$this->load->view($view);
+
 	}else{
 
 	}
