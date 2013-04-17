@@ -39,6 +39,13 @@ class UserModel extends CI_Model {
 		$subFriends->where("u.user_id = '$userID'");
     	$this->subquery->end_subquery('friendsCount');
 
+    	$subRatings = $this->subquery->start_subquery("select");
+    	$subRatings->select('COUNT(r.rating_id) as rating_count')->from('users as u');
+    	$subRatings->join('decks as d', 'u.user_id = d.user_id');
+    	$subRatings->join('ratings as r', 'd.deck_id = r.deck_id');
+		$subRatings->where("u.user_id = '$userID'");
+    	$this->subquery->end_subquery('ratingsCount');
+
     	$this->db->from('users as u');
     	$this->db->where("u.user_id = '$userID'");
 
@@ -54,15 +61,11 @@ class UserModel extends CI_Model {
     		echo "No Results";
     	}
 
-    	echo '<pre>';
-    	print_r($dataResults);
-    	echo '</pre>';
-
-    	// if($dataResults){
-    	// 	return $dataResults;
-    	// }else{
-    	// 	return false;
-    	// } 
+    	if($dataResults){
+    		return $dataResults;
+    	}else{
+    		return false;
+    	} 
     }
 
 } // end of user class

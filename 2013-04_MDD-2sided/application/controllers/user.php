@@ -16,11 +16,15 @@ class User extends CI_Controller {
 	// getDecks
 	public function profilePage(){
 
+		/* We will need to check if the user is logged in or not, if they are friends
+		with the person whose profile they are trying to look at or if they are viewing 
+		their own profile */
+
 		// spliting apart the uri string to get the userID
 		$parts = explode('/',  uri_string());
 		$userID = end($parts);
 
-		$data['userProfile'] = $this->userModel->getProfile($userID);
+		$data['profileInfo'] = $this->userModel->getProfile($userID);
 
 		$data['view'] = 'userProfile';
 

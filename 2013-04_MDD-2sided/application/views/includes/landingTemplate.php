@@ -8,9 +8,9 @@
 		
 		$this->load->view($view, $decks);
 	
-	}elseif(isset($usersDecks)){
+	}elseif(isset($profileInfo)){
 	
-		$this->load->view($view);
+		$this->load->view($view, $profileInfo);
 
 	}else{
 
