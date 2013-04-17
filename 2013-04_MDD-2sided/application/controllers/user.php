@@ -13,24 +13,31 @@ class User extends CI_Controller {
 	}
 
 
-	// getDecks
+	// profilePage
 	public function profilePage(){
 
 		/* We will need to check if the user is logged in or not, if they are friends
 		with the person whose profile they are trying to look at or if they are viewing 
 		their own profile */
 
-		// spliting apart the uri string to get the userID
-		$parts = explode('/',  uri_string());
-		$userID = end($parts);
+		if($this->session->userdata('isLoggedIn') == 0){
+			echo "User is not logged in";
 
-		$data['profileInfo'] = $this->userModel->getProfile($userID);
+			// spliting apart the uri string to get the userID
+			$parts = explode('/',  uri_string());
+			$userID = end($parts);
 
-		$data['view'] = 'userProfile';
+			$data['profileInfo'] = $this->userModel->getProfile($userID);
 
-		$this->load->view('includes/landingTemplate', $data);
+			$data['view'] = 'userProfile';
+
+			$this->load->view('includes/landingTemplate', $data);
+		}else{
+			echo "here";
+		}
  
 	}
+
 
 
 

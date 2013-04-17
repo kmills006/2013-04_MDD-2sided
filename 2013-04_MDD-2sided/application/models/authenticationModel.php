@@ -88,9 +88,58 @@ class AuthenticationModel extends CI_Model {
     	$query = $this->db->get('users');
 
     	if($query->num_rows == 1){
-    		foreach($query->result() as $row){
-    			var_dump($row);
-    		}
+
+    		$row = $query->row();
+
+    		$sessData = array(
+    			'userID' => $row->user_id,
+    			'email' => $row->email,
+    			'username' => $row->username,
+    			'isLoggedIn' => 1,
+    			'validated' => true
+    		);
+
+    		$this->session->set_userdata($sessData);
+
+    		return true;
+
+    	}else{
+    		// Nothing returned from the database
+
+    		return false;
+    	}
+    }
+
+
+
+    // loginUser
+    public function loginUser(){
+    	$username = $this->security->xss_clean($this->input->post('username'));
+    	$password = $this->security->xss_clean($this->input->post('password'));
+
+    	$this->db->where('username', $username);
+    	$this->db->where('pword', md5($password));
+
+    	$query = $this->db->get('users');
+
+    	if($query->num_rows == 1){
+
+    		$row = $query->row();
+
+    		$sessData = array(
+    			'userID' => $row->user_id,
+    			'email' => $row->email,
+    			'username' => $row->username,
+    			'isLoggedIn' => 1,
+    			'validated' => true
+    		);
+
+    		$this->session->set_userdata($sessData);
+
+    		return true;
+    		
+    	}else{
+    		return false;
     	}
     }
 

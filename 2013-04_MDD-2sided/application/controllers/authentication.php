@@ -47,7 +47,7 @@ class Authentication extends CI_Controller {
 					// No user found
 				}else{
 					// Send user to logged in screen
-					redirect('user');
+					redirect('user/profilePage');
 				}
 
 			}else{
@@ -65,17 +65,67 @@ class Authentication extends CI_Controller {
 						$result = $this->authenticationModel->loginFbUser($fbUser);
 						
 						if(!$result){
-							// No Results Found
+							// No user found
 						}else{
 
 							// Send user to logged in screen
-							redirect('user');
+							redirect('user/profilePage');
 						}						
 
 					}
 			}
 
 		}
+	}
+
+
+
+
+	// checkLogin
+	public function checkLogin(){
+		$this->load->library('form_validation');
+
+		$config = array(
+					array(
+						'field' => 'username',
+						'label' => 'Username',
+						'rules' => 'required'
+					), 
+					array(
+						'field' => 'password',
+						'label' => 'Password',
+						'rules' => 'required'
+					)
+		);
+
+		$this->form_validation->set_rules($config);
+
+		// If the form validation fails, return users to login screen w/ form error
+		if($this->form_validation->run() == false){
+			$data['view'] = 'authenticationView';
+
+			$this->load->view('includes/landingTemplate', $data);
+		}else{
+
+			$result = $this->authenticationModel->loginUser();
+
+			if(!$result){
+				// Incorrect loggin information
+				// Show error message
+
+				echo "Incorrect login information, please try again.";
+			}else{
+				redirect('user/profilePage');
+			}
+		}
+
+	}
+
+
+
+	// registerNewUser
+	public function registerNewUser(){
+
 	}
 
 } // end of authentication

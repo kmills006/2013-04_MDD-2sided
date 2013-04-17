@@ -23,7 +23,7 @@
 
 
 				<!-- New User Form -->
-				<?php echo form_open("authentication/register"); ?>
+				<?php echo form_open("authentication/registerNewUser"); ?>
 					<h1>Register</h1>
 					<h2 class="regError"></h2>
 					<div class="regLeft">
