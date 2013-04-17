@@ -22,7 +22,8 @@ class UserModel extends CI_Model {
 
     		// No user found
     		return false;
-    		
+
+    		// Comments added to test out SourceTree instead of GitHub
     	}
     }
 
