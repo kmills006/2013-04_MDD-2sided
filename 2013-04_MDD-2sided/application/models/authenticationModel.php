@@ -51,7 +51,7 @@ class AuthenticationModel extends CI_Model {
     	$un = $this->security->xss_clean($fbUser['username']);
     	$email = $this->security->xss_clean($fbUser['email']);
     	$fbID = $this->security->xss_clean($fbUser['id']);
-    	$dateofreg = date("Y-m-d");
+    	$dateOfReg = date("Y-m-d");
 		$userID = uniqid();
 
 		$exi = $this->checkIfUsernameExists('username', $un);
@@ -62,7 +62,7 @@ class AuthenticationModel extends CI_Model {
 				"email" => $email,
 				"username" => $un,
 				"facebook_id" => $fbID,
-				"date_of_reg" => $dateofreg
+				"date_of_reg" => $dateOfReg
 			);
 
 	    	$query = $this->db->insert("users", $data);
@@ -74,6 +74,47 @@ class AuthenticationModel extends CI_Model {
 	    	}
 
 		}else{
+			return false;
+		}
+    }
+
+
+
+    // registerNewUser
+    public function registerNewUser(){
+    	$username = $this->security->xss_clean($this->input->post("username"));
+    	$email = $this->security->xss_clean($this->input->post("r-email"));
+    	$password = $this->security->xss_clean($this->input->post("password"));
+    	$dateOfReg = date("Y-m-d");
+		$userID = uniqid();
+
+		$exi = $this->checkIfUsernameExists('username', $username);
+
+		if(!$exi){
+			$data = array(
+				"user_id" => $userID,
+				"email" => $email,
+				"username" => $username,
+				"pword" => md5($password),
+				"date_of_reg" => $dateOfReg
+			);
+
+	    	$q = $this->db->insert("users", $data);
+
+	    	$sdata = array(
+				"userid" => $userID,
+				"email" => $email,
+				"username" => $username,
+				"is_logged_in" => 1,
+				"validated" => true
+			);
+
+    		$this->session->set_userdata($sdata);
+
+	    	return true;
+		
+		}else{
+			// Username already exists
 			return false;
 		}
     }
@@ -137,7 +178,7 @@ class AuthenticationModel extends CI_Model {
     		$this->session->set_userdata($sessData);
 
     		return true;
-    		
+
     	}else{
     		return false;
     	}

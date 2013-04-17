@@ -16,6 +16,8 @@ class User extends CI_Controller {
 	// profilePage
 	public function profilePage(){
 
+		echo "Profile Page";
+
 		/* We will need to check if the user is logged in or not, if they are friends
 		with the person whose profile they are trying to look at or if they are viewing 
 		their own profile */
@@ -33,7 +35,8 @@ class User extends CI_Controller {
 
 			$this->load->view('includes/landingTemplate', $data);
 		}else{
-			echo "here";
+			echo "</br>";
+			echo "Login Successful, session started";
 		}
  
 	}

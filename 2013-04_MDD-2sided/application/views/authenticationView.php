@@ -36,9 +36,6 @@
 					<div class="regRight">
 						<p>Password:</p>
 						<?php echo form_password('password'); ?>
-						
-						<p>Confirm Password:</p>
-						<?php echo form_password('r-c-password'); ?>
 					</div>
 					<button type="submit">Register</button>
 				<?php echo form_close(); ?>

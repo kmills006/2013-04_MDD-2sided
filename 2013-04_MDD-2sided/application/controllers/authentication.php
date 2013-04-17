@@ -125,7 +125,45 @@ class Authentication extends CI_Controller {
 
 	// registerNewUser
 	public function registerNewUser(){
+		$this->load->library('form_validation');
 
+		$config = array(
+					array(
+						'field' => 'username',
+						'label' => 'Username',
+						'rules' => 'required|min_length[5]|max_length[20]'
+					), 
+					array(
+						'field' => 'r-email',
+						'label' => 'Email',
+						'rules' => 'required'
+					), 
+					array(
+						'field' => 'password',
+						'label' => 'Password',
+						'rules' => 'required|min_length[5]|max_length[20]'
+					)
+		);
+
+		$this->form_validation->set_rules($config);
+
+		// If the form validation fails, return users to register screen w/ form error
+		if($this->form_validation->run() == false){
+			$data['view'] = 'authenticationView';
+
+			$this->load->view('includes/landingTemplate', $data);
+		}else{
+
+			$result = $this->authenticationModel->registerNewUser();
+
+			if(!$result){
+				// Could not create an account
+				// Show error msg
+				// Username already exists, please select another one
+			}else{
+				redirect('user/profilePage');
+			}
+		}
 	}
 
 } // end of authentication
