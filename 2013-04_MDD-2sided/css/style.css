@@ -2,8 +2,7 @@ html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
 del, dfn, em, img, ins, kbd, q, samp,
-small, strong, sub, sup, var,
-b, i,
+small, strong, sub, sup, var, b, i,
 dl, dt, dd, ol, ul, li,
 fieldset, form, label, legend,
 table, caption, tbody, tfoot, thead, tr, th, td,
@@ -16,81 +15,53 @@ time, mark, audio, video {
   outline: 0;
   font-size: 100%;
   vertical-align: baseline;
-  background: transparent;
-}
-
-body {
-  line-height: 1;
-}
+  background: transparent; }
 
 article, aside, details, figcaption, figure,
-footer, header, hgroup, menu, nav, section {
-  display: block;
-}
-
-nav ul {
-  list-style: none;
-}
-
-blockquote, q {
-  quotes: none;
-}
-
-blockquote:before, blockquote:after,
-q:before, q:after {
-  content: '';
-  content: none;
-}
+footer, header, hgroup, menu, nav, section a {
+  display: block; }
 
 a {
-  color: #ce4dd9;
-}
-a:hover {
-  color: #ffb3ff;
-}
-a:visited {
-  color: #c458cb;
-}
+  font-family: "Helvetica Neue";
+  font-size: 1em;
+  width: 100% !important;
+  height: 100% !important; }
 
-/* change colours to suit your needs */
-ins {
-  background-color: #ff9;
-  color: #000;
-  text-decoration: none;
-}
+html {
+  width: 100%;
+  letter-spacing: 1px;
+  height: 100%;
+  background-image: url("../imgs/bg-blue.jpg");
+  -webkit-font-smoothing: antialiased; }
 
-/* change colours to suit your needs */
-mark {
-  background-color: #ff9;
-  color: #000;
-  font-style: italic;
-  font-weight: bold;
-}
+body {
+  min-height: 100%; }
 
-del {
-  text-decoration: line-through;
-}
+input {
+  font-family: "Helvetica Neue"; }
 
-abbr[title], dfn[title] {
-  border-bottom: 1px dotted;
-  cursor: help;
-}
+strong {
+  font-weight: bold; }
 
-table {
-  border-collapse: collapse;
-  border-spacing: 0;
-}
+header {
+  height: 60px;
+  width: 100%;
+  line-height: 60px;
+  background-color: #ecece7;
+  -webkit-box-shadow: 0px 1px 2px 0px #15272c;
+  box-shadow: 0px 1px 2px 0px #15272c; }
 
-/* change border colour to suit your needs */
-hr {
-  display: block;
-  height: 1px;
-  border: 0;
-  border-top: 1px solid #cccccc;
-  margin: 1em 0;
-  padding: 0;
-}
+.sizer {
+  width: 940px;
+  margin: 0 auto;
+  position: relative; }
 
-input, select {
-  vertical-align: middle;
-}
+header img {
+  float: left;
+  margin-right: 10px;
+  margin-top: 4px; }
+
+#navigation li, #tools li {
+  float: left;
+  margin-left: 20px;
+  color: #366774; }

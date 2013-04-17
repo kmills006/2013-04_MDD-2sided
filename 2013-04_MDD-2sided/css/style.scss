@@ -2,6 +2,16 @@ $egg-white: #ecece7;
 $main-blue: #366774;
 $main-red: #e96151;
 
+@mixin corners($radius : 5px) {
+    -webkit-border-radius: $radius;
+    -moz-border-radius: $radius;
+    border-radius: $radius;
+}
+@mixin shadow($length : 0px, $drop : 2px, $color : #000000){
+    -webkit-box-shadow:  0px $length $drop 0px $color;
+    box-shadow:  0px $length $drop 0px $color;
+
+}
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -13,25 +23,68 @@ table, caption, tbody, tfoot, thead, tr, th, td,
 article, aside, canvas, details, figcaption, figure, 
 footer, header, hgroup, menu, nav, section, summary,
 time, mark, audio, video {
-    margin:0;
-    padding:0;
-    border:0;
-    outline:0;
-    font-size:100%;
-    vertical-align:baseline;
-    background:transparent;
+    margin: 0;
+    padding: 0;
+    border: 0;
+    outline: 0;
+    font-size: 100%;
+    vertical-align: baseline;
+    background: transparent;
 }
 article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section { 
-	display:block;
+footer,header,hgroup,menu,nav,section a{ 
+	display: block;
 }
-nav ul {
-    list-style:none;
+
+a{
+    font-family: "Helvetica Neue";
+    font-size: 1em;
+    width: 100% !important;
+    height: 100% !important;
 }
-a {
-  color: #ce4dd9;
-  &:hover { color: #ffb3ff; }
-  &:visited { color: #c458cb; }
+
+html{
+    width: 100%;
+    letter-spacing: 1px;
+    height: 100%;
+    background-image: url("../imgs/bg-blue.jpg");
+    -webkit-font-smoothing: antialiased;
 }
+body{
+    min-height: 100%;
+}
+
+input{
+    font-family: "Helvetica Neue";
+}
+strong{
+    font-weight: bold;
+}
+header{
+    height: 60px;
+    width: 100%;
+    line-height: 60px;
+    background-color: $egg-white;
+    @include shadow(1px, 2px, #15272c);
+}
+.sizer{
+    width: 940px;
+    margin: 0 auto;
+    position: relative;
+}
+header img{
+    float: left;
+    margin-right: 10px;
+    margin-top: 4px;
+}
+#navigation li, #tools li{
+    float: left;
+    margin-left: 20px;
+    color: #366774;
+}
+
+
+
+
 
 
