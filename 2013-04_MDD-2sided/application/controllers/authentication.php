@@ -9,7 +9,9 @@ class Authentication extends CI_Controller {
 	}
 
 	public function index(){
-		echo "authentication";
+		$data['view'] = 'authenticationView';
+
+		$this->load->view('includes/landingTemplate', $data);
 	}
 
 } // end of authentication

@@ -13,7 +13,7 @@
 		$this->load->view($view, $profileInfo);
 
 	}else{
-
+		$this->load->view($view);
 	}
 
 	// Footer
