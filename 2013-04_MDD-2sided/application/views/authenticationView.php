@@ -2,12 +2,12 @@
 		<div class="sizer">
 			<img id="welcome" src="<? echo base_url(); ?>/imgs/welcome.png" alt="2sided Logo" width="314" height="142" /></a>
 
-			<a href="login/facebookRequest"><img id="fb-login" src="<? echo base_url(); ?>/imgs/fb_login.png" alt="Login with Facebook" width="154" height="25"/></a>
+			<a href="authentication/facebookRequest"><img id="fb-login" src="<? echo base_url(); ?>/imgs/fb_login.png" alt="Login with Facebook" width="154" height="25"/></a>
 
 			<div id="forms">
 
 				<!-- Login Form -->
-				<?php echo form_open("login/checkLogin"); ?>
+				<?php echo form_open("authentication/checkLogin"); ?>
 					<h1>Log In</h1>
 					<h2 class="error"></h2>
 
@@ -23,7 +23,7 @@
 
 
 				<!-- New User Form -->
-				<?php echo form_open("newuser/register"); ?>
+				<?php echo form_open("authentication/register"); ?>
 					<h1>Register</h1>
 					<h2 class="regError"></h2>
 					<div class="regLeft">

@@ -6,7 +6,27 @@ class UserModel extends CI_Model {
         parent::__construct();
     }
 
-    // getDecks
+    // isMember
+    // Checking to see if the facebook user is already a member with 2sided
+    public function isMember($fbUser){
+    	$query = $this->db->get_where('users', array('email' => $fbUser['email']));
+
+    	if($query->num_rows() == 1){
+    		foreach($query->result() as $row){
+    			$dataResults[] = $row;
+    		}
+
+    		return $dataResults;
+    		
+    	}else{
+    		// No user found
+
+    		return false;
+    	}
+    }
+
+    // getProfile 
+    // get all of users information
     public function getProfile($userID){
     	
     	$this->load->library('subquery');
