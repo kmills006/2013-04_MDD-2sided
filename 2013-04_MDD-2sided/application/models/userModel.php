@@ -17,11 +17,12 @@ class UserModel extends CI_Model {
     		}
 
     		return $dataResults;
-    		
-    	}else{
-    		// No user found
 
+    	}else{
+
+    		// No user found
     		return false;
+    		
     	}
     }
 
