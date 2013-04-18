@@ -1,3 +1,6 @@
+/* ----------------- */
+/* --- CSS RESET --- */
+/* ----------------- */
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
@@ -23,13 +26,22 @@ article, aside, details, figcaption, figure,
 footer, header, hgroup, menu, nav, section, a {
   display: block; }
 
+/* ----------------- */
+/* --- END RESET --- */
+/* ----------------- */
 a {
   font-family: "Helvetica Neue";
   font-size: 1em;
   color: inherit;
   text-decoration: none;
-  width: 100% !important;
-  height: 100% !important; }
+  width: 100%;
+  height: 100%; }
+
+input {
+  font-family: "Helvetica Neue"; }
+
+strong {
+  font-weight: bold; }
 
 html {
   width: 100%;
@@ -41,19 +53,16 @@ html {
 body {
   min-height: 100%; }
 
-input {
-  font-family: "Helvetica Neue"; }
-
-strong {
-  font-weight: bold; }
-
+/* ----------------- */
+/* - HEADER STYLES - */
+/* ----------------- */
 header {
   height: 60px;
   width: 100%;
   line-height: 60px;
   background-color: #ecece7;
-  -webkit-box-shadow: 0px 1px 2px 0px #15272c;
-  box-shadow: 0px 1px 2px 0px #15272c; }
+  -webkit-box-shadow: 0px 1px 2px #15272c black;
+  box-shadow: 0px 1px 2px #15272c black; }
 
 #logo {
   width: 66px;
@@ -100,8 +109,8 @@ nav input {
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
-  -webkit-box-shadow: 0px 1px 2px 0px #f7f7f4;
-  box-shadow: 0px 1px 2px 0px #f7f7f4;
+  -webkit-box-shadow: 0px 1px 2px #f7f7f4 black;
+  box-shadow: 0px 1px 2px #f7f7f4 black;
   border-top: solid 1px #898986;
   border-right: solid 1px #c0c0bc;
   border-left: solid 1px #c0c0bc; }
@@ -111,8 +120,6 @@ nav input {
   display: inline;
   padding: 7px;
   background: #e96151;
-  -webkit-box-shadow: 0px 0px 1px 1px #b9b9b5;
-  box-shadow: 0px 0px 1px 1px #b9b9b5;
   font-size: .9em;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -120,8 +127,8 @@ nav input {
   border-top: solid 1px #f5bab3;
   border-right: solid 1px #ed7f72;
   border-left: solid 1px #ed7f72;
-  -webkit-box-shadow: 0px 1px 1px 0px #14262b;
-  box-shadow: 0px 1px 1px 0px #14262b; }
+  -webkit-box-shadow: 0px 1px 0px 0px #14262b;
+  box-shadow: 0px 1px 0px 0px #14262b; }
   #navigation .active > a:hover {
     background: #ff6a59; }
 
@@ -129,17 +136,27 @@ nav input {
   float: right;
   width: 164px; }
 
-#tools ul {
-  float: right; }
+#tools li:first {
+  border-left: solid 1px #bbbbb7; }
 
 #tools li {
   float: left;
   width: 80px;
   height: 60px;
+  padding: 0;
   background-color: #dcdcd7;
-  margin: 0px;
-  text-align: center;
-  border-right: solid 1px #bbbbb7; }
+  margin: 0;
+  text-align: center; }
   #tools li:hover {
-    color: egg-white;
+    color: #ecece7;
     background: #e96151; }
+
+#tools a {
+  width: 79px;
+  height: 100%;
+  border-left: solid 1px #bbbbb7;
+  border-right: solid 1px #bbbbb7; }
+
+/* ----------------- */
+/* - DECKS  STYLES - */
+/* ----------------- */
