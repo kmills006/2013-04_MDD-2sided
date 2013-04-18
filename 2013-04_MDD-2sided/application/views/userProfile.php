@@ -9,7 +9,6 @@
 	}else{
 		$userInfo = $profileInfo[0];
 	}
-
 ?>
 
 <div id="info">
@@ -60,13 +59,11 @@
 			
 			<? }if($this->session->userdata('isLoggedIn') == 1 && isset($areFriends)){
 
-					$loggedInUser = $this->session->userdata('userID');
-
 					// the user is logged in and checkFriendship ran
 					if(!$areFriends){ ?>
 
 						<!-- users are not friends and can add each other -->
-						<button><? echo anchor("friends/addNewFriend/{$loggedInUser}/{$userInfo["user_id"]}", 'Add Friend' , "Add new friend") ?></button>
+						<button>Add Friend</button>
 
 					<? }else{
 						// Users are already friends, add a way to unfriend user
