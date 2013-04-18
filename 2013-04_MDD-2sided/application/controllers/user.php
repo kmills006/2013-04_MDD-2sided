@@ -30,6 +30,18 @@ class User extends CI_Controller {
 		with the person whose profile they are trying to look at or if they are viewing 
 		their own profile */
 
+		/* 
+			Possible Profile Views
+
+			- Non-logged in user viewing a profile
+			- User first logs in and is directed to their profile page
+			- User views another profile from decks/search/users pages
+			- User views a friends profile
+
+		*/
+
+
+		// Checking how to load users profile
 		if($this->session->userdata('isLoggedIn') == 0){
 			/* There is no logged in user and they clicked on a username
 			to view their profile and decks */
