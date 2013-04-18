@@ -2,6 +2,7 @@
 $egg-white: #ecece7;
 $main-blue: #366774;
 $main-orange: #e96151;
+$dark-blue: #0f3d48;
 
 @mixin corners($radius : 5px) {
     -webkit-border-radius: $radius;
@@ -23,6 +24,9 @@ $main-orange: #e96151;
     padding: 7px;
     background: $main-orange;
     font-size: .9em;
+    white-space: nowrap;
+    -webkit-font-smoothing: antialiased;
+    text-align: center;
     @include corners;
     @include borders(#f5bab3, #ed7f72, #ed7f72);
     @include shadow(1px, 0px, 0px, #14262b);
@@ -53,7 +57,7 @@ time, mark, audio, video {
     text-decoration: none;
 }
 article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section, a { 
+footer,header,hgroup,menu,nav,section { 
 	display: block;
 }
 /* ----------------- */
@@ -70,6 +74,7 @@ body {
     min-height: 100%;
 }
 a {
+    display: inherit;
     font-family: "Helvetica Neue";
     font-size: 1em;
     color: inherit;
@@ -94,14 +99,15 @@ strong {
 .forth {
     margin: 0;
 }
+.last{
+    border-right: none !important;
+}
 button{
     color: $egg-white;
     border: none;
     font-size: .9em;
     cursor:pointer;
     @include button;
-    padding-left: 40px;
-    padding-right: 40px;
 }
 /* ----------------- */
 /* - HEADER STYLES - */
@@ -277,9 +283,7 @@ nav input {
     float: left;
     margin-right: 6px;
     margin-bottom: 6px;
-}
-#decks .deck:hover {
-    background-image: url("../imgs/card-small-hover.png");
+    &:hover { background-image: url("../imgs/card-small-hover.png"); }
 }
 #decks .username {
     font-family: "Helvetica Neue";
@@ -406,4 +410,47 @@ nav input {
     margin: 0 auto;
     text-align: center;
     margin-bottom: 20px;
+}
+#info a{
+    display: inline;
+}
+#picture{
+    width: 150px;
+    height: 100%;
+    padding-top: 20px;
+    float: left;
+}
+#picture img{
+    background-color: black;
+    border: solid 5px #0f3d48;
+    margin-bottom: 10px;
+}
+#picture button{
+    width: 100%;
+    height: 45px;
+    font-size: 18px;
+    text-align: center;
+}
+.profileLinks{
+    font-size: .8em;
+    color: $main-orange;
+    margin-top: 10px;
+    font-weight: 500;
+    letter-spacing: .9px;
+}
+.profileLinks li{
+    float: left;
+    margin-left: 2px;
+    padding: 0 3px;
+    border-right: solid 1px $dark-blue;
+    &:hover { text-decoration:underline; }
+}
+
+
+
+
+
+
+#activity{
+    clear: both;
 }
