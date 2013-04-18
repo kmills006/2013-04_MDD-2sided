@@ -69,4 +69,49 @@ class UserModel extends CI_Model {
     	} 
     }
 
+
+    // getAll
+    // Retrieve all users and their ratings count from database for users page
+    public function getAll(){
+        
+        $this->db->select('user_id');
+        $query = $this->db->get('users');
+
+        if($query->num_rows > 0){
+            foreach($query->result() as $row){
+                $this->db->select('u.user_id, username, profile_img, COUNT(r.rating_id) as userRatingCount');
+                $this->db->join('decks as d', 'u.user_id = d.user_id');
+                $this->db->join('ratings as r', 'd.deck_id = r.deck_id');
+                $this->db->where("u.user_id = '$row->user_id'");
+
+                $q = $this->db->get('users as u');
+
+                if($q->num_rows() > 0){
+                    
+                    foreach($q->result() as $r){
+                        $dataResults[] = $r; 
+                    }
+
+                }else{
+                    // No Results Found
+                }
+
+            } // end of foreach1
+
+            if(isset($dataResults)){
+                return $dataResults;
+            }else{
+                return false;
+            }
+        
+        } // end of if
+    
+    } // end of getAll
+
+
+
+
+
+
+
 } // end of user class
