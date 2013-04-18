@@ -44,4 +44,10 @@ class Decks extends CI_Controller {
 	function getAllDecks(){
 		$this->decks->getAllDecks();
 	}
+
+
+	// viewDecks
+	public function viewDecks($userID){
+		$data['decks'] = $this->decksModel->getUsersDecks($userID);
+	}
 }

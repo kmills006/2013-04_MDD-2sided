@@ -18,7 +18,7 @@
 			<article>
 				<img src="" alt="" width="140" height="140">
 				
-				<button>View Decks</button>
+				<button><? echo anchor("decks/viewDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></button>
 				
 				<ul class="profileLinks">
 					<li><a href="Friends">Friends</a></li>

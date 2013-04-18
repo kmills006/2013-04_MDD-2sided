@@ -37,7 +37,17 @@ class DecksModel extends CI_Model {
 			return false;
 		}
 
-	} // end of getAllDecks    
+	} // end of getAllDecks  
+
+
+	// getUsersDecks
+	// returns all of a specfic users decks
+	public function getUsersDecks($userID){
+
+		$this->db->select('d.deck_id, d.title, d.privacy');
+		$this->db->from('users as u');
+		$this->db->join('decks as d', 'u.user_id = d.user_id');
+	}  
 
 
 
