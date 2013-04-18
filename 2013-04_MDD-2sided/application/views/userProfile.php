@@ -3,6 +3,24 @@
 	$this->load->helper('isMulti.php');
 
 	$profileInfo = objectToArray($profileInfo);
+
+	// var_dump($profileInfo);
+	echo "</br>";
+	echo "</br>";
+	var_dump($this->session->userdata('userID'));
+
+
+	if(!isMulti($profileInfo)){
+			// No
+	}else{
+		foreach($profileInfo as $userInfo){
+			
+		}
+	}
+
+	echo "</br>";
+	echo "User Information";
+	var_dump($userInfo);	
 ?>
 
 <div id="info">
@@ -18,13 +36,6 @@
 				</ul>
 			</article>
 		</section>
-
-	<? 
-		// Checking if $profileInfo is a multidimensional array
-		if(!isMulti($profileInfo)){
-			// No
-		}else{
-			foreach($profileInfo as $userInfo){ ?>
 		
 		<section id="profileInfo">
 
@@ -48,14 +59,19 @@
 			</ul>
 		</section>
 
-			<? } // end of foreach
-
-		} // end of if statement 
-
-	?>
 		<section id="bgroup">
-			<button>Edit Profile</button>
-			<button>Notifications<span>(11)</span></button>
+
+			<? if($this->session->userdata('userID') == $userInfo['user_id']){ ?>
+			
+				<button>Edit Profile</button>
+				<button>Notifications<span>(11)</span></button>
+			
+			<? }else{ ?>
+
+				<button>Add Friend</button>
+			
+			<? } ?>
+
 		</section>
 	</div>	
 </div> 

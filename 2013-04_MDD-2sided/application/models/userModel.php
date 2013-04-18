@@ -12,7 +12,7 @@ class UserModel extends CI_Model {
     	
     	$this->load->library('subquery');
 
-    	$this->db->select("u.username, u.date_of_reg, u.profile_img");
+    	$this->db->select("u.user_id, u.username, u.date_of_reg, u.profile_img");
 	 
 	   	$subDecks = $this->subquery->start_subquery("select");
 		$subDecks->select('COUNT(d.deck_id) as deck_count')->from('users as u');
