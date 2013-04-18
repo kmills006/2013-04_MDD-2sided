@@ -9,7 +9,7 @@
 		$this->load->view($view, $decks);
 	
 	}elseif(isset($profileInfo)){
-	
+
 		$this->load->view($view, $profileInfo);
 
 	}else{

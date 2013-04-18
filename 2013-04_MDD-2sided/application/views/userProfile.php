@@ -4,12 +4,6 @@
 
 	$profileInfo = objectToArray($profileInfo);
 
-	// var_dump($profileInfo);
-	echo "</br>";
-	echo "</br>";
-	var_dump($this->session->userdata('userID'));
-
-	
 	if(!isMulti($profileInfo)){
 			// No
 	}else{
@@ -17,10 +11,6 @@
 			
 		}
 	}
-
-	echo "</br>";
-	echo "User Information";
-	var_dump($userInfo);	
 ?>
 
 <div id="info">
@@ -66,11 +56,15 @@
 				<button>Edit Profile</button>
 				<button>Notifications<span>(11)</span></button>
 			
-			<? }else{ ?>
+			<? }else{
 
-				<button>Add Friend</button>
+				if(!$areFriends){ ?>
+					<button>Add Friend</button>
+				<? }else{
+					// Users are already friends, add a way to unfriend user
+				}
 			
-			<? } ?>
+			} ?>
 
 		</section>
 	</div>	
