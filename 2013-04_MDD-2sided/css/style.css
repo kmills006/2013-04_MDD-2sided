@@ -69,6 +69,8 @@ header img {
   color: #366774;
   font-weight: bold;
   font-size: 14px; }
+  #navigation li:hover:not(.active), #tools li:hover:not(.active) {
+    text-decoration: underline; }
 
 nav input {
   color: #366774;
@@ -89,3 +91,22 @@ nav input {
   border-top: solid 1px #898986;
   border-right: solid 1px #c0c0bc;
   border-left: solid 1px #c0c0bc; }
+
+#navigation .active > a {
+  color: #ecece7;
+  display: inline;
+  padding: 7px;
+  background: #e96151;
+  -webkit-box-shadow: 0px 0px 1px 1px #b9b9b5;
+  box-shadow: 0px 0px 1px 1px #b9b9b5;
+  font-size: .9em;
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border-top: solid 1px #f5bab3;
+  border-right: solid 1px #ed7f72;
+  border-left: solid 1px #ed7f72;
+  -webkit-box-shadow: 0px 1px 1px 0px #14262b;
+  box-shadow: 0px 1px 1px 0px #14262b; }
+  #navigation .active > a:hover {
+    background: #ff6a59; }

@@ -30,7 +30,7 @@
 				<a href="<? echo base_url(); ?>"><img src="<? echo base_url(); ?>imgs/logo.png" alt="2sided Logo" width="66" height="43" /></a>
 				<nav>
 					<ul id="navigation">
-						<li class="decks"><? echo anchor('decks', 'Decks', 'Browse all decks') ?></li>
+						<li class="decks active"><? echo anchor('decks', 'Decks', 'Browse all decks') ?></li>
 						<li class="users"><? echo anchor('browse/users', 'Users', 'Search by users') ?></li>
 						<li class="tags"><? echo anchor('browse/tags', 'Tags', 'Search by tags') ?></li>
 						<li class="about"><? echo anchor('browse/about', 'About', 'About 2sided') ?></li>

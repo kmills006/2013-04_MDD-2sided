@@ -1,6 +1,6 @@
 $egg-white: #ecece7;
 $main-blue: #366774;
-$main-red: #e96151;
+$main-orange: #e96151;
 
 @mixin corners($radius : 5px) {
     -webkit-border-radius: $radius;
@@ -15,6 +15,19 @@ $main-red: #e96151;
     border-top: solid 1px $top;
     border-right: solid 1px $right;
     border-left: solid 1px $left;
+}
+@mixin button(){
+    color: #ecece7;
+    display: inline;
+    padding: 7px;
+    background: $main-orange;
+    -webkit-box-shadow:  0px 0px 1px 1px #b9b9b5;
+    box-shadow:  0px 0px 1px 1px #b9b9b5;
+    font-size: .9em;
+    @include corners;
+    @include borders(#f5bab3, #ed7f72, #ed7f72);
+    @include shadow(1px, 1px, #14262b);
+    &:hover { background:#ff6a59; }
 }
 html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
@@ -90,6 +103,7 @@ header img{
     color: $main-blue;
     font-weight: bold;
     font-size: 14px;
+    &:hover:not(.active) { text-decoration:underline; }
 }
 nav input{
     color: $main-blue;
@@ -106,8 +120,8 @@ nav input{
     @include shadow(1px, 2px, #f7f7f4);
     @include borders(#898986, #c0c0bc, #c0c0bc);
 }
-
-
-
+#navigation .active>a{
+    @include button();
+}
 
 
