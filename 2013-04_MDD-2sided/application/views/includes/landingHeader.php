@@ -31,9 +31,9 @@
 				<nav>
 					<ul id="navigation">
 						<li class="decks active"><? echo anchor('decks', 'Decks', 'Browse all decks') ?></li>
-						<li class="users"><? echo anchor('browse/users', 'Users', 'Search by users') ?></li>
-						<li class="tags"><? echo anchor('browse/tags', 'Tags', 'Search by tags') ?></li>
-						<li class="about"><? echo anchor('browse/about', 'About', 'About 2sided') ?></li>
+						<li class="users"><? echo anchor('decks/users', 'Users', 'Search by users') ?></li>
+						<li class="tags"><? echo anchor('decks/tags', 'Tags', 'Search by tags') ?></li>
+						<li class="about"><? echo anchor('decks/about', 'About', 'About 2sided') ?></li>
 					</ul>
 
 					<input type="text" id="searchIni"/>

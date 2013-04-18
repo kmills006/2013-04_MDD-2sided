@@ -38,7 +38,7 @@
 |
 */
 
-$route['default_controller'] = "browse";
+$route['default_controller'] = "decks";
 $route['404_override'] = '';
 
 
