@@ -1,2 +1,2 @@
 <? 
-	// var_dump($profileInfo);
+	var_dump($profileInfo);
