@@ -153,8 +153,8 @@ header img {
   color: #366774;
   font-weight: bold;
   font-size: 14px; }
-  #navigation li:hover:not(.active), #tools li:hover:not(.active) {
-    text-decoration: underline; }
+  #navigation li:hover, #tools li:hover {
+    color: #e96151; }
 
 nav input {
   color: #366774;

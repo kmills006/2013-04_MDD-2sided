@@ -172,7 +172,7 @@ header img {
     color: $main-blue;
     font-weight: bold;
     font-size: 14px;
-    &:hover:not(.active) { text-decoration:underline; }
+    &:hover{ color: $main-orange; }
 }
 nav input {
     color: $main-blue;
