@@ -16,7 +16,9 @@
 		<section id="picture">
 			<article>
 				<img src="" alt="" width="140" height="140">
-				<button>Your Decks</button>
+				
+				<button>View Decks</button>
+				
 				<ul class="profileLinks">
 					<li><a href="Friends">Friends</a></li>
 					<li><a href="Badges">Badges</a></li>

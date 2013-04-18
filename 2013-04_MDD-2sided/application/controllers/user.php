@@ -23,7 +23,6 @@ class User extends CI_Controller {
 		$data['view'] = 'userProfile';
 
 
-
 		/* We will need to check if the user is logged in or not, if they are friends
 		with the person whose profile they are trying to look at or if they are viewing 
 		their own profile */
@@ -46,13 +45,8 @@ class User extends CI_Controller {
 			/* There is no logged in user and they clicked on a username
 			to view their profile and decks */
 
-			echo "User is not logged in";
-
 			// Setting the userID from the end of the uri_string to retrieve profile
 			$data['profileInfo'] = $this->userModel->getProfile($uri);
-
-
-			// $data['view'] = 'userProfile';
 
 			$this->load->view('includes/landingTemplate', $data);
 
@@ -60,11 +54,9 @@ class User extends CI_Controller {
 			/* User is logged in and coming straight from login screen, 
 			they either logged in via Facebook or through 2sided */
 
-			echo "</br>";
-			echo "Login Successful, session started";
-
 			$userID = $this->session->userdata('userID');
 
+			// Getting logged in users profile information
 			$data['profileInfo'] = $this->userModel->getProfile($userID);
 
 			$this->load->view('includes/loggedInTemplate', $data);
