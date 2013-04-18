@@ -37,7 +37,7 @@
 			<nav>
 				<ul id="navigation">
 					<li class="decks active"><? echo anchor('decks', 'Decks', 'Browse all decks') ?></li>
-					<li class="users"><? echo anchor('decks/users', 'Users', 'Search by users') ?></li>
+					<li class="users"><? echo anchor('user/viewAll', 'Users', 'Search by users') ?></li>
 					<li class="tags"><? echo anchor('decks/tags', 'Tags', 'Search by tags') ?></li>
 				</ul>
 

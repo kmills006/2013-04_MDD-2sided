@@ -38,6 +38,8 @@ class User extends CI_Controller {
 			- User views another profile from decks/search/users pages
 			- User views a friends profile
 
+			-- Kolby, anymore you can think of please add! 
+
 		*/
 
 
@@ -82,6 +84,37 @@ class User extends CI_Controller {
 
 		}
  
+	}
+
+
+
+
+	// viewAll
+	// Users page allowing users to view all other users in the community
+	// Can be views either logged in or not
+	public function viewAll(){
+		echo "viewAll";
+
+		$data['view'] = 'users';
+
+		switch($this->session->userdata('isLoggedIn')){
+			case 0:
+				$this->load->view('includes/landingTemplate', $data);
+
+				echo "not logged in";
+			break;
+
+			case 1:
+				$this->load->view('includes/loggedInTemplate', $data);
+
+				echo "logged in";
+			break;
+
+			default:
+				echo "default";
+			break;
+		};
+
 	}
 
 
