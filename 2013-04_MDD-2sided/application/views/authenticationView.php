@@ -25,6 +25,8 @@
 					<? echo anchor('forgotpass', 'Forgot Password?', 'Recover Lost Password') ?>
 				<?php echo form_close(); ?>
 
+				<div class="divider"></div>
+				
 				<!-- New User Form -->
 				<?php echo form_open("authentication/registerNewUser", $registerForm); ?>
 					<h1>Register</h1>

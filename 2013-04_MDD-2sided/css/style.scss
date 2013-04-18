@@ -18,6 +18,10 @@ $dark-blue: #0f3d48;
     border-right: solid 1px $right;
     border-left: solid 1px $left;
 }
+@mixin textshadow($drop : 2px, $blur : 1px, $color : #1f3a42){
+    text-shadow: 0px $drop $blur $color;
+    filter: dropshadow(color=#000, offx=0, offy=1);
+}
 @mixin button() {
     color: $egg-white;
     display: inline;
@@ -27,6 +31,7 @@ $dark-blue: #0f3d48;
     white-space: nowrap;
     -webkit-font-smoothing: antialiased;
     text-align: center;
+    @include textshadow(1px, 0px, #a04338);
     @include corners;
     @include borders(#f5bab3, #ed7f72, #ed7f72);
     @include shadow(1px, 0px, 0px, #14262b);
@@ -58,7 +63,7 @@ time, mark, audio, video {
 }
 article,aside,details,figcaption,figure,
 footer,header,hgroup,menu,nav,section { 
-	display: block;
+    display: block;
 }
 /* ----------------- */
 /* --- END RESET --- */
@@ -84,7 +89,7 @@ h1{
 h2{
     font-family: "Helvetica Neue";
     color: $egg-white;
-    font-size: 1em;
+    font-size: .9em;
     font-weight: 400;  
     letter-spacing: 1px;
     -webkit-font-smoothing: antialiased;
@@ -153,7 +158,6 @@ nav {
 }
 .sizer {
     width: 940px;
-    height: inherit;
     margin: 0 auto;
     position: relative;
 }
@@ -220,6 +224,8 @@ nav input {
 #content {
     border-top: solid 1px #254750;
     width: 100%;
+    overflow: auto;
+    height: inherit;
 }
 #topDeck {
     width:449px;
@@ -362,19 +368,15 @@ nav input {
     @include shadow(0px, 3px, 0px, #1b343b);
 }
 #loginForm{
-    width: 200px;
-    margin-left: 75px;
+    width: 220px;
+    margin-left: 52px;
     height: 100%;
     float: left;
     margin-top: 25px;
 }
 #forms h1{
-    font-family: "Helvetica Neue";
     color: $main-blue;
-    font-size: 1.2em;
-    font-weight: bold;
-    text-align: center;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 #forms p{
     font-family: "Helvetica Neue";
@@ -394,7 +396,7 @@ nav input {
     text-decoration: underline;
 }
 #forms input{
-    width: 150px;
+    width: 200px;
     height: 30px;
     font-family: "Helvetica Neue";
     font-size: .9em;
@@ -407,15 +409,19 @@ nav input {
     margin-right: 10px;
     @include corners;
 }
+.divider{
+    background-image: url("../imgs/form-line.png");
+    background-repeat: no-repeat;
+    width: 28px;
+    height: 297px;
+    float: left;
+}
 #registerForm{
-    width: 200px;
-    margin-right: 35px;
+    width: 220px;
+    margin-right: 52px;
     height: 100%;
     float: right;
     padding-top: 25px;
-    padding-left: 75px;
-    background-image: url("../imgs/form-line.png");
-    background-repeat: no-repeat;
 }
 .regLeft{
     float: left;
@@ -423,17 +429,17 @@ nav input {
 .regRight{
     float: right;
 }
-#loginForm button{
-    margin-left: 15px;
-}
-#registerForm button{
-    margin-left: 10px;
-}
 #facebook{
     margin: 0 auto;
     text-align: center;
     margin-bottom: 20px;
 }
+#forms button{
+    width: 208px;
+}
+/* ----------------- */
+/* -Profile STYLES - */
+/* ----------------- */
 #info{
     margin-top: 20px;
     overflow: auto;
@@ -460,6 +466,12 @@ nav input {
 #profileInfo{
     float: left;
     width: 200px;
+}
+#profileInfo h1{
+    @include textshadow;
+}
+#profileInfo h2{
+    margin-top: 4px;
 }
 .profileLinks{
     font-size: .8em;
@@ -494,6 +506,7 @@ nav input {
 #quickInfo h1{
     height: 30%;
     margin-top: -10px;
+    @include textshadow;
 }
 #quickInfo h2{
     height: 50%;
@@ -501,6 +514,7 @@ nav input {
     font-weight: 900;  
     letter-spacing: 1px;
     -webkit-font-smoothing: antialiased;
+    @include textshadow;
 }
 #bgroup{
     float: right; 
@@ -508,12 +522,12 @@ nav input {
 }
 #bgroup button:first-child{
     width: 110px;
-    height: 50px;
+    height: 40px;
     margin-right: 5px;
 }
 #bgroup button:last-child{
     width: 150px;
-    height: 50px;
+    height: 40px;
 }
 #bgroup span{
     font-weight: bold;
@@ -534,6 +548,7 @@ nav input {
 .dbbg h1{
     font-size: .9em;
     text-transform: uppercase;
+    @include textshadow;
 }
 #activity li{
     height: 70px;
@@ -545,6 +560,7 @@ nav input {
     margin-top: 10px;
 }
 #activity p{
+    width: 850px;
     float: left;
     margin-top: 15px;
     margin-left: 10px;
@@ -554,4 +570,9 @@ nav input {
     font-weight: 500;  
     letter-spacing: 1px;
     -webkit-font-smoothing: antialiased;
+    display: block;
+}
+#activity .date{
+    font-size: .8em;  
+    margin-top: 3px; 
 }
