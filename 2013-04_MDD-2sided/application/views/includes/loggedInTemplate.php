@@ -7,6 +7,6 @@
 	$this->load->view($main_content);
 
 	// Footer
-	$this->load->view("includes/loggedInFooter.php");
+	$this->load->view("includes/footer.php");
 
 ?>	

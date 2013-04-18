@@ -166,4 +166,11 @@ class Authentication extends CI_Controller {
 		}
 	}
 
+
+
+	// userLogout
+	public function userLogout(){
+		echo "Here";
+	}
+
 } // end of authentication
