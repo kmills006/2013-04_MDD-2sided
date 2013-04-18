@@ -8,16 +8,16 @@ $main-orange: #e96151;
     -moz-border-radius: $radius;
     border-radius: $radius;
 }
-@mixin shadow($drop : 0px, $blur : 1px, $spread : 0px, $color : #000000){
+@mixin shadow($drop : 0px, $blur : 1px, $spread : 0px, $color : #000000) {
     -webkit-box-shadow:  0px $drop $blur $spread $color;
     box-shadow:  0px $drop $blur $spread $color;
 }
-@mixin borders($top : #000, $right : #000, $left : #000){
+@mixin borders($top : #000, $right : #000, $left : #000) {
     border-top: solid 1px $top;
     border-right: solid 1px $right;
     border-left: solid 1px $left;
 }
-@mixin button(){
+@mixin button() {
     color: #ecece7;
     display: inline;
     padding: 7px;
@@ -53,13 +53,13 @@ time, mark, audio, video {
     text-decoration: none;
 }
 article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section, a{ 
+footer,header,hgroup,menu,nav,section, a { 
 	display: block;
 }
 /* ----------------- */
 /* --- END RESET --- */
 /* ----------------- */
-a{
+a {
     font-family: "Helvetica Neue";
     font-size: 1em;
     color: inherit;
@@ -67,26 +67,26 @@ a{
     width: 100%;
     height: 100%;
 }
-input{
+input {
     font-family: "Helvetica Neue";
 }
-strong{
+strong {
     font-weight: bold;
 }
-html{
+html {
     width: 100%;
     letter-spacing: 1px;
     height: 100%;
     background-image: url("../imgs/bg-blue.jpg");
     -webkit-font-smoothing: antialiased;
 }
-body{
+body {
     min-height: 100%;
 }
 /* ----------------- */
 /* - HEADER STYLES - */
 /* ----------------- */
-header{
+header {
     height: 60px;
     width: 100%;
     line-height: 60px;
@@ -98,21 +98,21 @@ header{
     height: 43px;
     float: left;
 }
-nav{
+nav {
     height: 60px;
 }
-.sizer{
+.sizer {
     width: 940px;
     height: inherit;
     margin: 0 auto;
     position: relative;
 }
-header img{
+header img {
     float: left;
     margin-right: 10px;
     margin-top: 4px;
 }
-#navigation li, #tools li{
+#navigation li, #tools li {
     float: left;
     margin-left: 20px;
     color: $main-blue;
@@ -120,7 +120,7 @@ header img{
     font-size: 14px;
     &:hover:not(.active) { text-decoration:underline; }
 }
-nav input{
+nav input {
     color: $main-blue;
     width: 270px;
     height: 35px;
@@ -138,17 +138,17 @@ nav input{
     @include shadow(1px, 2px, #f7f7f4);
     @include borders(#898986, #c0c0bc, #c0c0bc);
 }
-#navigation .active>a{
+#navigation .active>a {
     @include button;
 }
-#tools{
+#tools {
     float: right;
     width: 164px;
 }
-#tools li:first{
+#tools li:first {
     border-left: solid 1px #bbbbb7;
 }
-#tools li{
+#tools li {
     float: left;
     width: 80px;
     height: 60px;
@@ -158,7 +158,7 @@ nav input{
     text-align: center;
     &:hover{color: $egg-white; background: $main-orange;}
 }
-#tools a{
+#tools a {
     width: 79px;
     height: 100%;
     border-left: solid 1px #bbbbb7;
@@ -167,3 +167,142 @@ nav input{
 /* ----------------- */
 /* - DECKS  STYLES - */
 /* ----------------- */
+#content {
+    border-top: solid 1px #254750;
+    width: 100%;
+    min-height: 700px;
+}
+#topDeck {
+    width:449px;
+    height: 289px;
+    background-image: url("../imgs/card-front.png");
+    background-repeat: no-repeat;
+    margin-top: 40px;
+    float: left;
+}
+#topDeck .username {
+    font-family: "Helvetica Neue";
+    color: #366774;
+    padding-top: 15px;
+    margin-left: 10px;
+    font-size: 1.2em;
+    float: left;
+}
+#topDeck .votes {
+    font-family: "Helvetica Neue";
+    color: #366774;
+    padding-top: 15px;
+    margin-right: 10px;
+    padding-left: 30px;
+    font-size: 1.2em;
+    float: right;   
+    background-image: url("../imgs/icon-check.png");
+    background-repeat: no-repeat;
+    background-position: 0px 10px;
+}
+#topDeck .deckname {
+    font-family: "Helvetica Neue";
+    color: #366774;
+    font-size: 1.5em;
+    font-weight: bold;
+    clear: both;
+    width: 90%;
+    height: 220px;
+    margin: 0 auto;
+    text-align: center;
+    line-height: 230px;
+    word-wrap:break-word;
+}
+#topTags {
+    width: 400px;
+    height: 300px;
+    float: right;
+    margin-top: 40px;
+}
+#topTags li {
+    clear: both;
+    margin-bottom: 10px;
+}
+#topTags>h1 {
+    margin-bottom: 20px;
+    font-family: "Helvetica Neue";
+    color: #ecece7;
+    font-size: 1.7em;
+    font-weight: bold;
+    margin-left: 100px;
+}
+#topTags ul h1, #deckTags ul h1 {
+    display: inline;
+    font-family: "Helvetica Neue"; 
+    float: left;
+    margin-right: 5px;
+    font-size: .9em;
+    cursor:pointer;
+    @include button;
+}
+#topTags p {
+    line-height: 30px;
+    font-family: "Helvetica Neue";
+    font-size: .8em;
+    font-weight: bold;
+    color: #ecece7;
+}
+.left {
+    width: 200px;
+    float: left;
+}
+.right {
+    width: 200px;
+    float: right;
+}
+.forth {
+    margin: 0px;
+}
+#decks {
+    clear: both;
+}
+#decks .deck {
+    width: 229px;
+    height: 148px;
+    background-image: url("../imgs/card-small.png");
+    float: left;
+    margin-right: 6px;
+    margin-bottom: 6px;
+}
+#decks .deck:hover {
+    background-image: url("../imgs/card-small-hover.png");
+}
+#decks .username {
+    font-family: "Helvetica Neue";
+    color: #366774;
+    padding-top: 10px;
+    margin-left: 10px;
+    font-size: .9em;
+    float: left;
+}
+#decks .votes {
+    font-family: "Helvetica Neue";
+    color: #366774;
+    padding-top: 10px;
+    margin-right: 10px;
+    padding-left: 23px;
+    font-size: .9em;
+    float: right;   
+    background-image: url("../imgs/icon-check-small.png");
+    background-repeat: no-repeat;
+    background-position: 0px 9px;
+}
+#decks .deckname {
+    font-family: "Helvetica Neue";
+    color: #366774;
+    font-size: 1em;
+    font-weight: bold;
+    clear: both;
+    width: 90%;
+    max-height: 70px;
+    margin: 0 auto;
+    text-align: center;
+    margin-top: 71px;
+    line-height: 15px;
+    word-wrap:break-word;
+}
