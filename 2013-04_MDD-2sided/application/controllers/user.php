@@ -61,7 +61,7 @@ class User extends CI_Controller {
 			$data['profileInfo'] = $this->userModel->getProfile($userID);
 
 			// Check for any new friend requests
-			$test = $this->friendsModel->checkFriendRequests($userID);
+			$data['friendRequests'] = $this->friendsModel->checkFriendRequests($userID);
 
 			$this->load->view('includes/loggedInTemplate', $data);
 

@@ -7,6 +7,7 @@ class FriendsModel extends CI_Model {
     }
 
     // checkFriendRequests
+    // checking if the logged in user has any new friend request
     public function checkFriendRequests($userID){
     	$this->db->select("uf.friend_id, uf.active");
     	$this->db->from('users as u');
@@ -18,12 +19,13 @@ class FriendsModel extends CI_Model {
 
     	if($query->num_rows > 0){
     		foreach($query->result() as $row){
-    			var_dump($row);
+    			$dataResults[] = $row;
     		}
-    	}
 
-    	echo "</br>";
-    	var_dump($userID);
+    		return $dataResults;
+    	}else{
+    		return false;
+    	}
     }
 
 

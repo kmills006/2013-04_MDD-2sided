@@ -52,29 +52,30 @@
 
 		<section id="bgroup">
 
-			<? if($this->session->userdata('userID') == $userInfo['user_id']){ ?>
 
-				<!-- the user is logged in and viewing their own profile -->
-				<!-- <button>Edit Profile</button> -->
-				<button>Notifications<span>(11)</span></button>
-			
-			<? }if($this->session->userdata('isLoggedIn') == 1 && isset($areFriends)){
+			<? 
+				if(isset($friendRequests)){
+					echo "Friend Requests";
 
+					if($this->session->userdata('isLoggedIn') == 1 && $userInfo['user_id'] && $friendRequests == true){
+						 var_dump($friendRequests);
+					}else{
+						echo $friendRequests;
+					}
+
+				}if(isset($areFriends)){
+					var_dump($areFriends);
+					
 					$loggedInUser = $this->session->userdata('userID');
 
-					// the user is logged in and checkFriendship ran
 					if(!$areFriends){ ?>
 
 						<!-- users are not friends and can add each other -->
 						<button><? echo anchor("friends/addNewFriend/{$loggedInUser}/{$userInfo["user_id"]}", 'Add Friend' , "Add new friend") ?></button>
-
-					<? }else{
-						// Users are already friends, add a way to unfriend user
-					}
-			   }else{
-
-			   		// there is no user currently logged in, no buttons are available
-			} ?>
+					
+					<? }
+				}
+			?>
 
 		</section>
 
