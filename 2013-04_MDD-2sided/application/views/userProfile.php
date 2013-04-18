@@ -1,3 +1,9 @@
+<? 
+	$this->load->helper('objectToArray.php');
+	$this->load->helper('isMulti.php');
+
+	$profileInfo = objectToArray($profileInfo);
+?>
 
 <div id="info">
 	<div class="sizer">
@@ -12,24 +18,41 @@
 				</ul>
 			</article>
 		</section>
+
+	<? 
+		// Checking if $profileInfo is a multidimensional array
+		if(!isMulti($profileInfo)){
+			// No
+		}else{
+			foreach($profileInfo as $userInfo){ ?>
+		
 		<section id="profileInfo">
+
 			<article>
-				<h1>Kolby99</h1>
+				<h1><? echo $userInfo['username'] ?></h1>
 				<h2>Orlando, FL</h2>
-				<h2>Memeber Since 12-12-12</h2>
+				<h2>Memeber Since <? echo $userInfo['date_of_reg']; ?></h2>
 				<h2>12 Profile Views</h2>
-				<h3>343 Check Marks!</h3>
+				<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
 			</article>
+
 		</section>
+
 		<section id="quickInfo">
 			<ul>
-				<li><h1>23</h1><h2>Friends</h2></li>
-				<li><h1>11</h1><h2>Decks</h2></li>
-				<li><h1>45</h1><h2>Cards</h2></li>
+				<li><h1><? echo $userInfo['friendsCount']; ?></h1><h2>Friends</h2></li>
+				<li><h1><? echo $userInfo['decksCount']; ?></h1><h2>Decks</h2></li>
+				<li><h1><? echo $userInfo['cardsCount']; ?></h1><h2>Cards</h2></li>
 				<li><h1>101</h1><h2>Comments</h2></li>
-				<li class="last"><h1>33</h1><h2>Tags</h2></li>
+				<li class="last"><h1><? echo $userInfo['tagsCount']; ?></h1><h2>Tags</h2></li>
 			</ul>
 		</section>
+
+			<? } // end of foreach
+
+		} // end of if statement 
+
+	?>
 		<section id="bgroup">
 			<button>Edit Profile</button>
 			<button>Notifications<span>(11)</span></button>
