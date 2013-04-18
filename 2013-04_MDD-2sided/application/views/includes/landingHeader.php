@@ -30,14 +30,13 @@
 				<a href="<? echo base_url(); ?>"><img src="<? echo base_url(); ?>imgs/logo.png" alt="2sided Logo" width="66" height="43" /></a>
 				<nav>
 					<ul id="navigation">
-						<li class="yourdecks"><? echo anchor('authentication', 'Your Decks', 'Your personal decks') ?></li>
-						<li class="browse"><? echo anchor('browse', 'Browse', 'Browse all decks') ?></li>
-						<li class="about"><? echo anchor('browse/about', 'About', 'About 2sided') ?></li>
-						<li class="tags"><? echo anchor('browse/tags', 'Tags', 'Search by tags') ?></li>
+						<li class="decks"><? echo anchor('decks', 'Decks', 'Browse all decks') ?></li>
 						<li class="users"><? echo anchor('browse/users', 'Users', 'Search by users') ?></li>
+						<li class="tags"><? echo anchor('browse/tags', 'Tags', 'Search by tags') ?></li>
+						<li class="about"><? echo anchor('browse/about', 'About', 'About 2sided') ?></li>
 					</ul>
 
-					<input type="text" placeholder="search" id="searchIni"/>
+					<input type="text" id="searchIni"/>
 
 					<ul id="searchResults"></ul>
 					
