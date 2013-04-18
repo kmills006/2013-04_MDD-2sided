@@ -64,7 +64,7 @@ class User extends CI_Controller {
 			// Setting the userID from the end of the uri_string to retrieve profile
 			$data['profileInfo'] = $this->userModel->getProfile($uri);
 
-			$this->load->view('includes/landingTemplate', $data);
+			$this->load->view('includes/loggedInTemplate', $data);
 
 		}else{
 
