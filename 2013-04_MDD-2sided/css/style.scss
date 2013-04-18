@@ -51,17 +51,16 @@ time, mark, audio, video {
     text-decoration: none;
 }
 article,aside,details,figcaption,figure,
-footer,header,hgroup,menu,nav,section a{ 
+footer,header,hgroup,menu,nav,section, a{ 
 	display: block;
 }
-
 a{
     font-family: "Helvetica Neue";
     font-size: 1em;
     color: inherit;
     text-decoration: none;
-    // width: 100% !important;
-    // height: 100% !important;
+    width: 100% !important;
+    height: 100% !important;
 }
 html{
     width: 100%;
@@ -87,8 +86,17 @@ header{
     background-color: $egg-white;
     @include shadow(1px, 2px, #15272c);
 }
+#logo{
+    width: 66px;
+    height: 43px;
+    float: left;
+}
+nav{
+    height: 60px;
+}
 .sizer{
     width: 940px;
+    height: inherit;
     margin: 0 auto;
     position: relative;
 }
@@ -116,12 +124,31 @@ nav input{
     border: none;
     margin-left: 30px;
     margin-top: 12px;
+    background-image:url("../imgs/icon-search.png");
+    background-repeat: no-repeat;
+    background-position: 235px 1px;
     @include corners;
     @include shadow(1px, 2px, #f7f7f4);
     @include borders(#898986, #c0c0bc, #c0c0bc);
 }
 #navigation .active>a{
-    @include button();
+    @include button;
 }
-
+#tools{
+    float: right;
+    width: 164px;
+}
+#tools ul{
+    float: right;
+}
+#tools li{
+    float: left;
+    width: 80px;
+    height: 60px;
+    background-color: #dcdcd7;
+    margin: 0px;
+    text-align: center;
+    border-right: solid 1px #bbbbb7;
+    &:hover{color: egg-white; background: $main-orange;}
+}
 

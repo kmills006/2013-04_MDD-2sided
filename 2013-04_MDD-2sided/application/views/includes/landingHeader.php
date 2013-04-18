@@ -27,7 +27,7 @@
 	<body>
 		<header>
 			<div class="sizer">
-				<a href="<? echo base_url(); ?>"><img src="<? echo base_url(); ?>imgs/logo.png" alt="2sided Logo" width="66" height="43" /></a>
+				<div id="logo"><a href="<? echo base_url(); ?>"><img src="<? echo base_url(); ?>imgs/logo.png" alt="2sided Logo" width="66" height="43" /></a></div>
 				<nav>
 					<ul id="navigation">
 						<li class="decks active"><? echo anchor('decks', 'Decks', 'Browse all decks') ?></li>
