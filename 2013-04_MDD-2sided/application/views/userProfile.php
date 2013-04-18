@@ -32,8 +32,8 @@
 
 			<article>
 				<h1><? echo $userInfo['username'] ?></h1>
-				<h2>Orlando, FL</h2>
-				<h2>Memeber Since <? echo $userInfo['date_of_reg']; ?></h2>
+				<!-- <h2>Orlando, FL</h2> -->
+				<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
 				<h2>12 Profile Views</h2>
 				<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
 			</article>
@@ -55,7 +55,7 @@
 			<? if($this->session->userdata('userID') == $userInfo['user_id']){ ?>
 
 				<!-- the user is logged in and viewing their own profile -->
-				<button>Edit Profile</button>
+				<!-- <button>Edit Profile</button> -->
 				<button>Notifications<span>(11)</span></button>
 			
 			<? }if($this->session->userdata('isLoggedIn') == 1 && isset($areFriends)){
