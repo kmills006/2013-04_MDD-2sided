@@ -92,7 +92,16 @@ strong {
     float: right;
 }
 .forth {
-    margin: 0px;
+    margin: 0;
+}
+button{
+    color: $egg-white;
+    border: none;
+    font-size: .9em;
+    cursor:pointer;
+    @include button;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 /* ----------------- */
 /* - HEADER STYLES - */
@@ -320,12 +329,10 @@ nav input {
     width: 600px;
     height: 300px;
     background-color: $egg-white;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
     margin: 0 auto;
-    -webkit-box-shadow:  0px 0px 3px 0px #1b343b;
-    box-shadow:  0px 0px 3px 0px #1b343b;
     position: relative;
+    @include corners;
+    @include shadow(0px, 3px, 0px, #1b343b);
 }
 #loginForm{
     width: 200px;
@@ -365,14 +372,13 @@ nav input {
     font-family: "Helvetica Neue";
     font-size: .9em;
     color: $main-blue;
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
     border: 0px;
     -webkit-box-shadow: inset 0px 1px 2px 0px #707070;
     box-shadow: inset 0px 1px 2px 0px #707070;
     margin-bottom: 10px;
     padding-left: 5px;
     margin-right: 10px;
+    @include corners;
 }
 #registerForm{
     width: 200px;
@@ -395,15 +401,6 @@ nav input {
 }
 #registerForm button{
     margin-left: 10px;
-}
-button{
-    color: $egg-white;
-    border: none;
-    font-size: .9em;
-    cursor:pointer;
-    @include button;
-    padding-left: 40px;
-    padding-right: 40px;
 }
 #facebook{
     margin: 0 auto;
