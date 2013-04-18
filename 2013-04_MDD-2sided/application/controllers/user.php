@@ -38,6 +38,10 @@ class User extends CI_Controller {
 			echo "</br>";
 			echo "Login Successful, session started";
 
+			$userID = $this->session->userdata('userID');
+
+			$data['profileInfo'] = $this->userModel->getProfile($userID);
+
 			$data['view'] = 'userProfile';
 
 			$this->load->view('includes/loggedInTemplate', $data);

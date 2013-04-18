@@ -183,6 +183,7 @@ class Authentication extends CI_Controller {
     	$this->session->unset_userdata($sessData);
 
 		redirect('browse');
+		
 	}
 
 } // end of authentication
