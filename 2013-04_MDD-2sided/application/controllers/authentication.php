@@ -170,7 +170,19 @@ class Authentication extends CI_Controller {
 
 	// userLogout
 	public function userLogout(){
-		echo "Here";
+
+		$sessLogout = array('isLoggedIn' => 0);
+
+		$sessData = array(
+    			'userID' => null,
+    			'email' => null,
+    			'username' => null,
+    			'isLoggedIn' => 0
+    	);
+
+    	$this->session->unset_userdata($sessData);
+
+		redirect('browse');
 	}
 
 } // end of authentication

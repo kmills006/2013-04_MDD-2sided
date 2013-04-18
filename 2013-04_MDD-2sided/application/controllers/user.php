@@ -37,6 +37,10 @@ class User extends CI_Controller {
 		}else{
 			echo "</br>";
 			echo "Login Successful, session started";
+
+			$data['view'] = 'userProfile';
+
+			$this->load->view('includes/loggedInTemplate', $data);
 		}
  
 	}

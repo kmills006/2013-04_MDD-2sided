@@ -102,11 +102,10 @@ class AuthenticationModel extends CI_Model {
 	    	$q = $this->db->insert("users", $data);
 
 	    	$sdata = array(
-				"userid" => $userID,
+				"userID" => $userID,
 				"email" => $email,
 				"username" => $username,
-				"is_logged_in" => 1,
-				"validated" => true
+				"isLoggedIn" => 1
 			);
 
     		$this->session->set_userdata($sdata);
@@ -136,8 +135,7 @@ class AuthenticationModel extends CI_Model {
     			'userID' => $row->user_id,
     			'email' => $row->email,
     			'username' => $row->username,
-    			'isLoggedIn' => 1,
-    			'validated' => true
+    			'isLoggedIn' => 1
     		);
 
     		$this->session->set_userdata($sessData);
@@ -171,8 +169,7 @@ class AuthenticationModel extends CI_Model {
     			'userID' => $row->user_id,
     			'email' => $row->email,
     			'username' => $row->username,
-    			'isLoggedIn' => 1,
-    			'validated' => true
+    			'isLoggedIn' => 1
     		);
 
     		$this->session->set_userdata($sessData);

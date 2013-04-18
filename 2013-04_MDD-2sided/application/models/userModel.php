@@ -62,7 +62,7 @@ class UserModel extends CI_Model {
     		echo "No Results";
     	}
 
-    	if($dataResults){
+    	if(isset($dataResults)){
     		return $dataResults;
     	}else{
     		return false;
