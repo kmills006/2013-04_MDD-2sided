@@ -7,7 +7,6 @@ class DecksModel extends CI_Model {
     }
 
     // getAllDecks
-    // returns all decks in order from most popular to least
 	public function getAllDecks(){
 
 		$this->db->select('decks.deck_id, COUNT(rating) as rating, users.user_id, users.username, decks.title');
@@ -47,6 +46,25 @@ class DecksModel extends CI_Model {
 		$this->db->select('d.deck_id, d.title, d.privacy');
 		$this->db->from('users as u');
 		$this->db->join('decks as d', 'u.user_id = d.user_id');
+		$this->db->where("u.user_id = '$userID'");
+
+		$query = $this->db->get();
+
+		if($query->num_rows > 0){
+
+			foreach($query->result() as $row){
+				$dataResults[] = $row;
+			}
+
+			return $dataResults;
+
+		}else{
+			
+			echo "User has no decks yet.";
+
+			return false;
+		}
+
 	}  
 
 
