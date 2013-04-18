@@ -14,12 +14,6 @@ class Friends extends CI_Controller {
 
 	// addNewFriend
 	public function addNewFriend($userID, $friendID){
-		// userID represents the user who 
-		$newFriend = array(
-						'user_id' => $userID,
-						'friend_id' => $friendID
-		);
-
 
 	}
 

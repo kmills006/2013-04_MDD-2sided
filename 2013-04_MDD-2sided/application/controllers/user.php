@@ -6,6 +6,7 @@ class User extends CI_Controller {
 		parent:: __construct();
 
 		$this->load->model('userModel');
+		$this->load->model('friendsModel');
 	}
 
 	public function index(){
@@ -59,6 +60,9 @@ class User extends CI_Controller {
 			// Getting logged in users profile information
 			$data['profileInfo'] = $this->userModel->getProfile($userID);
 
+			// Check for any new friend requests
+			$test = $this->friendsModel->checkFriendRequests($userID);
+
 			$this->load->view('includes/loggedInTemplate', $data);
 
 		}if($this->session->userdata('isLoggedIn') == 1 && $uri != 'profilePage'){
@@ -70,7 +74,7 @@ class User extends CI_Controller {
 
 			/* Check if the the logged in user is friends with the user 
 			whose profile they are about to view */
-			$data['areFriends'] = $this->userModel->checkFriendship($uri);
+			$data['areFriends'] = $this->friendsModel->checkFriendship($uri);
 
 			$this->load->view('includes/loggedInTemplate', $data);
 

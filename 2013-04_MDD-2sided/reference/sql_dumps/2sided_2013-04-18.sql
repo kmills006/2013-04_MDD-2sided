@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.25)
 # Database: 2sided
-# Generation Time: 2013-04-18 18:08:22 +0000
+# Generation Time: 2013-04-18 20:12:19 +0000
 # ************************************************************
 
 
@@ -178,6 +178,20 @@ CREATE TABLE `comments` (
   KEY `user_id` (`user_id`),
   CONSTRAINT `comments_ibfk_1` FOREIGN KEY (`card_id`) REFERENCES `cards` (`card_id`),
   CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+
+
+# Dump of table confirm_friend_request
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `confirm_friend_request`;
+
+CREATE TABLE `confirm_friend_request` (
+  `confirmation_id` varchar(255) DEFAULT NULL,
+  `user_id` varchar(13) DEFAULT NULL,
+  `friend_id` varchar(13) DEFAULT NULL,
+  `message` varchar(255) DEFAULT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 
@@ -424,6 +438,7 @@ DROP TABLE IF EXISTS `user_friends`;
 CREATE TABLE `user_friends` (
   `user_id` varchar(13) NOT NULL DEFAULT '',
   `friend_id` varchar(13) NOT NULL DEFAULT '',
+  `status` int(1) NOT NULL COMMENT '0 for pending; 1 for confirmed',
   PRIMARY KEY (`user_id`,`friend_id`),
   KEY `friend_id` (`friend_id`),
   CONSTRAINT `user_friends_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
@@ -433,12 +448,12 @@ CREATE TABLE `user_friends` (
 LOCK TABLES `user_friends` WRITE;
 /*!40000 ALTER TABLE `user_friends` DISABLE KEYS */;
 
-INSERT INTO `user_friends` (`user_id`, `friend_id`)
+INSERT INTO `user_friends` (`user_id`, `friend_id`, `status`)
 VALUES
-	('516f129e5e212','50f8eff83a6a8'),
-	('50f8eff83a6a8','50f8fcc240a5e'),
-	('50f8eff83a6a8','50f93316894ce'),
-	('50f916462f2c3','50f93316894ce');
+	('50f8eff83a6a8','50f8fcc240a5e',1),
+	('50f8eff83a6a8','50f93316894ce',1),
+	('50f916462f2c3','50f93316894ce',1),
+	('516f129e5e212','50f8eff83a6a8',0);
 
 /*!40000 ALTER TABLE `user_friends` ENABLE KEYS */;
 UNLOCK TABLES;

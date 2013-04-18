@@ -38,6 +38,7 @@ class UserModel extends CI_Model {
     	$subFriends->select('COUNT(uf.friend_id) as friend_count')->from('users as u');
     	$subFriends->join('user_friends as uf', 'u.user_id = uf.user_id');
 		$subFriends->where("u.user_id = '$userID'");
+        $subFriends->where('uf.active = 1');
     	$this->subquery->end_subquery('friendsCount');
 
     	$subRatings = $this->subquery->start_subquery("select");
@@ -67,33 +68,6 @@ class UserModel extends CI_Model {
     	}else{
     		return false;
     	} 
-    }
-
-
-    // checkFriendship
-    public function checkFriendship($friendID){
-        $userID = $this->session->userdata('userID');
-
-        $this->db->select('u.user_id as user, uf.friend_id as friend');
-        $this->db->join('user_friends as uf', 'u.user_id = uf.user_id');
-        $this->db->where("u.user_id = '$userID'");
-        $this->db->where("uf.friend_id = '$friendID'");
-       
-       $query = $this->db->get('users as u');
-
-       if($query->num_rows == 1){
-            $row = $query->row();
-
-            return true;
-       }else{
-            return false;
-       }
-
-       /* SELECT *
-       FROM users as u
-       JOIN user_friends as uf
-       ON u.user_id = uf.user_id
-       WHERE u.user_id =  "50f8eff83a6a8" AND uf.friend_id = "50f93316894ce";*/
     }
 
 
