@@ -46,10 +46,8 @@
 				<ul id="searchResults"></ul>
 
 				<ul id="tools">
-					<li><? echo anchor("authentication/userLogout", "Log Out", 'title="User Log Out"'); ?></li>
-
 					<li><? echo anchor("user/profilePage", $username , 'title="User Log Out"'); ?></li>
-
+					<li><? echo anchor("authentication/userLogout", "Log Out", 'title="User Log Out"'); ?></li>
 				</ul>
 			</nav>
 		</div>
