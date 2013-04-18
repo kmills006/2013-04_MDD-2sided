@@ -1,3 +1,9 @@
+<? 
+
+	$username = $this->session->userdata('username');
+
+?>
+
 <!DOCTYPE HTML>
 
 <html lang="en">
@@ -41,7 +47,8 @@
 
 				<ul id="tools">
 					<li><? echo anchor("authentication/userLogout", "Log Out", 'title="User Log Out"'); ?></li>
-					<li><? echo anchor("user/profilePage", "Kolby99", 'title="User Log Out"'); ?></li>
+
+					<li><? echo anchor("user/profilePage", $username , 'title="User Log Out"'); ?></li>
 
 				</ul>
 			</nav>
