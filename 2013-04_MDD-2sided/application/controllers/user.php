@@ -16,8 +16,6 @@ class User extends CI_Controller {
 	// profilePage
 	public function profilePage(){
 
-		echo "Profile Page";
-
 		$parts = explode('/',  uri_string());
 		$uri = end($parts);
 
@@ -75,8 +73,12 @@ class User extends CI_Controller {
 			/* User is logged in but viewing another users profile, still trying to
 			figure out the best way to accomplish this */
 
-			// Setting the userID from the end of the uri_string to retrieve profile
+			// Sending the userID from the end of the uri_string to retrieve profile
 			$data['profileInfo'] = $this->userModel->getProfile($uri);
+
+			$data['areFriends'] = $this->userModel->checkFriendship($uri);
+
+			var_dump($data);
 
 			$this->load->view('includes/loggedInTemplate', $data);
 

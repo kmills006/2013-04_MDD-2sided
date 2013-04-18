@@ -9,7 +9,7 @@
 	echo "</br>";
 	var_dump($this->session->userdata('userID'));
 
-
+	
 	if(!isMulti($profileInfo)){
 			// No
 	}else{
