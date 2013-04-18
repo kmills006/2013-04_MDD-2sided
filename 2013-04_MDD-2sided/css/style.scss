@@ -72,6 +72,7 @@ html {
 }
 body {
     min-height: 100%;
+    overflow: auto;
 }
 h1{
     font-family: "Helvetica Neue";
@@ -520,7 +521,6 @@ nav input {
 #activity{
     clear: both;
     background-color: $egg-white;
-    height: 100%;
     margin-top: 30px;
 }
 .dbbg{

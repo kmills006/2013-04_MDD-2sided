@@ -37,7 +37,8 @@ html {
   -webkit-font-smoothing: antialiased; }
 
 body {
-  min-height: 100%; }
+  min-height: 100%;
+  overflow: auto; }
 
 h1 {
   font-family: "Helvetica Neue";
@@ -555,7 +556,6 @@ nav input {
 #activity {
   clear: both;
   background-color: #ecece7;
-  height: 100%;
   margin-top: 30px; }
 
 .dbbg {
