@@ -18,7 +18,7 @@ $main-orange: #e96151;
     border-left: solid 1px $left;
 }
 @mixin button() {
-    color: #ecece7;
+    color: $egg-white;
     display: inline;
     padding: 7px;
     background: $main-orange;
@@ -59,6 +59,16 @@ footer,header,hgroup,menu,nav,section, a {
 /* ----------------- */
 /* --- END RESET --- */
 /* ----------------- */
+html {
+    width: 100%;
+    letter-spacing: 1px;
+    height: 100%;
+    background-image: url("../imgs/bg-blue.jpg");
+    -webkit-font-smoothing: antialiased;
+}
+body {
+    min-height: 100%;
+}
 a {
     font-family: "Helvetica Neue";
     font-size: 1em;
@@ -73,15 +83,25 @@ input {
 strong {
     font-weight: bold;
 }
-html {
-    width: 100%;
-    letter-spacing: 1px;
-    height: 100%;
-    background-image: url("../imgs/bg-blue.jpg");
-    -webkit-font-smoothing: antialiased;
+.left {
+    width: 200px;
+    float: left;
 }
-body {
-    min-height: 100%;
+.right {
+    width: 200px;
+    float: right;
+}
+.forth {
+    margin: 0;
+}
+button{
+    color: $egg-white;
+    border: none;
+    font-size: .9em;
+    cursor:pointer;
+    @include button;
+    padding-left: 40px;
+    padding-right: 40px;
 }
 /* ----------------- */
 /* - HEADER STYLES - */
@@ -182,7 +202,7 @@ nav input {
 }
 #topDeck .username {
     font-family: "Helvetica Neue";
-    color: #366774;
+    color: $main-blue;
     padding-top: 15px;
     margin-left: 10px;
     font-size: 1.2em;
@@ -190,7 +210,7 @@ nav input {
 }
 #topDeck .votes {
     font-family: "Helvetica Neue";
-    color: #366774;
+    color: $main-blue;
     padding-top: 15px;
     margin-right: 10px;
     padding-left: 30px;
@@ -202,7 +222,7 @@ nav input {
 }
 #topDeck .deckname {
     font-family: "Helvetica Neue";
-    color: #366774;
+    color: $main-blue;
     font-size: 1.5em;
     font-weight: bold;
     clear: both;
@@ -226,7 +246,7 @@ nav input {
 #topTags>h1 {
     margin-bottom: 20px;
     font-family: "Helvetica Neue";
-    color: #ecece7;
+    color: $egg-white;
     font-size: 1.7em;
     font-weight: bold;
     margin-left: 100px;
@@ -245,18 +265,7 @@ nav input {
     font-family: "Helvetica Neue";
     font-size: .8em;
     font-weight: bold;
-    color: #ecece7;
-}
-.left {
-    width: 200px;
-    float: left;
-}
-.right {
-    width: 200px;
-    float: right;
-}
-.forth {
-    margin: 0px;
+    color: $egg-white;
 }
 #decks {
     clear: both;
@@ -274,7 +283,7 @@ nav input {
 }
 #decks .username {
     font-family: "Helvetica Neue";
-    color: #366774;
+    color: $main-blue;
     padding-top: 10px;
     margin-left: 10px;
     font-size: .9em;
@@ -282,7 +291,7 @@ nav input {
 }
 #decks .votes {
     font-family: "Helvetica Neue";
-    color: #366774;
+    color: $main-blue;
     padding-top: 10px;
     margin-right: 10px;
     padding-left: 23px;
@@ -294,7 +303,7 @@ nav input {
 }
 #decks .deckname {
     font-family: "Helvetica Neue";
-    color: #366774;
+    color: $main-blue;
     font-size: 1em;
     font-weight: bold;
     clear: both;
@@ -305,4 +314,96 @@ nav input {
     margin-top: 71px;
     line-height: 15px;
     word-wrap:break-word;
+}
+/* ----------------- */
+/* - Login  STYLES - */
+/* ----------------- */
+#welcome{
+    display: block;
+    width: 314px;
+    margin: 0 auto;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+#forms{
+    width: 600px;
+    height: 300px;
+    background-color: $egg-white;
+    margin: 0 auto;
+    position: relative;
+    @include corners;
+    @include shadow(0px, 3px, 0px, #1b343b);
+}
+#loginForm{
+    width: 200px;
+    margin-left: 75px;
+    height: 100%;
+    float: left;
+    margin-top: 25px;
+}
+#forms h1{
+    font-family: "Helvetica Neue";
+    color: $main-blue;
+    font-size: 1.2em;
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 20px;
+}
+#forms p{
+    font-family: "Helvetica Neue";
+    color: $main-blue;
+    font-size: .9em;
+    font-weight: bold;
+}
+#forms a{
+    margin-top: 10px;
+    width: 200px;
+    height: 20px;
+    font-family: "Helvetica Neue";
+    color: $main-blue;
+    font-size: .7em;
+    font-weight: bold;
+    margin-left: 23px;
+    text-decoration: underline;
+}
+#forms input{
+    width: 150px;
+    height: 30px;
+    font-family: "Helvetica Neue";
+    font-size: .9em;
+    color: $main-blue;
+    border: 0px;
+    -webkit-box-shadow: inset 0px 1px 2px 0px #707070;
+    box-shadow: inset 0px 1px 2px 0px #707070;
+    margin-bottom: 10px;
+    padding-left: 5px;
+    margin-right: 10px;
+    @include corners;
+}
+#registerForm{
+    width: 200px;
+    margin-right: 35px;
+    height: 100%;
+    float: right;
+    padding-top: 25px;
+    padding-left: 75px;
+    background-image: url("../imgs/form-line.png");
+    background-repeat: no-repeat;
+}
+.regLeft{
+    float: left;
+}
+.regRight{
+    float: right;
+}
+#loginForm button{
+    margin-left: 15px;
+}
+#registerForm button{
+    margin-left: 10px;
+}
+#facebook{
+    margin: 0 auto;
+    text-align: center;
+    margin-bottom: 20px;
 }
