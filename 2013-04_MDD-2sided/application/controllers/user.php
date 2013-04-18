@@ -40,6 +40,7 @@ class User extends CI_Controller {
 
 		*/
 
+// fdsflkjdslfkjdl;s
 
 		// Checking how to load users profile
 		if($this->session->userdata('isLoggedIn') == 0){
