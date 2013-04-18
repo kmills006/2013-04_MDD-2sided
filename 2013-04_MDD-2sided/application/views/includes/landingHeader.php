@@ -30,19 +30,19 @@
 				<div id="logo"><a href="<? echo base_url(); ?>"><img src="<? echo base_url(); ?>imgs/logo.png" alt="2sided Logo" width="66" height="43" /></a></div>
 				<nav>
 					<ul id="navigation">
-						<li class="decks active"><? echo anchor('decks', 'Decks', 'Browse all decks') ?></li>
+						<li class="decks active"><? echo anchor('browse', 'Decks', 'Browse all decks') ?></li>
 						<li class="users"><? echo anchor('browse/users', 'Users', 'Search by users') ?></li>
 						<li class="tags"><? echo anchor('browse/tags', 'Tags', 'Search by tags') ?></li>
 						<li class="about"><? echo anchor('browse/about', 'About', 'About 2sided') ?></li>
 					</ul>
 
-					<input type="text" id="searchIni"/>
+					<input type="text" id="search"/>
 
 					<ul id="searchResults"></ul>
 					
 					<ul id="tools">
-						<li><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
 						<li><? echo anchor('authentication', "Sign Up", 'title="New User Registration"'); ?></li>
+						<li><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
 					</ul>
 				</nav>
 			</div>

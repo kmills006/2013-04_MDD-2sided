@@ -1,13 +1,17 @@
+<?php
+	$loginForm = array('id' => 'loginForm');
+	$registerForm = array('id' => 'registerForm');
+?>
 <div id="content">
 		<div class="sizer">
 			<img id="welcome" src="<? echo base_url(); ?>/imgs/welcome.png" alt="2sided Logo" width="314" height="142" /></a>
-
-			<a href="authentication/facebookRequest"><img id="fb-login" src="<? echo base_url(); ?>/imgs/fb_login.png" alt="Login with Facebook" width="154" height="25"/></a>
+			
+			<a id="facebook" href="authentication/facebookRequest"><img id="fb-login" src="<? echo base_url(); ?>/imgs/fb_login.png" alt="Login with Facebook" width="154" height="25"/></a>
 
 			<div id="forms">
 
 				<!-- Login Form -->
-				<?php echo form_open("authentication/checkLogin"); ?>
+				<?php echo form_open("authentication/checkLogin", $loginForm); ?>
 					<h1>Log In</h1>
 					<h2 class="error"></h2>
 
@@ -18,28 +22,25 @@
 					<?php echo form_password('password'); ?>
 					
 					<button type="submit">Log In</button>
+					<? echo anchor('forgotpass', 'Forgot Password?', 'Recover Lost Password') ?>
 				<?php echo form_close(); ?>
-
-
 
 				<!-- New User Form -->
-				<?php echo form_open("authentication/registerNewUser"); ?>
+				<?php echo form_open("authentication/registerNewUser", $registerForm); ?>
 					<h1>Register</h1>
 					<h2 class="regError"></h2>
-					<div class="regLeft">
-						<p>Username:</p>
-						<?php echo form_input('username'); ?>
-						
-						<p>Email Address:</p>
-						<?php echo form_input('r-email'); ?>
-					</div>
-					<div class="regRight">
-						<p>Password:</p>
-						<?php echo form_password('password'); ?>
-					</div>
+
+					<p>Username:</p>
+					<?php echo form_input('username'); ?>
+					
+					<p>Email Address:</p>
+					<?php echo form_input('r-email'); ?>
+
+					<p>Password:</p>
+					<?php echo form_password('password'); ?>
+
 					<button type="submit">Register</button>
 				<?php echo form_close(); ?>
-
 
 			</div>
 		</div>
