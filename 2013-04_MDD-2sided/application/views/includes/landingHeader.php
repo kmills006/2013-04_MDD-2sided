@@ -36,13 +36,13 @@
 						<li class="about"><? echo anchor('decks/about', 'About', 'About 2sided') ?></li>
 					</ul>
 
-					<input type="text" id="searchIni"/>
+					<input type="text" id="search"/>
 
 					<ul id="searchResults"></ul>
 					
 					<ul id="tools">
-						<li><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
 						<li><? echo anchor('authentication', "Sign Up", 'title="New User Registration"'); ?></li>
+						<li><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
 					</ul>
 				</nav>
 			</div>
