@@ -76,9 +76,9 @@ class User extends CI_Controller {
 			// Sending the userID from the end of the uri_string to retrieve profile
 			$data['profileInfo'] = $this->userModel->getProfile($uri);
 
+			/* Check if the the logged in user is friends with the user 
+			whose profile they are about to view */
 			$data['areFriends'] = $this->userModel->checkFriendship($uri);
-
-			var_dump($data);
 
 			$this->load->view('includes/loggedInTemplate', $data);
 

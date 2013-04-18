@@ -5,11 +5,9 @@
 	$profileInfo = objectToArray($profileInfo);
 
 	if(!isMulti($profileInfo)){
-			// No
+		// No
 	}else{
-		foreach($profileInfo as $userInfo){
-			
-		}
+		$userInfo = $profileInfo[0];
 	}
 ?>
 
@@ -52,23 +50,32 @@
 		<section id="bgroup">
 
 			<? if($this->session->userdata('userID') == $userInfo['user_id']){ ?>
-			
+
+				<!-- the user is logged in and viewing their own profile -->
 				<button>Edit Profile</button>
 				<button>Notifications<span>(11)</span></button>
 			
-			<? }else{
+			<? }if($this->session->userdata('isLoggedIn') == 1 && isset($areFriends)){
 
-				if(!$areFriends){ ?>
-					<button>Add Friend</button>
-				<? }else{
-					// Users are already friends, add a way to unfriend user
-				}
-			
+					// the user is logged in and checkFriendship ran
+					if(!$areFriends){ ?>
+
+						<!-- users are not friends and can add each other -->
+						<button>Add Friend</button>
+
+					<? }else{
+						// Users are already friends, add a way to unfriend user
+					}
+			   }else{
+
+			   		// there is no user currently logged in, no buttons are available
 			} ?>
 
 		</section>
-	</div>	
-</div> 
+
+	</div>	<!-- end of sizer -->
+</div> <!-- end of info -->
+
 <div id="activity">
 	<div class="dbbg"><div class="sizer"><h1>Activity</h1></div></div>
 	<div class="sizer">
