@@ -47,10 +47,10 @@ class Decks extends CI_Controller {
 
 
 	// viewDecks
-	public function viewDecks($userID){
+	public function userDecks($userID){
 		$data['decks'] = $this->decksModel->getUsersDecks($userID);
 
-		$data['view'] = 'viewDecks';
+		$data['view'] = 'userDecks';
 
 		$this->load->view('includes/loggedInTemplate', $data); 
 	}

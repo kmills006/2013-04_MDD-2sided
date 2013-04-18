@@ -18,7 +18,7 @@
 			<article>
 				<img src="" alt="" width="140" height="140">
 				
-				<button><? echo anchor("decks/viewDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></button>
+				<button><? echo anchor("decks/userDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></button>
 				
 				<ul class="profileLinks">
 					<li><a href="Friends">Friends</a></li>
@@ -60,7 +60,7 @@
 					if($this->session->userdata('isLoggedIn') == 1 && $userInfo['user_id'] && $friendRequests == true){ ?>
 						
 						<!-- user has friend requests to check -->	
-						<button>Notifications <span>(<? echo count($friendRequests); ?>)</span></button>
+						<button><? echo anchor("notifications/checkNewNotifications", 'Notifications ('.count($friendRequests).')' , "Check your notifications") ?></button>
 				
 					<? }else{
 						echo $friendRequests;
