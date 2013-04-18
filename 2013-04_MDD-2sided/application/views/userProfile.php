@@ -55,17 +55,20 @@
 
 			<? 
 				if(isset($friendRequests)){
-					echo "Friend Requests";
+					
 
-					if($this->session->userdata('isLoggedIn') == 1 && $userInfo['user_id'] && $friendRequests == true){
-						 var_dump($friendRequests);
-					}else{
+					if($this->session->userdata('isLoggedIn') == 1 && $userInfo['user_id'] && $friendRequests == true){ ?>
+						
+						<!-- user has friend requests to check -->	
+						<button>Notifications <span>(<? echo count($friendRequests); ?>)</span></button>
+				
+					<? }else{
 						echo $friendRequests;
 					}
 
 				}if(isset($areFriends)){
 					var_dump($areFriends);
-					
+
 					$loggedInUser = $this->session->userdata('userID');
 
 					if(!$areFriends){ ?>

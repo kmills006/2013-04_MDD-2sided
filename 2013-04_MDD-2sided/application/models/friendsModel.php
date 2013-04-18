@@ -9,11 +9,12 @@ class FriendsModel extends CI_Model {
     // checkFriendRequests
     // checking if the logged in user has any new friend request
     public function checkFriendRequests($userID){
-    	$this->db->select("uf.friend_id, uf.active");
-    	$this->db->from('users as u');
-    	$this->db->join('user_friends as uf', 'u.user_id = uf.user_id');
-    	$this->db->where("u.user_id = '$userID'");
+    	$this->db->select("uf.user_id as requester, active");
+    	$this->db->from('user_friends as uf');
+    	$this->db->join('users as u', 'uf.friend_id = u.user_id');
+    	$this->db->where("uf.friend_id = '$userID'");
     	$this->db->where('uf.active = 0');
+
 
     	$query = $this->db->get();
 
@@ -30,6 +31,7 @@ class FriendsModel extends CI_Model {
 
 
     // checkFriendship
+    // checking if users are already friends
     public function checkFriendship($friendID){
         $userID = $this->session->userdata('userID');
 
