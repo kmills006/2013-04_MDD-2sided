@@ -528,7 +528,6 @@ nav input {
   background-color: #366774;
   border: solid 1px #0f3d48;
   float: right;
-  line-height: 80px;
   text-align: center;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
@@ -536,18 +535,16 @@ nav input {
 
 #quickInfo li {
   width: 98px;
-  height: 100%;
+  height: 78px;
   float: left;
   border-right: solid 1px #0f3d48; }
 
 #quickInfo h1 {
-  height: 30%;
-  margin-top: -10px;
+  margin-top: 15px;
   text-shadow: 0px 2px 1px #1f3a42;
   filter: dropshadow(color=black, offx=0, offy=1); }
 
 #quickInfo h2 {
-  height: 50%;
   font-size: .7em;
   font-weight: 900;
   letter-spacing: 1px;
