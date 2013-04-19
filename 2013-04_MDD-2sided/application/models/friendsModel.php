@@ -62,31 +62,63 @@ class FriendsModel extends CI_Model {
     	$this->load->helper('objectToArray.php');
     	$requesters = objectToArray($requesters);
 
-    	foreach($requesters as $requester => $r){
-    		var_dump($r['requester']);
+    	if(!$requesters){
 
-			$this->db->select('u.username, u.user_id');
-			$this->db->from('users as u');
-			$this->db->join('user_friends as uf', 'u.user_id = uf.user_id');
-			$this->db->where("uf.user_id =", $r['requester']);
-			$this->db->where("active =", 0);
-			$this->db->where("uf.friend_id =", $userID);
-			
-			$query = $this->db->get();
-			
-			if($query->num_rows > 0){
-				foreach($query->result() as $row){
-					$dataResults[] = $row;
+    	}else{
+
+	    	foreach($requesters as $requester => $r){
+
+				$this->db->select('u.username, u.user_id');
+				$this->db->from('users as u');
+				$this->db->join('user_friends as uf', 'u.user_id = uf.user_id');
+				$this->db->where("uf.user_id =", $r['requester']);
+				$this->db->where("active =", 0);
+				$this->db->where("uf.friend_id =", $userID);
+				
+				$query = $this->db->get();
+				
+				if($query->num_rows > 0){
+					foreach($query->result() as $row){
+						$dataResults[] = $row;
+					}
+
+				}else{
+					// No results found
+
+					return false;
 				}
+	    	}
 
-			}else{
-				// No results found
+	    	return $dataResults;
+	    }
+    }
 
-				return false;
-			}
-    	}
 
-    	return $dataResults;
+
+    // acceptRequest
+    public function acceptRequest($requesterID, $acceptingUserID){
+    	$accept = array('active' => 1);
+
+    	$this->db->where('user_id', $requesterID);
+    	$this->db->where('friend_id', $acceptingUserID);
+    	$this->db->update('user_friends', $accept);
+    }
+
+
+
+    // rejectingUserID
+    public function rejectRequest($requesterID, $rejectingUserID){
+    	echo "Requester ID: ".$requesterID;
+    	echo "</br>";
+    	echo "User ID: ".$rejectingUserID;
+
+    	$decline = array(
+    				'user_id' => $requesterID, 
+    				'friend_id' => $rejectingUserID
+    	);
+
+    	$this->db->delete('user_friends', $decline);
+
     }
 
 

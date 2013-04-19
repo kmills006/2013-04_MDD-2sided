@@ -7,6 +7,6 @@
 	$this->load->view($view);
 
 	// Footer
-	$this->load->view("includes/footer.php");
+	// $this->load->view("includes/footer.php");
 
 ?>	

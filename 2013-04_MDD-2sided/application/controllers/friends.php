@@ -17,4 +17,18 @@ class Friends extends CI_Controller {
 		$this->friendsModel->sendFriendRequest($userID, $friendID);
 	}
 
+	// acceptRequest
+	public function acceptRequest($requesterID, $userID){
+		echo "Friendship Accepted";
+
+		$this->friendsModel->acceptRequest($requesterID, $userID);
+	}
+
+	// rejectingUserID
+	public function rejectRequest($requesterID, $userID){
+		echo "Friendship Rejected";
+
+		$this->friendsModel->rejectRequest($requesterID, $userID);
+	}
+
 } // end of friends class
