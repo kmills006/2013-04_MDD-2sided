@@ -7,7 +7,7 @@
 #
 # Host: 127.0.0.1 (MySQL 5.5.25)
 # Database: 2sided
-# Generation Time: 2013-04-11 19:09:48 +0000
+# Generation Time: 2013-04-19 06:29:14 +0000
 # ************************************************************
 
 
@@ -151,7 +151,12 @@ VALUES
 	('50f94afe8cd87','50f94ca069af1','2013-01-18 12:47:45','2013-01-18 12:47:45','2sided is a social way to study using flashcards and friends.','Nice! You can also press the spacebar to flip cards. Press the left and right arrows to move to another card.'),
 	('50f94afe8cd87','50f94d23c689e','2013-01-18 08:25:19','2013-01-18 08:25:19','Create an account by clicking sign up. By signing up you can create your own decks and share them with the world!','You can also create private decks that will only be seen by you.'),
 	('50f94afe8cd87','50f94dabdcc75','2013-01-18 08:27:07','0000-00-00 00:00:00','Decks of cards can be voted on. This helps you find the best decks on 2sided.','The most popular decks will be shown in the browse section. '),
-	('50f94afe8cd87','50f94dc89a0e9','2013-01-18 08:27:36','0000-00-00 00:00:00','Browse for free!','Just click browse in the navigation above you.');
+	('50f94afe8cd87','50f94dc89a0e9','2013-01-18 08:27:36','0000-00-00 00:00:00','Browse for free!','Just click browse in the navigation above you.'),
+	('516748e98e33f','5167494e13160','2013-04-11 19:37:50','0000-00-00 00:00:00','My first question!','My first answer!'),
+	('516ddae48173f','516ddae8e662d','2013-04-16 19:12:40','0000-00-00 00:00:00','sdlkfjds','dkosfdklsfj'),
+	('516ddae48173f','516ddaec5ef60','2013-04-16 19:12:44','0000-00-00 00:00:00','kjdsfldsfd','lkdfsjflkj'),
+	('516ddae48173f','516ddaff53cdc','2013-04-16 19:13:03','0000-00-00 00:00:00','dsfdkjsf','kfjdslkfj'),
+	('516ddb0f51e51','516ddb1dc1785','2013-04-16 19:13:33','0000-00-00 00:00:00','fsdf','fdsf');
 
 /*!40000 ALTER TABLE `cards` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -175,6 +180,38 @@ CREATE TABLE `comments` (
   CONSTRAINT `comments_ibfk_2` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
+
+
+# Dump of table confirm_friend_request
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `confirm_friend_request`;
+
+CREATE TABLE `confirm_friend_request` (
+  `confirmation_id` varchar(255) NOT NULL DEFAULT '',
+  `user_id` varchar(13) DEFAULT NULL,
+  `friend_id` varchar(13) DEFAULT NULL,
+  `message` varchar(255) DEFAULT NULL,
+  `active` int(1) DEFAULT NULL,
+  PRIMARY KEY (`confirmation_id`),
+  KEY `user_id` (`user_id`),
+  KEY `friend_id` (`friend_id`),
+  CONSTRAINT `confirm_friend_request_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
+  CONSTRAINT `confirm_friend_request_ibfk_2` FOREIGN KEY (`friend_id`) REFERENCES `users` (`user_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `confirm_friend_request` WRITE;
+/*!40000 ALTER TABLE `confirm_friend_request` DISABLE KEYS */;
+
+INSERT INTO `confirm_friend_request` (`confirmation_id`, `user_id`, `friend_id`, `message`, `active`)
+VALUES
+	('5170577f690bc','516f129e5e212','50f8f68398566','kmills006 wants to be your friend!',NULL),
+	('51705a69d8fcf','516f129e5e212','50f8f68398566','kmills006 wants to be your friend!',NULL),
+	('51705a725cc7c','516f129e5e212','50f8f68398566','kmills006 wants to be your friend!',NULL),
+	('51705a855f50a','516f129e5e212','50f8f68398566','kmills006 wants to be your friend!',NULL);
+
+/*!40000 ALTER TABLE `confirm_friend_request` ENABLE KEYS */;
+UNLOCK TABLES;
 
 
 # Dump of table decks
@@ -220,7 +257,11 @@ VALUES
 	('50f93c05bb25e','50f8fcc240a5e','2013-01-18 07:11:49','0000-00-00 00:00:00',0,'Test Please Ignore'),
 	('50f93c2945779','50f8fcc240a5e','2013-01-18 07:12:25','0000-00-00 00:00:00',0,'test'),
 	('50f948b37e7b5','50f948601d3ee','2013-01-18 08:05:55','0000-00-00 00:00:00',0,'Super hero real names'),
-	('50f94afe8cd87','50f948601d3ee','2013-01-18 08:29:40','2013-01-18 08:29:40',1,'THE DECK TO RULE THEM ALL');
+	('50f94afe8cd87','50f948601d3ee','2013-01-18 08:29:40','2013-01-18 08:29:40',1,'THE DECK TO RULE THEM ALL'),
+	('516746aae2fd5','516746a3b5cbf','2013-04-11 19:26:34','0000-00-00 00:00:00',0,'Deck 1'),
+	('516748e98e33f','516745ccf33d3','2013-04-11 19:36:09','0000-00-00 00:00:00',0,'My First Deck'),
+	('516ddae48173f','5168c94dd332e','2013-04-16 19:12:36','0000-00-00 00:00:00',0,'My First Deck'),
+	('516ddb0f51e51','5168c94dd332e','2013-04-16 19:13:19','0000-00-00 00:00:00',0,'dskjf');
 
 /*!40000 ALTER TABLE `decks` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -302,7 +343,11 @@ VALUES
 	('50f916b9b15b8','50f94e6425696','50f948601d3ee',1,'2013-01-18'),
 	('50f8fd5b7e9d3','50f94e783dbe1','50f948601d3ee',1,'2013-01-18'),
 	('50f8f0bd47567','50f94e7c78f8f','50f948601d3ee',1,'2013-01-18'),
-	('50f948b37e7b5','50f95ac9e5074','50f8eff83a6a8',1,'2013-01-18');
+	('50f948b37e7b5','50f95ac9e5074','50f8eff83a6a8',1,'2013-01-18'),
+	('516746aae2fd5','516746aae41b3','516746a3b5cbf',1,'2013-04-12'),
+	('516748e98e33f','516748e9a0831','516745ccf33d3',1,'2013-04-12'),
+	('516ddae48173f','516ddae49dc3c','5168c94dd332e',1,'2013-04-17'),
+	('516ddb0f51e51','516ddb0f57766','5168c94dd332e',1,'2013-04-17');
 
 /*!40000 ALTER TABLE `ratings` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -379,7 +424,25 @@ VALUES
 	('50f948b37e7b5','50f948b389f36','trivia'),
 	('50f948b37e7b5','50f948b389f51','comicbook'),
 	('50f94afe8cd87','50f94afea1493','MAGIC'),
-	('50f94afe8cd87','50f94afea14dc','POWERS');
+	('50f94afe8cd87','50f94afea14dc','POWERS'),
+	('516746aae2fd5','516746aae3619','deck'),
+	('516746aae2fd5','516746aae3626','deck'),
+	('516748e98e33f','516748e98eb69','tag 1'),
+	('516748e98e33f','516748e98ebca','tag 2'),
+	('516ddae48173f','516ddae4872f4','hey'),
+	('516ddae48173f','516ddae487308','hey'),
+	('516ddae48173f','516ddae487312','hey'),
+	('516ddae48173f','516ddae48731b','hey'),
+	('516ddb0f51e51','516ddb0f5277d','dklsjfldskj'),
+	('516ddb0f51e51','516ddb0f52789','fkldskjf'),
+	('516ddb0f51e51','516ddb0f52791','dkflj'),
+	('516ddb0f51e51','516ddb0f52799','dksfj'),
+	('516ddb0f51e51','516ddb0f527a5','dkslfj'),
+	('516ddb0f51e51','516ddb0f527ad','kdsjf'),
+	('516ddb0f51e51','516ddb0f527b5','dkslfj'),
+	('516ddb0f51e51','516ddb0f527bd','dsklfj'),
+	('516ddb0f51e51','516ddb0f527c5','sdkflj'),
+	('516ddb0f51e51','516ddb0f527d0','kdsfj');
 
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -393,6 +456,7 @@ DROP TABLE IF EXISTS `user_friends`;
 CREATE TABLE `user_friends` (
   `user_id` varchar(13) NOT NULL DEFAULT '',
   `friend_id` varchar(13) NOT NULL DEFAULT '',
+  `active` int(1) DEFAULT NULL COMMENT '0 for pending; 1 for confirmed',
   PRIMARY KEY (`user_id`,`friend_id`),
   KEY `friend_id` (`friend_id`),
   CONSTRAINT `user_friends_ibfk_1` FOREIGN KEY (`user_id`) REFERENCES `users` (`user_id`),
@@ -402,11 +466,19 @@ CREATE TABLE `user_friends` (
 LOCK TABLES `user_friends` WRITE;
 /*!40000 ALTER TABLE `user_friends` DISABLE KEYS */;
 
-INSERT INTO `user_friends` (`user_id`, `friend_id`)
+INSERT INTO `user_friends` (`user_id`, `friend_id`, `active`)
 VALUES
-	('50f8eff83a6a8','50f8fcc240a5e'),
-	('50f8eff83a6a8','50f93316894ce'),
-	('50f916462f2c3','50f93316894ce');
+	('50f8eff83a6a8','50f8f68398566',0),
+	('50f8eff83a6a8','50f8fcc240a5e',1),
+	('50f8eff83a6a8','50f93316894ce',1),
+	('50f8eff83a6a8','50f948601d3ee',0),
+	('50f916462f2c3','50f93316894ce',1),
+	('50f948601d3ee','50f8eff83a6a8',1),
+	('516746a3b5cbf','50f8eff83a6a8',1),
+	('516746a3b5cbf','516f129e5e212',1),
+	('516f129e5e212','50f8eff83a6a8',1),
+	('516f129e5e212','50f8f68398566',0),
+	('516f129e5e212','50f948601d3ee',0);
 
 /*!40000 ALTER TABLE `user_friends` ENABLE KEYS */;
 UNLOCK TABLES;
@@ -424,20 +496,29 @@ CREATE TABLE `users` (
   `pword` varchar(32) DEFAULT NULL,
   `date_of_reg` date NOT NULL,
   `profile_img` varchar(32) DEFAULT NULL,
+  `facebook_id` int(30) DEFAULT NULL COMMENT 'Only stored if user has logged in via Facebook',
   PRIMARY KEY (`user_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
 
-INSERT INTO `users` (`user_id`, `email`, `username`, `pword`, `date_of_reg`, `profile_img`)
+INSERT INTO `users` (`user_id`, `email`, `username`, `pword`, `date_of_reg`, `profile_img`, `facebook_id`)
 VALUES
-	('50f8eff83a6a8','kolby@hotmail.com','Kolby','4b18abc8189e9e20b7ce629ecbb1ba52','2013-01-18','50f8eff83a6a8.jpg'),
-	('50f8f68398566','redbull@hotmail.com','RedBull','776ad0ef27acc0602c337dc2736f3a97','2013-01-18',NULL),
-	('50f8fcc240a5e','lebron@hotmail.com','LebronRocks6','021a304869b110c86d032f41fdcd05c7','2013-01-18','50f8fcc240a5e.jpg'),
-	('50f916462f2c3','binder@bind.com','Binder','5ae3422f7941e37eeb6d23cef243c8cd','2013-01-18','50f916462f2c3.jpg'),
-	('50f93316894ce','millerlite@gmail.com','millerlite','ae2b1fca515949e5d54fb22b8ed95575','2013-01-18',NULL),
-	('50f948601d3ee','batman@bat.com','Batman','ec0e2603172c73a8b644bb9456c1ff6e','2013-01-18','50f948601d3ee.jpg');
+	('50f8eff83a6a8','kolby@hotmail.com','Kolby','098f6bcd4621d373cade4e832627b4f6','2013-01-18','50f8eff83a6a8.jpg',NULL),
+	('50f8f68398566','redbull@hotmail.com','RedBull','098f6bcd4621d373cade4e832627b4f6','2013-01-18',NULL,NULL),
+	('50f8fcc240a5e','lebron@hotmail.com','LebronRocks6','098f6bcd4621d373cade4e832627b4f6','2013-01-18','50f8fcc240a5e.jpg',NULL),
+	('50f916462f2c3','binder@bind.com','Binder','098f6bcd4621d373cade4e832627b4f6','2013-01-18','50f916462f2c3.jpg',NULL),
+	('50f93316894ce','miller.kristy0336@gmail.com','millerlite','098f6bcd4621d373cade4e832627b4f6','2013-01-18',NULL,NULL),
+	('50f948601d3ee','batman@bat.com','Batman','098f6bcd4621d373cade4e832627b4f6','2013-01-18','50f948601d3ee.jpg',NULL),
+	('516745ccf33d3','33333@gmail.com','dkf',NULL,'2013-04-12','516745ccf33d3.jpg',2147483647),
+	('516746a3b5cbf','test@test.com','test123','098f6bcd4621d373cade4e832627b4f6','2013-04-12',NULL,NULL),
+	('5168c94dd332e','miller.kristy06@gmail.com3','ff',NULL,'2013-04-13',NULL,2147483647),
+	('516f129e5e212','miller.kristy06@gmail.com','kmills006',NULL,'2013-04-17',NULL,2147483647),
+	('516f269fd5f8a','banana','kmills01','098f6bcd4621d373cade4e832627b4f6','2013-04-18',NULL,NULL),
+	('516f607e39d62','12345@gmail.com','12345','098f6bcd4621d373cade4e832627b4f6','2013-04-18',NULL,NULL),
+	('517071a13ce4b','catie@gmail.com','catiem16','cc03e747a6afbbcbf8be7668acfebee5','2013-04-19',NULL,NULL),
+	('517077bb7f213','amber@gmail.com','amber','870af23e17a8967480a9753436007ad6','2013-04-19',NULL,NULL);
 
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;

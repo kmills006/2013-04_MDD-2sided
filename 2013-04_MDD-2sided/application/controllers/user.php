@@ -20,10 +20,21 @@ class User extends CI_Controller {
 		$parts = explode('/',  uri_string());
 		$uri = end($parts);
 
+		$isLoggedIn = $this->session->userdata('isLoggedIn');
+
 		// Setting the correct view
 		$data['view'] = 'userProfile';
 
+		if($this->session->userdata('userID')){
+			$userID = $this->session->userdata('userID');
+		}
 
+		// echo "userID: ";
+		// var_dump($userID);
+
+		// echo "</br>";
+		// echo "uri: ";
+		// var_dump($uri);
 		/* We will need to check if the user is logged in or not, if they are friends
 		with the person whose profile they are trying to look at or if they are viewing 
 		their own profile */
@@ -42,7 +53,7 @@ class User extends CI_Controller {
 
 
 		// Checking how to load users profile
-		if($this->session->userdata('isLoggedIn') == 0){
+		if($isLoggedIn == false){
 			/* There is no logged in user and they clicked on a username
 			to view their profile and decks */
 
@@ -51,7 +62,7 @@ class User extends CI_Controller {
 
 			$this->load->view('includes/landingTemplate', $data);
 
-		}if($this->session->userdata('isLoggedIn') == 1 && $uri == 'profilePage'){
+		}if($isLoggedIn == 1 && $uri == 'profilePage'){
 			/* User is logged in and coming straight from login screen, 
 			they either logged in via Facebook or through 2sided */
 
@@ -65,7 +76,12 @@ class User extends CI_Controller {
 
 			$this->load->view('includes/loggedInTemplate', $data);
 
-		}if($this->session->userdata('isLoggedIn') == 1 && $uri != 'profilePage'){
+		}elseif($isLoggedIn == 1 && $uri == $userID){
+
+			redirect('user/profilePage');
+			// $this->profilePage();
+
+		}elseif($isLoggedIn == 1 && $uri != $userID){
 			/* User is logged in but viewing another users profile, still trying to
 			figure out the best way to accomplish this */
 

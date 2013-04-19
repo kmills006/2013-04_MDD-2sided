@@ -67,7 +67,9 @@
 					}
 
 				}if(isset($areFriends)){
-					var_dump($areFriends);
+					// var_dump($areFriends);
+
+					$areFriends = objectToArray($areFriends);
 
 					$loggedInUser = $this->session->userdata('userID');
 
@@ -76,7 +78,14 @@
 						<!-- users are not friends and can add each other -->
 						<button><? echo anchor("friends/addNewFriend/{$loggedInUser}/{$userInfo["user_id"]}", 'Add Friend' , "Add new friend") ?></button>
 					
-					<? }
+					<? }if($loggedInUser == $areFriends['user'] && $areFriends['active'] == 0){ ?>
+
+						<!-- logged in user has already sent a friend request and is waiting to be accepted -->
+						<button>Pending Request</button>	
+					
+					<? } else{ 
+						echo "userProfile/areFriends/else";
+					}
 				}
 			?>
 

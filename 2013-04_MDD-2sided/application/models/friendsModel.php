@@ -45,7 +45,7 @@ class FriendsModel extends CI_Model {
        if($query->num_rows == 1){
             $row = $query->row();
 
-            return true;
+            return $row;
        }else{
             return false;
        }
@@ -106,7 +106,7 @@ class FriendsModel extends CI_Model {
 
 
 
-    // rejectingUserID
+    // rejectRequest
     public function rejectRequest($requesterID, $rejectingUserID){
     	echo "Requester ID: ".$requesterID;
     	echo "</br>";
@@ -139,7 +139,13 @@ class FriendsModel extends CI_Model {
 		'active' => 0
 		);
 		
-		$this->db->insert('user_friends', $newFriendRequest);
+		$query = $this->db->insert('user_friends', $newFriendRequest);
+
+        if(!$query){
+            return false;
+        }else{
+            return true;
+        }
     }
 
 
