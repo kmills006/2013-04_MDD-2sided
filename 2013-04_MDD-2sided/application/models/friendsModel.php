@@ -90,4 +90,25 @@ class FriendsModel extends CI_Model {
     }
 
 
+
+
+    // sendFriendRequest
+    public function sendFriendRequest($userID, $friendID){
+		$this->db->select('username');
+		$this->db->where("user_id = '$userID'");
+		$getUsername = $this->db->get('users');
+		
+		$requester = $getUsername->row()->username;
+		
+		// userID represents the user who 
+		$newFriendRequest = array(
+		'user_id' => $userID,
+		'friend_id' => $friendID,
+		'active' => 0
+		);
+		
+		$this->db->insert('user_friends', $newFriendRequest);
+    }
+
+
 }

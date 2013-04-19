@@ -17,11 +17,9 @@ class Notifications extends CI_Controller {
 	// checkNew
 	public function checkNewNotifications(){
 
-		$t = $this->friendsModel->checkFriendRequests($this->session->userdata('userID'));
+		$getRequests = $this->friendsModel->checkFriendRequests($this->session->userdata('userID'));
 
-		$test = $this->friendsModel->getFriendRequests($t);
-
-		var_dump($test);
+		$data['friendRequests'] = $this->friendsModel->getFriendRequests($getRequests);
 
 		$data['view'] = 'notificationsView';
 

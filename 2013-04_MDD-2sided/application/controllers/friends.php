@@ -5,7 +5,7 @@ class Friends extends CI_Controller {
 	function __construct(){
 		parent:: __construct();
 
-		$this->load->model('userModel');
+		$this->load->model('friendsModel');
 	}
 
 	public function index(){
@@ -14,22 +14,7 @@ class Friends extends CI_Controller {
 
 	// addNewFriend
 	public function addNewFriend($userID, $friendID){
-
-		$this->db->select('username');
-		$this->db->where("user_id = '$userID'");
-		$getUsername = $this->db->get('users');
-
-		$requester = $getUsername->row()->username;
-
-		// userID represents the user who 
-		$newFriendRequest = array(
-						'user_id' => $userID,
-						'friend_id' => $friendID,
-						'active' => 0
-		);
-
-		$this->db->insert('user_friends', $newFriendRequest);
-
+		$this->friendsModel->sendFriendRequest($userID, $friendID);
 	}
 
 } // end of friends class
