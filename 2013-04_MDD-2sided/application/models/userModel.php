@@ -37,8 +37,9 @@ class UserModel extends CI_Model {
     	$subFriends = $this->subquery->start_subquery("select");
     	$subFriends->select('COUNT(uf.friend_id) as friend_count')->from('users as u');
     	$subFriends->join('user_friends as uf', 'u.user_id = uf.user_id');
-		$subFriends->where("u.user_id = '$userID'");
+		$subFriends->where("u.user_id = ", $userID);
         $subFriends->where('uf.active = 1');
+        $subFriends->or_where('uf.friend_id', $userID);
     	$this->subquery->end_subquery('friendsCount');
 
     	$subRatings = $this->subquery->start_subquery("select");

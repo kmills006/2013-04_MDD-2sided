@@ -13,21 +13,20 @@ class Friends extends CI_Controller {
 	}
 
 	// addNewFriend
+	// triggered whenever a user tries to add a new friend
 	public function addNewFriend($userID, $friendID){
 		$this->friendsModel->sendFriendRequest($userID, $friendID);
 	}
 
 	// acceptRequest
+	// triggered when a user accepts a new friend request
 	public function acceptRequest($requesterID, $userID){
-		echo "Friendship Accepted";
-
 		$this->friendsModel->acceptRequest($requesterID, $userID);
 	}
 
 	// rejectingUserID
+	// triggered when a user rejects a friend request
 	public function rejectRequest($requesterID, $userID){
-		echo "Friendship Rejected";
-
 		$this->friendsModel->rejectRequest($requesterID, $userID);
 	}
 
