@@ -518,6 +518,8 @@ nav input {
   margin-right: 10px; }
 
 #picture img {
+  width: 140px;
+  height: 140px;
   background-color: black;
   border: solid 5px #0f3d48;
   margin-bottom: 15px; }
