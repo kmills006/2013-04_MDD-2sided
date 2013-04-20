@@ -39,6 +39,8 @@ class DecksModel extends CI_Model {
 	} // end of getAllDecks  
 
 
+	// testing stuff
+
 	// getUsersDecks
 	// returns all of a specfic users decks
 	public function getUsersDecks($userID){
