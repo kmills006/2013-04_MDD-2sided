@@ -39,9 +39,10 @@
 					<li class="decks active"><? echo anchor('decks', 'Decks', 'Browse all decks') ?></li>
 					<li class="users"><? echo anchor('user/viewAll', 'Users', 'Search by users') ?></li>
 					<li class="tags"><? echo anchor('decks/tags', 'Tags', 'Search by tags') ?></li>
+					<li class="about"><? echo anchor('decks/about', 'About', 'About 2sided') ?></li>
 				</ul>
 
-				<input type="text" placeholder="search" id="searchIni"/>
+				<input type="text" id="searchIni"/>
 
 				<ul id="searchResults"></ul>
 
