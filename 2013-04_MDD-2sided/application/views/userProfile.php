@@ -10,15 +10,16 @@
 		$userInfo = $profileInfo[0];
 	}
 
+	$button = array('class' => 'button');
 ?>
 
 <div id="info">
 	<div class="sizer">
 		<section id="picture">
 			<article>
-				<img src="" alt="" width="140" height="140">
+				<img src="" alt="" width="140" height="140" />
 				
-				<button><? echo anchor("decks/userDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></button>
+				<div class="button"><? echo anchor("decks/userDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></div>
 				
 				<ul class="profileLinks">
 					<li><a href="Friends">Friends</a></li>
@@ -29,7 +30,6 @@
 		</section>
 		
 		<section id="profileInfo">
-
 			<article>
 				<h1><? echo $userInfo['username'] ?></h1>
 				<!-- <h2>Orlando, FL</h2> -->
@@ -37,7 +37,6 @@
 				<h2>12 Profile Views</h2>
 				<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
 			</article>
-
 		</section>
 
 		<section id="quickInfo">
@@ -52,7 +51,6 @@
 
 		<section id="bgroup">
 
-
 			<? 
 				if(isset($friendRequests)){
 					
@@ -60,7 +58,7 @@
 					if($this->session->userdata('isLoggedIn') == 1 && $userInfo['user_id'] && $friendRequests == true){ ?>
 						
 						<!-- user has friend requests to check -->	
-						<button><? echo anchor("notifications/checkNewNotifications", 'Notifications ('.count($friendRequests).')' , "Check your notifications") ?></button>
+						<div class="button"><? echo anchor("notifications/checkNewNotifications", 'Notifications ('.count($friendRequests).')' , "Check your notifications") ?></div>
 				
 					<? }else{
 						echo $friendRequests;
@@ -76,7 +74,7 @@
 					if(!$areFriends){ ?>
 
 						<!-- users are not friends and can add each other -->
-						<button><? echo anchor("friends/addNewFriend/{$loggedInUser}/{$userInfo["user_id"]}", 'Add Friend' , "Add new friend") ?></button>
+						<div class="button"><? echo anchor("friends/addNewFriend/{$loggedInUser}/{$userInfo["user_id"]}", 'Add Friend' , "Add new friend") ?></div>
 					
 					<? }if($loggedInUser == $areFriends['user'] && $areFriends['active'] == 0){ ?>
 

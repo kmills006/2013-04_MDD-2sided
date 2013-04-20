@@ -33,8 +33,7 @@ html {
   width: 100%;
   letter-spacing: 1px;
   height: 100%;
-  background-image: url("../imgs/bg-blue.jpg");
-  -webkit-font-smoothing: antialiased; }
+  background-image: url("../imgs/bg-blue.jpg"); }
 
 body {
   min-height: 100%;
@@ -45,32 +44,29 @@ h1 {
   color: #ecece7;
   font-size: 1.7em;
   font-weight: bold;
-  letter-spacing: 1px; }
+  letter-spacing: 1px;
+  font-weight: 400; }
 
 h2 {
   font-family: "Helvetica Neue";
   color: #ecece7;
   font-size: .9em;
-  font-weight: 400;
-  letter-spacing: 1px;
-  -webkit-font-smoothing: antialiased; }
+  font-weight: 200;
+  letter-spacing: 1px; }
 
 h3 {
   font-family: "Helvetica Neue";
   color: #e96151;
   font-size: 1.2em;
-  font-weight: 900;
-  letter-spacing: 1px;
-  -webkit-font-smoothing: antialiased; }
+  font-weight: 400;
+  letter-spacing: 1px; }
 
 a {
-  display: inherit;
+  display: block;
   font-family: "Helvetica Neue";
   font-size: 1em;
   color: inherit;
-  text-decoration: none;
-  width: 100%;
-  height: 100%; }
+  text-decoration: none; }
 
 input {
   font-family: "Helvetica Neue"; }
@@ -93,18 +89,17 @@ strong {
   border-right: none !important; }
 
 button {
-  color: #ecece7;
-  border: none;
-  font-size: .9em;
-  cursor: pointer;
+  font-family: "Helvetica Neue";
   color: #ecece7;
   display: inline;
-  padding: 7px;
+  padding: 10px 7px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   text-align: center;
+  cursor: pointer;
+  border: none;
   text-shadow: 0px 1px 0px #a04338;
   filter: dropshadow(color=black, offx=0, offy=1);
   -webkit-border-radius: 5px;
@@ -116,6 +111,31 @@ button {
   -webkit-box-shadow: 0px 1px 0px 0px #14262b;
   box-shadow: 0px 1px 0px 0px #14262b; }
   button:hover {
+    background: #ff6a59; }
+
+.button a {
+  font-family: "Helvetica Neue";
+  color: #ecece7;
+  display: inline;
+  padding: 10px 7px;
+  background: #e96151;
+  font-size: .9em;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  text-shadow: 0px 1px 0px #a04338;
+  filter: dropshadow(color=black, offx=0, offy=1);
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
+  border-radius: 5px;
+  border-top: solid 1px #f5bab3;
+  border-right: solid 1px #ed7f72;
+  border-left: solid 1px #ed7f72;
+  -webkit-box-shadow: 0px 1px 0px 0px #14262b;
+  box-shadow: 0px 1px 0px 0px #14262b; }
+  .button a:hover {
     background: #ff6a59; }
 
 /* ----------------- */
@@ -180,14 +200,17 @@ nav input {
   border-left: solid 1px #c0c0bc; }
 
 #navigation .active > a {
+  font-family: "Helvetica Neue";
   color: #ecece7;
   display: inline;
-  padding: 7px;
+  padding: 10px 7px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   text-align: center;
+  cursor: pointer;
+  border: none;
   text-shadow: 0px 1px 0px #a04338;
   filter: dropshadow(color=black, offx=0, offy=1);
   -webkit-border-radius: 5px;
@@ -197,7 +220,8 @@ nav input {
   border-right: solid 1px #ed7f72;
   border-left: solid 1px #ed7f72;
   -webkit-box-shadow: 0px 1px 0px 0px #14262b;
-  box-shadow: 0px 1px 0px 0px #14262b; }
+  box-shadow: 0px 1px 0px 0px #14262b;
+  padding: 7px; }
   #navigation .active > a:hover {
     background: #ff6a59; }
 
@@ -301,14 +325,17 @@ nav input {
   margin-right: 5px;
   font-size: .9em;
   cursor: pointer;
+  font-family: "Helvetica Neue";
   color: #ecece7;
   display: inline;
-  padding: 7px;
+  padding: 10px 7px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
   -webkit-font-smoothing: antialiased;
   text-align: center;
+  cursor: pointer;
+  border: none;
   text-shadow: 0px 1px 0px #a04338;
   filter: dropshadow(color=black, offx=0, offy=1);
   -webkit-border-radius: 5px;
@@ -489,13 +516,14 @@ nav input {
 #picture img {
   background-color: black;
   border: solid 5px #0f3d48;
-  margin-bottom: 10px; }
+  margin-bottom: 15px; }
 
-#picture button {
+#picture .button a {
   width: 100%;
   height: 45px;
   font-size: 18px;
-  text-align: center; }
+  text-align: center;
+  padding: 10px 21px; }
 
 #profileInfo {
   float: left;
@@ -511,8 +539,8 @@ nav input {
 .profileLinks {
   font-size: .8em;
   color: #e96151;
-  margin-top: 10px;
-  font-weight: 500;
+  margin-top: 15px;
+  font-weight: 200;
   letter-spacing: .9px; }
 
 .profileLinks li {
@@ -557,12 +585,12 @@ nav input {
   float: right;
   margin-top: 20px; }
 
-#bgroup button:first-child {
+#bgroup .button:first-child {
   width: 110px;
   height: 40px;
   margin-right: 5px; }
 
-#bgroup button:last-child {
+#bgroup .button:last-child {
   width: 150px;
   height: 40px; }
 
@@ -616,3 +644,6 @@ nav input {
 #activity .date {
   font-size: .8em;
   margin-top: 3px; }
+
+#decks {
+  margin-top: 10px; }

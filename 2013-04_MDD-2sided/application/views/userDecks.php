@@ -20,11 +20,6 @@
 		<section id="picture">
 			<article>
 				<img src="" alt="" width="140" height="140">	
-				<ul class="profileLinks">
-					<li><a href="Friends">Friends</a></li>
-					<li><a href="Badges">Badges</a></li>
-					<li class="last"><a href="Tags">Tags</a></li>
-				</ul>
 			</article>
 		</section>
 		
@@ -39,10 +34,11 @@
 		</section>
 
 		<section id="bgroup">
-			<button>Add Deck</button>
+			<div class="button">Add Deck</div>
 		</sction>
 	</div>
 </div>
+<div id="decks">
 	<div class="sizer">
 		<section id="decks"> 
 			<!-- looping through all the decks and presenting them /Should be in order of date created/ -->
@@ -55,4 +51,5 @@
 			<? } ?>
 		</section> <!-- end of decks -->	
 	</div>
+</div>
 
