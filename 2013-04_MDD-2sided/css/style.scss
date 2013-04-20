@@ -22,11 +22,11 @@ $dark-blue: #0f3d48;
     text-shadow: 0px $drop $blur $color;
     filter: dropshadow(color=#000, offx=0, offy=1);
 }
-@mixin button($lrpadding : 7px) {
+@mixin button() {
     font-family: "Helvetica Neue";
     color: $egg-white;
     display: inline;
-    padding: 10px $lrpadding;
+    padding: 10px;
     background: $main-orange;
     font-size: .9em;
     white-space: nowrap;
@@ -34,7 +34,7 @@ $dark-blue: #0f3d48;
     text-align: center;
     cursor:pointer;
     border: none;
-    @include textshadow(1px, 0px, #a04338);
+    //@include textshadow(1px, 0px, #a04338);
     @include corners;
     @include borders(#f5bab3, #ed7f72, #ed7f72);
     @include shadow(1px, 0px, 0px, #14262b);
@@ -475,6 +475,7 @@ nav input {
     margin-top: 4px;
 }
 .profileLinks{
+    width: 200px;
     font-size: .8em;
     color: $main-orange;
     margin-top: 15px;
@@ -482,6 +483,8 @@ nav input {
     letter-spacing: .9px;
 }
 .profileLinks li{
+    width: 47px;
+    margin: 0 auto;
     float: left;
     margin-left: 2px;
     padding: 0 3px;
@@ -518,12 +521,11 @@ nav input {
     float: right; 
     margin-top: 20px;
 }
-#bgroup .button:first-child{
+#bgroup .button a:first-child{
     width: 110px;
     height: 40px;
-    margin-right: 5px;
 }
-#bgroup .button:last-child{
+#bgroup .button a:last-child{
     width: 150px;
     height: 40px;
 }
@@ -573,7 +575,4 @@ nav input {
 #activity .date{
     font-size: .8em;  
     margin-top: 3px; 
-}
-#decks{
-    margin-top: 10px;
 }

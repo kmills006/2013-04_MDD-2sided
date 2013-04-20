@@ -1,5 +1,4 @@
 <?
-	
 	$this->load->helper('objectToArray.php');
 	$this->load->helper('isMulti.php');
 	
@@ -12,7 +11,6 @@
 		// print_r($decks);
 		// echo "</pre>";
 	}
-
 ?>
 
 <div id="info">
@@ -34,22 +32,20 @@
 		</section>
 
 		<section id="bgroup">
-			<div class="button">Add Deck</div>
+			<div class="button"><? echo anchor("", 'Add New Deck', 'Add New Deck');?></div>
 		</sction>
-	</div>
-</div>
-<div id="decks">
-	<div class="sizer">
-		<section id="decks"> 
-			<!-- looping through all the decks and presenting them /Should be in order of date created/ -->
-			<? foreach($decks as $deck){ ?>
-				<article class="deck">
-					<? if($deck['privacy']) echo '<h1 class="votes"><? echo $deck["rating"] ?></h1>' ?>
-					<? if(!$deck['privacy']) echo '<div class="private"></div>' ?>
-					<h1 class="deckname"><? echo $deck['title'] ?></h1>
-				</article>
-			<? } ?>
-		</section> <!-- end of decks -->	
-	</div>
-</div>
+	</div> <!-- end of sizer -->
+</div> <!-- end of info -->
+<div class="sizer">
+	<section id="decks"> 
+		<!-- looping through all the decks and presenting them /Should be in order of date created/ -->
+		<? foreach($decks as $deck){ ?>
+			<article class="deck">
+				<? if($deck['privacy']) echo '<h1 class="votes"><? echo $deck["rating"] ?></h1>' ?>
+				<? if(!$deck['privacy']) echo '<div class="private"></div>' ?>
+				<h1 class="deckname"><? echo $deck['title'] ?></h1>
+			</article>
+		<? } ?>
+	</section> <!-- end of decks -->	
+</div> <!-- end of sizer -->
 

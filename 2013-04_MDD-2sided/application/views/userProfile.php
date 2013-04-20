@@ -82,7 +82,7 @@
 						<button>Pending Request</button>	
 					
 					<? } else{ 
-						echo "userProfile/areFriends/else";
+						//echo "userProfile/areFriends/else";
 					}
 				}
 			?>
