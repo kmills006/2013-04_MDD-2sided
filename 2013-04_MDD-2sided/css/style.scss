@@ -634,19 +634,20 @@ nav input {
 }
 #users img{
     float: left;
+    border: solid 2px $dark-blue;
 }
 #users h1{
-    margin-left: 60px;
+    margin-left: 80px;
     width: 80%;
     font-size: 1.2em;
     border-bottom: solid 1px $dark-blue;
 }
 #users h3{
     font-size: 1em;
-    margin-left: 60px;
+    margin-left: 80px;
 }
 #users .button{
     float: right;
-    margin-right: 30px;
+    margin-right: 10px;
     font-size: .8em;
 }

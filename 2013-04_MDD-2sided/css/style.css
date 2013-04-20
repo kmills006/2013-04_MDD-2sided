@@ -744,19 +744,20 @@ nav input {
   padding-left: 2%; }
 
 #users img {
-  float: left; }
+  float: left;
+  border: solid 2px #0f3d48; }
 
 #users h1 {
-  margin-left: 60px;
+  margin-left: 80px;
   width: 80%;
   font-size: 1.2em;
   border-bottom: solid 1px #0f3d48; }
 
 #users h3 {
   font-size: 1em;
-  margin-left: 60px; }
+  margin-left: 80px; }
 
 #users .button {
   float: right;
-  margin-right: 30px;
+  margin-right: 10px;
   font-size: .8em; }

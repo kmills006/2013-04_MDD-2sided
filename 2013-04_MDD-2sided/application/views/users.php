@@ -1,3 +1,11 @@
+<?
+	$this->load->helper('objectToArray.php');
+	$this->load->helper('isMulti.php');
+
+	// converting results from query from StdObject to array
+	$users = objectToArray($users);
+?>
+
 <div id="content">
 	<section id="filters">
 		<div class="sizer">
@@ -18,102 +26,14 @@
 	<section id="users">
 		<div class="sizer">
 			<ul>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username1</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username2</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
-				<li>
-					<img src="" alt="" width="50" height="50" />
-					<h1>Username</h1>
-					<h3>Checks</h3>
-					<div class="button"><a href="#">Visit Profile</a></div>
-				</li>
+				<? foreach($users as $user){ ?>
+					<li>
+						<img src="<? echo base_url(); ?>imgs/pic.jpg" alt="" width="70" height="70" />
+						<h1><? echo $user["username"] ?></h1>
+						<h3><? echo $user["userRatingCount"] ?>Checks</h3>
+						<div class="button"><? echo anchor("user/profilePage/{$user["user_id"]}", "Visit Profile", 'title="View all of users decks"'); ?></div>
+					</li>
+				<? } ?>
 			</ul>
 		</div>
 	</section>
