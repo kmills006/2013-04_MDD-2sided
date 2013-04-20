@@ -107,17 +107,17 @@ class User extends CI_Controller {
 	// Users page allowing users to view all other users in the community
 	// Can be views either logged in or not
 	public function viewAll(){
-		echo "viewAll";
-		echo "</br>";
+		// echo "viewAll";
+		// echo "</br>";
 
 		$data['view'] = 'users';
 
 		// Retrieving all users from database
 		$data['users'] = $this->userModel->getAll();
 
-		echo "<pre>";
-		print_r($data);
-		echo "</pre>";
+		//echo "<pre>";
+		//print_r($data);
+		//echo "</pre>";
 
 		// var_dump($data); 
 
@@ -126,20 +126,20 @@ class User extends CI_Controller {
 			case 0:
 				$this->load->view('includes/landingTemplate', $data);
 
-				echo "</br>";
-				echo "not logged in";
+				// echo "</br>";
+				// echo "not logged in";
 			break;
 
 			case 1:
 				$this->load->view('includes/loggedInTemplate', $data);
 
-				echo "</br>";
-				echo "logged in";
+				// echo "</br>";
+				// echo "logged in";
 			break;
 
 			default:
-				echo "</br>";
-				echo "default";
+				// echo "</br>";
+				// echo "default";
 			break;
 		};
 

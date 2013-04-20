@@ -40,6 +40,21 @@ $dark-blue: #0f3d48;
     @include shadow(1px, 0px, 0px, #14262b);
     &:hover { background:#ff6a59; }
 }
+@mixin input(){
+    color: $main-blue;
+    width: 270px;
+    height: 35px;
+    font-size: 1.2em;
+    background-color: #dcdcd7;
+    padding: 0;
+    border: none;
+    background-image:url("../imgs/icon-search.png");
+    background-repeat: no-repeat;
+    background-position: 235px 1px;
+    @include corners;
+    @include shadow(1px, 2px, #f7f7f4);
+    @include borders(#898986, #c0c0bc, #c0c0bc);
+}
 /* ----------------- */
 /* --- CSS RESET --- */
 /* ----------------- */
@@ -110,9 +125,6 @@ a {
     color: inherit;
     text-decoration: none;
 }
-input {
-    font-family: "Helvetica Neue";
-}
 strong {
     font-weight: bold;
 }
@@ -129,6 +141,11 @@ strong {
 }
 .last{
     border-right: none !important;
+    padding-right: 0 !important;
+    margin-right: 0 !important;
+}
+.selected{
+    color: $main-orange !important;
 }
 button{
     @include button;
@@ -173,24 +190,12 @@ header img {
     &:hover{ color: $main-orange; }
 }
 nav input {
-    color: $main-blue;
-    width: 270px;
-    height: 35px;
     float: left;
-    font-size: 1.2em;
-    background-color: #dcdcd7;
-    padding: 0;
-    border: none;
     margin-left: 30px;
     margin-top: 12px;
-    background-image:url("../imgs/icon-search.png");
-    background-repeat: no-repeat;
-    background-position: 235px 1px;
-    @include corners;
-    @include shadow(1px, 2px, #f7f7f4);
-    @include borders(#898986, #c0c0bc, #c0c0bc);
+    @include input;
 }
-#navigation .active>a {
+.active>a {
     @include button;
     padding: 7px;
 }
@@ -396,18 +401,10 @@ nav input {
     text-decoration: underline;
 }
 #forms input{
-    width: 200px;
+    @include input;
+    width: 206px;
     height: 30px;
-    font-family: "Helvetica Neue";
-    font-size: .9em;
-    color: $main-blue;
-    border: 0px;
-    -webkit-box-shadow: inset 0px 1px 2px 0px #707070;
-    box-shadow: inset 0px 1px 2px 0px #707070;
     margin-bottom: 10px;
-    padding-left: 5px;
-    margin-right: 10px;
-    @include corners;
 }
 .divider{
     background-image: url("../imgs/form-line.png");
@@ -415,10 +412,11 @@ nav input {
     width: 28px;
     height: 297px;
     float: left;
+    margin-left: 10px;
 }
 #registerForm{
     width: 220px;
-    margin-right: 52px;
+    margin-right: 42px;
     height: 100%;
     float: right;
     padding-top: 25px;
@@ -441,8 +439,10 @@ nav input {
 /* -Profile STYLES - */
 /* ----------------- */
 #info{
-    margin-top: 20px;
+    border-top: solid 1px #254750;
+    width: 100%;
     overflow: auto;
+    padding-top: 20px;
 }
 #info a{
     display: inline;
@@ -569,10 +569,83 @@ nav input {
     font-size: 1em;
     font-weight: 500;  
     letter-spacing: 1px;
-    -webkit-font-smoothing: antialiased;
     display: block;
 }
 #activity .date{
     font-size: .8em;  
     margin-top: 3px; 
+}
+/* ----------------- */
+/* - USERS  STYLES - */
+/* ----------------- */
+#filters{
+    background-color: $dark-blue;
+    height: 110px;
+    @include shadow(1px, 2px, 0px, #43717d);
+}
+.usearch{
+    width: 50%;
+    height: 110px;;
+    float: left;
+}
+.usearch h1{
+    font-size: .9em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.usearch input{
+    @include input;
+}
+.sortby{
+    width: 280px;
+    float: right;
+}
+.sortby h1{
+    font-size: .9em;
+    margin-top: 20px;
+    margin-bottom: 10px;
+}
+.sortby ul{
+    @include input;
+    background-image: none;
+    width: 280px;
+}
+.sortby li{
+    font-family: "Helvetica Neue";
+    float: left;
+    color: $main-blue;
+    font-weight: bold;
+    font-size: 14px;
+    line-height: 35px;
+    padding-left: 5px;
+    padding-right: 5px;
+    cursor: pointer;
+    border-right: solid 1px $main-blue;
+    &:hover{ color: $main-orange; }
+}
+#users{
+    margin-top: 20px;
+}
+#users li{
+    width: 50%;
+    height: 100px;
+    float: left;
+}
+#users img{
+    float: left;
+}
+#users h1{
+    margin-left: 60px;
+    width: 80%;
+    font-size: 1.2em;
+    border-bottom: solid 1px $dark-blue;
+}
+#users h3{
+    font-size: 1em;
+    margin-left: 60px;
+}
+#users .button{
+    float: right;
+    margin-right: 30px;
+    font-size: .8em;
 }
