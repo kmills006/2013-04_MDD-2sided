@@ -56,13 +56,24 @@ class AuthenticationModel extends CI_Model {
 
 		$exi = $this->checkIfUsernameExists('username', $un);
 
+        // Pull users current profile picture
+        // http://graph.facebook.com/sarfraz.anees/picture
+
+
+        $url = 'https://graph.facebook.com/'.$fbID.'/picture?type=large';
+        /* Extract the filename */
+        $profileImg = $fbID.'.png';
+        /* Save file wherever you want */
+        file_put_contents('imgs/profile_imgs/'.$profileImg, file_get_contents($url));
+
 		if(!$exi){
 			$data = array(
 				"user_id" => $userID,
 				"email" => $email,
 				"username" => $un,
 				"facebook_id" => $fbID,
-				"date_of_reg" => $dateOfReg
+				"date_of_reg" => $dateOfReg,
+                "profile_img" => $profileImg
 			);
 
 	    	$query = $this->db->insert("users", $data);

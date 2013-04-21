@@ -100,6 +100,11 @@ class UserModel extends CI_Model {
 
             } // end of foreach1
 
+
+            // echo "<pre>";
+            // print_r($dataResults);
+            // echo "</pre>";
+
             if(isset($dataResults)){
                 return $dataResults;
             }else{

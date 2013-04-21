@@ -11,13 +11,16 @@
 	}
 
 	$button = array('class' => 'button');
+
+	var_dump($profileInfo);
 ?>
 
 <div id="info">
 	<div class="sizer">
 		<section id="picture">
 			<article>
-				<img src="" alt="" width="140" height="140" />
+				
+				<? echo img('imgs/profile_imgs/'.$userInfo['profile_img']); ?>
 				
 				<div class="button"><? echo anchor("decks/userDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></div>
 				

@@ -29,12 +29,7 @@ class User extends CI_Controller {
 			$userID = $this->session->userdata('userID');
 		}
 
-		// echo "userID: ";
-		// var_dump($userID);
 
-		// echo "</br>";
-		// echo "uri: ";
-		// var_dump($uri);
 		/* We will need to check if the user is logged in or not, if they are friends
 		with the person whose profile they are trying to look at or if they are viewing 
 		their own profile */
@@ -101,25 +96,16 @@ class User extends CI_Controller {
 	}
 
 
-
-
 	// viewAll
 	// Users page allowing users to view all other users in the community
 	// Can be views either logged in or not
 	public function viewAll(){
-		// echo "viewAll";
-		// echo "</br>";
 
 		$data['view'] = 'users';
 
 		// Retrieving all users from database
 		$data['users'] = $this->userModel->getAll();
 
-		//echo "<pre>";
-		//print_r($data);
-		//echo "</pre>";
-
-		// var_dump($data); 
 
 		// Checking whether user is logged in or not to determine which header to use
 		switch($this->session->userdata('isLoggedIn')){
