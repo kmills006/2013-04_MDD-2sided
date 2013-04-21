@@ -45,10 +45,14 @@ class DecksModel extends CI_Model {
 	// returns all of a specfic users decks
 	public function getUsersDecks($userID){
 
-		$this->db->select('d.deck_id, d.title, d.privacy');
+		$this->db->select('d.deck_id, d.title, d.privacy, COUNT(r.rating) as ratingCount');
 		$this->db->from('users as u');
 		$this->db->join('decks as d', 'u.user_id = d.user_id');
+		$this->db->join('ratings as r', 'd.deck_id = r.deck_id');
 		$this->db->where("u.user_id = '$userID'");
+		$this->db->where('r.rating', 1);
+		$this->db->where('d.privacy', 0);
+		$this->db->group_by('d.deck_id');
 
 		$query = $this->db->get();
 
@@ -58,13 +62,17 @@ class DecksModel extends CI_Model {
 				$dataResults[] = $row;
 			}
 
+
+			echo "<pre>";
+            print_r($dataResults);
+            echo "</pre>";
+
 			return $dataResults;
 
 		}else{
-			
-			echo "User has no decks yet.";
 
 			return false;
+		
 		}
 
 	}  
