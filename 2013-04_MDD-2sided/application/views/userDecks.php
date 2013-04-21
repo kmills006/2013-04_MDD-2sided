@@ -11,6 +11,8 @@
 		// print_r($decks);
 		// echo "</pre>";
 	}
+
+	// var_dump($decks);
 ?>
 
 <div id="info">
@@ -23,7 +25,7 @@
 		
 		<section id="profileInfo">
 			<article>
-				<h1>USERNAME</h1>
+				<h1><? echo $decks[0]['username'] ?></h1>
 				<!-- <h2>Orlando, FL</h2> -->
 				<h2>Joined DATE</h2>
 				<h2>12 Profile Views</h2>

@@ -45,13 +45,32 @@ class DecksModel extends CI_Model {
 	// returns all of a specfic users decks
 	public function getUsersDecks($userID){
 
-		$this->db->select('d.deck_id, d.title, d.privacy, COUNT(r.rating) as ratingCount');
+		$this->db->select('d.deck_id, d.title, d.privacy, COUNT(r.rating) as ratingCount, u.username');
 		$this->db->from('users as u');
 		$this->db->join('decks as d', 'u.user_id = d.user_id');
 		$this->db->join('ratings as r', 'd.deck_id = r.deck_id');
 		$this->db->where("u.user_id = '$userID'");
 		$this->db->where('r.rating', 1);
-		$this->db->where('d.privacy', 0);
+
+		/* Checking to see whether the user is looking at their own decks
+		or looking at another users */
+		if($this->session->userdata('userID')){
+			if($this->session->userdata('userID') == $userID){
+				/* Since user is looking at their own deck, pull 
+				all their decks */
+			}else{
+				/* Only pull public decks */
+				$this->db->where('d.privacy', 0);
+			}
+		}else{
+			/* No user is logged in, show only public decks */
+			
+			/* Only pull public decks */
+			$this->db->where('d.privacy', 0);
+		}
+
+
+		// $this->db->where('d.privacy', $privacy);
 		$this->db->group_by('d.deck_id');
 
 		$query = $this->db->get();
@@ -63,9 +82,9 @@ class DecksModel extends CI_Model {
 			}
 
 
-			echo "<pre>";
-            print_r($dataResults);
-            echo "</pre>";
+			// echo "<pre>";
+   //          print_r($dataResults);
+   //          echo "</pre>";
 
 			return $dataResults;
 

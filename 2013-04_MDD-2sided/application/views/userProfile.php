@@ -11,8 +11,6 @@
 	}
 
 	$button = array('class' => 'button');
-
-	var_dump($profileInfo);
 ?>
 
 <div id="info">
