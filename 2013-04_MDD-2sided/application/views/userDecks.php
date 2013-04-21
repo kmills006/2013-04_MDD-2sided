@@ -4,15 +4,26 @@
 	
 	$decks = objectToArray($decks);
 	
-	if(!isMulti($decks)){
-		// No
-	}else{
-		// echo "<pre>";
-		// print_r($decks);
-		// echo "</pre>";
-	}
+	// if(!isMulti($decks)){
+	// 	// No
+	// }else{
 
-	// var_dump($decks);
+	// }
+
+	// var_dump(count($decks));
+
+	// echo "<pre>";
+	// print_r($decks);
+	// echo "</pre>";
+
+
+	if(isset($decks['username'])){
+		$username = $decks['username'];
+		$userID = $decks['user_id'];
+	}else{
+		$username = $decks[0]['username'];
+		$userID = $decks[0]['user_id'];
+	}
 ?>
 
 <div id="info">
@@ -25,7 +36,7 @@
 		
 		<section id="profileInfo">
 			<article>
-				<h1><? echo $decks[0]['username'] ?></h1>
+				<h1><? echo $username ?></h1>
 				<!-- <h2>Orlando, FL</h2> -->
 				<h2>Joined DATE</h2>
 				<h2>12 Profile Views</h2>
@@ -39,7 +50,7 @@
 				}else{
 
 					// Checking if user is viewing their own deck
-					if($this->session->userdata('userID') == $decks[0]['user_id']){ ?>
+					if($this->session->userdata('userID') == $userID){ ?>
 						<div class="button"><? echo anchor("", 'Add New Deck', 'Add New Deck');?></div>
 					<? }else{
 						// Viewing another users decks, you can not add new deck
@@ -51,15 +62,24 @@
 	</div> <!-- end of sizer -->
 </div> <!-- end of info -->
 <div class="sizer">
-	<section id="decks"> 
-		<!-- looping through all the decks and presenting them /Should be in order of date created/ -->
-		<? foreach($decks as $deck){ ?>
-			<article class="deck">
-				<? if(!$deck['privacy']) echo '<h1 class="votes">' . $deck["ratingCount"] . '</h1>' ?>
-				<? if($deck['privacy']) echo '<div class="private"></div>' ?>
-				<h1 class="deckname"><? echo $deck['title'] ?></h1>
-			</article>
-		<? } ?>
-	</section> <!-- end of decks -->	
+
+	<? if(count($decks) > 2){?>
+
+		<section id="decks"> 
+			<!-- looping through all the decks and presenting them /Should be in order of date created/ -->
+			<? foreach($decks as $deck){ ?>
+				<article class="deck">
+					<? if(!$deck['privacy']) echo '<h1 class="votes">' . $deck["ratingCount"] . '</h1>' ?>
+					<? if($deck['privacy']) echo '<div class="private"></div>' ?>
+					<h1 class="deckname"><? echo $deck['title'] ?></h1>
+				</article>
+			<? } ?>
+		</section> <!-- end of decks -->	
+
+	<? }else{ ?>
+
+		<h1>No Decks!</h1>
+	
+	<? } ?>
 </div> <!-- end of sizer -->
 

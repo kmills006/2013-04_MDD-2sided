@@ -91,9 +91,18 @@ class DecksModel extends CI_Model {
 		}else{
 
 			// User has no decks yet, only pull out user's information
-			// $this->db->select('u.user_id, u.username, ')
+			$this->db->select('user_id, username');
+			$this->db->where('user_id', $userID);
 
-			return false;
+			$query = $this->db->get('users');
+
+			if($query->num_rows() == 1){
+				$dataResults = $query->row();
+				
+				return $dataResults;
+			}else{
+				// No user found
+			}
 		
 		}
 
