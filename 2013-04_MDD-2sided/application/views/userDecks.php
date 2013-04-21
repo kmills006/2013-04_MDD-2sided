@@ -34,8 +34,20 @@
 		</section>
 
 		<section id="bgroup">
-			<div class="button"><? echo anchor("", 'Add New Deck', 'Add New Deck');?></div>
+			<?  if(!$isLoggedIn){
+					// No user is logged in
+				}else{
+
+					// Checking if user is viewing their own deck
+					if($this->session->userdata('userID') == $decks[0]['user_id']){ ?>
+						<div class="button"><? echo anchor("", 'Add New Deck', 'Add New Deck');?></div>
+					<? }else{
+						// Viewing another users decks, you can not add new deck
+					}
+
+				} ?>
 		</sction>
+
 	</div> <!-- end of sizer -->
 </div> <!-- end of info -->
 <div class="sizer">
