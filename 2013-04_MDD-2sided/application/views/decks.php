@@ -30,7 +30,7 @@
 				<article class="deck">
 					<h1 class="username"><? echo anchor("user/profilePage/{$deck["user_id"]}", $deck['username'], 'title="View all of users decks"'); ?></h1>
 					<h1 class="votes"><? echo $deck['rating'] ?></h1>
-					<h1 class="deckname"><? echo $deck['title'] ?></h1>
+					<h1 class="deckname"><? echo anchor("cards/viewCards/{$deck["deck_id"]}", $deck['title'], 'title="View Deck"'); ?></h1>
 				</article>
 			<? } ?>
 		</section> <!-- end of decks -->
