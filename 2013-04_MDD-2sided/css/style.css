@@ -989,3 +989,260 @@ div.options.open {
 .del:hover {
   background-image: url("../imgs/icon-del-hover.png");
   background-repeat: no-repeat; }
+
+/* ----------------- */
+/* - Cards  STYLES - */
+/* ----------------- */
+#deckInfo {
+  float: left;
+  max-width: 500px;
+  color: #ecece7;
+  font-family: "Helvetica Neue";
+  font-size: .8em;
+  margin-left: 10px;
+  margin-top: 20px;
+  font-weight: bold; }
+
+#deckInfo h2 {
+  color: #e96151; }
+
+#cards {
+  width: 940px;
+  height: 400px;
+  margin: 0 auto;
+  margin-top: 40px;
+  position: relative; }
+
+.aCard {
+  width: 449px;
+  height: 289px;
+  background-image: url("../imgs/card-front.png");
+  background-repeat: no-repeat;
+  margin-top: 40px;
+  float: left;
+  position: relative; }
+
+#cards .aCard h1 {
+  font-family: "Helvetica Neue";
+  color: #366774;
+  font-size: 1.5em;
+  font-weight: bold;
+  clear: both;
+  width: 90%;
+  height: 220px;
+  margin: 0 auto;
+  text-align: center;
+  margin-top: 110px;
+  line-height: 30px; }
+
+.activeCard {
+  z-index: 2;
+  position: absolute;
+  left: 249px;
+  top: 10px;
+  background-image: url("../imgs/card-front-active.png"); }
+
+.activeCardBack {
+  z-index: 2;
+  position: absolute;
+  left: 249px;
+  top: 10px;
+  background-image: url("../imgs/card-back-active.png"); }
+
+.leftCard {
+  float: left;
+  background-image: url("../imgs/card-front-blur.png"); }
+
+#cards .leftCard h1, #cards .rightCard h1 {
+  color: transparent;
+  text-shadow: #366774 0 0 3px; }
+
+.rightCard {
+  float: right;
+  background-image: url("../imgs/card-front-blur.png"); }
+
+.hideCard {
+  display: none; }
+
+#prog {
+  width: 940px;
+  height: 30px;
+  background-color: #0f3d48;
+  margin: 0 auto;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 1px 2px 0px #6b8e98;
+  box-shadow: 0px 1px 2px 0px #6b8e98;
+  border-top: solid 1px #13252a; }
+
+#p {
+  width: 0%;
+  height: 100%;
+  background-color: #e96151;
+  -webkit-border-radius: 5px 0px 0px 5px;
+  border-radius: 5px 0px 0px 5px; }
+
+#p.pFull {
+  height: 100%;
+  background-color: #e96151;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px; }
+
+#progNum {
+  clear: both;
+  text-align: center;
+  font-family: "Helvetica Neue";
+  color: #e96151;
+  font-size: 1em;
+  font-weight: bold;
+  margin-bottom: 10px; }
+
+#cardT {
+  width: 450px;
+  height: 55px;
+  margin: 0 auto;
+  position: relative; }
+
+#cardTools {
+  width: 210px;
+  height: 50px;
+  background-color: #0f3d48;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 1px 2px 0px #6b8e98;
+  box-shadow: 0px 1px 2px 0px #6b8e98;
+  border-top: solid 1px #13252a;
+  font-family: "Helvetica Neue";
+  color: #ecece7;
+  font-size: .8em;
+  float: left;
+  margin-left: 10px;
+  margin-bottom: 20px;
+  position: relative; }
+
+#toolButtons {
+  width: 200px;
+  height: 100%;
+  margin: 0 auto;
+  padding-top: 8px; }
+
+#leftArrow {
+  width: 32px;
+  height: 32px;
+  background-image: url("../imgs/icon-left.png");
+  margin-right: 3px;
+  position: absolute; }
+
+#toolButtons button {
+  float: left;
+  margin-left: 40px;
+  width: 120px;
+  height: 30px;
+  padding: 0px; }
+
+#rightArrow {
+  width: 32px;
+  height: 32px;
+  background-image: url("../imgs/icon-right.png");
+  position: absolute;
+  left: 172px; }
+
+#randomize {
+  float: left;
+  margin-top: 16px;
+  margin-left: 40px; }
+
+#cardTools label {
+  float: left;
+  margin-top: 15px; }
+
+#editButton {
+  padding: 5px;
+  margin-top: 10px;
+  margin-right: 5px;
+  float: left; }
+
+#deleteButton {
+  padding: 5px;
+  margin-top: 10px;
+  float: left; }
+
+#randomButton {
+  padding: 5px;
+  margin-top: 10px;
+  margin-left: 10px;
+  float: left; }
+
+.aCard textarea {
+  width: 300px;
+  height: 120px;
+  font-family: "Helvetica Neue";
+  font-size: 1.1em;
+  color: #366774;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 0px;
+  -webkit-box-shadow: inset 0px 1px 2px 0px #707070;
+  box-shadow: inset 0px 1px 2px 0px #707070;
+  margin-bottom: 10px;
+  padding-left: 5px;
+  margin-right: 10px;
+  margin-top: 70px;
+  margin-left: 70px;
+  resize: none; }
+
+.answer {
+  display: none; }
+
+#voting {
+  width: 134px;
+  height: 75px;
+  float: right; }
+
+#aPlus {
+  width: 67px;
+  height: 60px;
+  background-image: url("../imgs/icon-a.png");
+  float: left;
+  margin-top: 10px; }
+
+#aMinus {
+  width: 67px;
+  height: 60px;
+  background-image: url("../imgs/icon-a.png");
+  float: right;
+  margin-top: 10px; }
+
+#aMinus:hover, #aPlus:hover {
+  background-image: url("../imgs/icon-a-hover.png");
+  cursor: pointer; }
+
+#aPlus h1, #aMinus h1 {
+  color: #e96151;
+  font-weight: bold;
+  font-size: 1.5em;
+  margin-left: 18px;
+  margin-top: 15px; }
+
+#voting .selectedGrade {
+  background-image: url("../imgs/icon-a-active.png"); }
+
+#voting .selectedGrade h1 {
+  color: #ecece7; }
+
+.cardedit {
+  width: 90%;
+  height: 30px;
+  margin-left: 20px;
+  margin-top: 110px;
+  text-align: center;
+  font-family: "Helvetica Neue";
+  color: #366774;
+  font-size: 1.5em; }
+
+.editHint {
+  text-align: center;
+  font-family: "Helvetica Neue";
+  color: #366774;
+  font-size: .8em;
+  margin-top: 5px; }
