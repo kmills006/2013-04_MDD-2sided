@@ -103,9 +103,8 @@ button {
   cursor: pointer;
   border: none;
   margin: 0;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
   border-right: solid 1px #ed7f72;
   border-left: solid 1px #ed7f72;
@@ -127,9 +126,8 @@ button {
   cursor: pointer;
   border: none;
   margin: 0;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
   border-right: solid 1px #ed7f72;
   border-left: solid 1px #ed7f72;
@@ -190,9 +188,8 @@ nav input {
   background-image: url("../imgs/icon-search.png");
   background-repeat: no-repeat;
   background-position: 235px 1px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   -webkit-box-shadow: 0px 1px 2px #f7f7f4 black;
   box-shadow: 0px 1px 2px #f7f7f4 black;
   border-top: solid 1px #898986;
@@ -212,9 +209,8 @@ nav input {
   cursor: pointer;
   border: none;
   margin: 0;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
   border-right: solid 1px #ed7f72;
   border-left: solid 1px #ed7f72;
@@ -336,9 +332,8 @@ nav input {
   cursor: pointer;
   border: none;
   margin: 0;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
   border-right: solid 1px #ed7f72;
   border-left: solid 1px #ed7f72;
@@ -363,9 +358,8 @@ nav input {
   background-image: url("../imgs/card-small.png");
   float: left;
   margin-right: 6px;
-  margin-bottom: 6px; }
-  #decks .deck:hover {
-    background-image: url("../imgs/card-small-hover.png"); }
+  margin-bottom: 6px;
+  position: relative; }
 
 #decks .username {
   font-family: "Helvetica Neue";
@@ -401,6 +395,23 @@ nav input {
   line-height: 15px;
   word-wrap: break-word; }
 
+div.options {
+  text-indent: -9999px;
+  width: 220px;
+  height: 25px;
+  margin-left: 4px;
+  background-color: #e96151;
+  position: absolute;
+  bottom: 0px;
+  background-image: url("../imgs/icon-settings.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  cursor: pointer;
+  -webkit-border-radius: 0px 0px 5px 5px;
+  border-radius: 0px 0px 5px 5px; }
+  div.options:hover {
+    background-color: #ff6a59; }
+
 /* ----------------- */
 /* - Login  STYLES - */
 /* ----------------- */
@@ -417,9 +428,8 @@ nav input {
   background-color: #ecece7;
   margin: 0 auto;
   position: relative;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   -webkit-box-shadow: 0px 0px 3px 0px #1b343b;
   box-shadow: 0px 0px 3px 0px #1b343b; }
 
@@ -463,9 +473,8 @@ nav input {
   background-image: url("../imgs/icon-search.png");
   background-repeat: no-repeat;
   background-position: 235px 1px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   -webkit-box-shadow: 0px 1px 2px #f7f7f4 black;
   box-shadow: 0px 1px 2px #f7f7f4 black;
   border-top: solid 1px #898986;
@@ -583,9 +592,8 @@ nav input {
   border: solid 1px #0f3d48;
   float: right;
   text-align: center;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px; }
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px; }
 
 #quickInfo li {
   width: 98px;
@@ -698,9 +706,8 @@ nav input {
   background-image: url("../imgs/icon-search.png");
   background-repeat: no-repeat;
   background-position: 235px 1px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   -webkit-box-shadow: 0px 1px 2px #f7f7f4 black;
   box-shadow: 0px 1px 2px #f7f7f4 black;
   border-top: solid 1px #898986;
@@ -727,9 +734,8 @@ nav input {
   background-image: url("../imgs/icon-search.png");
   background-repeat: no-repeat;
   background-position: 235px 1px;
-  -webkit-border-radius: 5px;
-  -moz-border-radius: 5px;
-  border-radius: 5px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
   -webkit-box-shadow: 0px 1px 2px #f7f7f4 black;
   box-shadow: 0px 1px 2px #f7f7f4 black;
   border-top: solid 1px #898986;

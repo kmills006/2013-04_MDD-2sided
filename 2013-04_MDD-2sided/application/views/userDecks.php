@@ -84,6 +84,7 @@
 					<? if(!$deck['privacy']) echo '<h1 class="votes">' . $deck["ratingCount"] . '</h1>' ?>
 					<? if($deck['privacy']) echo '<div class="private"></div>' ?>
 					<h1 class="deckname"><? echo $deck['title'] ?></h1>
+					<? if($this->session->userdata('userID') == $userID) echo '<div class="options"><p>Deck Options</p></div>' ?>
 				</article>
 			<? } ?>
 		</section> <!-- end of decks -->	
