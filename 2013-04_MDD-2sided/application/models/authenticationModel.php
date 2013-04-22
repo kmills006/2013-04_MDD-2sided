@@ -60,8 +60,10 @@ class AuthenticationModel extends CI_Model {
 
 
         $url = 'https://graph.facebook.com/'.$fbID.'/picture?type=large';
+
         /* Extract the filename */
-        $profileImg = $fbID.'.png';
+        $profileImg = $userID.'.png';
+        
         /* Save file wherever you want */
         file_put_contents('imgs/profile_imgs/'.$profileImg, file_get_contents($url));
 

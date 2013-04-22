@@ -18,7 +18,11 @@
 		<section id="picture">
 			<article>
 				
-				<? echo img('imgs/profile_imgs/'.$userInfo['profile_img']); ?>
+				<? if($userInfo['profile_img']){
+					echo img('imgs/profile_imgs/'.$userInfo['profile_img']); 
+				}else{
+					echo img('imgs/profile_imgs/profile-img_placeholder.png'); 
+				} ?>
 				
 				<div class="button"><? echo anchor("decks/userDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></div>
 				
