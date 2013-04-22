@@ -102,6 +102,7 @@ button {
   text-align: center;
   cursor: pointer;
   border: none;
+  margin: 0;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -125,6 +126,7 @@ button {
   text-align: center;
   cursor: pointer;
   border: none;
+  margin: 0;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -209,6 +211,7 @@ nav input {
   text-align: center;
   cursor: pointer;
   border: none;
+  margin: 0;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -332,6 +335,7 @@ nav input {
   text-align: center;
   cursor: pointer;
   border: none;
+  margin: 0;
   -webkit-border-radius: 5px;
   -moz-border-radius: 5px;
   border-radius: 5px;
@@ -763,3 +767,169 @@ nav input {
   float: right;
   margin-right: 10px;
   font-size: .8em; }
+
+/* ----------------- */
+/* -ADD DECK STYLES- */
+/* ----------------- */
+#newDeck {
+  width: 660px;
+  height: 450px;
+  background-color: #ecece7;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  margin: 0 auto;
+  -webkit-box-shadow: 0px 0px 3px 0px #1b343b;
+  box-shadow: 0px 0px 3px 0px #1b343b;
+  padding: 20px;
+  margin-top: 20px; }
+
+.newDeckTitle {
+  text-align: center;
+  margin-top: 20px; }
+
+#deckForm {
+  width: 275px;
+  height: 100%;
+  float: left;
+  padding-left: 15px;
+  position: relative; }
+
+#deckForm .error {
+  width: 190px;
+  top: 192px;
+  left: 65px; }
+
+#deckForm .titleError {
+  color: #e96151;
+  font-size: .8em;
+  font-family: "Helvetica Neue";
+  position: absolute;
+  width: 300px;
+  top: 5px;
+  left: 115px; }
+
+#deckForm p {
+  font-family: "Helvetica Neue";
+  color: #366774;
+  font-size: 1.1em;
+  font-weight: bold; }
+
+#deckForm label {
+  font-family: "Helvetica Neue";
+  color: #366774;
+  font-size: .7em;
+  font-weight: bold; }
+
+#deckForm input:not([type="radio"]) {
+  width: 250px;
+  height: 30px;
+  font-family: "Helvetica Neue";
+  font-size: .9em;
+  color: #366774;
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  border: 0px;
+  -webkit-box-shadow: inset 0px 1px 2px 0px #707070;
+  box-shadow: inset 0px 1px 2px 0px #707070;
+  margin-bottom: 30px;
+  padding-left: 5px;
+  margin-right: 10px;
+  margin-top: 5px; }
+
+#public {
+  margin-top: 10px;
+  margin-bottom: 5px; }
+
+#private {
+  margin-bottom: 30px; }
+
+#tagArea {
+  margin-top: 5px;
+  width: 255px;
+  height: 110px;
+  background-color: white;
+  -webkit-box-shadow: 0px 0px 3px 0px #707070;
+  box-shadow: 0px 0px 3px 0px #707070;
+  overflow: auto; }
+
+#deckForm button {
+  font-size: 1.3em;
+  width: 255px; }
+
+#deckForm .cancel {
+  font-size: .7em;
+  text-decoration: underline;
+  margin-left: 100px;
+  margin-top: 5px; }
+
+#newDeck section {
+  width: 330px;
+  height: 100%;
+  float: right;
+  padding-left: 40px;
+  background-image: url("../imgs/form-line2.png");
+  background-repeat: no-repeat; }
+
+#newDeck section h1 {
+  font-family: "Helvetica Neue";
+  color: #366774;
+  font-size: 1.1em;
+  font-weight: bold;
+  margin-bottom: 5px; }
+
+#newDeck section p {
+  font-family: "Helvetica Neue";
+  color: #366774;
+  font-size: 1em;
+  margin-bottom: 40px;
+  line-height: 20px;
+  font-weight: lighter; }
+
+#tagArea h1 {
+  color: #ecece7;
+  display: inline;
+  font-family: "Helvetica Neue";
+  padding: 5px;
+  padding-left: 10px;
+  padding-right: 5px;
+  background: #ffb4a4;
+  /* Old browsers */
+  background: -moz-linear-gradient(top, #ffb4a4 0%, #e96151 44%, #e96151 100%);
+  /* FF3.6+ */
+  background: -webkit-gradient(linear, left top, left bottom, color-stop(0%, #ffb4a4), color-stop(44%, #e96151), color-stop(100%, #e96151));
+  /* Chrome,Safari4+ */
+  background: -webkit-linear-gradient(top, #ffb4a4 0%, #e96151 44%, #e96151 100%);
+  /* Chrome10+,Safari5.1+ */
+  background: -o-linear-gradient(top, #ffb4a4 0%, #e96151 44%, #e96151 100%);
+  /* Opera 11.10+ */
+  background: -ms-linear-gradient(top, #ffb4a4 0%, #e96151 44%, #e96151 100%);
+  /* IE10+ */
+  background: linear-gradient(to bottom, #ffb4a4 0%, #e96151 44%, #e96151 100%);
+  /* W3C */
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ffb4a4', endColorstr='#e96151',GradientType=0 );
+  /* IE6-9 */
+  -webkit-border-radius: 5px;
+  border-radius: 5px;
+  -webkit-box-shadow: 0px 1px 2px 0px #13252a;
+  box-shadow: 0px 1px 2px 0px #13252a;
+  border-top: solid 1px #f5bab3;
+  float: left;
+  margin: 2px;
+  font-size: .8em;
+  border-left: solid 1px #ed7f72;
+  border-right: solid 1px #ed7f72;
+  cursor: pointer; }
+
+.del {
+  width: 14px;
+  height: 13px;
+  background-image: url("../imgs/icon-del.png");
+  background-repeat: no-repeat;
+  display: block;
+  float: right;
+  margin-left: 7px;
+  margin-top: 2px; }
+
+.del:hover {
+  background-image: url("../imgs/icon-del-hover.png");
+  background-repeat: no-repeat; }
