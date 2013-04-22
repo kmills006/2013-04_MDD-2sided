@@ -55,6 +55,10 @@ $dark-blue: #0f3d48;
     @include shadow(1px, 2px, #f7f7f4);
     @include borders(#898986, #c0c0bc, #c0c0bc);
 }
+@mixin transition($speed : 3s){
+    transition: width $speed;
+    -webkit-transition: $speed; /* Safari */
+}
 /* ----------------- */
 /* --- CSS RESET --- */
 /* ----------------- */
@@ -361,7 +365,6 @@ div.private{
     margin: 8px 8px 0px 0px;
 }
 div.options{
-    text-indent: -9999px;
     width: 220px;
     height: 25px;
     margin-left: 4px;
@@ -372,8 +375,35 @@ div.options{
     background-repeat: no-repeat;
     background-position: center;
     cursor: pointer;
+    overflow: hidden;
     &:hover { background-color:#ff6a59; }
+    @include transition(.3s);
     @include corners(0px, 0px, 5px, 5px);
+}
+div.options.open{
+    height: 122px;
+    background-position: top;
+}
+.options ul{
+    margin-top: 25px;
+    border-top: 1px solid $egg-white;
+}
+.options li{
+    height: 32px;
+    padding-left: 5px;
+    margin-bottom: 1px;
+    background-color: $egg-white;
+    font-family: "Helvetica Neue";
+    color: $main-orange;
+    font-size: .9em;
+    font-weight: 400;  
+    letter-spacing: 1px;
+    line-height: 32px;
+    &:hover { background-color:#ff6a59; color: $egg-white; }
+}
+.options li:last-child{
+    @include corners(0px, 0px, 5px, 5px);
+
 }
 /* ----------------- */
 /* - Login  STYLES - */

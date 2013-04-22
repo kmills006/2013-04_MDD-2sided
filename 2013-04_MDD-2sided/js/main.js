@@ -3,10 +3,10 @@ var initValidation = function(){
 	//Validation//
 	var validatesYou = function(ini, regi){
 		if(!regi.test(ini)){
-	    	return false;
-	    }else{
+			return false;
+		}else{
 			return true;
-		} 
+		}
 	};
 
 	//LogIn// 
@@ -49,4 +49,18 @@ var initValidation = function(){
 	});
 };
 
+var initDeck = function(){
+	//Opens and closes deck's settings
+	var options = $('.options');
+
+	options.on('click', function(e){
+		if(!$(e.target).is("li")){
+			var that = $(this),
+				opened = that.hasClass('open')
+			;
+			options.removeClass('open');
+			opened ? that.removeClass('open') : that.addClass('open');
+		}
+	}); 
+};
 
