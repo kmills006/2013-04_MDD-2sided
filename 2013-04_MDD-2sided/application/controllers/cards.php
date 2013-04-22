@@ -4,12 +4,22 @@ class Cards extends CI_Controller {
 
 	function __construct(){
 		parent:: __construct();
+
+		$this->load->model('cardsModel');
 	}
 
 
 	// viewCards
-	public function viewCards($deckID){
+	public function getCards($userID, $deckID){
+
+		$deckInfo['deckID'] = $deckID;
+		$deckInfo['userID'] = $userID;
+
 		$data['view'] = "viewCards";
+
+		$data['cards'] = $this->cardsModel->getCards($deckInfo);
+
+		// var_dump($data);
 
 		// Checking if there is a valid user session and load appropriate header
 		if($this->session->userdata("isLoggedIn") == 1){
