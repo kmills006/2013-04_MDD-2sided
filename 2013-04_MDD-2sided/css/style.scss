@@ -334,9 +334,10 @@ nav input {
     padding-left: 23px;
     font-size: .9em;
     float: right;   
-    background-image: url("../imgs/icon-check-small.png");
+    background-image: url("../imgs/icon-check.png");
     background-repeat: no-repeat;
-    background-position: 0px 9px;
+    background-position: 0px 5px;
+    font-weight: 900;
 }
 #decks .deckname {
     font-family: "Helvetica Neue";
@@ -351,6 +352,13 @@ nav input {
     margin-top: 71px;
     line-height: 15px;
     word-wrap:break-word;
+}
+div.private{
+    width: 37px;
+    height: 18px;
+    background-image: url("../imgs/icon-private.png");
+    float: right;
+    margin: 8px 8px 0px 0px;
 }
 div.options{
     text-indent: -9999px;
