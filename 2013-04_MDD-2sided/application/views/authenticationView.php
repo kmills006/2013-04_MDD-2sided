@@ -2,7 +2,7 @@
 	$loginForm = array('id' => 'loginForm');
 	$registerForm = array('id' => 'registerForm');
 ?>
-<div id="content">
+	<div id="content">
 		<div class="sizer">
 			<img id="welcome" src="<? echo base_url(); ?>/imgs/welcome.png" alt="2sided Logo" width="314" height="142" /></a>
 			
@@ -46,3 +46,14 @@
 
 			</div>
 		</div>
+	</div>
+
+	<!-- Jquery -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="<? echo base_url(); ?>js/libs/jquery-1.9.1.min.js"><\/script>')</script>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="<? echo base_url(); ?>js/main.js"></script>
+
+	<!-- Inits -->
+	<script type="text/javascript">initValidation();</script>
