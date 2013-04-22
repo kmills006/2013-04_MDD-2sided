@@ -4,17 +4,17 @@
 	
 	$decks = objectToArray($decks);
 	
-	// if(!isMulti($decks)){
-	// 	// No
-	// }else{
+	if(!isMulti($decks)){
+		// No
+	}else{
 
-	// }
+	}
 
-	// var_dump(count($decks));
+	var_dump(count($decks));
 
-	// echo "<pre>";
-	// print_r($decks);
-	// echo "</pre>";
+	echo "<pre>";
+	print_r($decks);
+	echo "</pre>";
 
 
 	if(isset($decks['username'])){
@@ -51,7 +51,7 @@
 
 					// Checking if user is viewing their own deck
 					if($this->session->userdata('userID') == $userID){ ?>
-						<div class="button"><? echo anchor("", 'Add New Deck', 'Add New Deck');?></div>
+						<div class="button"><? echo anchor("decks/addNewDeck", 'Add New Deck', 'Add New Deck');?></div>
 					<? }else{
 						// Viewing another users decks, you can not add new deck
 					}

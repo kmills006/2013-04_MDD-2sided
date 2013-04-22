@@ -39,7 +39,6 @@ class DecksModel extends CI_Model {
 	} // end of getAllDecks  
 
 
-	// testing stuff
 
 	// getUsersDecks
 	// returns all of a specfic users decks
@@ -50,7 +49,6 @@ class DecksModel extends CI_Model {
 		$this->db->join('decks as d', 'u.user_id = d.user_id');
 		$this->db->join('ratings as r', 'd.deck_id = r.deck_id');
 		$this->db->where("u.user_id = '$userID'");
-		$this->db->where('r.rating', 1);
 
 		/* Checking to see whether the user is looking at their own decks
 		or looking at another users */
@@ -69,7 +67,6 @@ class DecksModel extends CI_Model {
 			$this->db->where('d.privacy', 0);
 		}
 
-
 		// $this->db->where('d.privacy', $privacy);
 		$this->db->group_by('d.deck_id');
 
@@ -81,11 +78,10 @@ class DecksModel extends CI_Model {
 				$dataResults[] = $row;
 			}
 
-
-			// echo "<pre>";
-   //          print_r($dataResults);
-   //          echo "</pre>";
-
+			echo "<pre>";
+			print_r($dataResults);
+			echo "</pre>";
+			
 			return $dataResults;
 
 		}else{
@@ -98,7 +94,7 @@ class DecksModel extends CI_Model {
 
 			if($query->num_rows() == 1){
 				$dataResults = $query->row();
-				
+
 				return $dataResults;
 			}else{
 				// No user found
@@ -107,6 +103,52 @@ class DecksModel extends CI_Model {
 		}
 
 	}  
+
+
+
+
+	public function addNewDeck($newDeck){
+		$userID = $this->session->userdata('userID');
+
+		$deckID = uniqid();
+
+		if($newDeck['privacy'] == "Public"){
+			$privacy = 0;
+		}else{
+			$privacy = 1;
+		}
+
+		$newDeck = array(
+					'deck_id' => $deckID,
+					'user_id' => $userID,
+					'title' => $newDeck['title'],
+					'privacy' => $privacy
+ 		);
+
+ 		$query = $this->db->insert('decks', $newDeck);
+
+ 		if(!$query){
+ 			// Unable to add deck 
+ 		}else{
+
+ 			// inserting UPVOTE for user into DB
+			$dateRated = date('Y/m/d h:i:s', time());
+
+			$userUpvote = array(
+				'deck_id' => $deckID,
+				'rating_id' => uniqid(), 
+				'user_id' => $userID,
+				'rating' => 1,
+				'date_rated' => $dateRated
+			);
+
+			$this->db->insert("ratings", $userUpvote);
+			
+			// $q = array("query" => $query, "deckid" => $deckID);
+
+ 			return true;
+ 		}
+	}
 
 
 

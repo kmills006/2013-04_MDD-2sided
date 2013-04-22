@@ -63,9 +63,52 @@ class Decks extends CI_Controller {
 		}else{
 			
 			$data['isLoggedIn'] = 0;
-			
+
 			// User is not logged in, load landingHeader/Footer
 			$this->load->view('includes/landingTemplate', $data);
 		}
 	}
+
+
+	// addNewDeck
+	public function addNewDeck(){
+		$data['view'] = 'addNewDeck';
+
+		$this->load->view('includes/loggedInTemplate', $data);
+	}
+
+
+	// confirmAddNewDeck
+	public function confirmAddNewDeck(){
+		$newDeck['title'] = $_POST['dtitle'];
+		$newDeck['tags'] = $_POST['tags'];
+		$newDeck['privacy'] = $_POST['privacy'];
+
+		// Form-Validation
+		$this->load->library('form_validation');
+
+		$config = array(
+					array(
+						'field' => 'dtitle',
+						'label' => 'Deck Title',
+						'rules' => 'required'
+					)
+		);
+
+		$this->form_validation->set_rules($config);
+
+
+		// If the form validation fails, throw error msg
+		if($this->form_validation->run() == false){
+			$this->addNewDeck();
+		}else{
+
+			// Add new deck
+			$this->decksModel->addNewDeck($newDeck);
+
+		}
+	}
+
+
+
 }
