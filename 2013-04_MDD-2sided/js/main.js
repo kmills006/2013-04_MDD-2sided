@@ -30,7 +30,6 @@ var initValidation = function(){
 		var username = $('#registerForm input[name="username"]').val(),
 			email = $('#registerForm input[name="r-email"]').val(),
 			password = $('#registerForm input[name="password"]').val(),
-			cpassword = $('#registerForm input[name="r-c-password"]').val(),
 			userReg = /^[\w_.]{5,12}$/,
 			emailReg = /([A-z0-9]{1,})[@]([A-z0-9]{1,})[.]([A-z]{2,4}$)/,
 			passReg = /^[a-z0-9_-]{5,18}$/
@@ -45,10 +44,6 @@ var initValidation = function(){
 		}
 		if(!validatesYou(email, emailReg)){
 			$('#registerForm .regError').text('Email must be a valid email address.');
-			return false;
-		}
-		if(cpassword != password){
-			$('#registerForm .regError').text('Your passwords must match.');
 			return false;
 		}
 	});
