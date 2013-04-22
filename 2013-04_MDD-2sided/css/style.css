@@ -413,7 +413,7 @@ nav input {
 
 #forms {
   width: 600px;
-  height: 300px;
+  height: 330px;
   background-color: #ecece7;
   margin: 0 auto;
   position: relative;
@@ -503,6 +503,18 @@ nav input {
 
 #forms button {
   width: 208px; }
+
+.error {
+  text-align: left;
+  color: #e96151;
+  font-size: .8em;
+  font-family: "Helvetica Neue"; }
+
+.regError {
+  text-align: left;
+  color: #e96151;
+  font-size: .8em;
+  font-family: "Helvetica Neue"; }
 
 /* ----------------- */
 /* -Profile STYLES - */
@@ -773,7 +785,7 @@ nav input {
 /* ----------------- */
 #newDeck {
   width: 660px;
-  height: 450px;
+  height: 500px;
   background-color: #ecece7;
   -webkit-border-radius: 5px;
   border-radius: 5px;
