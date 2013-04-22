@@ -1,7 +1,5 @@
 <? 
-
 	$username = $this->session->userdata('username');
-
 ?>
 
 <!DOCTYPE HTML>
@@ -16,8 +14,10 @@
 	<title>2sided - The Social Way to Study</title>
 
 	<!-- Styles -->
-	<link rel="stylesheet" type="text/css" href="<? echo base_url(); ?>css/style.css" media="screen" /> 
-	
+	<link rel="stylesheet" href="<? echo base_url(); ?>css/style.css" media="only screen and (min-width: 769px)" > 
+	<link rel="stylesheet" href="<? echo base_url(); ?>css/tablet-style.css" media="only screen and (max-width: 768px)" > 
+	<link rel="stylesheet" href="<? echo base_url(); ?>css/mobile-style.css" media="only screen and (max-width: 480px)" > 
+
 	<!-- Favicon -->
 	<?php echo link_tag("favicon.ico", "shortcut icon", "image/ico");?>
 
