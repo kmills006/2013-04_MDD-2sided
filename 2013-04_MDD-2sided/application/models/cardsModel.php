@@ -15,6 +15,7 @@ class CardsModel extends CI_Model {
 			$this->db->join("users as u", "d.user_id = u.user_id");
 			$this->db->join('ratings as r', 'd.deck_id = r.deck_id');
 			$this->db->where("d.deck_id", $deckInfo['deckID']);
+			$this->db->group_by('c.card_id');
 
 			$query = $this->db->get();
 
