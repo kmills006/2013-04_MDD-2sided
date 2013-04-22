@@ -30,7 +30,15 @@
 	<div class="sizer">
 		<section id="picture">
 			<article>
-				<img src="" alt="" width="140" height="140">	
+				<? if(!isMulti($decks)){
+					echo "here";
+				}else{
+					if($decks[0]['profile_img'] == null){
+						echo img('imgs/profile_imgs/profile-img_placeholder.png');
+					}else{
+						echo img('imgs/profile_imgs/'.$decks[0]['profile_img']); 
+					}
+				}?>
 			</article>
 		</section>
 		
@@ -79,7 +87,7 @@
 				</article>
 			<? } ?>
 		</section> <!-- end of decks -->	
-		
+
 	<? } ?>
 		
 </div> <!-- end of sizer -->
