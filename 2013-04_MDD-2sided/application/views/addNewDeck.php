@@ -1,12 +1,16 @@
+<?php
+	$deckForm = array('id' => "deckForm");
+?>
+
 	<div id="content">
 		<div class="sizer">
 
-			<h1 class="tit">Create New Deck</h1>
+			<h1 class="newDeckTitle">Create New Deck</h1>
 
 			<div id="newDeck">
 
 				<!-- <form id="deckForm"> -->
-				<?php echo form_open("decks/confirmAddNewDeck"); ?>
+				<?php echo form_open("decks/confirmAddNewDeck", $deckForm); ?>
 					<p>Deck Title</p>
 					<h2 class="titleError"></h2>
 					<?php echo form_input('dtitle'); ?>
