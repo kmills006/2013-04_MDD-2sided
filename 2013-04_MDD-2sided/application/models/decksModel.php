@@ -78,9 +78,9 @@ class DecksModel extends CI_Model {
 				$dataResults[] = $row;
 			}
 
-			echo "<pre>";
-			print_r($dataResults);
-			echo "</pre>";
+			// echo "<pre>";
+			// print_r($dataResults);
+			// echo "</pre>";
 			
 			return $dataResults;
 

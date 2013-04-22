@@ -4,17 +4,17 @@
 	
 	$decks = objectToArray($decks);
 	
-	if(!isMulti($decks)){
-		// No
-	}else{
+	// if(!isMulti($decks)){
 
-	}
+	// }else{
+	
+	// }
 
-	var_dump(count($decks));
+	// var_dump(count($decks));
 
-	echo "<pre>";
-	print_r($decks);
-	echo "</pre>";
+	// echo "<pre>";
+	// print_r($decks);
+	// echo "</pre>";
 
 
 	if(isset($decks['username'])){
@@ -63,7 +63,11 @@
 </div> <!-- end of info -->
 <div class="sizer">
 
-	<? if(count($decks) > 2){?>
+	<? 	if(!isMulti($decks)){ ?>
+
+		<h1>No Decks</h1>
+	
+	<? }else{ ?>
 
 		<section id="decks"> 
 			<!-- looping through all the decks and presenting them /Should be in order of date created/ -->
@@ -75,11 +79,8 @@
 				</article>
 			<? } ?>
 		</section> <!-- end of decks -->	
-
-	<? }else{ ?>
-
-		<h1>No Decks!</h1>
-	
+		
 	<? } ?>
+		
 </div> <!-- end of sizer -->
 
