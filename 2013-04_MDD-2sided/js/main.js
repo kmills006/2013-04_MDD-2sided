@@ -1,7 +1,6 @@
+//Changes the active class on the nav depending on what page you're on.
 var initNav = function(){
 	var pathname = window.location.pathname;
-	console.log(pathname);
-
 	if(pathname.indexOf('decks') > -1){
 		$('.decks').addClass('active');
 	}else if(pathname.indexOf('cards') > -1){
@@ -11,15 +10,11 @@ var initNav = function(){
 	}else{
 		$('.decks').addClass('active');
 	}
-
-	if(pathname == '/'){
-		window.location.replace("/index.php");
-	}
 }; //End initNav
 
+//Validation for the login and registration.
 var initValidation = function(){
 
-	//Validation//
 	var validatesYou = function(ini, regi){
 		if(!regi.test(ini)){
 			return false;
@@ -27,13 +22,11 @@ var initValidation = function(){
 			return true;
 		}
 	};
-
-	//LogIn// 
+	//LogIn
 	$('#loginForm').on('submit', function(e){
 		var username = $('#loginForm input[name="username"]').val(),
 			password = $('#loginForm input[name="password"]').val()
 		;
-
 		if(username.length < 5){
 			$('#loginForm .error').text('Please enter your username.');
 			return false;
@@ -43,8 +36,7 @@ var initValidation = function(){
 			return false;
 		}
 	});
-
-	//Registration//
+	//Registration
 	$('#registerForm').on('submit', function(e){
 		var username = $('#registerForm input[name="username"]').val(),
 			email = $('#registerForm input[name="r-email"]').val(),
@@ -68,9 +60,8 @@ var initValidation = function(){
 	});
 }; //End initValidation 
 
+//Opens and closes deck's settings.
 var initDeck = function(){
-	console.log('few');
-	//Opens and closes deck's settings
 	var options = $('.options');
 
 	options.on('click', function(e){
@@ -84,13 +75,8 @@ var initDeck = function(){
 	});
 }; //End initDeck
 
-
-
-
-
-
+//Functionality for cards page including cycling through cards.
 var initCard = function(){
-	//Functionality for cards page including cycling through cards.
 	var shuffle = [];
 	var shuffled = [];
 
@@ -180,7 +166,7 @@ var initCard = function(){
 			return false;
 		}
 	});
-	//SCRIPTS FOR FLIPPING CARD//
+	//FUNCTIONS FOR FLIPPING CARD
 	var currentCardTitle;
 	var currentCardAnswer;
 
@@ -200,7 +186,6 @@ var initCard = function(){
         that.addClass('activeCardBack');
 		$('.activeCardBack .question').replaceWith('<textarea id="answer" type="text" name="canswer" placeholder="Enter your answer here then press enter"></textarea>');
 		$('#answer').focus();
-
     };
     var flipBackQ = function(){
 		var that = $(this);
