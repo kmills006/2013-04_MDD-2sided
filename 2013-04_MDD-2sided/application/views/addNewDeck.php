@@ -45,3 +45,14 @@
 
 			</div> <!-- end of newDeck -->
 		</div> <!-- end of sizer -->
+	</div> <!-- end of content -->
+
+	<!-- Jquery -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+	<script>window.jQuery || document.write('<script src="<? echo base_url(); ?>js/libs/jquery-1.9.1.min.js"><\/script>')</script>
+
+	<!-- Scripts -->
+	<script type="text/javascript" src="<? echo base_url(); ?>js/main.js"></script>
+
+	<!-- Inits -->
+	<script type="text/javascript">initNav();</script>

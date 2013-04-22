@@ -1,3 +1,22 @@
+var initNav = function(){
+	var pathname = window.location.pathname;
+	console.log(pathname);
+
+	if(pathname.indexOf('decks') > -1){
+		$('.decks').addClass('active');
+	}else if(pathname.indexOf('cards') > -1){
+		$('.decks').addClass('active');
+	}else if(pathname.indexOf('user') > -1){
+		$('.users').addClass('active');
+	}else{
+		$('.decks').addClass('active');
+	}
+
+	if(pathname == '/'){
+		window.location.replace("/index.php");
+	}
+}; //End initNav
+
 var initValidation = function(){
 
 	//Validation//
@@ -47,7 +66,7 @@ var initValidation = function(){
 			return false;
 		}
 	});
-};
+}; //End initValidation 
 
 var initDeck = function(){
 	console.log('few');
@@ -63,7 +82,7 @@ var initDeck = function(){
 			opened ? that.removeClass('open') : that.addClass('open');
 		}
 	});
-};
+}; //End initDeck
 
 
 
