@@ -39,7 +39,6 @@ class AuthenticationModel extends CI_Model {
 
     	}else{
 
-    		// No user found
     		return false;
     	}
     }
@@ -57,7 +56,7 @@ class AuthenticationModel extends CI_Model {
 		$exi = $this->checkIfUsernameExists('username', $un);
 
         // Pull users current profile picture
-        // http://graph.facebook.com/sarfraz.anees/picture
+        // http://graph.facebook.com/{Facebook ID}/picture
 
 
         $url = 'https://graph.facebook.com/'.$fbID.'/picture?type=large';
