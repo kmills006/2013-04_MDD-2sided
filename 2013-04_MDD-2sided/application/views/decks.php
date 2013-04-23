@@ -4,6 +4,7 @@
 
 	// converting results from query from StdObject to array
 	$decks = objectToArray($decks);
+	$topTags = objectToArray($topTags);
 ?>
 
 	<div id="content">
@@ -17,30 +18,12 @@
 			<section id="topTags">
 				<h1>Top Tags</h1>
 				<ul>
-					<li>
-						<h1>English</h1>
-						<h2>X 299</h2>
-					</li>
-					<li>
-						<h1>Math</h1>
-						<h2>X 123</h2>
-					</li>
-					<li>
-						<h1>Science</h1>
-						<h2>X 80</h2>
-					</li>
-					<li>
-						<h1>Compuer Stuff</h1>
-						<h2>X 77</h2>
-					</li>
-					<li>
-						<h1>Spelling Bee</h1>
-						<h2>X 60</h2>
-					</li>
-					<li>
-						<h1>Something</h1>
-						<h2>X 50</h2>
-					</li>
+					<? foreach($topTags as $topTag){ ?>
+						<li>
+							<h1><? echo $topTag['tagName']; ?></h1>
+							<h2>X <? echo $topTag['tagCount']; ?></h2>
+						</li>
+					<? } ?>
 				</ul>
 			</section>
 			<section id="topUsers">

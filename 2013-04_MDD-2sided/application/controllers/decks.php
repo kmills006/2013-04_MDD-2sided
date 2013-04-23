@@ -6,6 +6,7 @@ class Decks extends CI_Controller {
 		parent:: __construct();
 
 		$this->load->model('decksModel');
+		$this->load->model('tagsModel');
 	}
 
 	public function index(){
@@ -14,13 +15,8 @@ class Decks extends CI_Controller {
 		// print_r($this->session->all_userdata());
 		// echo '</pre>';
 
-		$results = $this->decksModel->getAllDecks();
-
-		if($results){
-			$data['decks'] = $results;
-		}else{
-			// No Results Found
-		}
+		$data['decks'] = $this->decksModel->getAllDecks();
+		$data['topTags'] = $this->tagsModel->getTopTags();
 
 		// Setting the main content view to decks
 		$data['view'] = 'decks';
