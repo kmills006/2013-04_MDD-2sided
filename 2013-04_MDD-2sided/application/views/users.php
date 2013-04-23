@@ -1,9 +1,22 @@
 <?
-	$this->load->helper('objectToArray.php');
-	$this->load->helper('isMulti.php');
+	// $this->load->helper('objectToArray.php');
+	// $this->load->helper('isMulti.php');
 
-	// converting results from query from StdObject to array
-	$users = objectToArray($users);
+	// // converting results from query from StdObject to array
+	// $users = objectToArray($users);
+
+
+
+	// Comparing the users ratings to sort them by top users
+	// function compareRatings($a, $b) {
+	//         return $b["ratingCount"] - $a["ratingCount"];
+	// }
+
+	// usort($users, "compareRatings");
+
+	// echo '<pre>';
+	// print_r($users);
+	// echo '</pre>';
 ?>
 
 	<div id="content">
@@ -16,9 +29,9 @@
 				<div class="sortby">
 					<h1>Sort By</h1>
 					<ul>
-						<li class="selected"><? echo anchor('', 'Score', 'Sort by score') ?></li>
-						<li><? echo anchor('', 'Newest Users', 'Sort by newest users') ?></li>
-						<li class="last"><? echo anchor('', 'Oldest Users', 'Sort by oldest users') ?></li>
+						<li class="selected"><? echo anchor('user/viewAll/top', 'Score', 'Sort by score') ?></li>
+						<li><? echo anchor('user/viewAll/newest', 'Newest Users', 'Sort by newest users') ?></li>
+						<li class="last"><? echo anchor('user/viewAll/oldest', 'Oldest Users', 'Sort by oldest users') ?></li>
 					</ul>
 				</div>
 			</div>
@@ -27,6 +40,7 @@
 			<div class="sizer">
 				<ul>
 					<? foreach($users as $user){
+
 						$imgProperties  = array(
 											'src' => 'imgs/profile_imgs/'.$user['profile_img'],
 											'height' => '70',
@@ -40,7 +54,7 @@
 								echo img('imgs/profile_imgs/70x70_profile.png'); 
 							} ?>
 							<h1><? echo $user["username"] ?></h1>
-							<h3><? echo $user["userRatingCount"] ?>Checks</h3>
+							<h3><? echo $user["ratingCount"] ?>Checks</h3>
 							<div class="button"><? echo anchor("user/profilePage/{$user["user_id"]}", "Visit Profile", 'title="View all of users decks"'); ?></div>
 						</li>
 					<? } ?>

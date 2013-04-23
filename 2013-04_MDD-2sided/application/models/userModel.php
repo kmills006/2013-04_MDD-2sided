@@ -4,10 +4,13 @@ class UserModel extends CI_Model {
 
     function __construct(){
         parent::__construct();
+
+        $this->load->helper('objectToArray.php');
     }
 
+
     // getProfile 
-    // get all of users information
+    // Get all of users information and load their profile page
     function getProfile($userID){
     	
     	$this->load->library('subquery');
@@ -74,19 +77,21 @@ class UserModel extends CI_Model {
 
     // getAll
     // Retrieve all users and their ratings count from database for users page
-    function getAll(){
-        
+    function getAll($sortBy){
+
         $this->db->select('user_id');
         $query = $this->db->get('users');
 
         if($query->num_rows > 0){
             foreach($query->result() as $row){
-                $this->db->select('u.user_id, username, profile_img, COUNT(r.rating_id) as userRatingCount');
+
+                $this->db->select("u.user_id, username, profile_img, COUNT(r.rating_id) as ratingCount, u.date_of_reg");
                 $this->db->join('decks as d', 'u.user_id = d.user_id');
                 $this->db->join('ratings as r', 'd.deck_id = r.deck_id');
-                $this->db->where("u.user_id = '$row->user_id'");
+                $this->db->where('u.user_id', $row->user_id);
 
                 $q = $this->db->get('users as u');
+
 
                 if($q->num_rows() > 0){
                     
@@ -101,9 +106,49 @@ class UserModel extends CI_Model {
             } // end of foreach1
 
 
-            // echo "<pre>";
-            // print_r($dataResults);
-            // echo "</pre>";
+            // Return the array of users with the top users on the top
+            function compareRatings($a, $b) {
+                return $b["ratingCount"] - $a["ratingCount"];
+            }
+
+            // Return the array of users with the newest registered users on the top
+            function sortByNewest($a, $b){
+                $t1 = strtotime($a['date_of_reg']);
+                $t2 = strtotime($b['date_of_reg']);
+
+                return $t2 - $t1;
+            }
+
+
+            // Return the array of users with the oldest users on the top
+            function sortByOldest($a, $b){
+                $t1 = strtotime($a['date_of_reg']);
+                $t2 = strtotime($b['date_of_reg']);
+
+                return $t1 - $t2;
+            }
+
+            // Converting results from query from StdObject to array
+            $dataResults = objectToArray($dataResults);
+
+            // Determining which way to sort users
+            switch($sortBy){
+                case "top":
+                    usort($dataResults, "compareRatings");
+                break;
+
+                case "newest":
+                    usort($dataResults, "sortByNewest");
+                break;
+
+                case "oldest":
+                    usort($dataResults, "sortByOldest");
+                break;
+
+                default:
+
+                break;
+            }
 
             if(isset($dataResults)){
                 return $dataResults;
@@ -118,6 +163,7 @@ class UserModel extends CI_Model {
 
 
     // getTopUsers
+    // Get a list of the 6 top users to be displayed on the decks page
     function getTopUsers(){
 
         $this->db->select('u.user_id, u.username, COUNT(r.rating_id) as ratingCount');
