@@ -16,13 +16,38 @@
 
 			<section id="topTags">
 				<h1>Top Tags</h1>
-				<ul class="left">
-			
-				</ul>
-				<ul class="right">
-
+				<ul class="tags">
+					<li>
+						<h1>English</h1>
+						<p>X 299</p>
+					</li>
+					<li>
+						<h1>Math</h1>
+						<p>X 123</p>
+					</li>
+					<li>
+						<h1>Science</h1>
+						<p>X 80</p>
+					</li>
+					<li>
+						<h1>Compuer Stuff</h1>
+						<p>X 77</p>
+					</li>
+					<li>
+						<h1>Spelling Bee</h1>
+						<p>X 60</p>
+					</li>
+					<li>
+						<h1>Something</h1>
+						<p>X 50</p>
+					</li>
 				</ul>
 			</section>
+			<section id="topUsers">
+				
+
+			</section>
+
 
 			<section id="decks"> 
 				<!-- looping through all the decks and presenting them in order of top rated -->

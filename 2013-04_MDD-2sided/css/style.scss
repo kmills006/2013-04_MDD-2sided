@@ -280,10 +280,11 @@ nav input {
     word-wrap:break-word;
 }
 #topTags {
-    width: 400px;
+    width: 200px;
     height: 300px;
-    float: right;
+    float: left;
     margin-top: 40px;
+    margin-left: 20px;
 }
 #topTags li {
     clear: both;
@@ -295,7 +296,6 @@ nav input {
     color: $egg-white;
     font-size: 1.7em;
     font-weight: bold;
-    margin-left: 100px;
 }
 #topTags ul h1, #deckTags ul h1 {
     display: inline;

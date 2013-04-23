@@ -21,7 +21,7 @@
 			sizer.width(win.innerWidth());
 		}else{
 			if($('#search').length < 1) navigation.after('<input type="text" id="search"/>');
-			tools.append(signup);
+			tools.prepend(signup);
 			research.remove();
 			sizer.width(960);
 		}
