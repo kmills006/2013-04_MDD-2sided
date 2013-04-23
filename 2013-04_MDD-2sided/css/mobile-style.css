@@ -151,16 +151,45 @@ header {
 #logo {
   width: 66px;
   height: 43px;
-  margin-left: 120px;
-  float: left; }
+  position: absolute;
+  top: -3px;
+  left: 40%; }
 
 nav {
+  width: 100%;
   height: 60px; }
 
 .sizer {
-  width: 940px;
+  width: 100%;
   margin: 0 auto;
   position: relative; }
+
+#login a, #logout a {
+  font-family: "Helvetica Neue";
+  color: #ecece7;
+  display: inline;
+  padding: 10px;
+  background: #e96151;
+  font-size: .9em;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  border-top: solid 1px #f5bab3;
+  border-right: solid 1px #ed7f72;
+  border-left: solid 1px #ed7f72;
+  -webkit-box-shadow: 0px 1px 0px 0px #14262b;
+  box-shadow: 0px 1px 0px 0px #14262b;
+  float: left;
+  height: 20px;
+  margin: 10px;
+  line-height: 20px; }
+  #login a:hover, #logout a:hover {
+    background-color: #ff6a59; }
 
 header img {
   float: left;
@@ -168,12 +197,11 @@ header img {
   margin-top: 4px; }
 
 #navigation {
+  clear: both;
   height: 50px;
   width: 100%;
   background-color: #0f3d48;
-  margin: 0;
-  position: absolute;
-  bottom: 0px; }
+  margin: 0; }
 
 #navigation li {
   width: 24.5%;
@@ -223,7 +251,8 @@ nav input {
   background: none;
   border: none;
   -webkit-box-shadow: none;
-  box-shadow: none; }
+  box-shadow: none;
+  font-size: 1em; }
   .active > a:hover {
     background: none; }
 
@@ -232,32 +261,7 @@ nav input {
   margin-top: -5px;
   float: left; }
 
-.login a {
-  font-family: "Helvetica Neue";
-  color: #ecece7;
-  display: inline;
-  padding: 10px;
-  background: #e96151;
-  font-size: .9em;
-  white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
-  text-align: center;
-  cursor: pointer;
-  border: none;
-  margin: 0;
-  -webkit-border-radius: 5px 5px 5px 5px;
-  border-radius: 5px 5px 5px 5px;
-  border-top: solid 1px #f5bab3;
-  border-right: solid 1px #ed7f72;
-  border-left: solid 1px #ed7f72;
-  -webkit-box-shadow: 0px 1px 0px 0px #14262b;
-  box-shadow: 0px 1px 0px 0px #14262b;
-  width: 90px;
-  padding: 12px; }
-  .login a:hover {
-    background-color: #ff6a59; }
-
-.research {
+#research {
   font-family: "Helvetica Neue";
   color: #ecece7;
   display: inline;
@@ -281,20 +285,17 @@ nav input {
   width: 50px;
   line-height: 25px;
   color: #ecece7;
-  margin-top: 5px;
-  margin-right: 0px;
+  margin-top: 10px;
+  margin-right: 10px;
   display: block;
   text-indent: -9999px;
   background-image: url("../imgs/icon-search-white.png");
   background-repeat: no-repeat;
   background-position: center;
-  padding: none; }
-  .research:hover {
+  padding: none;
+  float: right; }
+  #research:hover {
     background-color: #ff6a59; }
-
-#tools {
-  float: right;
-  margin-right: 10px; }
 
 /* ----------------- */
 /* - DECKS  STYLES - */
