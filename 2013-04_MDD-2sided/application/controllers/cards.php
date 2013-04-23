@@ -16,9 +16,9 @@ class Cards extends CI_Controller {
 		$deckInfo['userID'] = $userID;
 
 		$data['view'] = "viewCards";
-
 		$data['cards'] = $this->cardsModel->getCards($deckInfo);
 		$data['userID'] = $userID;
+		$data['deckID'] = $deckID;
 
 		// var_dump($data);
 
@@ -38,6 +38,14 @@ class Cards extends CI_Controller {
 			$this->load->view('includes/landingTemplate', $data);
 		}
 	}
+
+
+
+
+	// addNewCard
+	/* public function addNewCard(){
+		$this->cardsModel->addNewCard($_POST);
+	} */
 
 
 

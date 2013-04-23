@@ -5,24 +5,22 @@
 
 	$cards = objectToArray($cards);
 
-	// echo "<pre>";
-	// print_r($cards);
-	// echo "</pre>";
-
-	if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){
-		echo "viewing own deck";
-	}else{
-		echo 'viewing someone elses';
-	}
-
-
+	echo "<pre>";
+	print_r($cards);
+	echo "</pre>";
 
 ?>
 
 
     <div id="content">
 
-    	<button>Add New Card</button>
+    	<?
+    		if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){ ?>
+				<button><? echo anchor("cards/addNewCard/{$deckID}", 'Add New Card', 'Add New Card'); ?></button>
+			<? }else{
+				// Viewing someone else's decks so they can not add any new cards
+			}
+    	?>
 
         <section id="cards">
             <ul>

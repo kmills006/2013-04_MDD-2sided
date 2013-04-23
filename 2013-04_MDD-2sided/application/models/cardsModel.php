@@ -29,8 +29,30 @@ class CardsModel extends CI_Model {
 			}else{
 
 				return false;
-				
+
 			}
+    }
+
+
+    // addNewCard
+    public function addNewCard($newCard){
+    	$cardID = uniqid();
+
+    	$newCard = array(
+    					'deck_id' => $newCard['deckID'],
+    					'card_id' => $cardID,
+    					'question' => $newCard['question'],
+    					'answer' => $newCard['answer']
+    	);
+
+    	$q = $this->db->insert('cards', $data);
+
+    	if(!$q){
+    		// New card could not be added
+    		return false;
+    	}else{
+    		return true;
+    	}
     }
 
 
