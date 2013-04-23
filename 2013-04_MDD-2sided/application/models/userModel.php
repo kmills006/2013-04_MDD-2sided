@@ -81,17 +81,24 @@ class UserModel extends CI_Model {
 
         if($query->num_rows > 0){
             foreach($query->result() as $row){
-                $this->db->select('u.user_id, username, profile_img, COUNT(r.rating_id) as userRatingCount');
+
+                $this->db->select('u.user_id, username, profile_img, COUNT(r.rating_id) as ratingCount');
                 $this->db->join('decks as d', 'u.user_id = d.user_id');
                 $this->db->join('ratings as r', 'd.deck_id = r.deck_id');
-                $this->db->where("u.user_id = '$row->user_id'");
+                $this->db->where('u.user_id', $row->user_id);
 
                 $q = $this->db->get('users as u');
+
 
                 if($q->num_rows() > 0){
                     
                     foreach($q->result() as $r){
                         $dataResults[] = $r; 
+
+                        // echo "<pre>";
+                        // print_r($r);
+                        // echo "</pre>";
+
                     }
 
                 }else{

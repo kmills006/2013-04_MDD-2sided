@@ -4,6 +4,14 @@
 
 	// converting results from query from StdObject to array
 	$users = objectToArray($users);
+
+
+
+	function compareRatings($a, $b) {
+	        return $b["ratingCount"] - $a["ratingCount"];
+	}
+
+	usort($users, "compareRatings");
 ?>
 
 	<div id="content">
@@ -27,6 +35,7 @@
 			<div class="sizer">
 				<ul>
 					<? foreach($users as $user){
+
 						$imgProperties  = array(
 											'src' => 'imgs/profile_imgs/'.$user['profile_img'],
 											'height' => '70',
@@ -40,7 +49,7 @@
 								echo img('imgs/profile_imgs/70x70_profile.png'); 
 							} ?>
 							<h1><? echo $user["username"] ?></h1>
-							<h3><? echo $user["userRatingCount"] ?>Checks</h3>
+							<h3><? echo $user["ratingCount"] ?>Checks</h3>
 							<div class="button"><? echo anchor("user/profilePage/{$user["user_id"]}", "Visit Profile", 'title="View all of users decks"'); ?></div>
 						</li>
 					<? } ?>
