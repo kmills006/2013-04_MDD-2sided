@@ -16,36 +16,61 @@
 
 			<section id="topTags">
 				<h1>Top Tags</h1>
-				<ul class="tags">
+				<ul>
 					<li>
 						<h1>English</h1>
-						<p>X 299</p>
+						<h2>X 299</h2>
 					</li>
 					<li>
 						<h1>Math</h1>
-						<p>X 123</p>
+						<h2>X 123</h2>
 					</li>
 					<li>
 						<h1>Science</h1>
-						<p>X 80</p>
+						<h2>X 80</h2>
 					</li>
 					<li>
 						<h1>Compuer Stuff</h1>
-						<p>X 77</p>
+						<h2>X 77</h2>
 					</li>
 					<li>
 						<h1>Spelling Bee</h1>
-						<p>X 60</p>
+						<h2>X 60</h2>
 					</li>
 					<li>
 						<h1>Something</h1>
-						<p>X 50</p>
+						<h2>X 50</h2>
 					</li>
 				</ul>
 			</section>
 			<section id="topUsers">
-				
-
+				<h1>Top Users</h1>
+				<ul>
+					<li>
+						<div class="badge"></div>
+						<h2>Kolby99</h2>
+					</li>
+					<li>
+						<div class="badge"></div>
+						<h2>Kristy123</h2>
+					</li>
+					<li>
+						<div class="badge"></div>
+						<h2>Batman</h2>
+					</li>
+					<li>
+						<div class="badge"></div>
+						<h2>Superman</h2>
+					</li>
+					<li>
+						<div class="badge"></div>
+						<h2>Ironman</h2>
+					</li>
+					<li>
+						<div class="badge"></div>
+						<h2>The Hulk</h2>
+					</li>
+				</ul>
 			</section>
 
 
