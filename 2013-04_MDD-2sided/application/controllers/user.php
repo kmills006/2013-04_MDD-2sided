@@ -98,11 +98,11 @@ class User extends CI_Controller {
 
 	// viewAll
 	// Users page allowing users to view all other users in the community
-	// Can be views either logged in or not
+	// Can be viewed either logged in or not
 	public function viewAll($sortBy){
 
+		// Setting the correct view
 		$data['view'] = 'users';
-		$data['sortBy'] = $sortBy;
 
 		// Retrieving all users from database
 		$data['users'] = $this->userModel->getAll($sortBy);
@@ -112,21 +112,14 @@ class User extends CI_Controller {
 		switch($this->session->userdata('isLoggedIn')){
 			case 0:
 				$this->load->view('includes/landingTemplate', $data);
-
-				// echo "</br>";
-				// echo "not logged in";
 			break;
 
 			case 1:
 				$this->load->view('includes/loggedInTemplate', $data);
-
-				// echo "</br>";
-				// echo "logged in";
 			break;
 
 			default:
-				// echo "</br>";
-				// echo "default";
+
 			break;
 		};
 

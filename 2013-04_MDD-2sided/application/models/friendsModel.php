@@ -7,8 +7,8 @@ class FriendsModel extends CI_Model {
     }
 
     // checkFriendRequests
-    // checking if the logged in user has any new friend request
-    public function checkFriendRequests($userID){
+    // Checking if the logged in user has any new friend request
+    function checkFriendRequests($userID){
     	$this->db->select("uf.user_id as requester, active");
     	$this->db->from('user_friends as uf');
     	$this->db->join('users as u', 'uf.friend_id = u.user_id');
@@ -31,8 +31,8 @@ class FriendsModel extends CI_Model {
 
 
     // checkFriendship
-    // checking if users are already friends
-    public function checkFriendship($friendID){
+    // Checking if users are already friends
+    function checkFriendship($friendID){
         $userID = $this->session->userdata('userID');
 
         $this->db->select('u.user_id as user, uf.friend_id as friend, uf.active');
@@ -55,7 +55,8 @@ class FriendsModel extends CI_Model {
     
 
     // getFriendRequests
-    public function getFriendRequests($requesters){
+    // Retrieving any friend requests the user may have
+    function getFriendRequests($requesters){
 
     	$userID = $this->session->userdata('userID');
 
@@ -96,7 +97,8 @@ class FriendsModel extends CI_Model {
 
 
     // acceptRequest
-    public function acceptRequest($requesterID, $acceptingUserID){
+    // Accepting a new friend request
+    function acceptRequest($requesterID, $acceptingUserID){
     	$accept = array('active' => 1);
 
     	$this->db->where('user_id', $requesterID);
@@ -107,7 +109,8 @@ class FriendsModel extends CI_Model {
 
 
     // rejectRequest
-    public function rejectRequest($requesterID, $rejectingUserID){
+    // Rejecting a friend request
+    function rejectRequest($requesterID, $rejectingUserID){
     	echo "Requester ID: ".$requesterID;
     	echo "</br>";
     	echo "User ID: ".$rejectingUserID;
@@ -125,7 +128,8 @@ class FriendsModel extends CI_Model {
 
 
     // sendFriendRequest
-    public function sendFriendRequest($userID, $friendID){
+    // Sending a new friend request
+    function sendFriendRequest($userID, $friendID){
 		$this->db->select('username');
 		$this->db->where("user_id = '$userID'");
 		$getUsername = $this->db->get('users');

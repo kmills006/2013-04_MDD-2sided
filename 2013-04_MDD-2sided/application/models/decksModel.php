@@ -7,7 +7,8 @@ class DecksModel extends CI_Model {
     }
 
     // getAllDecks
-	public function getAllDecks(){
+    // Retrieving all public decks for the browse page
+	function getAllDecks(){
 
 		$this->db->select('decks.deck_id, COUNT(rating) as rating, users.user_id, users.username, decks.title');
 		$this->db->from('decks');
@@ -41,8 +42,8 @@ class DecksModel extends CI_Model {
 
 
 	// getUsersDecks
-	// returns all of a specfic users decks
-	public function getUsersDecks($userID){
+	// Returns all of a specfic users decks
+	function getUsersDecks($userID){
 
 		$this->db->select('d.deck_id, d.title, d.privacy, COUNT(r.rating) as ratingCount, u.username, u.user_id, u.profile_img');
 		$this->db->from('users as u');
@@ -106,8 +107,9 @@ class DecksModel extends CI_Model {
 
 
 
-
-	public function addNewDeck($newDeck){
+	// addNewDeck
+	// User adding a new deck to their collection
+	function addNewDeck($newDeck){
 		$userID = $this->session->userdata('userID');
 
 		$deckID = uniqid();
