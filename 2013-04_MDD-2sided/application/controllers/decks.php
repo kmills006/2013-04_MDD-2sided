@@ -7,6 +7,7 @@ class Decks extends CI_Controller {
 
 		$this->load->model('decksModel');
 		$this->load->model('tagsModel');
+		$this->load->model('userModel');
 	}
 
 	public function index(){
@@ -17,6 +18,7 @@ class Decks extends CI_Controller {
 
 		$data['decks'] = $this->decksModel->getAllDecks();
 		$data['topTags'] = $this->tagsModel->getTopTags();
+		$data['topUsers'] = $this->userModel->getTopUsers();
 
 		// Setting the main content view to decks
 		$data['view'] = 'decks';

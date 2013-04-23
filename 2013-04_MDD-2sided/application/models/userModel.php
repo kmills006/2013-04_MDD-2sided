@@ -8,7 +8,7 @@ class UserModel extends CI_Model {
 
     // getProfile 
     // get all of users information
-    public function getProfile($userID){
+    function getProfile($userID){
     	
     	$this->load->library('subquery');
 
@@ -74,7 +74,7 @@ class UserModel extends CI_Model {
 
     // getAll
     // Retrieve all users and their ratings count from database for users page
-    public function getAll(){
+    function getAll(){
         
         $this->db->select('user_id');
         $query = $this->db->get('users');
@@ -114,6 +114,36 @@ class UserModel extends CI_Model {
         } // end of if
     
     } // end of getAll
+
+
+
+    // getTopUsers
+    function getTopUsers(){
+
+        $this->db->select('u.user_id, u.username, COUNT(r.rating_id) as ratingCount');
+        $this->db->from('users as u');
+        $this->db->join('decks as d', 'u.user_id = d.user_id');
+        $this->db->join('ratings as r', 'd.deck_id = r.deck_id');
+        $this->db->group_by('u.user_id');
+        $this->db->order_by('ratingCount', 'desc');
+        $this->db->limit('6');
+
+        $query = $this->db->get();
+
+        if($query->num_rows > 0){
+            foreach($query->result() as $row){
+                $dataResults[] = $row;
+            }
+
+            // echo "<pre>";
+            // print_r($dataResults);
+            // echo "</pre>";
+
+            return $dataResults;
+        }else{
+            // No users found;
+        }
+    }
 
 
 

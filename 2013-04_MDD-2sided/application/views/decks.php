@@ -5,6 +5,7 @@
 	// converting results from query from StdObject to array
 	$decks = objectToArray($decks);
 	$topTags = objectToArray($topTags);
+	$topUsers = objectToArray($topUsers);
 ?>
 
 	<div id="content">
@@ -29,30 +30,13 @@
 			<section id="topUsers">
 				<h1>Top Users</h1>
 				<ul>
-					<li>
-						<div class="badge"></div>
-						<h2>Kolby99</h2>
-					</li>
-					<li>
-						<div class="badge"></div>
-						<h2>Kristy123</h2>
-					</li>
-					<li>
-						<div class="badge"></div>
-						<h2>Batman</h2>
-					</li>
-					<li>
-						<div class="badge"></div>
-						<h2>Superman</h2>
-					</li>
-					<li>
-						<div class="badge"></div>
-						<h2>Ironman</h2>
-					</li>
-					<li>
-						<div class="badge"></div>
-						<h2>The Hulk</h2>
-					</li>
+					<? foreach($topUsers as $topUser){ ?>
+						<li>
+							<div class="badge"></div>
+							<h2><? echo $topUser['username']; ?></h2>
+						</li>
+
+					<? } ?>
 				</ul>
 			</section>
 
