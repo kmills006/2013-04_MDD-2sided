@@ -6,6 +6,7 @@ class UserModel extends CI_Model {
         parent::__construct();
 
         $this->load->helper('objectToArray.php');
+        $this->load->helper('objectToArray.php');
     }
 
 
@@ -41,8 +42,9 @@ class UserModel extends CI_Model {
     	$subFriends->select('COUNT(uf.friend_id) as friend_count')->from('users as u');
     	$subFriends->join('user_friends as uf', 'u.user_id = uf.user_id');
 		$subFriends->where("u.user_id = ", $userID);
-        $subFriends->where('uf.active = 1');
+        $subFriends->where('uf.active', "1");
         $subFriends->or_where('uf.friend_id', $userID);
+        $subFriends->where('uf.active', 1);
     	$this->subquery->end_subquery('friendsCount');
 
     	$subRatings = $this->subquery->start_subquery("select");
@@ -67,8 +69,16 @@ class UserModel extends CI_Model {
     		echo "No Results";
     	}
 
+        // echo '<pre>';
+        // print_r($dataResults);
+        // echo '</pre>';
+
     	if(isset($dataResults)){
+
+            $dataResults = objectToArray($dataResults);
+
     		return $dataResults;
+
     	}else{
     		return false;
     	} 

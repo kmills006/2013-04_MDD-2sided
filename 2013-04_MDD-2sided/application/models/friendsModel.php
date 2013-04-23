@@ -37,15 +37,15 @@ class FriendsModel extends CI_Model {
 
         $this->db->select('u.user_id as user, uf.friend_id as friend, uf.active');
         $this->db->join('user_friends as uf', 'u.user_id = uf.user_id');
-        $this->db->where("u.user_id = '$userID'");
-        $this->db->where("uf.friend_id = '$friendID'");
+        $this->db->where('u.user_id', $userID);
+        $this->db->where('uf.friend_id', $friendID);
+        $this->db->or_where('uf.friend_id', $userID);
+        $this->db->where('uf.active', 1);
        
        $query = $this->db->get('users as u');
 
-       if($query->num_rows == 1){
-            $row = $query->row();
-
-            return $row;
+       if($query->num_rows > 0){
+            return true;
        }else{
             return false;
        }
