@@ -34,6 +34,7 @@ $dark-blue: #0f3d48;
     cursor:pointer;
     border: none;
     margin: 0;
+    font-weight: 700;
     //@include textshadow(1px, 0px, #a04338);
     @include corners;
     @include borders(#f5bab3, #ed7f72, #ed7f72);
@@ -189,8 +190,8 @@ header img {
     float: left;
     margin-left: 20px;
     color: $main-blue;
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: 400;
+    font-size: 1em;
     &:hover{ color: $main-orange; }
 }
 nav input {

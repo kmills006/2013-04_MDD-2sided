@@ -23,7 +23,7 @@ $dark-blue: #0f3d48;
 }
 @mixin button() {
     font-family: "Helvetica Neue";
-    color: $egg-white;
+    color: $egg-white !important;
     display: inline;
     padding: 10px;
     background: $main-orange;
@@ -34,11 +34,12 @@ $dark-blue: #0f3d48;
     cursor:pointer;
     border: none;
     margin: 0;
+    font-weight: 700;
     //@include textshadow(1px, 0px, #a04338);
     @include corners;
     @include borders(#f5bab3, #ed7f72, #ed7f72);
     @include shadow(1px, 0px, 0px, #14262b);
-    &:hover { background:#ff6a59; }
+    &:hover { background-color:#ff6a59; }
 }
 @mixin input(){
     color: $main-blue;
@@ -94,8 +95,7 @@ html {
     width: 100%;
     letter-spacing: 1px;
     height: 100%;
-    //background-image: url("../imgs/bg-blue.jpg");
-    background-color: green;
+    background-image: url("../imgs/bg-blue.jpg");
 }
 body {
     min-height: 100%;
@@ -162,9 +162,9 @@ button{
 /* - HEADER STYLES - */
 /* ----------------- */
 header {
-    height: 60px;
+    height: 65px;
     width: 100%;
-    line-height: 60px;
+    line-height: 65px;
     background-color: $egg-white;
     @include shadow(1px, 2px, #15272c);
 }
@@ -172,12 +172,15 @@ header {
     width: 66px;
     height: 43px;
     float: left;
+    margin-left: 20px;
+    margin-top: 10px;
+    margin-right: 10px;
 }
 nav {
     height: 60px;
 }
 .sizer {
-    width: 940px;
+    width: 768px;
     margin: 0 auto;
     position: relative;
 }
@@ -190,8 +193,8 @@ header img {
     float: left;
     margin-left: 20px;
     color: $main-blue;
-    font-weight: bold;
-    font-size: 14px;
+    font-weight: 400;
+    font-size: 1em;
     &:hover{ color: $main-orange; }
 }
 nav input {
@@ -206,27 +209,49 @@ nav input {
 }
 #tools {
     float: right;
-    width: 164px;
+    margin-right: 20px;
 }
-#tools li:first {
-    border-left: solid 1px #bbbbb7;
+.research{
+    @include button;
+    height: 25px;
+    width: 50px; 
+    line-height: 25px; 
+    color: $egg-white;
+    margin-top: 10px;
+    margin-right: 0px;
+    text-indent: -9999px;
+    background-image: url("../imgs/icon-search-white.png");
+    background-repeat: no-repeat;
+    background-position: center;
 }
-#tools li {
-    float: left;
-    width: 80px;
-    height: 60px;
-    padding: 0;
-    background-color: #dcdcd7;
-    margin: 0;
-    text-align: center;
-    &:hover{color: $egg-white; background: $main-orange;}
+#tools .login {
+    @include button;
+    height: 25px;
+    width: 60px;
+    line-height: 25px; 
+    color: $egg-white;
+    margin-top: 10px;
+    margin-left: 10px;
 }
-#tools a {
-    width: 79px;
-    height: 100%;
-    border-left: solid 1px #bbbbb7;
-    border-right: solid 1px #bbbbb7;
-}
+// #tools li:first {
+//     border-left: solid 1px #bbbbb7;
+// }
+// #tools li {
+//     float: left;
+//     width: 80px;
+//     height: 60px;
+//     padding: 0;
+//     background-color: #dcdcd7;
+//     margin: 0;
+//     text-align: center;
+//     &:hover{color: $egg-white; background: $main-orange;}
+// }
+// #tools a {
+//     width: 79px;
+//     height: 100%;
+//     border-left: solid 1px #bbbbb7;
+//     border-right: solid 1px #bbbbb7;
+// }
 /* ----------------- */
 /* - DECKS  STYLES - */
 /* ----------------- */

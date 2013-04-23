@@ -45,8 +45,8 @@
 					<ul id="searchResults"></ul>
 					
 					<ul id="tools">
-						<li><? echo anchor('authentication', "Sign Up", 'title="New User Registration"'); ?></li>
-						<li><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
+						<li class="signup"><? echo anchor('authentication', "Sign Up", 'title="New User Registration"'); ?></li>
+						<li class="login"><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
 					</ul>
 				</nav>
 			</div>

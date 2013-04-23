@@ -103,6 +103,7 @@ button {
   cursor: pointer;
   border: none;
   margin: 0;
+  font-weight: 700;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -126,6 +127,7 @@ button {
   cursor: pointer;
   border: none;
   margin: 0;
+  font-weight: 700;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -169,8 +171,8 @@ header img {
   float: left;
   margin-left: 20px;
   color: #366774;
-  font-weight: bold;
-  font-size: 14px; }
+  font-weight: 400;
+  font-size: 1em; }
   #navigation li:hover, #tools li:hover {
     color: #e96151; }
 
@@ -209,6 +211,7 @@ nav input {
   cursor: pointer;
   border: none;
   margin: 0;
+  font-weight: 700;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -334,6 +337,7 @@ nav input {
   cursor: pointer;
   border: none;
   margin: 0;
+  font-weight: 700;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;

@@ -44,13 +44,13 @@
 					<li class="about"><? echo anchor('decks/about', 'About', 'About 2sided') ?></li>
 				</ul>
 
-				<input type="text" id="searchIni"/>
+				<input type="text" id="search"/>
 
 				<ul id="searchResults"></ul>
 
 				<ul id="tools">
-					<li><? echo anchor("user/profilePage", $username , 'title="User Log Out"'); ?></li>
-					<li><? echo anchor("authentication/userLogout", "Log Out", 'title="User Log Out"'); ?></li>
+					<li class="user"><? echo anchor("user/profilePage", $username , 'title="User Log Out"'); ?></li>
+					<li class="login"><? echo anchor("authentication/userLogout", "Log Out", 'title="User Log Out"'); ?></li>
 				</ul>
 			</nav>
 		</div>
