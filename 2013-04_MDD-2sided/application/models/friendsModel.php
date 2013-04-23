@@ -4,6 +4,8 @@ class FriendsModel extends CI_Model {
 
     function __construct(){
         parent::__construct();
+
+        $this->load->helper('objectToArray.php');
     }
 
     // checkFriendRequests
@@ -60,7 +62,6 @@ class FriendsModel extends CI_Model {
 
     	$userID = $this->session->userdata('userID');
 
-    	$this->load->helper('objectToArray.php');
     	$requesters = objectToArray($requesters);
 
     	if(!$requesters){
