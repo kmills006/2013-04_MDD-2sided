@@ -12,7 +12,7 @@
 	<!-- Desktop -->
 	<link rel="stylesheet" href="<? echo base_url(); ?>css/style.css" media="only screen and (min-width: 769px)" > 
 	<!-- Tablet -->
-	<link rel="stylesheet" href="<? echo base_url(); ?>css/tablet-style.css" media="only screen and (max-width: 768px)" > 
+	<link rel="stylesheet" href="<? echo base_url(); ?>css/tablet-style.css" media="only screen and (min-width: 481px) and (max-width: 768px)" > 
 	<!-- Mobile -->
 	<link rel="stylesheet" href="<? echo base_url(); ?>css/mobile-style.css" media="only screen and (max-width: 480px)" > 
 	
@@ -27,26 +27,26 @@
 		var base = "<?php echo base_url(); ?>"
 	</script>
 </head>	
-	<body>
-		<header>
-			<div class="sizer">
-				<div id="logo"><a href="<? echo base_url(); ?>"><img src="<? echo base_url(); ?>imgs/logo.png" alt="2sided Logo" width="66" height="43" /></a></div>
-				<nav>
-					<ul id="navigation">
-						<li class="decks"><? echo anchor('decks', 'Decks', 'Browse all decks') ?></li>
-						<li class="users"><? echo anchor('user/viewAll', 'Users', 'Search by users') ?></li>
-						<li class="tags"><? echo anchor('decks/tags', 'Tags', 'Search by tags') ?></li>
-						<li class="about"><? echo anchor('decks/about', 'About', 'About 2sided') ?></li>
-					</ul>
+<body>
+	<header>
+		<div class="sizer">
+			<div id="logo"><a href="<? echo base_url(); ?>"><img src="<? echo base_url(); ?>imgs/logo.png" alt="2sided Logo" width="66" height="43" /></a></div>
+			<nav>
+				<ul id="navigation">
+					<li class="decks"><? echo anchor('decks', 'Decks', 'Browse all decks') ?></li>
+					<li class="users"><? echo anchor('user/viewAll', 'Users', 'Search by users') ?></li>
+					<li class="tags"><? echo anchor('decks/tags', 'Tags', 'Search by tags') ?></li>
+					<li class="about"><? echo anchor('decks/about', 'About', 'About 2sided') ?></li>
+				</ul>
 
-					<input type="text" id="search"/>
+				<input type="text" id="search"/>
 
-					<ul id="searchResults"></ul>
-					
-					<ul id="tools">
-						<li class="signup"><? echo anchor('authentication', "Sign Up", 'title="New User Registration"'); ?></li>
-						<li class="login"><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
-					</ul>
-				</nav>
-			</div>
-		</header>
+				<ul id="searchResults"></ul>
+				
+				<ul id="tools">
+					<li class="signup"><? echo anchor('authentication', "Sign Up", 'title="New User Registration"'); ?></li>
+					<li class="login"><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
+				</ul>
+			</nav>
+		</div>
+	</header>
