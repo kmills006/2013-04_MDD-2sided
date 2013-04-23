@@ -26,10 +26,16 @@
 		<section id="users">
 			<div class="sizer">
 				<ul>
-					<? foreach($users as $user){ ?>
+					<? foreach($users as $user){
+						$imgProperties  = array(
+											'src' => 'imgs/profile_imgs/'.$user['profile_img'],
+											'height' => '70',
+											'width' => '70'
+						); ?>
+
 						<li>
 							<? if($user['profile_img']){
-								echo img('imgs/profile_imgs/'.$user['profile_img']); 
+								echo img($imgProperties); 
 							}else{
 								echo img('imgs/profile_imgs/70x70_profile.png'); 
 							} ?>
