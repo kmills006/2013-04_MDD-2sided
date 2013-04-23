@@ -1,6 +1,7 @@
 (function($) {
 
 	var win = $(window),
+		nav = $('nav'),
 		navigation = $('#navigation'),
 		signup = $('.signup, .user'),
 		tools = $('#tools'),
@@ -14,7 +15,13 @@
 			research = $('.research')
 		;
 
-		if(win.innerWidth() <= 768){
+		if(win.innerWidth() <= 480){
+			navigation.append(signup);
+			header.append(navigation);
+			search.remove();
+			if($('.research').length < 1)login.before('<li class="research"><p>Search</p></li>');
+			sizer.width(480);
+		}else if(win.innerWidth() <= 768){
 			navigation.append(signup);
 			search.remove();
 			if($('.research').length < 1)login.before('<li class="research"><p>Search</p></li>');

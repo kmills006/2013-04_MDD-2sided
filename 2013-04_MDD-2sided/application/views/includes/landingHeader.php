@@ -27,7 +27,6 @@
 		var base = "<?php echo base_url(); ?>"
 	</script>
 </head>	
-	
 	<body>
 		<header>
 			<div class="sizer">

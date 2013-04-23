@@ -144,13 +144,14 @@ header {
   width: 100%;
   line-height: 60px;
   background-color: #ecece7;
+  position: relative;
   -webkit-box-shadow: 0px 1px 2px #15272c black;
   box-shadow: 0px 1px 2px #15272c black; }
 
 #logo {
   width: 66px;
   height: 43px;
-  float: left; }
+  margin-left: 174px; }
 
 nav {
   height: 60px; }
@@ -164,6 +165,11 @@ header img {
   float: left;
   margin-right: 10px;
   margin-top: 4px; }
+
+#navigation {
+  height: 50px;
+  width: 100%;
+  background-color: #0f3d48; }
 
 #navigation li, #tools li {
   float: left;
@@ -224,27 +230,6 @@ nav input {
   float: right;
   width: 164px; }
 
-#tools li:first {
-  border-left: solid 1px #bbbbb7; }
-
-#tools li {
-  float: left;
-  width: 80px;
-  height: 60px;
-  padding: 0;
-  background-color: #dcdcd7;
-  margin: 0;
-  text-align: center; }
-  #tools li:hover {
-    color: #ecece7;
-    background: #e96151; }
-
-#tools a {
-  width: 79px;
-  height: 100%;
-  border-left: solid 1px #bbbbb7;
-  border-right: solid 1px #bbbbb7; }
-
 /* ----------------- */
 /* - DECKS  STYLES - */
 /* ----------------- */
@@ -303,7 +288,8 @@ nav input {
   float: left;
   margin-top: 40px;
   margin-left: 16px;
-  overflow: auto; }
+  overflow: auto;
+  display: none; }
 
 #topTags li, #topUsers li {
   clear: both;
