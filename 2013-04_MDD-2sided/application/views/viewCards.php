@@ -9,18 +9,36 @@
 	// print_r($cards);
 	// echo "</pre>";
 
+	if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){
+		echo "viewing own deck";
+	}else{
+		echo 'viewing someone elses';
+	}
+
+
+
 ?>
 
 
-    <div id="content">    
+    <div id="content">
+
+    	<button>Add New Card</button>
+
         <section id="cards">
             <ul>
-            	<? foreach($cards as $card){?>
-            		<li class="aCard">
-            			<h1 class="question"><? echo $card['question']?></h1>
-            			<h1 class="answer"><? echo $card['answer']?></h1>
-            		</li>
-            	<? } ?>
+
+            	<?
+            		if(!isMulti($cards)){
+						echo "No Cards";
+					}else{
+						foreach($cards as $card){ ?>
+		            		<li class="aCard">
+		            			<h1 class="question"><? echo $card['question']?></h1>
+		            			<h1 class="answer"><? echo $card['answer']?></h1>
+		            		</li>
+		            	<? }
+					}
+            	?>
             </ul>
         </section>
         	

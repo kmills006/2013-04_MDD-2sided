@@ -83,7 +83,7 @@
 					<article class="deck">
 						<? if(!$deck['privacy']) echo '<h1 class="votes">' . $deck["ratingCount"] . '</h1>' ?>
 						<? if($deck['privacy']) echo '<div class="private"></div>' ?>
-						<h1 class="deckname"><? echo $deck['title'] ?></h1>
+						<h1 class="deckname"><? echo anchor("cards/getCards/{$userID}/{$deck['deck_id']}", $deck['title']); ?></h1>
 						<? if($this->session->userdata('userID') == $userID) echo '<div class="options"><ul><li>Edit Title</li><li>Change privacy</li><li>Delete Deck</li></ul></div>' ?>
 					</article>
 				<? } ?>

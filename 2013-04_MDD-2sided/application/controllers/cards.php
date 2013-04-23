@@ -18,6 +18,7 @@ class Cards extends CI_Controller {
 		$data['view'] = "viewCards";
 
 		$data['cards'] = $this->cardsModel->getCards($deckInfo);
+		$data['userID'] = $userID;
 
 		// var_dump($data);
 
