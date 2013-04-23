@@ -99,12 +99,13 @@ class User extends CI_Controller {
 	// viewAll
 	// Users page allowing users to view all other users in the community
 	// Can be views either logged in or not
-	public function viewAll(){
+	public function viewAll($sortBy){
 
 		$data['view'] = 'users';
+		$data['sortBy'] = $sortBy;
 
 		// Retrieving all users from database
-		$data['users'] = $this->userModel->getAll();
+		$data['users'] = $this->userModel->getAll($sortBy);
 
 
 		// Checking whether user is logged in or not to determine which header to use
