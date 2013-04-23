@@ -1,18 +1,5 @@
 <?
-	// $this->load->helper('objectToArray.php');
-	// $this->load->helper('isMulti.php');
-
-	// // converting results from query from StdObject to array
-	// $users = objectToArray($users);
-
-
-
-	// Comparing the users ratings to sort them by top users
-	// function compareRatings($a, $b) {
-	//         return $b["ratingCount"] - $a["ratingCount"];
-	// }
-
-	// usort($users, "compareRatings");
+	$this->load->helper('isMulti.php');
 
 	// echo '<pre>';
 	// print_r($users);
@@ -36,6 +23,7 @@
 				</div>
 			</div>
 		</section>
+
 		<section id="users">
 			<div class="sizer">
 				<ul>
@@ -53,12 +41,16 @@
 							}else{
 								echo img('imgs/profile_imgs/70x70_profile.png'); 
 							} ?>
+
 							<h1><? echo $user["username"] ?></h1>
 							<h3><? echo $user["ratingCount"] ?>Checks</h3>
+							
 							<div class="button"><? echo anchor("user/profilePage/{$user["user_id"]}", "Visit Profile", 'title="View all of users decks"'); ?></div>
 						</li>
+					
 					<? } ?>
 				</ul>
+			
 			</div>
 		</section>
 	</div> <!-- End Content -->
