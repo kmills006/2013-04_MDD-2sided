@@ -10,12 +10,11 @@
 
 	<div id="content">
 		<div class="sizer">
-			<article id="topDeck">
+			<section id="topDeck">
 				<h1 class="username">kmills06</h1>
 				<h1 class="votes">358</h1>
 				<h1 class="deckname">A really long title</h1>
-			</article>
-
+			</section>
 			<section id="topTags">
 				<h1>Top Tags</h1>
 				<ul>
@@ -39,8 +38,6 @@
 					<? } ?>
 				</ul>
 			</section>
-
-
 			<section id="decks"> 
 				<!-- looping through all the decks and presenting them in order of top rated -->
 				<? foreach($decks as $deck){ ?>

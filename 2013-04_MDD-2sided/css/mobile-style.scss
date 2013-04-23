@@ -38,7 +38,7 @@ $dark-blue: #0f3d48;
     @include corners;
     @include borders(#f5bab3, #ed7f72, #ed7f72);
     @include shadow(1px, 0px, 0px, #14262b);
-    &:hover { background:#ff6a59; }
+    &:hover { background-color:#ff6a59; }
 }
 @mixin input(){
     color: $main-blue;
@@ -161,7 +161,7 @@ button{
 /* - HEADER STYLES - */
 /* ----------------- */
 header {
-    height: 60px;
+    height: 105px;
     width: 100%;
     line-height: 60px;
     background-color: $egg-white;
@@ -171,7 +171,8 @@ header {
 #logo{
     width: 66px;
     height: 43px;
-    margin-left: 174px;
+    margin-left: 120px;
+    float: left;
 }
 nav {
     height: 60px;
@@ -190,14 +191,29 @@ header img {
     height: 50px;
     width: 100%;
     background-color: $dark-blue;
+    margin: 0;
+    position: absolute;
+    bottom: 0px;
 }
-#navigation li, #tools li {
+#navigation li{
+    width: 24.5%;
+    height: 30px;
     float: left;
-    margin-left: 20px;
-    color: $main-blue;
-    font-weight: bold;
+    margin-top: 10px;
+    margin-left: 0px;
+    color: $main-orange;
+    font-weight: 400;
     font-size: 14px;
+    text-align: center;
+    border-right: solid 1px $main-blue;
+    line-height: 30px;
     &:hover{ color: $main-orange; }
+}
+#navigation li:last-child{
+    border: none;
+}
+.about{
+    display: none;
 }
 nav input {
     float: left;
@@ -206,12 +222,41 @@ nav input {
     @include input;
 }
 .active>a {
+    color: $egg-white;
+    background: none;
+    border: none;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    &:hover{ background: none; }
+}
+.login{
+    margin-left: 10px;
+    margin-top: -5px;
+    float: left;
+}
+.login a{
     @include button;
-    padding: 7px;
+    width: 90px;
+    padding: 12px;
+}
+.research{
+    @include button;
+    height: 20px;
+    width: 50px; 
+    line-height: 25px; 
+    color: $egg-white;
+    margin-top: 5px;
+    margin-right: 0px;
+    display: block;
+    text-indent: -9999px;
+    background-image: url("../imgs/icon-search-white.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: none;
 }
 #tools {
     float: right;
-    width: 164px;
+    margin-right: 10px;
 }
 // #tools li:first {
 //     border-left: solid 1px #bbbbb7;
@@ -236,17 +281,18 @@ nav input {
 /* - DECKS  STYLES - */
 /* ----------------- */
 #content {
-    border-top: solid 1px #254750;
+    border-top: none;
     width: 100%;
     overflow: auto;
     height: inherit;
+    margin-left: 9px;
 }
 #topDeck {
     width:456px;
     height: 291px;
     background-image: url("../imgs/mobile/card-front.png");
     background-repeat: no-repeat;
-    margin-top: 40px;
+    margin-top: 30px;
     float: left;
     margin-bottom: 10px;
     margin-left: 3px;
