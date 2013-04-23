@@ -171,16 +171,25 @@ header {
 #logo{
     width: 66px;
     height: 43px;
-    margin-left: 120px;
-    float: left;
+    position: absolute;
+    top: -3px;
+    left: 40%;
 }
 nav {
+    width: 100%;
     height: 60px;
 }
 .sizer {
-    width: 940px;
+    width: 100%;
     margin: 0 auto;
     position: relative;
+}
+#login a, #logout a{
+    @include button;
+    float: left;
+    height: 20px;
+    margin: 10px;
+    line-height: 20px;
 }
 header img {
     float: left;
@@ -188,12 +197,11 @@ header img {
     margin-top: 4px;
 }
 #navigation{
+    clear: both;
     height: 50px;
     width: 100%;
     background-color: $dark-blue;
     margin: 0;
-    position: absolute;
-    bottom: 0px;
 }
 #navigation li{
     width: 24.5%;
@@ -227,6 +235,7 @@ nav input {
     border: none;
     -webkit-box-shadow: none;
     box-shadow: none;
+    font-size: 1em;
     &:hover{ background: none; }
 }
 .login{
@@ -234,49 +243,22 @@ nav input {
     margin-top: -5px;
     float: left;
 }
-.login a{
-    @include button;
-    width: 90px;
-    padding: 12px;
-}
-.research{
+#research{
     @include button;
     height: 20px;
     width: 50px; 
     line-height: 25px; 
     color: $egg-white;
-    margin-top: 5px;
-    margin-right: 0px;
+    margin-top: 10px;
+    margin-right: 10px;
     display: block;
     text-indent: -9999px;
     background-image: url("../imgs/icon-search-white.png");
     background-repeat: no-repeat;
     background-position: center;
     padding: none;
-}
-#tools {
     float: right;
-    margin-right: 10px;
 }
-// #tools li:first {
-//     border-left: solid 1px #bbbbb7;
-// }
-// #tools li {
-//     float: left;
-//     width: 80px;
-//     height: 60px;
-//     padding: 0;
-//     background-color: #dcdcd7;
-//     margin: 0;
-//     text-align: center;
-//     &:hover{color: $egg-white; background: $main-orange;}
-// }
-// #tools a {
-//     width: 79px;
-//     height: 100%;
-//     border-left: solid 1px #bbbbb7;
-//     border-right: solid 1px #bbbbb7;
-// }
 /* ----------------- */
 /* - DECKS  STYLES - */
 /* ----------------- */

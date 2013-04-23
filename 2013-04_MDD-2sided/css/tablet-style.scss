@@ -177,10 +177,13 @@ header {
     margin-right: 10px;
 }
 nav {
+    width: 350px;
     height: 60px;
+    float: left;
 }
 .sizer {
-    width: 768px;
+    width: 100%;
+    min-width: 631px;
     margin: 0 auto;
     position: relative;
 }
@@ -224,34 +227,29 @@ nav input {
     background-repeat: no-repeat;
     background-position: center;
 }
-#tools .login {
+#login a, #logout a{
     @include button;
-    height: 25px;
-    width: 60px;
+    float: right;
+    height: 20px;
+    margin: 10px;
+    line-height: 20px;
+}
+#research{
+    @include button;
+    height: 20px;
+    width: 50px; 
     line-height: 25px; 
     color: $egg-white;
     margin-top: 10px;
-    margin-left: 10px;
+    margin-right: 10px;
+    display: block;
+    text-indent: -9999px;
+    background-image: url("../imgs/icon-search-white.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    padding: none;
+    float: right;
 }
-// #tools li:first {
-//     border-left: solid 1px #bbbbb7;
-// }
-// #tools li {
-//     float: left;
-//     width: 80px;
-//     height: 60px;
-//     padding: 0;
-//     background-color: #dcdcd7;
-//     margin: 0;
-//     text-align: center;
-//     &:hover{color: $egg-white; background: $main-orange;}
-// }
-// #tools a {
-//     width: 79px;
-//     height: 100%;
-//     border-left: solid 1px #bbbbb7;
-//     border-right: solid 1px #bbbbb7;
-// }
 /* ----------------- */
 /* - DECKS  STYLES - */
 /* ----------------- */

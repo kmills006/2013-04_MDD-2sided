@@ -158,10 +158,13 @@ header {
   margin-right: 10px; }
 
 nav {
-  height: 60px; }
+  width: 350px;
+  height: 60px;
+  float: left; }
 
 .sizer {
-  width: 768px;
+  width: 100%;
+  min-width: 631px;
   margin: 0 auto;
   position: relative; }
 
@@ -264,7 +267,7 @@ nav input {
   .research:hover {
     background-color: #ff6a59; }
 
-#tools .login {
+#login a, #logout a {
   font-family: "Helvetica Neue";
   color: #ecece7 !important;
   display: inline;
@@ -285,13 +288,48 @@ nav input {
   border-left: solid 1px #ed7f72;
   -webkit-box-shadow: 0px 1px 0px 0px #14262b;
   box-shadow: 0px 1px 0px 0px #14262b;
-  height: 25px;
-  width: 60px;
+  float: right;
+  height: 20px;
+  margin: 10px;
+  line-height: 20px; }
+  #login a:hover, #logout a:hover {
+    background-color: #ff6a59; }
+
+#research {
+  font-family: "Helvetica Neue";
+  color: #ecece7 !important;
+  display: inline;
+  padding: 10px;
+  background: #e96151;
+  font-size: .9em;
+  white-space: nowrap;
+  -webkit-font-smoothing: antialiased;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  font-weight: 700;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  border-top: solid 1px #f5bab3;
+  border-right: solid 1px #ed7f72;
+  border-left: solid 1px #ed7f72;
+  -webkit-box-shadow: 0px 1px 0px 0px #14262b;
+  box-shadow: 0px 1px 0px 0px #14262b;
+  height: 20px;
+  width: 50px;
   line-height: 25px;
   color: #ecece7;
   margin-top: 10px;
-  margin-left: 10px; }
-  #tools .login:hover {
+  margin-right: 10px;
+  display: block;
+  text-indent: -9999px;
+  background-image: url("../imgs/icon-search-white.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  padding: none;
+  float: right; }
+  #research:hover {
     background-color: #ff6a59; }
 
 /* ----------------- */
