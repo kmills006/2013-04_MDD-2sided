@@ -18,7 +18,7 @@
 			navigation.append(signup);
 			search.remove();
 			if($('.research').length < 1)login.before('<li class="research"><p>Search</p></li>');
-			sizer.width(win.innerWidth());
+			sizer.width(768);
 		}else{
 			if($('#search').length < 1) navigation.after('<input type="text" id="search"/>');
 			tools.prepend(signup);

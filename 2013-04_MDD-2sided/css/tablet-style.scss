@@ -260,11 +260,12 @@ nav input {
     width: 100%;
     overflow: auto;
     height: inherit;
+    margin-left: 10px;
 }
 #topDeck {
     width:456px;
     height: 291px;
-    background-image: url("../imgs/card-front.png");
+    background-image: url("../imgs/tablet/card-front.png");
     background-repeat: no-repeat;
     margin-top: 40px;
     float: left;
@@ -304,23 +305,27 @@ nav input {
     line-height: 230px;
     word-wrap:break-word;
 }
-#topTags {
-    width: 400px;
+#topTags, #topUsers {
+    width: 220px;
     height: 300px;
-    float: right;
+    float: left;
     margin-top: 40px;
+    margin-left: 16px;
+    overflow: auto;
 }
-#topTags li {
+#topUsers{
+    display:none;
+}
+#topTags li, #topUsers li {
     clear: both;
     margin-bottom: 10px;
 }
-#topTags>h1 {
+#topTags>h1, #topUsers>h1 {
     margin-bottom: 20px;
     font-family: "Helvetica Neue";
     color: $egg-white;
     font-size: 1.7em;
     font-weight: bold;
-    margin-left: 100px;
 }
 #topTags ul h1, #deckTags ul h1 {
     display: inline;
@@ -330,21 +335,30 @@ nav input {
     font-size: .9em;
     cursor:pointer;
     @include button;
+    padding: 7px 10px;
 }
-#topTags p {
+#topTags h2, #topUsers h2 {
     line-height: 30px;
     font-family: "Helvetica Neue";
-    font-size: .8em;
-    font-weight: bold;
+    font-size: .9em;
+    font-weight: 400;
     color: $egg-white;
+    text-indent: 5px;
+}
+.badge{
+    clear: both;
+    width: 36px;
+    height: 36px;
+    background-image: url("../imgs/badgeExample.png");
+    float: left;
 }
 #decks {
     clear: both;
 }
 #decks .deck {
-    width: 229px;
-    height: 148px;
-    background-image: url("../imgs/card-small.png");
+    width: 245px;
+    height: 159px;
+    background-image: url("../imgs/tablet/card-small.png");
     float: left;
     margin-right: 6px;
     margin-bottom: 10px;
