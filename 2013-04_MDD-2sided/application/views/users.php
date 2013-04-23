@@ -28,7 +28,11 @@
 				<ul>
 					<? foreach($users as $user){ ?>
 						<li>
-							<img src="<? echo base_url(); ?>imgs/pic.jpg" alt="" width="70" height="70" />
+							<? if($user['profile_img']){
+								echo img('imgs/profile_imgs/'.$user['profile_img']); 
+							}else{
+								echo img('imgs/profile_imgs/70x70_profile.png'); 
+							} ?>
 							<h1><? echo $user["username"] ?></h1>
 							<h3><? echo $user["userRatingCount"] ?>Checks</h3>
 							<div class="button"><? echo anchor("user/profilePage/{$user["user_id"]}", "Visit Profile", 'title="View all of users decks"'); ?></div>
