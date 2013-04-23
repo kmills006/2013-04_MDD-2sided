@@ -1,30 +1,26 @@
+<?
+
+	$this->load->helper('objectToArray.php');
+	$this->load->helper('isMulti.php');
+
+	$cards = objectToArray($cards);
+
+	// echo "<pre>";
+	// print_r($cards);
+	// echo "</pre>";
+
+?>
+
+
     <div id="content">    
         <section id="cards">
             <ul>
-               <li class="aCard">
-                    <h1 class="question">0+1</h1>
-                    <h1 class="answer">1</h1>
-                </li>
-               <li class="aCard">
-                    <h1 class="question">0+1</h1>
-                    <h1 class="answer">1</h1>
-                </li>
-               <li class="aCard">
-                    <h1 class="question">0+1</h1>
-                    <h1 class="answer">1</h1>
-                </li>
-               <li class="aCard">
-                    <h1 class="question">0+1</h1>
-                    <h1 class="answer">1</h1>
-                </li>
-               <li class="aCard">
-                    <h1 class="question">0+1</h1>
-                    <h1 class="answer">1</h1>
-                </li>
-               <li class="aCard">
-                    <h1 class="question">0+1</h1>
-                    <h1 class="answer">1</h1>
-                </li>
+            	<? foreach($cards as $card){?>
+            		<li class="aCard">
+            			<h1 class="question"><? echo $card['question']?></h1>
+            			<h1 class="answer"><? echo $card['answer']?></h1>
+            		</li>
+            	<? } ?>
             </ul>
         </section>
         	

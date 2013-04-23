@@ -24,12 +24,12 @@ class CardsModel extends CI_Model {
 					$dataResults[] = $row; 
 				}
 
-				echo "<pre>";
-				print_r($dataResults);
-				echo "</pre>";
+				return $dataResults;
 
 			}else{
 
+				return false;
+				
 			}
     }
 
