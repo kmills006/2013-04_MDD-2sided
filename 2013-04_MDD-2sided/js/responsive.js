@@ -1,7 +1,7 @@
 (function($) {
 
-	var win = $(window),
-		sizer = $('.sizer')
+	var win    =  $(window),
+		sizer  =  $('.sizer')
 	;
 
 	var initNavResponse = function(){
