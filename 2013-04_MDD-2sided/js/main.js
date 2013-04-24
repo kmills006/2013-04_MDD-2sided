@@ -80,7 +80,26 @@ var initUserSearch = function(){
 			type: 'post',
 			data: { user: search },
 			success: function(response){
-				console.log(response);
+				if(response == 'false'){
+					console.log('No User Found');
+				}else{
+					var results = JSON.parse(response);
+
+					numberOfItems = results.length;
+
+					if($('#user-search').val.length == 0){
+						$('#searchResults').html('');
+						$('#searchResults').hide();
+					}else{
+						$('#searchResults').html('');
+
+						console.log(results);
+
+						for(var i = 0; i < results.length; i++){
+							$('#searchResults').append('<li class="result">' + results[i].username + '</li>');
+						}
+					}
+				}
 			},
 			error: function(response){
 				console.log(XMLHttpRequest);
@@ -89,42 +108,4 @@ var initUserSearch = function(){
 			}
 		});
 	});
-};
-
-
-
-
-	//Search functionality
-	/* var focusCounter = -1;
-	var numberOfItems = 0;
-
-	$('#searchResults').hide();
-
-	$('nav input').keyup(function(e){
-		numberOfItems = 0;
-		$('#searchResults').show();
-		var search = $(this).val();
-		$.ajax({
-			url: base + "index.php/browse/search",
-			type: "post",
-			data: {title: search},
-			success: function(response){
-				if(response == 'No Search Resultsnull'){
-					$('#searchResults').html('');
-					$('#searchResults').hide();
-				}else{
-					var r = JSON.parse(response);
-					numberOfItems = r.length;
-					if($('nav input').val().length == 0){
-						$('#searchResults').html('');
-						$('#searchResults').hide();
-					}else{
-						$('#searchResults').html('');
-						for (var i = 0; i < 5; i++) {
-							$('#searchResults').append('<li class="result"><a class="res" href="' + base + 'index.php/browse/getcards/' + r[i].deckID +'">' + r[i].deckTitle + '</a></li>');
-						};	
-					}
-				}
-			}
-		});
-	}); */
+}; // End of initUserSearch

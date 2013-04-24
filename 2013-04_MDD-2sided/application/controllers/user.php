@@ -131,8 +131,9 @@ class User extends CI_Controller {
 	public function userSearch(){
 		$searchQuery = $_POST;
 
-		$this->userModel->userSearch($searchQuery);
+		$searchResults = $this->userModel->userSearch($searchQuery);
 
+		echo json_encode($searchResults);
 	}
 
 

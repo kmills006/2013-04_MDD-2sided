@@ -205,13 +205,25 @@ class UserModel extends CI_Model {
     // userSearch
     function userSearch($searchQuery){
 
-        $this->db->distinct();
-        $this->db->select();
-        // $this->db->join("tags", "decks.deck_id = tags.deck_id");
-        $this->db->like("u.username", $searchQuery);
+        $this->db->select('u.user_id, u.username');
+        $this->db->like("u.username", $searchQuery['user']);
+        $this->db->or_like('u.email', $searchQuery['user']);
         $query = $this->db->get("users as u");
 
-        var_dump($query);
+        if($query->num_rows > 0){
+            foreach($query->result() as $row){
+                $dataResults[] = $row;
+            }
+
+            // echo '<pre>';
+            // print_r($dataResults);
+            // echo '</pre>';
+            
+            return $dataResults;
+            
+        }else{
+            return false;
+        }
     }
 
 
