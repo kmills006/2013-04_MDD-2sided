@@ -4,11 +4,11 @@
 	
 	$decks = objectToArray($decks);
 	
-	// if(!isMulti($decks)){
-
-	// }else{
-	
-	// }
+	if(!isMulti($profileInfo)){
+		// No
+	}else{
+		$userInfo = $profileInfo[0];
+	}
 
 	// var_dump(count($decks));
 
@@ -44,11 +44,11 @@
 			
 			<section id="profileInfo">
 				<article>
-					<h1><? echo $username ?></h1>
+					<h1><? echo $userInfo['username'] ?></h1>
 					<!-- <h2>Orlando, FL</h2> -->
-					<h2>Joined DATE</h2>
+					<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
 					<h2>12 Profile Views</h2>
-					<h3>CHECKS Check Marks!</h3>
+					<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
 				</article>
 			</section>
 
@@ -63,12 +63,11 @@
 						<? }else{
 							// Viewing another users decks, you can not add new deck
 						}
-
 					} ?>
 			</sction>
-
 		</div> <!-- end of sizer -->
 	</div> <!-- end of info -->
+
 	<div class="sizer">
 
 		<? 	if(!isMulti($decks)){ ?>

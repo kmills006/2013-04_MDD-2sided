@@ -5,26 +5,54 @@
 
 	$cards = objectToArray($cards);
 
-	echo "<pre>";
-	print_r($cards);
-	echo "</pre>";
+
+	if(!isMulti($profileInfo)){
+		// No
+	}else{
+		$userInfo = $profileInfo[0];
+	}
+
+	// echo "<pre>";
+	// print_r($cards);
+	// echo "</pre>";
 
 ?>
+		<div id="info">
+			<div class="sizer">
+				<section id="picture">
+					<article>
+						<? if($userInfo['profile_img']){
+							echo img('imgs/profile_imgs/'.$userInfo['profile_img']); 
+						}else{
+							echo img('imgs/profile_imgs/profile-img_placeholder.png'); 
+						} ?>
+					</article>
+				</section>
+				
+				<section id="profileInfo">
+					<article>
+						<h1><? echo $userInfo['username'] ?></h1>
+						<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
+						<h2>12 Profile Views</h2>
+						<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
+					</article>
+				</section>
 
+				<section id="bgroup">
+					<?
+			    		if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){ ?>
+							<button id="addCard">Add New Card</button>
+						<? }else{
+							// Viewing someone else's decks so they can not add any new cards
+						}
+		    		?>
+				</sction>
 
-    <div id="content">
-
-    	<?
-    		if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){ ?>
-				<button><? echo anchor("cards/addNewCard/{$deckID}", 'Add New Card', 'Add New Card'); ?></button>
-			<? }else{
-				// Viewing someone else's decks so they can not add any new cards
-			}
-    	?>
+			</div> <!-- end of sizer -->
+		</div> <!-- end of info -->
 
         <section id="cards">
             <ul>
-
             	<?
             		if(!isMulti($cards)){
 						echo "No Cards";
@@ -64,7 +92,7 @@
 			
 				</ul>			
 			</div>
-	</div> <!-- end of content -->
+		</section>
 
     <!-- Jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

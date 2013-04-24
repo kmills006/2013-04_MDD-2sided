@@ -42,6 +42,7 @@ class Decks extends CI_Controller {
 
 	// viewDecks
 	public function userDecks($userID){
+		$data['profileInfo'] = $this->userModel->getProfile($userID);
 		$data['decks'] = $this->decksModel->getUsersDecks($userID);
 
 		$data['view'] = 'userDecks';

@@ -75,7 +75,7 @@ var initDeck = function(){
 	});
 }; //End initDeck
 
-//Functionality for cards page including cycling through cards.
+//Functionality for cards page including cycling through cards and adding new cards.
 var initCard = function(){
 	var shuffle = [];
 	var shuffled = [];
@@ -166,6 +166,7 @@ var initCard = function(){
 			return false;
 		}
 	});
+
 	//FUNCTIONS FOR FLIPPING CARD
 	var currentCardTitle;
 	var currentCardAnswer;
@@ -204,6 +205,149 @@ var initCard = function(){
 			$('.activeCardBack').rotate3Di('unflip', 180, {direction: 'clockwise', sideChange: flipBack});
 		}
 	});
+
+	//FUNCTIONS FOR ADDING A CARD
+	var initAnswer = function(ques){
+
+		$(document).keypress(function(e){
+			if(e.which == 13 && $('#answer')[0]){
+				var ans = $('#answer').val();
+				$('.activeCardBack').rotate3Di('unflip', 180, {direction: 'clockwise', sideChange: flipBackQ});
+
+				var deckID = window.location.pathname.split('/').pop();
+
+				$.ajax({
+					url: base + "index.php/cards/addNewCard",
+					type: "post",
+					dataType: "json",
+					data: {
+						deckID: deckID,
+						question: ques,
+						answer: ans
+					},
+					success: function(response){
+						console.log(response);
+					},
+					error: function(response){
+						console.log(response);
+					}
+				});
+			}
+		});
+	};
+
+	$('#addCard').on('click', function(e){
+		if($('#firstCard')[0])$('#firstCard').remove();
+
+		if($('#question')[0] === undefined  && $('#answer')[0] === undefined){
+			initCards($('.aCard').length);
+			$('#cards ul').append('<li class="aCard activeCard"><textarea id="question" type="text" name="ctitle" placeholder="Enter your question here then press enter"></textarea></li>');
+
+			$('#question').focus();
+			$('#question').keypress(function(e){
+				if(e.which == 13){
+					var ques = $('#question').val();
+					$('.activeCard').replaceWith('<li class="aCard activeCard"><h1 class="question">' + ques + '</h1></li>');
+					$('.activeCard').rotate3Di('flip', 180, {direction: 'clockwise', sideChange: flipCardQ});
+
+					initAnswer(ques);
+					return false;
+				}
+			});
+		}
+	});
+
+	//Delete Card
+	$('#deleteButton').on('click', function(e){
+		if($('#firstCard')[0] === undefined){
+			var cardID = $('.activeCard').attr("data-cardid");
+			$.ajax({
+				url: "../../yourcards/deletecard",
+				type: "post",
+				dataType: "json",
+				data: {cardID: cardID},
+				success: function(response){
+					console.log(response);
+				},
+				error: function(why){
+					console.log(why.status);
+					console.log("error function");
+				}
+			});
+
+			$('.activeCard').remove();
+			initCards($('.activeCard').index()+1);
+		}
+		if($('.aCard').length === 0){
+			$('#cards ul').append('<li id="firstCard" class="aCard activeCard"><h1>Please add your first card!</h1></li>');
+		}
+	});
+
+	//EditCard
+	$('#editButton').on('click', function(e){
+		var currentCardTitle = $('.activeCard').find('.question').text();
+
+		//Edit Question
+		$('.activeCard').find('.question').replaceWith('<input type="text" class="cardedit" value="' + currentCardTitle +'"/>');
+		if($('.editHint').length === 0)$('.cardedit').after('<p class="editHint">Press Enter To Submit Changes.</p>');
+		$('.cardedit').keypress(function(e){
+			if(e.which == 13){
+
+				var newQuestion = $(this).val();
+				$('.cardedit').replaceWith('<h1 class="question">' + newQuestion + '</h1>');
+				$('.editHint').remove();
+
+				var cardID = $(".activeCard").attr("data-cardid");
+
+				$.ajax({
+					url: base + "index.php/yourcards/editquestion",
+					type: "post",
+					data: {cardID: cardID,
+						question: newQuestion},
+					success: function(response){
+						console.log(response);
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+						console.log(XMLHttpRequest);
+						console.log(textStatus);
+						console.log(errorThrown);
+					}
+				});
+			}
+		});
+
+		//Edit Answer
+		var currentCardAnswer = $('.activeCardBack').find('.answer').text();
+		$('.activeCardBack').find('.question').replaceWith('<input type="text" class="cardedit" value="' + currentCardAnswer +'"/>');
+		if($('.editHint').length === 0)$('.cardedit').after('<p class="editHint">Press Enter To Submit Changes.</p>');
+		$('.cardedit').keypress(function(e){
+			if(e.which == 13){
+
+				var newAnswer = $(this).val();
+				$('.cardedit').replaceWith('<h1 class="question">' + newAnswer + '</h1>');
+				$('.activeCardBack').find('.answer').html(newAnswer);
+				$('.editHint').remove();
+
+				var cardID = $(".activeCardBack").attr("data-cardid");
+
+				$.ajax({
+					url: "../../yourcards/editanswer",
+					type: "post",
+					data: {cardID: cardID,
+						answer: newAnswer},
+					success: function(response){
+						console.log(response);
+					},
+					error: function(XMLHttpRequest, textStatus, errorThrown){
+						console.log(XMLHttpRequest);
+						console.log(textStatus);
+						console.log(errorThrown);
+					}
+				});
+			}
+		});
+	});
+
 	initShuffle();
 	initCards(0);
 };

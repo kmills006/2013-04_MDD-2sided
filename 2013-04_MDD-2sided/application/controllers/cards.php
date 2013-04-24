@@ -4,7 +4,7 @@ class Cards extends CI_Controller {
 
 	function __construct(){
 		parent:: __construct();
-
+		$this->load->model('userModel');
 		$this->load->model('cardsModel');
 	}
 
@@ -16,6 +16,7 @@ class Cards extends CI_Controller {
 		$deckInfo['userID'] = $userID;
 
 		$data['view'] = "viewCards";
+		$data['profileInfo'] = $this->userModel->getProfile($userID);
 		$data['cards'] = $this->cardsModel->getCards($deckInfo);
 		$data['userID'] = $userID;
 		$data['deckID'] = $deckID;
@@ -43,9 +44,9 @@ class Cards extends CI_Controller {
 
 
 	// addNewCard
-	/* public function addNewCard(){
+	 public function addNewCard(){
 		$this->cardsModel->addNewCard($_POST);
-	} */
+	} 
 
 
 
