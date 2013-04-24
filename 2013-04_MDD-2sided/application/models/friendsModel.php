@@ -1,4 +1,4 @@
-<?
+<? if ( ! defined('BASEPATH')) exit('No direct script access allowed');
 
 class FriendsModel extends CI_Model {
 
@@ -26,6 +26,7 @@ class FriendsModel extends CI_Model {
     		}
 
     		return $dataResults;
+
     	}else{
     		return false;
     	}
@@ -85,8 +86,8 @@ class FriendsModel extends CI_Model {
 					}
 
 				}else{
-					// No results found
 
+					// No results found
 					return false;
 				}
 	    	}
