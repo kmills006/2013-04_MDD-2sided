@@ -12,6 +12,8 @@ var initNav = function(){
 	}
 }; //End initNav
 
+
+
 //Validation for the login and registration.
 var initValidation = function(){
 
@@ -61,6 +63,8 @@ var initValidation = function(){
 }; //End initValidation 
 
 
+
+
 // User search functionality
 var initUserSearch = function(){
 	var focusCounter = -1;
@@ -81,19 +85,20 @@ var initUserSearch = function(){
 			data: { user: search },
 			success: function(response){
 				if(response == 'false'){
-					console.log('No User Found');
+					$('#searchResults').replaceWith('<li class="result">No User Found</li>');
 				}else{
 					var results = JSON.parse(response);
 
 					numberOfItems = results.length;
 
 					if($('#user-search').val.length == 0){
+
 						$('#searchResults').html('');
 						$('#searchResults').hide();
+					
 					}else{
-						$('#searchResults').html('');
 
-						console.log(results);
+						$('#searchResults').html('');
 
 						for(var i = 0; i < results.length; i++){
 							$('#searchResults').append('<li class="result">' + results[i].username + '</li>');
