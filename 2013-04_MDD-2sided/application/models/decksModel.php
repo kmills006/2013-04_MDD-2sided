@@ -152,7 +152,43 @@ class DecksModel extends CI_Model {
  		}
 	}
 
+	// Edit Deck Title
+	public function editDeckTitle($deck){
+		$deckID = $deck["deckID"];
+		$dateEdited = date('Y/m/d h:i:s', time());
+		$newTitle = $deck["newDeckName"];
+		
+		$data = array(
+					"date_edited" => $dateEdited,
+					"title" => $newTitle
+		);
+		
+		$this->db->where("deck_id", $deckID);
+		$this->db->update("decks", $data);	
+	}
 
+	// Edit Deck Privacy
+	public function editDeckPrivacy($deck){
+		$deckID = $deck["deckID"];
+		$dateEdited = date('Y/m/d h:i:s', time());
+		$newPrivacy = $deck["newPrivacy"];
+		
+		$data = array(
+					"date_edited" => $dateEdited,
+					"privacy" => $newPrivacy
+		);
+		
+		$this->db->where("deck_id", $deckID);
+		$this->db->update("decks", $data);	
+	}
+
+	// Delete Deck
+	public function deleteDeck($post){
+		$deckID = $post["deckID"];
+		$tables = array('ratings', 'tags', 'cards', 'decks');
+		$this->db->where('deck_id', $deckID);
+		$this->db->delete($tables);
+	}
 
 
 } // end of Decks class

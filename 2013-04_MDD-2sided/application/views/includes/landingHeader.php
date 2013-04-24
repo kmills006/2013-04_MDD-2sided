@@ -28,6 +28,7 @@
 	</script>
 </head>	
 <body>
+	<div class="shade"></div>
 	<header>
 		<div class="sizer">
 			<div id="logo"><a href="<? echo base_url(); ?>"><img src="<? echo base_url(); ?>imgs/logo.png" alt="2sided Logo" width="66" height="43" /></a></div>

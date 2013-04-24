@@ -70,7 +70,7 @@
 
 	<div class="sizer">
 
-		<? 	if(!isMulti($decks)){ ?>
+		<? if(!isMulti($decks)){ ?>
 
 			<h1>No Decks</h1>
 		
@@ -79,11 +79,11 @@
 			<section id="decks"> 
 				<!-- looping through all the decks and presenting them /Should be in order of date created/ -->
 				<? foreach($decks as $deck){ ?>
-					<article class="deck">
+					<article class="deck" data-deckid="<? echo $deck['deck_id'] ?>" >
 						<? if(!$deck['privacy']) echo '<h1 class="votes">' . $deck["ratingCount"] . '</h1>' ?>
 						<? if($deck['privacy']) echo '<div class="private"></div>' ?>
 						<h1 class="deckname"><? echo anchor("cards/getCards/{$userID}/{$deck['deck_id']}", $deck['title']); ?></h1>
-						<? if($this->session->userdata('userID') == $userID) echo '<div class="options"><ul><li>Edit Title</li><li>Change privacy</li><li>Delete Deck</li></ul></div>' ?>
+						<? if($this->session->userdata('userID') == $userID) echo '<div class="options"><ul><li class="editTitle">Edit Title</li><li class="changePrivacy">Change privacy</li><li class="deleteDeck">Delete Deck</li></ul></div>' ?>
 					</article>
 				<? } ?>
 			</section> <!-- end of decks -->	
@@ -91,6 +91,31 @@
 		<? } ?>
 			
 	</div> <!-- end of sizer -->
+
+	<section id="editModal">
+		<div style="position:relative;">
+			<button>X</button>
+			<h1>Edit Title</h1>
+			<input type="text" />
+			<button>Edit Title</button>
+		</div>
+	</section>
+
+	<section id="privacyModal">
+		<div style="position:relative;">
+			<button>X</button>
+			<h1>Make deck private?</h1>
+			<button>Change</button>
+		</div>
+	</section>
+
+	<section id="deleteModal">
+		<div style="position:relative;">
+			<button>X</button>
+			<h1>Delete this deck?</h1>
+			<button>Delete</button>
+		</div>
+	</section>
 
 	<!-- Jquery -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

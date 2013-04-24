@@ -109,6 +109,17 @@ class Decks extends CI_Controller {
 		}
 	}
 
+	public function editDeckTitle(){
+		$r = $this->decksModel->editDeckTitle($_POST);
+	}
+	
+	public function editDeckPrivacy(){
+		$r = $this->decksModel->editDeckPrivacy($_POST);
+	}
+	
+	public function deleteDeck(){
+		$r = $this->decksModel->deleteDeck($_POST);	
+	}
 
 
 }
