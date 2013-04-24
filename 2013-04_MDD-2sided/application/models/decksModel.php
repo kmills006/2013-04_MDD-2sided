@@ -146,13 +146,19 @@ class DecksModel extends CI_Model {
 
 			$this->db->insert("ratings", $userUpvote);
 			
-			// $q = array("query" => $query, "deckid" => $deckID);
+			
+			$tags = $newDeck['tags'];
+
+			// inserting tags in the database
+			foreach($tags as $tag){
+				var_dump($tag);
+			}
 
  			return true;
  		}
 	}
 
-	// Edit Deck Title
+	// editDeckTitle
 	public function editDeckTitle($deck){
 		$deckID = $deck["deckID"];
 		$dateEdited = date('Y/m/d h:i:s', time());
@@ -167,7 +173,7 @@ class DecksModel extends CI_Model {
 		$this->db->update("decks", $data);	
 	}
 
-	// Edit Deck Privacy
+	// editDeckPrivacy
 	public function editDeckPrivacy($deck){
 		$deckID = $deck["deckID"];
 		$dateEdited = date('Y/m/d h:i:s', time());
@@ -182,12 +188,22 @@ class DecksModel extends CI_Model {
 		$this->db->update("decks", $data);	
 	}
 
-	// Delete Deck
+	// deleteDeck
 	public function deleteDeck($post){
 		$deckID = $post["deckID"];
+
 		$tables = array('ratings', 'tags', 'cards', 'decks');
+
 		$this->db->where('deck_id', $deckID);
-		$this->db->delete($tables);
+		$query = $this->db->delete($tables);
+
+		if(!$query){
+			// Could not delete deck
+			return false;
+		}else{
+			// Successfully removed deck and all information
+			return true;
+		}
 	}
 
 

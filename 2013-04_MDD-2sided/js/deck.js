@@ -158,5 +158,3 @@ var initDeck = function(){
 		});
 	});
 }; //End initDeck
-
-
