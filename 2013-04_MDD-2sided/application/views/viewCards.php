@@ -58,7 +58,7 @@
 						echo "No Cards";
 					}else{
 						foreach($cards as $card){ ?>
-		            		<li class="aCard">
+		            		<li class="aCard" data-cardid="<? echo $card['card_id'] ?>">
 		            			<h1 class="question"><? echo $card['question']?></h1>
 		            			<h1 class="answer"><? echo $card['answer']?></h1>
 		            		</li>
@@ -69,8 +69,15 @@
         </section>
         	
 		<section id="cardT">
-			<button type="button" id="editButton" style="visibility:hidden;">Edit</button>
-			<button type="button" id="deleteButton" style="visibility:hidden;">Delete</button>
+			<? //hides or shows the edit and delete button.
+	    		if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){ ?>
+					<button type="button" id="editButton">Edit</button>
+					<button type="button" id="deleteButton">Delete</button>
+
+				<? }else{ ?>
+					<div class="space"></div>
+				<? }
+    		?>
 			<div id="cardTools">
 				<div id="toolButtons">
 					<div id="leftArrow"></div>
@@ -103,6 +110,7 @@
 
     <!-- Scripts -->
     <script type="text/javascript" src="<? echo base_url(); ?>js/main.js"></script>
+	<script type="text/javascript" src="<? echo base_url(); ?>js/card.js"></script>
 
     <!-- Inits -->
     <script type="text/javascript">initNav();</script>

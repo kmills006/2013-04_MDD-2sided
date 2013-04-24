@@ -138,6 +138,11 @@ button {
   .button a:hover {
     background: #ff6a59; }
 
+.space {
+  width: 99px;
+  height: 25px;
+  float: left; }
+
 /* ----------------- */
 /* - HEADER STYLES - */
 /* ----------------- */

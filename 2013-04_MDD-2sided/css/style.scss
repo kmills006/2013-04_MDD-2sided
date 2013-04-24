@@ -158,6 +158,11 @@ button{
 .button a{
     @include button;
 }
+.space{
+    width: 99px;
+    height: 25px;
+    float: left;
+}
 /* ----------------- */
 /* - HEADER STYLES - */
 /* ----------------- */

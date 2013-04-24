@@ -48,6 +48,22 @@ class Cards extends CI_Controller {
 		$this->cardsModel->addNewCard($_POST);
 	} 
 
+	// deletecard
+	public function deleteCard(){
+		$this->cardsModel->deleteCard($_POST);
+	}
+	
+	
+	// editquestion
+	public function editQuestion(){
+		$this->cardsModel->editQuestion($_POST);
+	}
+	
+	
+	// editanswer
+	public function editAnswer(){
+		$this->cardsModel->editAnswer($_POST);
+	}
 
 
 

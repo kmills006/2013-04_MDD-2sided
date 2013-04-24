@@ -9,7 +9,7 @@ class CardsModel extends CI_Model {
 
     // getCards
     public function getCards($deckInfo){
-		$this->db->select("u.username, d.date_created, c.question, c.answer, d.deck_id, DATE_FORMAT(d.date_created, '%m/%d/%Y') AS formated_date", FALSE);
+		$this->db->select("u.username, d.date_created, c.question, c.answer, d.deck_id, c.card_id, DATE_FORMAT(d.date_created, '%m/%d/%Y') AS formated_date", FALSE);
 		$this->db->from("cards as c");
 		$this->db->join("decks as d", "d.deck_id = c.deck_id");
 		$this->db->join("users as u", "d.user_id = u.user_id");
@@ -33,7 +33,6 @@ class CardsModel extends CI_Model {
 		}
     }
 
-
     // addNewCard
     public function addNewCard($newCard){
     	$cardID = uniqid();
@@ -53,5 +52,44 @@ class CardsModel extends CI_Model {
     	}else{
     		return true;
     	}
+    }
+
+    // edit question
+    public function editQuestion($editPost){
+        $dateEdited = date('Y/m/d h:i:s', time());
+        
+        $data = array(
+                    "question" => $editPost["question"],
+                    "date_edited" => $dateEdited
+        );
+
+        $this->db->where("card_id", $editPost["cardID"]);
+        $this->db->update("cards", $data);
+    }
+
+    // editAnswer
+    public function editAnswer($editPost){
+        $dateEdited = date('Y/m/d h:i:s', time());
+        
+        $data = array(
+                    "answer" => $editPost["answer"],
+                    "date_edited" => $dateEdited
+        );
+
+        $this->db->where("card_id", $editPost["cardID"]);
+        $this->db->update("cards", $data);
+    }
+
+    // delete card
+    function deleteCard($cardID){
+        $cardID = $cardID["cardID"];
+        
+        $q = $this->db->delete("cards", array("card_id" => $cardID));
+        
+        if($q){
+            return true;
+        }else{
+            return false;
+        }           
     }
 }
