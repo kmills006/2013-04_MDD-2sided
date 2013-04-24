@@ -126,6 +126,16 @@ class User extends CI_Controller {
 	}
 
 
+	// userSearch
+	// Users can search through all the users in the community from the users page
+	public function userSearch(){
+		$searchQuery = $_POST;
+
+		$this->userModel->userSearch($searchQuery);
+
+	}
+
+
 
 
 }

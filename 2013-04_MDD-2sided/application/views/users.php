@@ -11,7 +11,8 @@
 			<div class="sizer">
 				<div class="usearch">
 					<h1>Search for users by username</h1>
-					<input type="text" id="search"/>
+					<input type="text" id="user-search"/>
+					<ul id="searchResults"></ul>
 				</div>
 				<div class="sortby">
 					<h1>Sort By</h1>
@@ -64,4 +65,4 @@
 
 	<!-- Inits -->
 	<script type="text/javascript">initNav();</script>
-	<script type="text/javascript">initDeck();</script>
+	<script type="text/javascript">initUserSearch()</script>

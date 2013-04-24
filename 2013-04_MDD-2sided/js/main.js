@@ -59,3 +59,72 @@ var initValidation = function(){
 		}
 	});
 }; //End initValidation 
+
+
+// User search functionality
+var initUserSearch = function(){
+	var focusCounter = -1;
+	var numberOfItems = 0;
+
+	$('#searchResults').hide();
+
+	$('#user-search').keyup(function(e){
+		numberOfItems = 0;
+
+		$('#searchResults').show();
+
+		var search = $(this).val();
+
+		$.ajax({
+			url: base + 'index.php/user/userSearch',
+			type: 'post',
+			data: { user: search },
+			success: function(response){
+				console.log(response);
+			},
+			error: function(response){
+				console.log(XMLHttpRequest);
+				console.log(textStatus);
+				console.log(errorThrown);
+			}
+		});
+	});
+};
+
+
+
+
+	//Search functionality
+	/* var focusCounter = -1;
+	var numberOfItems = 0;
+
+	$('#searchResults').hide();
+
+	$('nav input').keyup(function(e){
+		numberOfItems = 0;
+		$('#searchResults').show();
+		var search = $(this).val();
+		$.ajax({
+			url: base + "index.php/browse/search",
+			type: "post",
+			data: {title: search},
+			success: function(response){
+				if(response == 'No Search Resultsnull'){
+					$('#searchResults').html('');
+					$('#searchResults').hide();
+				}else{
+					var r = JSON.parse(response);
+					numberOfItems = r.length;
+					if($('nav input').val().length == 0){
+						$('#searchResults').html('');
+						$('#searchResults').hide();
+					}else{
+						$('#searchResults').html('');
+						for (var i = 0; i < 5; i++) {
+							$('#searchResults').append('<li class="result"><a class="res" href="' + base + 'index.php/browse/getcards/' + r[i].deckID +'">' + r[i].deckTitle + '</a></li>');
+						};	
+					}
+				}
+			}
+		});
+	}); */
