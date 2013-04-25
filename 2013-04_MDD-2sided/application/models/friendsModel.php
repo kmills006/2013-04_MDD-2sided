@@ -37,14 +37,18 @@ class FriendsModel extends CI_Model {
     // Checking if users are already friends
     function checkFriendship($friendID){
         $userID = $this->session->userdata('userID');
-        
-        $this->db->select('u.user_id as user, uf.friend_id as friend, uf.active');
-        $this->db->join('user_friends as uf', 'u.user_id = uf.user_id');
-        $this->db->where('u.user_id', $userID);
-        $this->db->where('uf.friend_id', $friendID);
 
-       
-       $query = $this->db->get('users as u');
+        $this->db->protect_identifiers('user_friends');
+        $query = $this->db->query(' SELECT *
+                                    FROM users as u
+                                    WHERE u.user_id IN 
+                                        (
+                                            SELECT uf.friend_id 
+                                            FROM user_friends as uf
+                                            WHERE uf.user_id = "'.$userID.'" AND uf.friend_id = "'.$friendID.'" OR uf.user_id = "'.$friendID.'" AND uf.friend_id = "'.$userID.'"
+                                        );'
+        );
+    
 
        if($query->num_rows > 0){
 
@@ -52,9 +56,9 @@ class FriendsModel extends CI_Model {
 
             $friendship = objectToArray($friendship);
 
-            echo '<pre>';
-            print_r($friendship);
-            echo '</pre>';
+            // echo '<pre>';
+            // print_r($friendship);
+            // echo '</pre>';
             
             return $friendship;
 
