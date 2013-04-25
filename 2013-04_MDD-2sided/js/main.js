@@ -132,9 +132,9 @@ var initTags = function(){
 			tags.push(tg);
 
 			$('#tagArea').append('<h1>' + tg + '<span class="del"></span></h1>');
-			
+
 			that.val('');
-			
+
 			delTag();
 
 			return false;
@@ -148,20 +148,18 @@ var initTags = function(){
 		$.ajax({
 			url: base + 'index.php/decks/confirmAddNewDeck',
 			type: 'post',
-			data: { 
+			dataType: "json",
+			data: {
 				title: title,
 				privacy: privacy,
 				tags: tags
 			},
 			success: function(response){
 				console.log(response);
-				// window.location.replace("../cards/getCards/" + response);
-				// location.href = ("../cards/getCards/" + response)
+				window.location.replace("../cards/getCards/" + response.deckID);
 			},
 			error: function(response){
-				console.log(XMLHttpRequest);
-				console.log(textStatus);
-				console.log(errorThrown);
+				console.log(response.responseText);
 			}
 		});
 
