@@ -98,14 +98,16 @@ class Decks extends CI_Controller {
 			$this->addNewDeck();
 		}else{
 
+			$userID = $this->session->userdata('userID');
+
 			// Add new deck
 			$deck = $this->decksModel->addNewDeck($newDeck);
-
+			$deck['userID'] = $userID;
+			
 			if(!$deck){
 				// Throw error msg on why the deck couldn't be added
 			}else{
 				echo json_encode($deck);
-				//$this->userDecks($this->session->userdata('userID'));
 			}
 		}
 	}
