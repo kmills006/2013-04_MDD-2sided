@@ -10,7 +10,6 @@
 		$userInfo = $profileInfo[0];
 	}
 
-	// var_dump(count($decks));
 
 	// echo "<pre>";
 	// print_r($decks);
@@ -28,8 +27,6 @@
 		$userID = $decks[0]['user_id'];
 		$profileImg = $decks[0]['profile_img'];
 	}
-
-	// echo $profileImg;
 
 	$addDeckButton = array('class' => 'addDeckButton');
 ?>

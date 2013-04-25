@@ -1,8 +1,5 @@
 <? 
-	$this->load->helper('objectToArray.php');
 	$this->load->helper('isMulti.php');
-
-	// $profileInfo = objectToArray($profileInfo);
 
 	if(!isMulti($profileInfo)){
 		// No

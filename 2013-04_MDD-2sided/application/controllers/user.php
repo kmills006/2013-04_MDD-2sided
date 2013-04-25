@@ -100,7 +100,7 @@ class User extends CI_Controller {
 	// Users page allowing users to view all other users in the community
 	// Can be viewed either logged in or not
 	public function viewAll($sortBy){
-
+		
 		// Setting the correct view
 		$data['view'] = 'users';
 
