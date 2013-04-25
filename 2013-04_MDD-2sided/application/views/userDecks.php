@@ -12,9 +12,11 @@
 
 	// var_dump(count($decks));
 
-	echo "<pre>";
-	print_r($decks);
-	echo "</pre>";
+	// echo "<pre>";
+	// print_r($decks);
+	// echo "</pre>";
+
+	$profileImg = null;
 
 
 	if(isset($decks['username'])){
@@ -24,7 +26,10 @@
 	}else{
 		$username = $decks[0]['username'];
 		$userID = $decks[0]['user_id'];
+		$profileImg = $decks[0]['profile_img'];
 	}
+
+	// echo $profileImg;
 
 	$addDeckButton = array('class' => 'addDeckButton');
 ?>
@@ -33,10 +38,10 @@
 		<div class="sizer">
 			<section id="picture">
 
-				<? if($decks['profile_img'] == null){
+				<? if(isset($profileImg) & $profileImg == null){
 					echo img('imgs/profile_imgs/profile-img_placeholder.png');
 				}else{
-					echo img('imgs/profile_imgs/'.$decks['profile_img']); 
+					echo img('imgs/profile_imgs/'.$profileImg); 
 				} ?>
 
 				<?  if(!$isLoggedIn){
