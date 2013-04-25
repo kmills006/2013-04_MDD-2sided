@@ -91,11 +91,11 @@ var initUserSearch = function(){
 
 					numberOfItems = results.length;
 
-					if($('#user-search').val.length == 0){
+					if($('#user-search').val.length === 0){
 
 						$('#searchResults').html('');
 						$('#searchResults').hide();
-					
+
 					}else{
 
 						$('#searchResults').html('');
@@ -114,3 +114,31 @@ var initUserSearch = function(){
 		});
 	});
 }; // End of initUserSearch
+
+
+var initTags = function(){
+
+	$('#tagInput').keypress(function(e){
+		var that = $(this);
+		var tg = $.trim(that.val());
+		var tags = [];
+
+		if(e.which == 32 && that.val().length<2){return false;}
+
+		if(e.which == 32 && that.val().length>1){
+
+			tags.push(tg);
+
+			$('#tagArea').append('<h1>' + tg + '<span class="del"></span></h1>');
+			that.val('');
+			delTag();
+			return false;
+		}
+	});
+
+	var delTag = function(){
+		$('.del').on('click', function(e){
+			$(this).parent().remove();
+		});
+	};
+};
