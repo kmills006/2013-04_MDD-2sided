@@ -129,7 +129,6 @@ class UserModel extends CI_Model {
                 return $t2 - $t1;
             }
 
-
             // Return the array of users with the oldest users on the top
             function sortByOldest($a, $b){
                 $t1 = strtotime($a['date_of_reg']);
@@ -166,7 +165,7 @@ class UserModel extends CI_Model {
                 return false;
             }
         
-        } // end of if
+        } 
     
     } // end of getAll
 

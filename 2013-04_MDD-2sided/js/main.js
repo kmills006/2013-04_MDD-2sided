@@ -118,10 +118,12 @@ var initUserSearch = function(){
 
 var initTags = function(){
 
+	var tags = [];
+
 	$('#tagInput').keypress(function(e){
 		var that = $(this);
 		var tg = $.trim(that.val());
-		var tags = [];
+		// var tags = [];
 
 		if(e.which == 32 && that.val().length<2){return false;}
 
@@ -136,9 +138,35 @@ var initTags = function(){
 		}
 	});
 
+	$('#create-deck-btn').click(function(e){
+		var title = $("#deckTitle").val();
+		var privacy = $(".privacy:checked").val();
+
+		$.ajax({
+			url: base + 'index.php/decks/confirmAddNewDeck',
+			type: 'post',
+			data: { 
+				title: title,
+				privacy: privacy,
+				tags: tags
+			},
+			success: function(response){
+				console.log(response);
+			},
+			error: function(response){
+				console.log(XMLHttpRequest);
+				console.log(textStatus);
+				console.log(errorThrown);
+			}
+		});
+
+		return false;
+	});
+
 	var delTag = function(){
 		$('.del').on('click', function(e){
 			$(this).parent().remove();
 		});
 	};
+
 };

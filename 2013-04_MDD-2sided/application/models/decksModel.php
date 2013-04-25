@@ -146,8 +146,13 @@ class DecksModel extends CI_Model {
 
 			$this->db->insert("ratings", $userUpvote);
 			
+			echo "Decks Model";
+			echo "</br>";
+
 			
 			$tags = $newDeck['tags'];
+
+			var_dump($tags);
 
 			// inserting tags in the database
 			foreach($tags as $tag){

@@ -75,11 +75,11 @@ class Decks extends CI_Controller {
 
 	// confirmAddNewDeck
 	public function confirmAddNewDeck(){
-		$newDeck['title'] = $_POST['dtitle'];
+		$newDeck['title'] = $_POST['title'];
 		$newDeck['tags'] = $_POST['tags'];
 		$newDeck['privacy'] = $_POST['privacy'];
 
-		var_dump($newDeck['tags']);
+		var_dump($newDeck);
 
 		// Form-Validation
 		$this->load->library('form_validation');

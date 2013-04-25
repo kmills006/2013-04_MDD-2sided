@@ -1,5 +1,10 @@
 <?php
 	$deckForm = array('id' => "deckForm");
+	$deckTitle = array(
+					'id' => 'deckTitle',
+					'name' => 'dtitle',
+					'placeholder' => 'Deck Title'
+	);
 ?>
 
 	<div id="content">
@@ -13,7 +18,7 @@
 				<?php echo form_open("decks/confirmAddNewDeck", $deckForm); ?>
 					<p>Deck Title</p>
 					<h2 class="titleError"></h2>
-					<?php echo form_input('dtitle'); ?>
+					<?php echo form_input($deckTitle); ?>
 					<p>Deck Privacy</p>
 					<input type="radio" name="privacy" value="Public" id="public" class="privacy" checked /> <label for="public">Public</label><br />
 					<input type="radio" name="privacy" value="Private" id="private" class="privacy"/> <label for="private">Private</label>
