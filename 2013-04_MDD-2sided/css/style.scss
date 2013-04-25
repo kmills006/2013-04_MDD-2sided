@@ -158,6 +158,10 @@ button{
 .button a{
     @include button;
 }
+.voted{
+    //@include button;
+    background-color: $main-blue !important;
+}
 .space{
     width: 99px;
     height: 25px;

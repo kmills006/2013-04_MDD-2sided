@@ -81,7 +81,7 @@ class CardsModel extends CI_Model {
     }
 
     // delete card
-    function deleteCard($cardID){
+    public function deleteCard($cardID){
         $cardID = $cardID["cardID"];
         
         $q = $this->db->delete("cards", array("card_id" => $cardID));
@@ -91,5 +91,82 @@ class CardsModel extends CI_Model {
         }else{
             return false;
         }           
+    }
+
+    // Check Vote
+    public function checkVote($post){
+        $deckID = $post["deckID"];
+        
+        $userID = $this->session->userdata('userID');
+
+        $this->db->select("*");
+        $this->db->from("ratings");
+
+        $this->db->where("deck_id", $deckID);
+        $this->db->where("user_id", $userID);
+
+        $query = $this->db->get();
+
+        if($query->num_rows() > 0){
+             foreach ($query->result() as $row)
+            {   
+               $data_results[] = $row;
+            }
+
+            return $data_results;
+        }else{
+            return false;
+        }
+    }
+    public function check_if_rating_exists($deckID, $userID){
+        $q = $this->db->get_where("ratings", array("deck_id" => $deckID,
+                                                   "user_id" => $userID));
+                                                   
+        if ($q->num_rows() > 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }  
+
+    // Send Vote
+    public function sendVote($vote){
+        $dateVoted = date('Y/m/d h:i:s', time());
+        $userID = $this->session->userdata("userID");
+        
+        if(!$userID){
+            echo "login";
+        }else{
+
+            $rating_id = uniqid();
+            $data = array(
+                "deck_id" => $vote["deckID"],
+                "rating_id" => $rating_id,
+                "user_id" => $userID,
+                "rating" => 1,
+                "date_rated" => $dateVoted
+            );
+            
+            $q = $this->db->insert("ratings", $data);            
+        }
+    }
+
+    public function cancelVote($vote){
+
+        $dateVoted = date('Y/m/d h:i:s', time());
+        $userID = $this->session->userdata("userID");
+
+        if(!$userID){
+            echo "login";
+        }else{
+            $data = array(
+                "rating" => 0,
+                "date_rated" => $dateVoted
+            );
+                
+            $this->db->where("deck_id", $vote["deckID"]);
+            $this->db->where("user_id", $userID);
+            $this->db->update("ratings", $data);  
+        } 
     }
 }

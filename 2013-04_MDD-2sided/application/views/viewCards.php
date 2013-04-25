@@ -108,4 +108,4 @@
     <!-- Inits -->
     <script type="text/javascript">initNav();</script>
     <script type="text/javascript">initCard();</script>
-
+	<script type="text/javascript">initVoting();</script>

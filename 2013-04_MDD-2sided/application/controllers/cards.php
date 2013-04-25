@@ -65,8 +65,23 @@ class Cards extends CI_Controller {
 		$this->cardsModel->editAnswer($_POST);
 	}
 
+	// check vote
+	public function checkVote(){
+		$r = $this->cardsModel->checkVote($_POST);
 
+		echo json_encode($r);
+	}
 
+	// send vote
+	public function sendVote(){
+		$r = $this->cardsModel->sendVote($_POST);
 
+		echo json_encode($r);
+	}
+	// send vote
+	public function cancelVote(){
+		$r = $this->cardsModel->cancelVote($_POST);
 
+		echo json_encode($r);
+	}
 }

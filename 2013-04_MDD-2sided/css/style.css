@@ -138,6 +138,9 @@ button {
   .button a:hover {
     background: #ff6a59; }
 
+.voted {
+  background-color: #366774 !important; }
+
 .space {
   width: 99px;
   height: 25px;
