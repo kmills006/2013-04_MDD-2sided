@@ -24,47 +24,43 @@
 		$username = $decks[0]['username'];
 		$userID = $decks[0]['user_id'];
 	}
+
+	$addDeckButton = array('class' => 'addDeckButton');
 ?>
 
 	<div id="info">
 		<div class="sizer">
 			<section id="picture">
-				<article>
-					<? if(!isMulti($decks)){
-						echo "here";
+				<? if(!isMulti($decks)){
+					echo "here";
+				}else{
+					if($decks[0]['profile_img'] == null){
+						echo img('imgs/profile_imgs/profile-img_placeholder.png');
 					}else{
-						if($decks[0]['profile_img'] == null){
-							echo img('imgs/profile_imgs/profile-img_placeholder.png');
-						}else{
-							echo img('imgs/profile_imgs/'.$decks[0]['profile_img']); 
-						}
-					}?>
-				</article>
+						echo img('imgs/profile_imgs/'.$decks[0]['profile_img']); 
+					}
+				}?>
+
+				<?  if(!$isLoggedIn){
+					// No user is logged in
+				}else{
+
+					// Checking if user is viewing their own deck
+					if($this->session->userdata('userID') == $userID){ ?>
+						<div class="button"><? echo anchor("decks/addNewDeck", 'Add Deck', 'Add New Deck');?></div>
+					<? }else{
+						// Viewing another users decks, you can not add new deck
+					}
+				} ?>
 			</section>
 			
 			<section id="profileInfo">
-				<article>
-					<h1><? echo $userInfo['username'] ?></h1>
-					<!-- <h2>Orlando, FL</h2> -->
-					<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
-					<h2>12 Profile Views</h2>
-					<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
-				</article>
+				<h1><? echo $userInfo['username'] ?></h1>
+				<!-- <h2>Orlando, FL</h2> -->
+				<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
+				<h2>12 Profile Views</h2>
+				<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
 			</section>
-
-			<section id="bgroup">
-				<?  if(!$isLoggedIn){
-						// No user is logged in
-					}else{
-
-						// Checking if user is viewing their own deck
-						if($this->session->userdata('userID') == $userID){ ?>
-							<div class="button"><? echo anchor("decks/addNewDeck", 'Add New Deck', 'Add New Deck');?></div>
-						<? }else{
-							// Viewing another users decks, you can not add new deck
-						}
-					} ?>
-			</sction>
 		</div> <!-- end of sizer -->
 	</div> <!-- end of info -->
 

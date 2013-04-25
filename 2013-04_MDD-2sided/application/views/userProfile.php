@@ -16,32 +16,27 @@
 	<div id="info">
 		<div class="sizer">
 			<section id="picture">
-				<article>
-					
-					<? if($userInfo['profile_img']){
-						echo img('imgs/profile_imgs/'.$userInfo['profile_img']); 
-					}else{
-						echo img('imgs/profile_imgs/profile-img_placeholder.png'); 
-					} ?>
-					
-					<div class="button"><? echo anchor("decks/userDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></div>
-					
-					<ul class="profileLinks">
-						<li><a href="Friends">Friends</a></li>
-						<li><a href="Badges">Badges</a></li>
-						<li class="last"><a href="Tags">Tags</a></li>
-					</ul>
-				</article>
+				<? if($userInfo['profile_img']){
+					echo img('imgs/profile_imgs/'.$userInfo['profile_img']); 
+				}else{
+					echo img('imgs/profile_imgs/profile-img_placeholder.png'); 
+				} ?>
+				
+				<div class="button"><? echo anchor("decks/userDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></div>
+				
+				<ul class="profileLinks">
+					<li><a href="Friends">Friends</a></li>
+					<li><a href="Badges">Badges</a></li>
+					<li class="last"><a href="Tags">Tags</a></li>
+				</ul>
 			</section>
 			
 			<section id="profileInfo">
-				<article>
-					<h1><? echo $userInfo['username'] ?></h1>
-					<!-- <h2>Orlando, FL</h2> -->
-					<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
-					<h2>12 Profile Views</h2>
-					<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
-				</article>
+				<h1><? echo $userInfo['username'] ?></h1>
+				<!-- <h2>Orlando, FL</h2> -->
+				<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
+				<h2>12 Profile Views</h2>
+				<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
 			</section>
 
 			<section id="quickInfo">

@@ -20,33 +20,26 @@
 		<div id="info">
 			<div class="sizer">
 				<section id="picture">
-					<article>
-						<? if($userInfo['profile_img']){
-							echo img('imgs/profile_imgs/'.$userInfo['profile_img']); 
-						}else{
-							echo img('imgs/profile_imgs/profile-img_placeholder.png'); 
-						} ?>
-					</article>
+					<? if($userInfo['profile_img']){
+						echo img('imgs/profile_imgs/'.$userInfo['profile_img']); 
+					}else{
+						echo img('imgs/profile_imgs/profile-img_placeholder.png'); 
+					} ?>
+
+					<? if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){ ?>
+						<div id="addCard" class="button"><a href="#"> Add New Card</a></div>
+					<? }else{ ?>
+						<div id="vote" class="button"><a href="#">Like Deck</a></div>
+					<? } ?>
 				</section>
 				
 				<section id="profileInfo">
-					<article>
-						<h1><? echo $userInfo['username'] ?></h1>
-						<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
-						<h2>12 Profile Views</h2>
-						<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
-					</article>
+					<h1><? echo $userInfo['username'] ?></h1>
+					<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
+					<h2>12 Profile Views</h2>
+					<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
 				</section>
 
-				<section id="bgroup">
-					<?
-			    		if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){ ?>
-							<button id="addCard">Add New Card</button>
-						<? }else{
-							// Viewing someone else's decks so they can not add any new cards
-						}
-		    		?>
-				</sction>
 
 			</div> <!-- end of sizer -->
 		</div> <!-- end of info -->
