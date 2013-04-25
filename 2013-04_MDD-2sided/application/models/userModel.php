@@ -6,7 +6,6 @@ class UserModel extends CI_Model {
         parent::__construct();
 
         $this->load->helper('objectToArray.php');
-        $this->load->helper('objectToArray.php');
     }
 
 

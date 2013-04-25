@@ -1,9 +1,7 @@
 <?
 
-	$this->load->helper('objectToArray.php');
 	$this->load->helper('isMulti.php');
 
-	$cards = objectToArray($cards);
 
 
 	if(!isMulti($profileInfo)){

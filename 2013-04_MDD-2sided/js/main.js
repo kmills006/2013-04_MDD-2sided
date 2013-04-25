@@ -148,6 +148,8 @@ var initTags = function(){
 			},
 			success: function(response){
 				window.location.replace("../cards/getCards/" + response.deckID);
+				console.log(response);
+				window.location.replace("../cards/getCards/" +response.userID + "/" + response.deckID);
 			},
 			error: function(response){
 				console.log(response.responseText);

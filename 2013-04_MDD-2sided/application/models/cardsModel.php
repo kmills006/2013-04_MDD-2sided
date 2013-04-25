@@ -4,6 +4,8 @@ class CardsModel extends CI_Model {
 
     function __construct(){
         parent::__construct();
+
+        $this->load->helper('objectToArray.php');
     }
 
 
@@ -23,6 +25,12 @@ class CardsModel extends CI_Model {
 			foreach($query->result() as $row){
 				$dataResults[] = $row; 
 			}
+
+            $dataResults = objectToArray($dataResults);
+            
+            // echo '<pre>';
+            // print_r($dataResults);
+            // echo '</pre>';
 
 			return $dataResults;
 
