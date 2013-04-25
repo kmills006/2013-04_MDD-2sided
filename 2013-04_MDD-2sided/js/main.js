@@ -190,6 +190,7 @@ var initVoting = function(){
 			$.ajax({
 				url: base + "index.php/cards/sendVote",
 				type: "post",
+				dataType: "json",
 				data: {
 					deckID: deckID
 				},

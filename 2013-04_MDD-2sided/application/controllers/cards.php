@@ -40,9 +40,6 @@ class Cards extends CI_Controller {
 		}
 	}
 
-
-
-
 	// addNewCard
 	 public function addNewCard(){
 		$this->cardsModel->addNewCard($_POST);
