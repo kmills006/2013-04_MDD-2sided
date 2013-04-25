@@ -132,8 +132,11 @@ var initTags = function(){
 			tags.push(tg);
 
 			$('#tagArea').append('<h1>' + tg + '<span class="del"></span></h1>');
+			
 			that.val('');
+			
 			delTag();
+
 			return false;
 		}
 	});
@@ -152,6 +155,8 @@ var initTags = function(){
 			},
 			success: function(response){
 				console.log(response);
+				// window.location.replace("../cards/getCards/" + response);
+				// location.href = ("../cards/getCards/" + response)
 			},
 			error: function(response){
 				console.log(XMLHttpRequest);
