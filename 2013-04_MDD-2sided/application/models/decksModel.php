@@ -120,14 +120,14 @@ class DecksModel extends CI_Model {
 			$privacy = 1;
 		}
 
-		$newDeck = array(
+		$newDeckData = array(
 					'deck_id' => $deckID,
 					'user_id' => $userID,
 					'title' => $newDeck['title'],
 					'privacy' => $privacy
  		);
 
- 		$query = $this->db->insert('decks', $newDeck);
+ 		$query = $this->db->insert('decks', $newDeckData);
 
  		if(!$query){
  			// Unable to add deck 
@@ -145,21 +145,28 @@ class DecksModel extends CI_Model {
 			);
 
 			$this->db->insert("ratings", $userUpvote);
-			
-			echo "Decks Model";
-			echo "</br>";
-
-			
-			$tags = $newDeck['tags'];
-
-			var_dump($tags);
+		
 
 			// inserting tags in the database
-			foreach($tags as $tag){
-				var_dump($tag);
-			}
+			$tags = $newDeck['tags'];
 
- 			return true;
+			foreach($tags as $tag){
+
+				$tagData = array(
+								'tag_id' => uniqid(),
+								'tagName' => $tag,
+								'deck_id' => $deckID
+				);
+
+				$this->db->insert("tags", $tagData);
+
+				$deckInfo = array(
+								'deckID' => $deckID,
+								'deckTitle' => $newDeck['title']
+				);
+
+				return $deckInfo;
+			}
  		}
 	}
 

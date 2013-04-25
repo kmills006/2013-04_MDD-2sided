@@ -79,14 +79,12 @@ class Decks extends CI_Controller {
 		$newDeck['tags'] = $_POST['tags'];
 		$newDeck['privacy'] = $_POST['privacy'];
 
-		var_dump($newDeck);
-
 		// Form-Validation
 		$this->load->library('form_validation');
 
 		$config = array(
 					array(
-						'field' => 'dtitle',
+						'field' => 'title',
 						'label' => 'Deck Title',
 						'rules' => 'required'
 					)
@@ -101,12 +99,14 @@ class Decks extends CI_Controller {
 		}else{
 
 			// Add new deck
-			$added = $this->decksModel->addNewDeck($newDeck);
+			$deck = $this->decksModel->addNewDeck($newDeck);
 
-			if(!$added){
+			if(!$deck){
 				// Throw error msg on why the deck couldn't be added
 			}else{
 				$this->userDecks($this->session->userdata('userID'));
+				
+				echo json_encode($deck);
 			}
 		}
 	}
