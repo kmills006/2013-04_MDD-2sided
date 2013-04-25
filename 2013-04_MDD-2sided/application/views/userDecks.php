@@ -12,14 +12,15 @@
 
 	// var_dump(count($decks));
 
-	// echo "<pre>";
-	// print_r($decks);
-	// echo "</pre>";
+	echo "<pre>";
+	print_r($decks);
+	echo "</pre>";
 
 
 	if(isset($decks['username'])){
 		$username = $decks['username'];
 		$userID = $decks['user_id'];
+		$profileImg = $decks['profile_img'];
 	}else{
 		$username = $decks[0]['username'];
 		$userID = $decks[0]['user_id'];
@@ -31,15 +32,12 @@
 	<div id="info">
 		<div class="sizer">
 			<section id="picture">
-				<? if(!isMulti($decks)){
-					echo "here";
+
+				<? if($decks['profile_img'] == null){
+					echo img('imgs/profile_imgs/profile-img_placeholder.png');
 				}else{
-					if($decks[0]['profile_img'] == null){
-						echo img('imgs/profile_imgs/profile-img_placeholder.png');
-					}else{
-						echo img('imgs/profile_imgs/'.$decks[0]['profile_img']); 
-					}
-				}?>
+					echo img('imgs/profile_imgs/'.$decks['profile_img']); 
+				} ?>
 
 				<?  if(!$isLoggedIn){
 					// No user is logged in
@@ -61,6 +59,7 @@
 				<h2>12 Profile Views</h2>
 				<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
 			</section>
+
 		</div> <!-- end of sizer -->
 	</div> <!-- end of info -->
 

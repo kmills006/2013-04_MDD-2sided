@@ -68,9 +68,9 @@
 
 					}if(isset($areFriends)){
 
-						echo '<pre>';
-						print_r($areFriends);
-						echo '</pre>';
+						// echo '<pre>';
+						// print_r($areFriends);
+						// echo '</pre>';
 
 						$loggedInUser = $this->session->userdata('userID');
 
