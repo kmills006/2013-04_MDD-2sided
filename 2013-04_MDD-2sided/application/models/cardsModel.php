@@ -148,33 +148,38 @@ class CardsModel extends CI_Model {
 
             $rating_id = uniqid();
             $data = array(
-                "deck_id" => $vote["deckID"],
-                "rating_id" => $rating_id,
-                "user_id" => $userID,
-                "rating" => 1,
-                "date_rated" => $dateVoted
+                        "deck_id" => $vote["deckID"],
+                        "rating_id" => $rating_id,
+                        "user_id" => $userID,
+                        "rating" => 1,
+                        "date_rated" => $dateVoted
             );
             
-            $q = $this->db->insert("ratings", $data);            
+            $q = $this->db->insert("ratings", $data);   
         }
     }
 
     public function cancelVote($vote){
 
-        $dateVoted = date('Y/m/d h:i:s', time());
+        $dateEdited = date('Y/m/d h:i:s', time());
         $userID = $this->session->userdata("userID");
+        $deckID = $vote["deckID"];
 
         if(!$userID){
             echo "login";
         }else{
-            $data = array(
-                "rating" => 0,
-                "date_rated" => $dateVoted
-            );
                 
-            $this->db->where("deck_id", $vote["deckID"]);
+            $this->db->where("deck_id", $deckID);
             $this->db->where("user_id", $userID);
-            $this->db->update("ratings", $data);  
+            $query = $this->db->delete("ratings");
+
+            if(!$query){
+                // Could not delete deck
+                return false;
+            }else{
+                // Successfully removed deck and all information
+                return true;
+            }
         } 
     }
 }
