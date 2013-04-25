@@ -104,9 +104,8 @@ class Decks extends CI_Controller {
 			if(!$deck){
 				// Throw error msg on why the deck couldn't be added
 			}else{
-				$this->userDecks($this->session->userdata('userID'));
-				
 				echo json_encode($deck);
+				//$this->userDecks($this->session->userdata('userID'));
 			}
 		}
 	}
