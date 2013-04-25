@@ -79,7 +79,7 @@
 							<!-- users are not friends and can add each other -->
 							<div class="button"><? echo anchor("friends/addNewFriend/{$loggedInUser}/{$userInfo["user_id"]}", 'Add Friend' , "Add new friend") ?></div>
 						
-						<? }if($loggedInUser == $areFriends[0]['user'] && $areFriends[0]['active'] == 0){ ?>
+						<? }if($loggedInUser == $areFriends[0]['user_id'] && $areFriends[0]['active'] == 0){ ?>
 
 							<!-- logged in user has already sent a friend request and is waiting to be accepted -->
 							<button>Pending Request</button>	

@@ -41,6 +41,13 @@ class FriendsModel extends CI_Model {
         $this->db->protect_identifiers('user_friends');
         $query = $this->db->query(' SELECT *
                                     FROM users as u
+                                    JOIN
+                                        (
+                                            SELECT *
+                                            FROM user_friends as uf
+                                            WHERE uf.user_id = "'.$userID.'" AND uf.friend_id = "'.$friendID.'" OR uf.user_id = "'.$friendID.'" AND uf.friend_id = "'.$userID.'"
+                                        ) as b
+                                    ON u.user_id = b.friend_id
                                     WHERE u.user_id IN 
                                         (
                                             SELECT uf.friend_id 
