@@ -138,9 +138,6 @@ button {
   .button a:hover {
     background: #ff6a59; }
 
-.voted {
-  background-color: #366774 !important; }
-
 .space {
   width: 99px;
   height: 25px;
@@ -1343,3 +1340,24 @@ div.options.open {
   color: #366774;
   font-size: .8em;
   margin-top: 5px; }
+
+#vote a {
+  background-image: url("../imgs/icon-check-white.png");
+  background-repeat: no-repeat;
+  background-position: 5px 10px;
+  text-indent: 20px; }
+
+#vote .voted {
+  background-color: #366774;
+  border-top: solid 1px black;
+  border-right: solid 1px black;
+  border-left: solid 1px black; }
+
+.rating {
+  background-image: url("../imgs/icon-check-orange.png");
+  background-repeat: no-repeat;
+  text-indent: 25px;
+  font-weight: 800; }
+
+#deckTags {
+  height: 30px; }

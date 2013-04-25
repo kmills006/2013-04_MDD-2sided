@@ -35,7 +35,7 @@
 					<h1><? echo $userInfo['username'] ?></h1>
 					<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
 					<h2>12 Profile Views</h2>
-					<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
+					<h3 class="rating"><? echo $userInfo['ratingsCount'] ?></h3>
 				</section>
 
 

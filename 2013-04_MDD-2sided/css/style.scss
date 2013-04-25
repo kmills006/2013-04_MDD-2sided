@@ -159,8 +159,7 @@ button{
     @include button;
 }
 .voted{
-    //@include button;
-    background-color: $main-blue !important;
+    //background-color: $main-blue !important;
 }
 .space{
     width: 99px;
@@ -1194,9 +1193,24 @@ div.options.open{
     font-size: .8em;
     margin-top: 5px;
 }
-
-
-
-
+#vote a{
+    background-image: url("../imgs/icon-check-white.png");
+    background-repeat: no-repeat;
+    background-position: 5px 10px;
+    text-indent: 20px;
+}
+#vote .voted{
+    background-color: $main-blue;
+    @include borders();
+}
+.rating{
+    background-image: url("../imgs/icon-check-orange.png");
+    background-repeat: no-repeat;
+    text-indent: 25px;
+    font-weight: 800;
+}
+#deckTags{
+    height: 30px;
+}
 
 

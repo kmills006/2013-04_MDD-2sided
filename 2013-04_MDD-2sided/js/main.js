@@ -169,6 +169,7 @@ var initTags = function(){
 //Voting page load
 var initVoting = function(){
 	var deckID = window.location.pathname.split('/')[8];
+	var voteButton = $('#vote');
 
 	$.ajax({
 		url: base + "index.php/cards/checkVote",
@@ -176,14 +177,15 @@ var initVoting = function(){
 		dataType: "json",
 		data: {deckID: deckID},
 		success: function(response){
-			response !== false ? $('#vote a').addClass('voted') : console.log("no vote");
+			response !== false ? voteButton.find('a').addClass('voted').html('unlike deck') : console.log("no vote");
 		}
 	});
 
 	//Voting
-	$('#vote').on('click', function(e){
+	voteButton.on('click', function(e){
 
 		var that = $(this);
+		var rating = parseInt($('.rating').html(), 10);
 
 		if(that.find('a').attr('class') != "voted"){
 
@@ -195,11 +197,13 @@ var initVoting = function(){
 					deckID: deckID
 				},
 				success: function(response){
-					console.log(response);
-
-					if(response == 'login') window.location.replace("../../login/");
+					if(response){
+						voteButton.find('a').addClass('voted').html('unlike deck');
+						$('.rating').html( rating + 1);
+					}
 				}
 			});
+
 		}else{
 			$.ajax({
 				url: base + "index.php/cards/cancelVote",
@@ -208,7 +212,10 @@ var initVoting = function(){
 					deckID: deckID
 				},
 				success: function(response){
-					console.log(response);
+					if(response){
+						voteButton.find('a').removeClass('voted').html('like deck');
+						$('.rating').html( rating - 1);
+					}
 				}
 			});
 		}

@@ -155,7 +155,13 @@ class CardsModel extends CI_Model {
                         "date_rated" => $dateVoted
             );
             
-            $q = $this->db->insert("ratings", $data);   
+            $query= $this->db->insert("ratings", $data);   
+
+            if(!$query){
+                return false;
+            }else{
+                return true;
+            }
         }
     }
 
@@ -174,10 +180,8 @@ class CardsModel extends CI_Model {
             $query = $this->db->delete("ratings");
 
             if(!$query){
-                // Could not delete deck
                 return false;
             }else{
-                // Successfully removed deck and all information
                 return true;
             }
         } 
