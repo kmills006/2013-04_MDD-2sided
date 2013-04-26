@@ -70,6 +70,7 @@ class AuthenticationModel extends CI_Model {
         file_put_contents('imgs/profile_imgs/'.$profileImg, file_get_contents($url));
 
 		if(!$exi){
+
 			$data = array(
 				"user_id" => $userID,
 				"email" => $email,
@@ -79,18 +80,31 @@ class AuthenticationModel extends CI_Model {
                 "profile_img" => $profileImg
 			);
 
-	    	$query = $this->db->insert("users", $data);
+            // Users receives the 'Newb' badge for registering
+            $badgeParams = array('badgeID' => '51797a502cf4a');
+            $this->load->library('userbadges.php', $badgeParams);
 
-	    	if(!$query){
-	    		return false;
-	    	}else{
-	    		return true;
-	    	}
+
+            if($this->userbadges->badgeInfo){
+                $badgeInfo = $this->userbadges->badgeInfo;
+
+                $badgeInfo = objectToArray($badgeInfo);
+
+                $dateIssued = date('Y/m/d h:i:s', time());
+
+                $newBadge = array(
+                                'user_badge_id' => uniqid(),
+                                'user_id' => $userID,
+                                'badge_id' => $badgeInfo['badge_id'],
+                                'date_issued' => $dateIssued
+                );
+
+                $this->db->insert('user_badges', $newBadge);
 
 		}else{
 			return false;
-		}
-    }
+		};
+    };
 
 
 
