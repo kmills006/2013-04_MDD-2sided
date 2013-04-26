@@ -11,11 +11,11 @@
 	            </li>
 	            <li class="aCard" data-cardid="50f94dabdcc75">
 	                <h1 class="question">Decks of cards can be voted on. This helps you find the best decks on 2sided.</h1>
-	                <h1 class="answer">The most popular decks will be shown in the browse section. </h1>
+	                <h1 class="answer">The most popular decks will be shown on the Decks page.</h1>
 	            </li>
 	            <li class="aCard" data-cardid="50f94dc89a0e9">
 	                <h1 class="question">Browse for free!</h1>
-	                <h1 class="answer">Just click browse in the navigation above you.</h1>
+	                <h1 class="answer">Just click on Decks in the navigation above you.</h1>
 	            </li>
 	        </ul>
 	    </section>
@@ -41,17 +41,17 @@
 				<article class="arts">
 					<h1>Study the best</h1>
 					<img src="<? echo base_url(); ?>imgs/art-img-2.jpg" alt="reason number to use 2sided number two" width="221" height="96" />
-					<p>Voting on decks allow the browse page to be filled with only the best of the flashcards.</p>
+					<p>Voting on decks insures that you can find the best decks fast. You can vote on any deck, and everyone else can vote on your decks.</p>
 				</article>
 				<article class="arts">
 					<h1>Follow your friends</h1>
 					<img src="<? echo base_url(); ?>imgs/art-img-3.jpg" alt="reason number to use 2sided number three" width="221" height="96" />
-					<p>Find an awesome deck? Go to that user’s page to find the rest of their decks.</p>
+					<p>Connect with your friends and people around the world. You can share decks with your friends and with the world.</p>
 				</article>
 				<article class="arts dontdoit">
 					<h1>Easy to start</h1>
 					<img src="<? echo base_url(); ?>imgs/art-img-4.jpg" alt="reason number to use 2sided number four" width="221" height="96" />
-					<p>Signing up to use 2sided is simple, all you need is an email to start sharing your own flashcards.</p>
+					<p>Signing up to use 2sided is simple, all you need is an email or facebook account to start sharing your own flashcards.</p>
 				</article>
 			</div>
 		</section>
