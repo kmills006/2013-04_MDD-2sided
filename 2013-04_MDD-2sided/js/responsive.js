@@ -23,15 +23,15 @@
 
 	var initNavResponse = function(){
 		if(win.innerWidth() <= 480){
-			$('header').load(base + 'index.php/mobile/loadHeader', function() {
+			header.load(base + 'index.php/mobile/loadHeader .sizer', function() {
 				initNav();
 			});
 		}else if(win.innerWidth() <= 768){
-			$('header').load(base + 'index.php/tablet/loadHeader', function() {
+			header.load(base + 'index.php/tablet/loadHeader .sizer', function() {
 				initNav();
 			});
 		}else{
-			$('header').load(base + 'index.php/pc/loadHeader', function() {
+			header.load(base + 'index.php/pc/loadHeader .sizer', function() {
 				initNav();
 			});
 		}
