@@ -58,6 +58,3 @@
 
 	<!-- Scripts -->
 	<script type="text/javascript" src="<? echo base_url(); ?>js/main.js"></script>
-
-	<!-- Inits -->
-	<script type="text/javascript">initNav();</script>

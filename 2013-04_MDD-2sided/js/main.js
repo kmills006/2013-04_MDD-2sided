@@ -1,17 +1,3 @@
-//Changes the active class on the nav depending on what page you're on.
-var initNav = function(){
-	var pathname = window.location.pathname;
-	if(pathname.indexOf('decks') > -1){
-		$('.decks').addClass('active');
-	}else if(pathname.indexOf('cards') > -1){
-		$('.decks').addClass('active');
-	}else if(pathname.indexOf('user') > -1){
-		$('.users').addClass('active');
-	}else{
-		$('.decks').addClass('active');
-	}
-}; //End initNav
-
 //Validation for the login and registration.
 var initValidation = function(){
 

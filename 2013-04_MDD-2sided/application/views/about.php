@@ -69,5 +69,4 @@
 	<script type="text/javascript" src="<? echo base_url(); ?>js/card.js"></script>
 
     <!-- Inits -->
-    <script type="text/javascript">initNav();</script>
     <script type="text/javascript">initCard();</script>

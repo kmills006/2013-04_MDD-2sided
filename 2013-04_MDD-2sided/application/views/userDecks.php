@@ -123,6 +123,5 @@
 	<script type="text/javascript" src="<? echo base_url(); ?>js/deck.js"></script>
 
 	<!-- Inits -->
-	<script type="text/javascript">initNav();</script>
 	<script type="text/javascript">initDeck();</script>
 
