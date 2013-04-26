@@ -610,12 +610,12 @@ div.options.open{
     float: right; 
     margin-top: 10px;
 }
-#bgroup .button a:first-child{
-    width: 110px;
-    height: 40px;
+#bgroup .button{
+    margin-top: 10px;  
 }
-#bgroup .button a:last-child{
-    width: 150px;
+#bgroup .button a{
+    margin-top: 10px;
+    width: 110px;
     height: 40px;
 }
 #bgroup span{
