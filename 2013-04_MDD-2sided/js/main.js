@@ -60,30 +60,25 @@ var initUserSearch = function(){
 		$('#searchResults').show();
 
 		var search = $(this).val();
+		var userArea = $('#users ul');
+		var newUsers = '';
 
 		$.ajax({
 			url: base + 'index.php/user/userSearch',
 			type: 'post',
 			data: { user: search },
 			success: function(response){
-				if(response == 'false'){
-					$('#searchResults').replaceWith('<li class="result">No User Found</li>');
-				}else{
-					var results = JSON.parse(response);
+				var r = $.parseJSON(response);
+				$.each(r, function(key, value){
 
-					numberOfItems = results.length;
-
-					if($('#user-search').val.length === 0){
-						$('#searchResults').html('');
-						$('#searchResults').hide();
-					}else{
-						$('#searchResults').html('');
-
-						for(var i = 0; i < results.length; i++){
-							$('#searchResults').append('<li class="result">' + results[i].username + '</li>');
-						}
-					}
-				}
+					newUsers += '<li class="userList" data-userid="'+value["user_id"]+'">' +
+								'<img src="'+base+'/imgs/profile_imgs/70x70_profile.png" alt=""/>' +
+								'<h1>'+value["username"]+'</h1>' +
+								'<h3>'+value["ratingCount"]+'</h3>' +
+								'<div class="button"><a href="http://localhost:9999/mdd/2sided/2013-04_MDD-2sided/index.php/user/profilePage/'+value["user_id"]+'" title="View all of users decks">Visit Profile</a></div>' +
+								'</li>';
+				});
+				userArea.html(newUsers);
 			},
 			error: function(response){
 				console.log(response.responseText);

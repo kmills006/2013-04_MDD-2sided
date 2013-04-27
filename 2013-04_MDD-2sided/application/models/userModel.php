@@ -203,7 +203,11 @@ class UserModel extends CI_Model {
     // userSearch
     function userSearch($searchQuery){
 
-        $this->db->select('u.user_id, u.username');
+        $this->db->select('u.user_id, u.username, u.date_of_reg, u.profile_img ,COUNT(r.rating_id) as ratingCount');
+        $this->db->join('decks as d', 'u.user_id = d.user_id');
+        $this->db->join('ratings as r', 'd.deck_id = r.deck_id');
+        $this->db->group_by('u.user_id');
+        $this->db->order_by('ratingCount', 'desc');
         $this->db->like("u.username", $searchQuery['user']);
         $this->db->or_like('u.email', $searchQuery['user']);
         $query = $this->db->get("users as u");
