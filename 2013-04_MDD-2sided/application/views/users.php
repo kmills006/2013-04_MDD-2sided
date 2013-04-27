@@ -6,7 +6,7 @@
 	// echo '</pre>';
 ?>
 
-	<div id="content">
+	<div id="content" class="userPage">
 		<section id="filters">
 			<div class="sizer">
 				<div class="usearch">

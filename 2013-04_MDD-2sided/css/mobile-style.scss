@@ -273,6 +273,13 @@ nav input {
         width: 312px;
     }
 }
+#content.userPage{
+    @media screen and (max-width: 658px) {
+        width: 100%;
+        margin: 0 auto;
+        margin-top: 20px;
+    }
+}
 #topDeck {
     width:456px;
     height: 291px;
@@ -797,13 +804,23 @@ div.options.open{
 /* ----------------- */
 #filters{
     background-color: $dark-blue;
-    height: 110px;
+    height: 100px;
     @include shadow(1px, 2px, 0px, #43717d);
+    @media screen and (max-width: 658px) {
+        padding: 0 10px;
+    }
+    @media screen and (max-width: 580px) {
+        height: 180px;
+    }
 }
 .usearch{
     width: 50%;
-    height: 110px;;
+    height: 80px;;
     float: left;
+    @media screen and (max-width: 580px) {
+        width: 96%;
+        margin: 0 2%;
+    }
 }
 .usearch h1{
     font-size: .9em;
@@ -812,10 +829,19 @@ div.options.open{
 }
 .usearch input{
     @include input;
+    @media screen and (max-width: 580px) {
+        width: 98%;
+        background-position: right center;
+        padding-right: 2%;
+    }
 }
 .sortby{
     width: 280px;
     float: right;
+    @media screen and (max-width: 580px) {
+        width: 96%;
+        margin: 0 2%;
+    }
 }
 .sortby h1{
     font-size: .9em;
@@ -826,6 +852,11 @@ div.options.open{
     @include input;
     background-image: none;
     width: 280px;
+    @media screen and (max-width: 580px) {
+        width: 98%;
+        background-position: right center;
+        padding-right: 2%;
+    }
 }
 .sortby li{
     font-family: "Helvetica Neue";
@@ -837,36 +868,77 @@ div.options.open{
     padding-left: 5px;
     padding-right: 5px;
     cursor: pointer;
+    text-align: center;
     border-right: solid 1px $main-blue;
     &:hover{ color: $main-orange; }
 }
 #users{
     margin-top: 20px;
+    width: 96%;
+    padding: 0 2%;
 }
 #users li{
-    width: 48%;
-    height: 100px;
+    width: 45%;
+    height: 80px;
     float: left;
-    padding-left: 2%;
+    overflow: hidden;
+    margin-bottom: 20px;
+    @media screen and (max-width: 580px) {
+        @include button();
+        width: 42%;
+        height: 65px;
+        margin-bottom: 20px;
+    }
+}
+#users li:nth-child(even){
+    float: right;
 }
 #users img{
     float: left;
-    border: solid 2px $dark-blue;
+    border: solid 2px #ff6a59;
+    @media screen and (max-width: 580px) {
+        width: 60px;
+        height: 60px;
+    }
 }
 #users h1{
     margin-left: 80px;
-    width: 80%;
-    font-size: 1.2em;
-    border-bottom: solid 1px $dark-blue;
+    width: inhert;
+    font-size: 1em;
+    border-bottom: solid 1px #ff6a59;
+    text-align: left;
+    @media screen and (max-width: 580px) {
+        font-weight: 500;
+        font-size: 1.1em;
+        margin-left: 68px;
+    }
 }
 #users h3{
-    font-size: 1em;
+    font-size: .8em;
     margin-left: 80px;
+    margin-top: 2px;
+    @media screen and (max-width: 580px) {
+        color: $egg-white;
+        text-align: left;
+        margin-left: 68px;
+    }
 }
 #users .button{
     float: right;
-    margin-right: 10px;
     font-size: .8em;
+    @media screen and (max-width: 580px) {
+        float: left;
+        margin-top: 35px;
+        margin-left: 35px;
+        display: none;
+    }
+}
+#users .button a{
+    @media screen and (max-width: 580px) {
+        border: none;
+        -webkit-box-shadow:  none;
+        box-shadow:  none;
+    }
 }
 /* ----------------- */
 /* -ADD DECK STYLES- */

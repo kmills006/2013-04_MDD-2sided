@@ -174,7 +174,11 @@ header {
     float: left;
     margin-top: 10px;
     margin-right: 10px;
+    @media screen and (max-width: 658px) {
+        margin-left: 10px;
+    }
 }
+
 nav {
     width: 310px;
     height: 60px;
@@ -261,6 +265,12 @@ nav input {
     height: inherit;
     @media screen and (max-width: 658px) {
         width: 458px;
+        margin: 0 auto;
+    }
+}
+#content.userPage{
+    @media screen and (max-width: 658px) {
+        width: 100%;
         margin: 0 auto;
     }
 }
@@ -783,6 +793,9 @@ div.options.open{
     background-color: $dark-blue;
     height: 110px;
     @include shadow(1px, 2px, 0px, #43717d);
+    @media screen and (max-width: 658px) {
+        padding: 0 10px;
+    }
 }
 .usearch{
     width: 50%;
@@ -826,12 +839,17 @@ div.options.open{
 }
 #users{
     margin-top: 20px;
+    width: 96%;
+    padding: 0 2%;
 }
 #users li{
-    width: 48%;
+    width: 45%;
     height: 100px;
     float: left;
-    padding-left: 2%;
+    overflow: hidden;
+}
+#users li:nth-child(even){
+    float: right;
 }
 #users img{
     float: left;
@@ -839,7 +857,7 @@ div.options.open{
 }
 #users h1{
     margin-left: 80px;
-    width: 80%;
+    width: inhert;
     font-size: 1.2em;
     border-bottom: solid 1px $dark-blue;
 }
@@ -849,7 +867,6 @@ div.options.open{
 }
 #users .button{
     float: right;
-    margin-right: 10px;
     font-size: .8em;
 }
 /* ----------------- */

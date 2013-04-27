@@ -165,8 +165,7 @@ nav {
 .sizer {
   width: 940px;
   margin: 0 auto;
-  position: relative;
-  overflow: auto; }
+  position: relative; }
   @media screen and (max-width: 970px) {
     .sizer {
       width: 758px;
@@ -832,10 +831,13 @@ div.options.open {
   margin-top: 20px; }
 
 #users li {
-  width: 48%;
+  width: 45%;
   height: 100px;
   float: left;
-  padding-left: 2%; }
+  overflow: hidden; }
+
+#users li:nth-child(even) {
+  float: right; }
 
 #users img {
   float: left;
@@ -843,7 +845,7 @@ div.options.open {
 
 #users h1 {
   margin-left: 80px;
-  width: 80%;
+  width: inhert;
   font-size: 1.2em;
   border-bottom: solid 1px #0f3d48; }
 
@@ -853,7 +855,6 @@ div.options.open {
 
 #users .button {
   float: right;
-  margin-right: 10px;
   font-size: .8em; }
 
 /* ----------------- */
