@@ -1,5 +1,7 @@
 <?
 	$this->load->helper('isMulti.php');
+	$parts = explode('/',  uri_string());
+	$uri = end($parts);
 ?>
 
 	<div id="content" class="userPage">
@@ -13,9 +15,9 @@
 				<div class="sortby">
 					<h1>Sort By</h1>
 					<ul>
-						<li class="selected"><? echo anchor('user/viewAll/top', 'Score', 'Sort by score') ?></li>
-						<li><? echo anchor('user/viewAll/newest', 'Newest Users', 'Sort by newest users') ?></li>
-						<li class="last"><? echo anchor('user/viewAll/oldest', 'Oldest Users', 'Sort by oldest users') ?></li>
+						<li<?if($uri == 'top') echo ' class="selected"'?>><? echo anchor('user/viewAll/top', 'Score', 'Sort by score') ?></li>
+						<li<?if($uri == 'newest') echo ' class="selected"'?>><? echo anchor('user/viewAll/newest', 'Newest Users', 'Sort by newest users') ?></li>
+						<li<?if($uri == 'oldest') echo ' class=" last selected"'?> class="last"><? echo anchor('user/viewAll/oldest', 'Oldest Users', 'Sort by oldest users') ?></li>
 					</ul>
 				</div>
 			</div>

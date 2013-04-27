@@ -92,7 +92,7 @@ var initUserSearch = function(){
 	});
 }; // End of initUserSearch
 
-// Adding and deleting tags to a deck while adding a deck
+// Adding and deleting tags to a deck when adding a deck
 var initTags = function(){
 
 	var tags = [];
@@ -152,7 +152,7 @@ var initTags = function(){
 	};
 };
 
-//Voting page load
+//Voting 
 var initVoting = function(){
 	var deckID = window.location.pathname.split('/')[8];
 	var voteButton = $('#vote');
