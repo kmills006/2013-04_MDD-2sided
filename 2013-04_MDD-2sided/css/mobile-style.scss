@@ -96,10 +96,11 @@ html {
     letter-spacing: 1px;
     height: 100%;
     background-image: url("../imgs/bg-blue.jpg");
+    overflow-x: hidden;
 }
 body {
     min-height: 100%;
-    overflow: auto;
+    overflow-x: hidden;
 }
 h1{
     font-family: "Helvetica Neue";
@@ -185,6 +186,7 @@ nav {
     width: 100%;
     margin: 0 auto;
     position: relative;
+    overflow: hidden;
 }
 #login a, #logout a{
     @include button;
@@ -391,8 +393,18 @@ nav input {
 #decks {
     clear: both;
 }
+#decks.userDecksPage{
+    clear: left;
+    width: 462px;
+    margin: 0 auto;
+    @media screen and (max-width: 460px) {
+        width: 306px;
+        margin: 0 auto;
+        overflow: hidden;
+    }
+}
 #decks .deck {
-    width: 229px;
+    width: 225px;
     height: 148px;
     background-image: url("../imgs/mobile/card-small.png");
     float: left;
@@ -406,9 +418,10 @@ nav input {
         background-image: url("../imgs/mobile/card-smaller.png");
     }
 }
-#decks .deck:nth-child(even){
-    float: right;
-    margin-right: 0px;
+#decks.userDecksPage .deck:nth-child(even){
+    @media screen and (max-width: 460px) {
+        margin-right: 0px;
+    }
 }
 #decks .username {
     font-family: "Helvetica Neue";
@@ -466,6 +479,9 @@ div.private{
     background-image: url("../imgs/icon-private.png");
     float: right;
     margin: 8px 8px 0px 0px;
+    @media screen and (max-width: 460px) {
+        margin: 2px 2px 0px 0px;
+    }
 }
 div.options{
     width: 220px;
@@ -482,10 +498,17 @@ div.options{
     &:hover { background-color:#ff6a59; }
     @include transition(.3s);
     @include corners(0px, 0px, 5px, 5px);
+    @media screen and (max-width: 460px) {
+        width: 148px;
+        margin-left: 1px;
+    }
 }
 div.options.open{
     height: 122px;
     background-position: top;
+    @media screen and (max-width: 460px) {
+        height: 80px;
+    }
 }
 .options ul{
     margin-top: 25px;
@@ -503,6 +526,11 @@ div.options.open{
     letter-spacing: 1px;
     line-height: 32px;
     &:hover { background-color:#ff6a59; color: $egg-white; }
+    @media screen and (max-width: 460px) {
+        height: 17px;
+        line-height: 17px;
+        font-size: .7em;
+    }
 }
 .options li:last-child{
     @include corners(0px, 0px, 5px, 5px);
@@ -664,8 +692,17 @@ div.options.open{
 #info{
     border-top: solid 1px #254750;
     width: 100%;
-    overflow: auto;
     padding-top: 20px;
+    @media screen and (max-width: 742px) {
+        width: 462px;
+        margin: 0 auto;
+        padding-left: 7px;
+    }
+    @media screen and (max-width: 460px) {
+        padding-left: 0px;
+        width: 303px;
+        margin: 0 auto;
+    }
 }
 #info a{
     display: inline;
@@ -680,24 +717,44 @@ div.options.open{
     height: 140px;
     background-color: black;
     border: solid 5px $dark-blue;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 #picture .button a{
-    width: 100%;
-    height: 45px;
+    width: 128px;
+    height: 20px;
     font-size: 18px;
     text-align: center;
-    padding: 10px 21px;
+    float: left;
+    margin-bottom: 10px; 
+    @media screen and (max-width: 460px) {
+        margin-left: 0px;
+        width: 281px;
+    }
 }
 #profileInfo{
     float: left;
     width: 200px;
+    @media screen and (max-width: 460px) {
+        width: 140px;
+    }
 }
 #profileInfo h1{
     @include textshadow;
+    @media screen and (max-width: 460px) {
+        font-size: 1.2em;
+    }
 }
 #profileInfo h2{
-    margin-top: 4px;
+    margin-top: 3px;
+    @media screen and (max-width: 460px) {
+        font-size: .8em;
+    }
+}
+#profileInfo h3{
+    margin-top: 3px;
+    @media screen and (max-width: 460px) {
+        font-size: .9em;
+    }
 }
 .profileLinks{
     width: 200px;

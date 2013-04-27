@@ -70,7 +70,6 @@ var initUserSearch = function(){
 			success: function(response){
 				var r = $.parseJSON(response);
 				$.each(r, function(key, value){
-
 					newUsers += '<li class="userList" data-userid="'+value["user_id"]+'">' +
 								'<img src="'+base+'/imgs/profile_imgs/70x70_profile.png" alt=""/>' +
 								'<h1>'+value["username"]+'</h1>' +

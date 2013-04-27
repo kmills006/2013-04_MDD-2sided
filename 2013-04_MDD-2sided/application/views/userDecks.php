@@ -56,7 +56,6 @@
 			
 			<section id="profileInfo">
 				<h1><? echo $userInfo['username'] ?></h1>
-				<!-- <h2>Orlando, FL</h2> -->
 				<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
 				<h2>12 Profile Views</h2>
 				<h3><? echo $userInfo['ratingsCount'] ?> Check Marks!</h3>
@@ -65,15 +64,14 @@
 		</div> <!-- end of sizer -->
 	</div> <!-- end of info -->
 
-	<div class="sizer">
+	
 
-		<? if(!isMulti($decks)){ ?>
+	<? if(!isMulti($decks)){ ?>
+	
+	<? }else{ ?>
 
-			<h1>No Decks</h1>
-		
-		<? }else{ ?>
-
-			<section id="decks"> 
+		<section id="decks" class="userDecksPage"> 
+			<div class="sizer">
 				<!-- looping through all the decks and presenting them /Should be in order of date created/ -->
 				<? foreach($decks as $deck){ ?>
 					<article class="deck" data-deckid="<? echo $deck['deck_id'] ?>" >
@@ -83,11 +81,12 @@
 						<? if($this->session->userdata('userID') == $userID) echo '<div class="options"><ul><li class="editTitle">Edit Title</li><li class="changePrivacy">Change privacy</li><li class="deleteDeck">Delete Deck</li></ul></div>' ?>
 					</article>
 				<? } ?>
-			</section> <!-- end of decks -->	
+			</div> <!-- end of sizer -->
+		</section> <!-- end of decks -->	
 
-		<? } ?>
+	<? } ?>
 			
-	</div> <!-- end of sizer -->
+	
 
 	<section id="editModal">
 		<div style="position:relative;">

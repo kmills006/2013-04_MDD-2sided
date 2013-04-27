@@ -398,18 +398,24 @@ nav input {
         clear: left;
     }
 }
+#decks.userDecksPage {
+    @media screen and (max-width: 742px) {
+        width: 490px;
+        margin: 0 auto;
+    }
+}
 #decks .deck {
     width: 225px;
     height: 148px;
     background-image: url("../imgs/pc/card-small.png");
     float: left;
-    margin-right: 7px;
+    margin-right: 8px;
     margin-bottom: 10px;
     position: relative;
 }
 #decks .deck:nth-child(even){
     @media screen and (max-width: 742px) {
-        margin-right: 0px;;
+        margin-right: 0px;
     }
 }
 #decks .username {
@@ -651,8 +657,12 @@ div.options.open{
 #info{
     border-top: solid 1px #254750;
     width: 100%;
-    overflow: auto;
     padding-top: 20px;
+    @media screen and (max-width: 742px) {
+        width: 490px;
+        margin: 0 auto;
+        padding-left: 7px;
+    }
 }
 #info a{
     display: inline;
@@ -663,18 +673,19 @@ div.options.open{
     margin-right: 10px;
 }
 #picture img{
-    width: 140px;
+     width: 140px;
     height: 140px;
     background-color: black;
     border: solid 5px $dark-blue;
-    margin-bottom: 15px;
+    margin-bottom: 5px;
 }
 #picture .button a{
-    width: 100%;
-    height: 45px;
+    width: 128px;
+    height: 20px;
     font-size: 18px;
     text-align: center;
-    padding: 10px 21px;
+    float: left;
+    margin-bottom: 10px; 
 }
 #profileInfo{
     float: left;
@@ -684,6 +695,9 @@ div.options.open{
     @include textshadow;
 }
 #profileInfo h2{
+    margin-top: 4px;
+}
+#profileInfo h3{
     margin-top: 4px;
 }
 .profileLinks{
