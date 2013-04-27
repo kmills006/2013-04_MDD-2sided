@@ -1,9 +1,5 @@
 <?
 	$this->load->helper('isMulti.php');
-
-	// echo '<pre>';
-	// print_r($users);
-	// echo '</pre>';
 ?>
 
 	<div id="content" class="userPage">
@@ -35,20 +31,18 @@
 											'height' => '70',
 											'width' => '70'
 						); ?>
+							<li class="userList" data-userid="<?echo $user["user_id"]?>">
+								<? if($user['profile_img']){
+									echo img($imgProperties); 
+								}else{
+									echo img('imgs/profile_imgs/70x70_profile.png'); 
+								} ?>
 
-						<li>
-							<? if($user['profile_img']){
-								echo img($imgProperties); 
-							}else{
-								echo img('imgs/profile_imgs/70x70_profile.png'); 
-							} ?>
-
-							<h1><? echo $user["username"] ?></h1>
-							<h3><? echo $user["ratingCount"] ?>Checks</h3>
-							
-							<div class="button"><? echo anchor("user/profilePage/{$user["user_id"]}", "Visit Profile", 'title="View all of users decks"'); ?></div>
-						</li>
-					
+								<h1><? echo $user["username"] ?></h1>
+								<h3><? echo $user["ratingCount"] ?>Checks</h3>
+								
+								<div class="button"><? echo anchor("user/profilePage/{$user["user_id"]}", "Visit Profile", 'title="View all of users decks"'); ?></div>
+							</li>
 					<? } ?>
 				</ul>
 			

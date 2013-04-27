@@ -885,9 +885,10 @@ div.options.open{
     margin-bottom: 20px;
     @media screen and (max-width: 580px) {
         @include button();
-        width: 42%;
-        height: 65px;
-        margin-bottom: 20px;
+        width: 46%;
+        height: 45px;
+        margin-bottom: 15px;
+        padding: 4px;
     }
 }
 #users li:nth-child(even){
@@ -897,8 +898,8 @@ div.options.open{
     float: left;
     border: solid 2px #ff6a59;
     @media screen and (max-width: 580px) {
-        width: 60px;
-        height: 60px;
+        width: 40px;
+        height: 40px;
     }
 }
 #users h1{
@@ -908,9 +909,9 @@ div.options.open{
     border-bottom: solid 1px #ff6a59;
     text-align: left;
     @media screen and (max-width: 580px) {
-        font-weight: 500;
-        font-size: 1.1em;
-        margin-left: 68px;
+        font-weight: 800;
+        font-size: 1em;
+        margin-left: 45px;
     }
 }
 #users h3{
@@ -920,7 +921,7 @@ div.options.open{
     @media screen and (max-width: 580px) {
         color: $egg-white;
         text-align: left;
-        margin-left: 68px;
+        margin-left: 45px;
     }
 }
 #users .button{
@@ -939,6 +940,10 @@ div.options.open{
         -webkit-box-shadow:  none;
         box-shadow:  none;
     }
+}
+.userButton{
+    display: block;
+    overflow: auto;
 }
 /* ----------------- */
 /* -ADD DECK STYLES- */

@@ -20,11 +20,22 @@
 			$('.decks').addClass('active');
 		}
 	};
+	var initUserButtons = function(){
+		var userButton = $('.userList');
 
+		userButton.off('click').on('click', function(){
+			var that = $(this);
+			var userid = that.attr('data-userid');
+
+			window.location.href = base + "index.php/user/profilePage/" + userid;
+		});
+
+	};
 	var initNavResponse = function(){
 		if(win.innerWidth() <= 605){
 			header.load(base + 'index.php/mobile/loadHeader .sizer', function() {
 				initNav();
+				initUserButtons();
 			});
 		}else if(win.innerWidth() <= 768){
 			header.load(base + 'index.php/tablet/loadHeader .sizer', function() {

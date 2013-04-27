@@ -1051,9 +1051,10 @@ div.options.open {
       border-left: solid 1px #ed7f72;
       -webkit-box-shadow: 0px 1px 0px 0px #14262b;
       box-shadow: 0px 1px 0px 0px #14262b;
-      width: 42%;
-      height: 65px;
-      margin-bottom: 20px; }
+      width: 46%;
+      height: 45px;
+      margin-bottom: 15px;
+      padding: 4px; }
       #users li:hover {
         background-color: #ff6a59; } }
 
@@ -1065,8 +1066,8 @@ div.options.open {
   border: solid 2px #ff6a59; }
   @media screen and (max-width: 580px) {
     #users img {
-      width: 60px;
-      height: 60px; } }
+      width: 40px;
+      height: 40px; } }
 
 #users h1 {
   margin-left: 80px;
@@ -1076,9 +1077,9 @@ div.options.open {
   text-align: left; }
   @media screen and (max-width: 580px) {
     #users h1 {
-      font-weight: 500;
-      font-size: 1.1em;
-      margin-left: 68px; } }
+      font-weight: 800;
+      font-size: 1em;
+      margin-left: 45px; } }
 
 #users h3 {
   font-size: .8em;
@@ -1088,7 +1089,7 @@ div.options.open {
     #users h3 {
       color: #ecece7;
       text-align: left;
-      margin-left: 68px; } }
+      margin-left: 45px; } }
 
 #users .button {
   float: right;
@@ -1105,6 +1106,10 @@ div.options.open {
     border: none;
     -webkit-box-shadow: none;
     box-shadow: none; } }
+
+.userButton {
+  display: block;
+  overflow: auto; }
 
 /* ----------------- */
 /* -ADD DECK STYLES- */
