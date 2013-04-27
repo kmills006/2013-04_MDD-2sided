@@ -693,6 +693,7 @@ div.options.open{
     border-top: solid 1px #254750;
     width: 100%;
     padding-top: 20px;
+    overflow: hidden;
     @media screen and (max-width: 742px) {
         width: 462px;
         margin: 0 auto;
