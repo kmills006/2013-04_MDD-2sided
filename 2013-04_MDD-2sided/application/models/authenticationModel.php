@@ -101,10 +101,12 @@ class AuthenticationModel extends CI_Model {
 
                 $this->db->insert('user_badges', $newBadge);
 
+            }
+
 		}else{
 			return false;
-		};
-    };
+		}
+    }
 
 
 
