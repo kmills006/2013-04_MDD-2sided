@@ -1063,9 +1063,10 @@ div.options.open {
 
 #users img {
   float: left;
-  border: solid 2px #ff6a59; }
+  border: solid 2px #366774; }
   @media screen and (max-width: 580px) {
     #users img {
+      border: solid 2px #ff6a59;
       width: 40px;
       height: 40px; } }
 
@@ -1073,10 +1074,11 @@ div.options.open {
   margin-left: 80px;
   width: inhert;
   font-size: 1em;
-  border-bottom: solid 1px #ff6a59;
+  border-bottom: solid 1px #366774;
   text-align: left; }
   @media screen and (max-width: 580px) {
     #users h1 {
+      border-bottom: solid 1px #ff6a59;
       font-weight: 800;
       font-size: 1em;
       margin-left: 45px; } }

@@ -90,6 +90,7 @@ footer,header,hgroup,menu,nav,section {
 /* ----------------- */
 /* --- END RESET --- */
 /* ----------------- */
+
 html {
     width: 100%;
     letter-spacing: 1px;
@@ -896,8 +897,9 @@ div.options.open{
 }
 #users img{
     float: left;
-    border: solid 2px #ff6a59;
+    border: solid 2px $main-blue;
     @media screen and (max-width: 580px) {
+        border: solid 2px #ff6a59;
         width: 40px;
         height: 40px;
     }
@@ -906,9 +908,10 @@ div.options.open{
     margin-left: 80px;
     width: inhert;
     font-size: 1em;
-    border-bottom: solid 1px #ff6a59;
+    border-bottom: solid 1px $main-blue;
     text-align: left;
     @media screen and (max-width: 580px) {
+        border-bottom: solid 1px #ff6a59;
         font-weight: 800;
         font-size: 1em;
         margin-left: 45px;

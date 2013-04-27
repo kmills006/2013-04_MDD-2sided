@@ -9,8 +9,8 @@
 				<li class="signup"><? echo anchor('authentication', "Sign Up", 'title="New User Registration"'); ?></li>
 			</ul>
 		</nav>
-		
-		<div id="logout"><? echo anchor("authentication/userLogout", "Log Out", 'title="User Log Out"'); ?></div>
+
+		<div id="login"><? echo anchor("authentication", "Log In", 'title="User Log In"'); ?></div>
 		<div id="research"></div>
 	</div>
 </header>
