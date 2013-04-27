@@ -165,7 +165,12 @@ nav {
 .sizer {
   width: 940px;
   margin: 0 auto;
-  position: relative; }
+  position: relative;
+  overflow: auto; }
+  @media screen and (max-width: 970px) {
+    .sizer {
+      width: 758px;
+      padding-left: 10px; } }
 
 header img {
   float: left;
@@ -312,6 +317,10 @@ nav input {
   margin-top: 40px;
   margin-left: 16px;
   overflow: auto; }
+
+@media screen and (max-width: 970px) {
+  #topUsers {
+    display: none; } }
 
 #topTags li, #topUsers li {
   clear: both;

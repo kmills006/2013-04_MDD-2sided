@@ -22,7 +22,7 @@
 	};
 
 	var initNavResponse = function(){
-		if(win.innerWidth() <= 480){
+		if(win.innerWidth() <= 605){
 			header.load(base + 'index.php/mobile/loadHeader .sizer', function() {
 				initNav();
 			});

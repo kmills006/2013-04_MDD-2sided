@@ -12,9 +12,9 @@
 	<!-- Desktop -->
 	<link rel="stylesheet" href="<? echo base_url(); ?>css/style.css" media="only screen and (min-width: 768px)" > 
 	<!-- Tablet -->
-	<link rel="stylesheet" href="<? echo base_url(); ?>css/tablet-style.css" media="only screen and (min-width: 480px) and (max-width: 768px)" > 
+	<link rel="stylesheet" href="<? echo base_url(); ?>css/tablet-style.css" media="only screen and (min-width: 605px) and (max-width: 768px)" > 
 	<!-- Mobile -->
-	<link rel="stylesheet" href="<? echo base_url(); ?>css/mobile-style.css" media="only screen and (max-width: 480px)" > 
+	<link rel="stylesheet" href="<? echo base_url(); ?>css/mobile-style.css" media="only screen and (max-width: 605px)" > 
 	
 	<!-- Favicon -->
 	<?php echo link_tag("favicon.ico", "shortcut icon", "image/ico");?>

@@ -3,6 +3,8 @@ $egg-white: #ecece7;
 $main-blue: #366774;
 $main-orange: #e96151;
 $dark-blue: #0f3d48;
+$break-small: 320px;
+$break-large: 970px;
 
 @mixin corners($topLeft : 5px, $topRight : 5px, $bottomRight : 5px, $bottomLeft : 5px) {
     -webkit-border-radius: $topLeft $topRight $bottomRight $bottomLeft;
@@ -188,6 +190,11 @@ nav {
     width: 940px;
     margin: 0 auto;
     position: relative;
+    overflow: auto;
+    @media screen and (max-width: $break-large) {
+        width: 758px;
+        padding-left: 10px;
+    }
 }
 header img {
     float: left;
@@ -294,6 +301,11 @@ nav input {
     margin-top: 40px;
     margin-left: 16px;
     overflow: auto;
+}
+#topUsers{
+    @media screen and (max-width: $break-large) {
+        display: none;
+    }
 }
 #topTags li, #topUsers li {
     clear: both;

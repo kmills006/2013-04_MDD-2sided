@@ -172,10 +172,11 @@ header {
     width: 66px;
     height: 43px;
     position: absolute;
-    top: -3px;
     left: 40%;
+    top: 5px;
 }
 nav {
+    clear: both;
     width: 100%;
     height: 60px;
 }
@@ -220,9 +221,6 @@ header img {
 #navigation li:last-child{
     border: none;
 }
-.about{
-    display: none;
-}
 nav input {
     float: left;
     margin-left: 30px;
@@ -263,11 +261,17 @@ nav input {
 /* - DECKS  STYLES - */
 /* ----------------- */
 #content {
-    border-top: none;
+    border-top: solid 1px #254750;
     width: 100%;
     overflow: auto;
     height: inherit;
-    margin-left: 9px;
+    @media screen and (max-width: 658px) {
+        width: 464px;
+        margin: 0 auto;
+    }
+    @media screen and (max-width: 460px) {
+        width: 312px;
+    }
 }
 #topDeck {
     width:456px;
@@ -277,7 +281,13 @@ nav input {
     margin-top: 30px;
     float: left;
     margin-bottom: 10px;
-    margin-left: 3px;
+    margin-left: 4px;
+    @media screen and (max-width: 460px) {
+        margin-left: 1px;
+        width: 310px;
+        height: 199px;
+        background-image: url("../imgs/mobile/card-front-smaller.png");
+    }
 }
 #topDeck .username {
     font-family: "Helvetica Neue";
@@ -286,6 +296,10 @@ nav input {
     margin-left: 10px;
     font-size: 1.2em;
     float: left;
+    @media screen and (max-width: 460px) {
+        font-size: 1em;
+        padding-top: 10px;
+    }
 }
 #topDeck .votes {
     font-family: "Helvetica Neue";
@@ -298,6 +312,11 @@ nav input {
     background-image: url("../imgs/icon-check.png");
     background-repeat: no-repeat;
     background-position: 0px 10px;
+    @media screen and (max-width: 460px) {
+        background-position: 7px 5px;
+        font-size: 1em;
+        padding-top: 10px;
+    }
 }
 #topDeck .deckname {
     font-family: "Helvetica Neue";
@@ -310,7 +329,11 @@ nav input {
     margin: 0 auto;
     text-align: center;
     line-height: 230px;
-    word-wrap:break-word;
+    @media screen and (max-width: 460px) {
+        font-size: 1.3em;
+        margin-top: 77px;
+        line-height: 20px;
+    }
 }
 #topTags, #topUsers {
     width: 220px;
@@ -368,6 +391,16 @@ nav input {
     margin-right: 6px;
     margin-bottom: 10px;
     position: relative;
+    overflow: hidden;
+    @media screen and (max-width: 460px) {
+        width: 150px;
+        height: 97px;
+        background-image: url("../imgs/mobile/card-smaller.png");
+    }
+}
+#decks .deck:nth-child(even){
+    float: right;
+    margin-right: 0px;
 }
 #decks .username {
     font-family: "Helvetica Neue";
@@ -376,6 +409,10 @@ nav input {
     margin-left: 10px;
     font-size: .9em;
     float: left;
+    @media screen and (max-width: 460px) {
+        font-size: .7em;
+        padding-top: 5px;
+    }
 }
 #decks .votes {
     font-family: "Helvetica Neue";
@@ -389,6 +426,12 @@ nav input {
     background-repeat: no-repeat;
     background-position: 0px 5px;
     font-weight: 900;
+    @media screen and (max-width: 460px) {
+        font-size: .7em;
+        padding-top: 3px;
+        background-position: 9px 3px;
+        background-image: url("../imgs/icon-check-smaller.png");
+    }
 }
 #decks .deckname {
     font-family: "Helvetica Neue";
@@ -403,6 +446,11 @@ nav input {
     margin-top: 71px;
     line-height: 15px;
     word-wrap:break-word;
+    @media screen and (max-width: 460px) {
+        font-size: .9em;
+        margin-top: 31px;
+        line-height: 20px;
+    }
 }
 div.private{
     width: 37px;

@@ -153,20 +153,21 @@ header {
   width: 66px;
   height: 43px;
   float: left;
-  margin-left: 20px;
   margin-top: 10px;
   margin-right: 10px; }
 
 nav {
-  width: 350px;
+  width: 310px;
   height: 60px;
   float: left; }
 
 .sizer {
-  width: 100%;
-  min-width: 631px;
+  width: 95%;
   margin: 0 auto;
   position: relative; }
+  @media screen and (max-width: 658px) {
+    .sizer {
+      width: 100%; } }
 
 header img {
   float: left;
@@ -339,8 +340,11 @@ nav input {
   border-top: solid 1px #254750;
   width: 100%;
   overflow: auto;
-  height: inherit;
-  margin-left: 10px; }
+  height: inherit; }
+  @media screen and (max-width: 658px) {
+    #content {
+      width: 458px;
+      margin: 0 auto; } }
 
 #topDeck {
   width: 456px;
@@ -386,15 +390,41 @@ nav input {
   word-wrap: break-word; }
 
 #topTags, #topUsers {
-  width: 220px;
+  width: 200px;
   height: 300px;
   float: left;
   margin-top: 40px;
   margin-left: 16px;
   overflow: auto; }
+  @media screen and (max-width: 742px) {
+    #topTags, #topUsers {
+      float: right; } }
+  @media screen and (max-width: 722px) {
+    #topTags, #topUsers {
+      margin-left: 5px;
+      width: 150px;
+      overflow: auto; } }
+  @media screen and (max-width: 658px) {
+    #topTags, #topUsers {
+      display: none; } }
 
 #topUsers {
   display: none; }
+  @media screen and (max-width: 742px) {
+    #topUsers {
+      display: block;
+      float: right;
+      margin-top: 0px; } }
+  @media screen and (max-width: 722px) {
+    #topUsers {
+      margin-top: 0px;
+      margin-left: 5px;
+      width: 150px;
+      overflow: auto;
+      float: right; } }
+  @media screen and (max-width: 658px) {
+    #topUsers {
+      display: none; } }
 
 #topTags li, #topUsers li {
   clear: both;
@@ -454,16 +484,24 @@ nav input {
   float: left; }
 
 #decks {
-  clear: both; }
+  clear: both;
+  overflow: auto; }
+  @media screen and (max-width: 742px) {
+    #decks {
+      clear: left; } }
 
 #decks .deck {
-  width: 245px;
-  height: 159px;
-  background-image: url("../imgs/tablet/card-small.png");
+  width: 225px;
+  height: 148px;
+  background-image: url("../imgs/pc/card-small.png");
   float: left;
-  margin-right: 6px;
+  margin-right: 7px;
   margin-bottom: 10px;
   position: relative; }
+
+@media screen and (max-width: 742px) {
+  #decks .deck:nth-child(even) {
+    margin-right: 0px; } }
 
 #decks .username {
   font-family: "Helvetica Neue";
