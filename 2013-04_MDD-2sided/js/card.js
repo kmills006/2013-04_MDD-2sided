@@ -64,31 +64,33 @@ var initCard = function(){
 	});
 
 	//ON KEYDOWN FUNCTIONS FOR CARD TOOLS
-	$(document).keydown(function(e){
-		if(e.keyCode == 32 && $('#question')[0] === undefined && $('#answer')[0] === undefined && $('#cards')[0] && $('.cardedit')[0] === undefined && $(document.activeElement).attr('id') != 'searchIni' && $(document.activeElement).attr('class') != 'res'){
-			$('.activeCard').rotate3Di('flip', 180, {direction: 'clockwise', sideChange: flipCard});
-			$('.activeCardBack').rotate3Di('unflip', 180, {direction: 'clockwise', sideChange: flipBack});
-			return false;
-		}else if(e.keyCode == 37 && $('#question')[0] === undefined && $('#answer')[0] === undefined && $('#cards')[0] && $('.cardedit')[0] === undefined && $(document.activeElement).attr('id') != 'searchIni' && $(document.activeElement).attr('class') != 'res'){
-			if($('.activeCard').index() !== 0)initCards($('.activeCard').index()-1);
-			return false;
-		}else if(e.which == 39 && $('#question')[0] === undefined && $('#answer')[0] === undefined && $('#cards')[0] && $('.cardedit')[0] === undefined && $(document.activeElement).attr('id') != 'searchIni' && $(document.activeElement).attr('class') != 'res'){
-			if($('.activeCard').index() != $('.aCard').length-1)initCards($('.activeCard').index()+1);
-			return false;
-		}else if(e.which == 40 && $('#question')[0] === undefined && $('#answer')[0] === undefined && $('#cards')[0] && $('.cardedit')[0] === undefined && $(document.activeElement).attr('id') != 'searchIni' && $(document.activeElement).attr('class') != 'res'){
-			var ind = shuffle[Math.floor(Math.random()*shuffle.length)];
-			shuffle.splice(shuffle.indexOf(ind),1);
-			shuffled.push(ind);
-			initCards(ind);
-			if(shuffle.length === 0){
-				$.each(shuffled, function(key, value) {
-					shuffle.push(value);
-					shuffled = [];
-				});
+	var initKeys = function(){
+		$(document).keydown(function(e){
+			if(e.keyCode == 32 && $('#question')[0] === undefined && $('#answer')[0] === undefined && $('#cards')[0] && $('.cardedit')[0] === undefined && $(document.activeElement).attr('id') != 'searchIni' && $(document.activeElement).attr('class') != 'res'){
+				$('.activeCard').rotate3Di('flip', 180, {direction: 'clockwise', sideChange: flipCard});
+				$('.activeCardBack').rotate3Di('unflip', 180, {direction: 'clockwise', sideChange: flipBack});
+				return false;
+			}else if(e.keyCode == 37 && $('#question')[0] === undefined && $('#answer')[0] === undefined && $('#cards')[0] && $('.cardedit')[0] === undefined && $(document.activeElement).attr('id') != 'searchIni' && $(document.activeElement).attr('class') != 'res'){
+				if($('.activeCard').index() !== 0)initCards($('.activeCard').index()-1);
+				return false;
+			}else if(e.which == 39 && $('#question')[0] === undefined && $('#answer')[0] === undefined && $('#cards')[0] && $('.cardedit')[0] === undefined && $(document.activeElement).attr('id') != 'searchIni' && $(document.activeElement).attr('class') != 'res'){
+				if($('.activeCard').index() != $('.aCard').length-1)initCards($('.activeCard').index()+1);
+				return false;
+			}else if(e.which == 40 && $('#question')[0] === undefined && $('#answer')[0] === undefined && $('#cards')[0] && $('.cardedit')[0] === undefined && $(document.activeElement).attr('id') != 'searchIni' && $(document.activeElement).attr('class') != 'res'){
+				var ind = shuffle[Math.floor(Math.random()*shuffle.length)];
+				shuffle.splice(shuffle.indexOf(ind),1);
+				shuffled.push(ind);
+				initCards(ind);
+				if(shuffle.length === 0){
+					$.each(shuffled, function(key, value) {
+						shuffle.push(value);
+						shuffled = [];
+					});
+				}
+				return false;
 			}
-			return false;
-		}
-	});
+		});
+	};
 
 	//FUNCTIONS FOR FLIPPING CARD
 	var currentCardTitle;
@@ -148,19 +150,19 @@ var initCard = function(){
 						question: ques,
 						answer: ans
 					},
-					success: function(response){
-						console.log(response);
-					},
-					error: function(response){
-						console.log(response);
+					complete: function(){
+						initKeys();
 					}
 				});
+
+				$(document).unbind('keydown');
+				$(document).unbind('keypress');
 			}
 		});
 	};
 
 	//Add Card
-	$('#addCard').on('click', function(e){
+	$('#addCard').off('click').on('click', function(e){
 		if($('#firstCard')[0])$('#firstCard').remove();
 
 		if($('#question')[0] === undefined  && $('#answer')[0] === undefined){
@@ -274,7 +276,7 @@ var initCard = function(){
 			}
 		});
 	});
-
+	initKeys();
 	initShuffle();
 	initCards(0);
 };
