@@ -157,6 +157,8 @@ class AuthenticationModel extends CI_Model {
             }else{
                 // No badge returned
                 // Handle error
+                // 
+                echo "here";
             }
 
             // Setting session information

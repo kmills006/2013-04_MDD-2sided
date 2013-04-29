@@ -35,7 +35,7 @@
 		<div class="sizer">
 			<section id="picture">
 
-				<? if(isset($profileImg) & $profileImg == null){
+				<? if($profileImg == null){
 					echo img('imgs/profile_imgs/profile-img_placeholder.png');
 				}else{
 					echo img('imgs/profile_imgs/'.$profileImg); 

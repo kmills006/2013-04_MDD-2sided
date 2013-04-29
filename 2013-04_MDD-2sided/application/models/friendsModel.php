@@ -191,31 +191,26 @@ class FriendsModel extends CI_Model {
 
         $query = $this->db->get();
 
+        $dataResults = array();
+
         if($query->num_rows > 0){
-            foreach($query->result() as $row){
-                $dataResults[] = $row;
-            }
 
-            $dataResults = objectToArray($dataResults);
-            $friendsInfo = array();
+            foreach($query->result() as $row){  
 
-            foreach($dataResults as $user){
+                if($row->user_id == $userID){
+
+                    array_push($dataResults, getUserInfo($row->friend_id));
                 
-                if($user['user_id'] == $userID){
-
-                    array_push($friendsInfo, getUserInfo($user['friend_id']));
                 }else{
-                    // $friendsInfo = getUserInfo($user['user_id']);
-                     array_push($friendsInfo, getUserInfo($user['user_id']));
+
+                    array_push($dataResults, getUserInfo($row->user_id));
                 }
             }
 
+            $dataResults = objectToArray($dataResults);
 
-            // echo '<pre>';
-            // print_r($dataResults);
-            // echo '</pre>';
+            return $dataResults;
 
-            return $friendsInfo;
         }else{
             return false;
         }

@@ -141,12 +141,35 @@ class User extends CI_Controller {
 	// View a list of all of a users friends
 	public function friendList($userID){
 
-		$data['friendsList'] = $this->friendsModel->getFriendsList($userID);
+		$this->load->helper('getUserInfo.php');
 
-		echo '<pre>';
-		print_r($data);
-		echo '</pre>';
+		$data['view'] = 'friendsList';
 		
+		$data['userInfo'] = getUserInfo($userID);
+
+		if($this->friendsModel->getFriendsList($userID)){
+			$data['friendsList'] = $this->friendsModel->getFriendsList($userID);			
+		}
+
+		// echo '<pre>';
+		// print_r($data);
+		// echo '</pre>';
+
+		// Checking whether user is logged in or not to determine which header to use
+		switch($this->session->userdata('isLoggedIn')){
+			case 0:
+				$this->load->view('includes/landingTemplate', $data);
+			break;
+
+			case 1:
+				$this->load->view('includes/loggedInTemplate', $data);
+			break;
+
+			default:
+
+			break;
+		};
+
 	}
 
 

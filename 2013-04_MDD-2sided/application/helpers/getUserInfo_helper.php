@@ -8,7 +8,7 @@ if (!function_exists('getUserInfo')){
    		$CI->load->helper('objectToArray');
    		$CI->load->database();
 
-   		$CI->db->select('u.user_id, u.username');
+   		$CI->db->select('u.user_id, u.username, u.profile_img');
    		$CI->db->from('users as u');
    		$CI->db->where('u.user_id', $userID);
    		$query = $CI->db->get();

@@ -230,6 +230,15 @@ class UserModel extends CI_Model {
 
 
 
+    // getUserInfo
+    function getUserInfo($userID){
+        $this->db->select('u.user_id, u.username, u.profile_img, COUNT(r.rating_id) as ratingCount');
+        $this->db->join('deaks as d', 'u.user_id = d.user_id');
+        $this->db->join('ratings as r', 'd.deck_id = r.deck_id');
+        $this->db->where('u.user_id', $userID);
+    }
+
+
 
 
 
