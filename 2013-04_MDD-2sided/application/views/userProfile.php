@@ -22,7 +22,7 @@
 				<div class="button"><? echo anchor("decks/userDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></div>
 				
 				<ul class="profileLinks">
-					<li><a href="Friends">Friends</a></li>
+					<li><? echo anchor("user/friendList/{$userInfo['user_id']}", 'Friends', 'View all of friends'); ?></li>
 					<li><a href="Badges">Badges</a></li>
 					<li class="last"><a href="Tags">Tags</a></li>
 				</ul>
