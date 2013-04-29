@@ -6,6 +6,7 @@ class FriendsModel extends CI_Model {
         parent::__construct();
 
         $this->load->helper('objectToArray.php');
+        $this->load->helper('getUserInfo.php');
     }
 
     // checkFriendRequests
@@ -172,6 +173,51 @@ class FriendsModel extends CI_Model {
             return false;
         }else{
             return true;
+        }
+    }
+
+
+
+    // getFriendsList
+    function getFriendsList($userID){
+
+        /* Select all of the users friends
+        as long they are active */
+        $this->db->select();
+        $this->db->where('active', 1);
+        $this->db->where('uf.user_id', $userID);
+        $this->db->or_where('uf.friend_id', $userID);
+        $this->db->from('user_friends as uf');
+
+        $query = $this->db->get();
+
+        if($query->num_rows > 0){
+            foreach($query->result() as $row){
+                $dataResults[] = $row;
+            }
+
+            $dataResults = objectToArray($dataResults);
+            $friendsInfo = array();
+
+            foreach($dataResults as $user){
+                
+                if($user['user_id'] == $userID){
+
+                    array_push($friendsInfo, getUserInfo($user['friend_id']));
+                }else{
+                    // $friendsInfo = getUserInfo($user['user_id']);
+                     array_push($friendsInfo, getUserInfo($user['user_id']));
+                }
+            }
+
+
+            // echo '<pre>';
+            // print_r($dataResults);
+            // echo '</pre>';
+
+            return $friendsInfo;
+        }else{
+            return false;
         }
     }
 

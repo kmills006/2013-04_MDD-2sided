@@ -140,7 +140,13 @@ class User extends CI_Controller {
 	// friendList
 	// View a list of all of a users friends
 	public function friendList($userID){
-		var_dump($userID);
+
+		$data['friendsList'] = $this->friendsModel->getFriendsList($userID);
+
+		echo '<pre>';
+		print_r($data);
+		echo '</pre>';
+		
 	}
 
 
