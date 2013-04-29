@@ -7,6 +7,7 @@ class User extends CI_Controller {
 
 		$this->load->model('userModel');
 		$this->load->model('friendsModel');
+		$this->load->model('badgeModel');
 	}
 
 	public function index(){
@@ -170,6 +171,35 @@ class User extends CI_Controller {
 			break;
 		};
 
+	}
+
+
+	// badgeList
+	// View a list of all of a users badges
+	public function badgeList($userID){
+		$data['badges'] = $this->badgeModel->getBadges($userID);
+		$data['view'] = 'badgeList';
+
+		// echo '<pre>';
+		// print_r($data);
+		// echo '</pre>';
+		
+		echo uniqid();
+
+		// Checking whether user is logged in or not to determine which header to use
+		switch($this->session->userdata('isLoggedIn')){
+			case 0:
+				$this->load->view('includes/landingTemplate', $data);
+			break;
+
+			case 1:
+				$this->load->view('includes/loggedInTemplate', $data);
+			break;
+
+			default:
+
+			break;
+		};
 	}
 
 

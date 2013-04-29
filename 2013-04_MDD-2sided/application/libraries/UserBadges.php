@@ -22,7 +22,7 @@ class UserBadges
 		$ci =& get_instance();
 
 		$ci->db->select('*');
-		$ci->db->where('badge_id', '51797a502cf4a');
+		$ci->db->where('badge_id', $badgeID['badgeID']);
 		$q = $ci->db->get('badges');
 		
 		if(!$q->row()){

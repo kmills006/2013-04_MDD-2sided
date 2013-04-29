@@ -147,6 +147,88 @@ class DecksModel extends CI_Model {
 			$this->db->insert("ratings", $userUpvote);
 		
 
+			/* Checking how many decks the user has
+			to determine if a badge should be given 
+			or not */
+
+			$this->db->select();
+			$this->db->where('d.user_id', $userID);
+
+			$query = $this->db->get('decks as d');
+
+			var_dump($query);
+
+			/* if($query->num_rows == 1){
+				// Users receives the 'Newb' badge for registering
+	            $badgeParams = array('badgeID' => '517efd184e31b');
+	            $this->load->library('userbadges.php', $badgeParams);
+
+
+	            if($this->userbadges->badgeInfo){
+	                $badgeInfo = $this->userbadges->badgeInfo;
+
+	                $badgeInfo = objectToArray($badgeInfo);
+
+	                $dateIssued = date('Y/m/d h:i:s', time());
+
+	                $newBadge = array(
+	                                'user_badge_id' => uniqid(),
+	                                'user_id' => $userID,
+	                                'badge_id' => $badgeInfo['badge_id'],
+	                                'date_issued' => $dateIssued
+	                );
+
+	                $this->db->insert('user_badges', $newBadge);
+
+	            }
+			}else{
+				
+			} */
+
+			switch($query->num_rows()){
+				case 1:
+					// User receives a badge for creating their first deck
+					$badgeParams = array('badgeID' => '517efd184e31b');
+				break;
+
+				case 5:
+					// User receives a badge for creating their fifth deck
+					$badgeParams = array('badgeID' => '517f02b737512');
+				break;
+
+				case 10:
+					// User receives a badge for creating their tenth deck
+					$badgeParams = array('badgeID' => '517f02e45c07d');
+				break;
+
+				default:
+					// User doesn't receive a new badge
+				break;
+			}
+
+			if(isset($badgeParams)){
+				
+	           $this->load->library('userbadges.php', $badgeParams);
+
+
+	            if($this->userbadges->badgeInfo){
+	                $badgeInfo = $this->userbadges->badgeInfo;
+
+	                $badgeInfo = objectToArray($badgeInfo);
+
+	                $dateIssued = date('Y/m/d h:i:s', time());
+
+	                $newBadge = array(
+	                                'user_badge_id' => uniqid(),
+	                                'user_id' => $userID,
+	                                'badge_id' => $badgeInfo['badge_id'],
+	                                'date_issued' => $dateIssued
+	                );
+
+	                $this->db->insert('user_badges', $newBadge);
+	            }
+			}
+
 			// inserting tags in the database
 			$tags = $newDeck['tags'];
 
@@ -167,6 +249,8 @@ class DecksModel extends CI_Model {
 
 				return $deckInfo;
 			}
+
+
  		}
 	}
 

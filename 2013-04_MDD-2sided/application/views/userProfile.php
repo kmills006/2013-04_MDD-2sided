@@ -23,7 +23,7 @@
 				
 				<ul class="profileLinks">
 					<li><? echo anchor("user/friendList/{$userInfo['user_id']}", 'Friends', 'View all of friends'); ?></li>
-					<li><a href="Badges">Badges</a></li>
+					<li><? echo anchor("user/badgeList/{$userInfo['user_id']}", 'Badges', 'View all badges'); ?></li>
 					<li class="last"><a href="Tags">Tags</a></li>
 				</ul>
 			</section>
