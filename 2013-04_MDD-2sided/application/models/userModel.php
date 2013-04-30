@@ -93,46 +93,117 @@ class UserModel extends CI_Model {
     // increaseUserViewCount
     // Everytime someone views a users profile, increase their profile view count
     function increaseUserViewCount($viewerID, $profileOwnerID){
-
-        echo '</br>';
-        echo '</br>';
-        echo $viewerID;
-        echo '</br>';
-        echo '</br>';
-        echo $profileOwnerID;
-
         $profileID = uniqid();
 
         $this->db->select();
+        $this->db->where('user_id', $profileOwnerID);
         $query = $this->db->get('profile_views');
 
         if($query->num_rows() > 0){
-            foreach($query->result() as $row){
+            $row = objectToArray($query->result());
+            
+            echo 'Viewer: '.$viewerID;
+            echo "</br>";
+
+            echo 'Owner: '.$profileOwnerID;
+            echo "</br>";
+            echo "</br>";
+            
+            $this->db->select();
+            $this->db->where('user_id', $viewerID);
+            $this->db->where('profile_id', $row[0]['profile_id']);
+            $result = $this->db->get('pages');
+
+            // echo "<pre>";
+            // print_r($result);
+            // echo "</pre>";
+
+            if($result->num_rows()){
+                // User has viewed this profile before
+                // check if in a 24 hour period
+                // only update count if past 24 hours
+            }else{
+                // User has not viewed this profile before
+                
+                $newPageView = array(
+                                'pages_id' => uniqid(),
+                                'profile_id' => $row[0]['profile_id'],
+                                'user_id' => $viewerID,
+                                'view_date' => date('Y/m/d h:i:s', time())
+                );
+
+                $this->db->insert('pages', $newPageView);
+
+                $this->db->query(
+                            'UPDATE profile_views
+                            SET count = count + 1
+                            WHERE profile_id = "'.$row[0]['profile_id'].'"'
+                );
+            }
+
+            $this->db->query(
+                        'UPDATE profile_views
+                        SET count = count + 1
+                        WHERE profile_id = "'.$row[0]['profile_id'].'"'
+            );
+
+           /* foreach($query->result() as $row){
                 $row = objectToArray($row);
+
+                echo '<pre>';
+                print_r($row);
+                echo '</pre>';
 
                 if($row['user_id'] == $profileOwnerID){
                     // Profile already has a counter started,
                     // check is user has voted within 24 hours
                     // if not, add to pages table
+                    
+                    echo "Updating.";
                      
                     $this->db->query(
-                                "UPDATE profile_views
+                                'UPDATE profile_views
                                 SET count = count + 1
-                                WHERE profile_id = ".$row['profile_id']
+                                WHERE profile_id = "'.$row['profile_id'].'"'
                     );
 
                 }else{
+
+                    echo "bananan";
+
                     // Profile hasn't been viewed before
                     // add a new counter and add vistors 
                     // userID to pages table
-                }
-            }
-        }else{
-            // No profile views
-            
-            echo '</br>';
-            echo "No profile views";
+                    
 
+                    /* Inserting new viewer view into pages
+                    table, everytime a user vists a profile
+                    it will check if they have viewed in the
+                    past 24 hours, if not it will add a new count */
+                    /* $newPageView = array(
+                                    'pages_id' => uniqid(),
+                                    'profile_id' => $row['profile_id'],
+                                    'user_id' => $viewerID,
+                                    'view_date' => date('Y/m/d h:i:s', time())
+                    );
+
+                   // $this->db->insert('pages', $newPageView);
+
+
+
+                    /* Inserting a new profile view to start counting on a profile
+                    that hasn't been viewed before*/
+                    /* $newProfileView = array(
+                                        'profile_id' => $profileID,
+                                        'user_id' => $profileOwnerID,
+                                        'count' => 1
+                    );
+
+                    $this->db->insert('profile_views', $newProfileView); */
+                //}
+            //}
+        }else{
+            echo 'No profile views in database';
             $newProfileView = array(
                                 'profile_id' => $profileID,
                                 'user_id' => $profileOwnerID,
