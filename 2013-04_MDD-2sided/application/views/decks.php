@@ -1,7 +1,10 @@
 <?
 	$this->load->helper('isMulti.php');
 
-	// var_dump($decks);
+	// echo "<pre>";
+	// print_r($decks);
+	// echo "</pre>";
+	//echo $decks[0]['username'];
 ?>
 
 	<!-- <section id="filters" class="decksPage">
@@ -27,9 +30,9 @@
 	<div id="content">
 		<div class="sizer">
 			<section id="topDeck">
-				<h1 class="username">kmills06</h1>
-				<h1 class="votes">358</h1>
-				<h1 class="deckname">A really long title</h1>
+				<h1 class="username"><? echo $decks[0]['username'] ?></h1>
+				<h1 class="votes"><? echo $decks[0]['rating'] ?></h1>
+				<h1 class="deckname"><? echo $decks[0]['title'] ?></h1>
 			</section>
 			<section id="topTags">
 				<h1>Top Tags</h1>
@@ -56,11 +59,12 @@
 			</section>
 			<section id="decks"> 
 				<!-- looping through all the decks and presenting them in order of top rated -->
-				<? foreach($decks as $deck){ ?>
+				<?
+					for ($i=1; $i < count($decks); $i++) { ?>
 					<article class="deck">
-						<h1 class="username"><? echo anchor("user/profilePage/{$deck["user_id"]}", $deck['username'], 'title="View profile"'); ?></h1>
-						<h1 class="votes"><? echo $deck['rating'] ?></h1>
-						<h1 class="deckname"><? echo anchor("cards/getCards/{$deck["user_id"]}/{$deck["deck_id"]}", $deck['title'], 'title="View Deck"'); ?></h1>
+						<h1 class="username"><? echo anchor("user/profilePage/{$decks[$i]["user_id"]}", $decks[$i]['username'], 'title="View profile"'); ?></h1>
+						<h1 class="votes"><? echo $decks[$i]['rating'] ?></h1>
+						<h1 class="deckname"><? echo anchor("cards/getCards/{$decks[$i]["user_id"]}/{$decks[$i]["deck_id"]}", $decks[$i]['title'], 'title="View Deck"'); ?></h1>
 					</article>
 				<? } ?>
 			</section> <!-- end of decks -->

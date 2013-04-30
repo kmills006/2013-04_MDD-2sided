@@ -70,8 +70,10 @@ var initUserSearch = function(){
 			success: function(response){
 				var r = $.parseJSON(response);
 				$.each(r, function(key, value){
+					if(!value["profile_img"]) value["profile_img"] = 'profile-img_placeholder.png';
+
 					newUsers += '<li class="userList" data-userid="'+value["user_id"]+'">' +
-								'<img src="'+base+'/imgs/profile_imgs/70x70_profile.png" alt=""/>' +
+								'<img src="'+base+'/imgs/profile_imgs/'+value["profile_img"]+'" width="70" height="70" alt=""/>' +
 								'<h1>'+value["username"]+'</h1>' +
 								'<h3>'+value["ratingCount"]+'</h3>' +
 								'<div class="button"><a href="http://localhost:9999/mdd/2sided/2013-04_MDD-2sided/index.php/user/profilePage/'+value["user_id"]+'" title="View all of users decks">Visit Profile</a></div>' +
