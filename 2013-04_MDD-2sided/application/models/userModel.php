@@ -178,7 +178,6 @@ class UserModel extends CI_Model {
                 );
             }
         }else{
-
             // Adding new profile view 
             $newProfileView = array(
                                 'profile_id' => $profileID,
@@ -198,7 +197,6 @@ class UserModel extends CI_Model {
             );
 
             $this->db->insert('pages', $newPageView);
-
         }
 
     }
