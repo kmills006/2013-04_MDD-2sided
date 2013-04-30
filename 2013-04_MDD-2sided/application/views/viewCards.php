@@ -30,7 +30,9 @@
 				</section>
 				
 				<section id="profileInfo">
-					<h1><? echo $deckInfo['username'] ?></h1>
+					<h1><? echo $deckInfo['title'] ?></h1>
+					<h2>By: <? echo anchor("user/profilePage/{$deckInfo["user_id"]}", $deckInfo['username'], 'title="View all of users decks"'); ?></h2>
+					
 
 					<? 
 						if($deckInfo['date_edited'] != "Nov 30, -0001" && $deckInfo['date_edited'] != $deckInfo['date_created']){ ?>
