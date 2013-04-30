@@ -31,7 +31,7 @@
 	$addDeckButton = array('class' => 'addDeckButton');
 ?>
 
-	<div id="info">
+	<div id="info" class="decksPage">
 		<div class="sizer">
 			<section id="picture">
 

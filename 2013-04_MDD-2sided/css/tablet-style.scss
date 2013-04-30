@@ -1095,10 +1095,10 @@ div.options.open{
     color: #e96151;
 }
 #cards{
-    width: 940px;
-    height: 400px;
-    margin: 0 auto;
-    position: relative;
+    width: 90%;
+    height: 400px;    
+    margin: 0px 5%;
+    position: relative;     
 }
 .aCard{
     width:449px;
@@ -1126,20 +1126,22 @@ div.options.open{
 .activeCard{
     z-index: 2;
     position: absolute;
-    left: 249px;
+    left: 50%;
+    margin-left: -224.5px;
     top: 10px;
     background-image: url("../imgs/card-front-active.png");
-
 }
 .activeCardBack{
     z-index: 2;
     position: absolute;
-    left: 249px;
+    left: 50%;
+    margin-left: -224.5px;
     top: 10px;
     background-image: url("../imgs/card-back-active.png");
 }
 .leftCard{
-    float: left;
+    position: absolute;
+    left: 0;
     background-image: url("../imgs/card-front-blur.png");
 }
 #cards .leftCard h1, #cards .rightCard h1{
@@ -1147,14 +1149,15 @@ div.options.open{
     text-shadow: #366774 0 0 3px;
 }
 .rightCard{
-    float: right;
+    position: absolute;
+    right: 0;
     background-image: url("../imgs/card-front-blur.png");
 }
 .hideCard{
     display: none;
 }
 #prog{
-    width: 940px;
+    width: 80%;
     height: 30px;
     background-color: #0f3d48;
     margin: 0 auto;

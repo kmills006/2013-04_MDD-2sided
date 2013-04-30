@@ -9,7 +9,7 @@
 	} */
 
 ?>
-		<div id="info">
+		<div id="info" class="decksPage">
 			<div class="sizer">
 				<section id="picture">
 					<? if($deckInfo['profile_img']){
