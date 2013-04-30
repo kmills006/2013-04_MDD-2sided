@@ -849,7 +849,7 @@ div.options.open {
   margin-top: 40px; }
 
 #picture .button a {
-  width: 93%;
+  width: 91.2%;
   height: 40px;
   line-height: 40px;
   font-size: 18px;
@@ -858,7 +858,7 @@ div.options.open {
   margin-top: 20px;
   margin-bottom: 10px;
   position: absolute;
-  top: 270px;
+  top: 260px;
   z-index: 2;
   display: block; }
   @media screen and (max-width: 460px) {
@@ -912,7 +912,7 @@ div.options.open {
   top: 320px; }
 
 .profileLinks li {
-  width: 26.6%;
+  width: 26%;
   height: 30px;
   line-height: 30px;
   float: left;
@@ -937,7 +937,7 @@ div.options.open {
   -webkit-box-shadow: 0px 1px 0px 0px #14262b;
   box-shadow: 0px 1px 0px 0px #14262b;
   margin-right: 2%;
-  margin-top: 20px; }
+  margin-top: 30px; }
   .profileLinks li:hover {
     background-color: #ff6a59; }
   @media screen and (max-width: 460px) {
@@ -946,7 +946,7 @@ div.options.open {
       margin-top: 0px; } }
 
 #quickInfo {
-  width: 98%;
+  width: 96%;
   height: 78px;
   left: 1%;
   position: absolute;
@@ -964,7 +964,7 @@ div.options.open {
       height: 50px; } }
 
 #quickInfo li {
-  width: 90px;
+  width: 89px;
   height: 78px;
   float: left;
   border-right: solid 1px #0f3d48; }
@@ -999,11 +999,11 @@ div.options.open {
 #bgroup {
   position: absolute;
   height: 29px;
-  right: 0px;
-  padding-top: 11px; }
+  right: 10px;
+  top: 35px; }
   @media screen and (max-width: 460px) {
     #bgroup {
-      top: 100px;
+      top: 125px;
       left: 160px;
       font-size: .9em; } }
 
