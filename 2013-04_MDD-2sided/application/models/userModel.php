@@ -90,6 +90,60 @@ class UserModel extends CI_Model {
     	} 
     }
 
+    // increaseUserViewCount
+    // Everytime someone views a users profile, increase their profile view count
+    function increaseUserViewCount($viewerID, $profileOwnerID){
+
+        echo '</br>';
+        echo '</br>';
+        echo $viewerID;
+        echo '</br>';
+        echo '</br>';
+        echo $profileOwnerID;
+
+        $profileID = uniqid();
+
+        $this->db->select();
+        $query = $this->db->get('profile_views');
+
+        if($query->num_rows() > 0){
+            foreach($query->result() as $row){
+                $row = objectToArray($row);
+
+                if($row['user_id'] == $profileOwnerID){
+                    // Profile already has a counter started,
+                    // check is user has voted within 24 hours
+                    // if not, add to pages table
+                     
+                    $this->db->query(
+                                "UPDATE profile_views
+                                SET count = count + 1
+                                WHERE profile_id = ".$row['profile_id']
+                    );
+
+                }else{
+                    // Profile hasn't been viewed before
+                    // add a new counter and add vistors 
+                    // userID to pages table
+                }
+            }
+        }else{
+            // No profile views
+            
+            echo '</br>';
+            echo "No profile views";
+
+            $newProfileView = array(
+                                'profile_id' => $profileID,
+                                'user_id' => $profileOwnerID,
+                                'count' => 1
+            );
+
+            $this->db->insert('profile_views', $newProfileView);
+        }
+
+    }
+
 
     // getAll
     // Retrieve all users and their ratings count from database for users page

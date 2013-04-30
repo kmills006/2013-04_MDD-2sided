@@ -75,7 +75,6 @@ class User extends CI_Controller {
 		}elseif($isLoggedIn == 1 && $uri == $userID){
 
 			redirect('user/profilePage');
-			// $this->profilePage();
 
 		}elseif($isLoggedIn == 1 && $uri != $userID){
 			/* User is logged in but viewing another users profile, still trying to
@@ -93,7 +92,16 @@ class User extends CI_Controller {
 		}else{
 
 		}
- 
+
+		if($isLoggedIn == 1 && $uri != $userID){
+			// echo "Viewing someone else's profile.";
+
+			$viewersID = $this->session->userdata('userID');
+			$profileOwnerID = $uri;
+
+			$result = $this->userModel->increaseUserViewCount($viewersID, $profileOwnerID);
+		}
+
 	}
 
 
