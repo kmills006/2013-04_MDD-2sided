@@ -102,29 +102,59 @@ class UserModel extends CI_Model {
         if($query->num_rows() > 0){
             $row = objectToArray($query->result());
             
-            echo 'Viewer: '.$viewerID;
-            echo "</br>";
-
-            echo 'Owner: '.$profileOwnerID;
-            echo "</br>";
-            echo "</br>";
-            
             $this->db->select();
             $this->db->where('user_id', $viewerID);
             $this->db->where('profile_id', $row[0]['profile_id']);
+            $this->db->order_by('view_date', 'desc');
+            $this->db->limit(1);
             $result = $this->db->get('pages');
 
-            // echo "<pre>";
-            // print_r($result);
-            // echo "</pre>";
+            echo "<pre>";
+            print_r($result->result());
+            echo "</pre>";
 
-            if($result->num_rows()){
+            if($result->num_rows() > 0 ){
                 // User has viewed this profile before
                 // check if in a 24 hour period
                 // only update count if past 24 hours
-            }else{
-                // User has not viewed this profile before
                 
+                $lastVote = objectToArray($result->result());
+                
+                // $lastVoteDate = strtotime($lastVote[0]['view_date']);
+                // $currentDate = strtotime(date('Y/m/d h:i:s', time()));
+                echo '</br>';
+                //echo $currentDate;
+
+                // Create two new DateTime-objects...
+                $date1 = new DateTime($lastVote[0]['view_date']);
+                $date2 = new DateTime(date('Y/m/d h:i:s', time()));
+
+                var_dump($date2);
+
+                // The diff-methods returns a new DateInterval-object...
+                $diff = $date2->diff($date1);
+
+                // var_dump($diff);
+
+                // Call the format method on the DateInterval-object
+                //echo $diff->format('%d Day and %h hours');
+
+                
+                $newPageView = array(
+                                'pages_id' => uniqid(),
+                                'profile_id' => $row[0]['profile_id'],
+                                'user_id' => $viewerID,
+                                'view_date' => date('Y/m/d h:i:s', time())
+                );
+
+                $this->db->insert('pages', $newPageView);
+                
+
+                
+                echo "User has visited this profile before";
+
+            }else{
+                // User has not viewed this profile before                
                 $newPageView = array(
                                 'pages_id' => uniqid(),
                                 'profile_id' => $row[0]['profile_id'],
@@ -140,77 +170,25 @@ class UserModel extends CI_Model {
                             WHERE profile_id = "'.$row[0]['profile_id'].'"'
                 );
             }
-
-            /* $this->db->query(
-                        'UPDATE profile_views
-                        SET count = count + 1
-                        WHERE profile_id = "'.$row[0]['profile_id'].'"'
-            ); */
-
-           /* foreach($query->result() as $row){
-                $row = objectToArray($row);
-
-                echo '<pre>';
-                print_r($row);
-                echo '</pre>';
-
-                if($row['user_id'] == $profileOwnerID){
-                    // Profile already has a counter started,
-                    // check is user has voted within 24 hours
-                    // if not, add to pages table
-                    
-                    echo "Updating.";
-                     
-                    $this->db->query(
-                                'UPDATE profile_views
-                                SET count = count + 1
-                                WHERE profile_id = "'.$row['profile_id'].'"'
-                    );
-
-                }else{
-
-                    echo "bananan";
-
-                    // Profile hasn't been viewed before
-                    // add a new counter and add vistors 
-                    // userID to pages table
-                    
-
-                    /* Inserting new viewer view into pages
-                    table, everytime a user vists a profile
-                    it will check if they have viewed in the
-                    past 24 hours, if not it will add a new count */
-                    /* $newPageView = array(
-                                    'pages_id' => uniqid(),
-                                    'profile_id' => $row['profile_id'],
-                                    'user_id' => $viewerID,
-                                    'view_date' => date('Y/m/d h:i:s', time())
-                    );
-
-                   // $this->db->insert('pages', $newPageView);
-
-
-
-                    /* Inserting a new profile view to start counting on a profile
-                    that hasn't been viewed before*/
-                    /* $newProfileView = array(
-                                        'profile_id' => $profileID,
-                                        'user_id' => $profileOwnerID,
-                                        'count' => 1
-                    );
-
-                    $this->db->insert('profile_views', $newProfileView); */
-                //}
-            //}
         }else{
-            echo 'No profile views in database';
+            // echo 'No profile views in database';
+
             $newProfileView = array(
                                 'profile_id' => $profileID,
                                 'user_id' => $profileOwnerID,
                                 'count' => 1
             );
 
-            $this->db->insert('profile_views', $newProfileView);
+            $test = $this->db->insert('profile_views', $newProfileView);
+
+            $newPageView = array(
+                            'pages_id' => uniqid(),
+                            'profile_id' => $profileID,
+                            'user_id' => $viewerID,
+                            'view_date' => date('Y/m/d h:i:s', time())
+            );
+
+            $this->db->insert('pages', $newPageView);
         }
 
     }
