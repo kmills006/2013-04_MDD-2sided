@@ -2,8 +2,6 @@
 
 	$this->load->helper('isMulti.php');
 
-
-
 	/* if(!isMulti($deckInfo)){
 		// No
 	}else{

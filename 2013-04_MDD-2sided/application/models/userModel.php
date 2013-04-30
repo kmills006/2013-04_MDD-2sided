@@ -53,6 +53,13 @@ class UserModel extends CI_Model {
 		$subRatings->where("u.user_id = '$userID'");
     	$this->subquery->end_subquery('ratingsCount');
 
+        $subBadges = $this->subquery->start_subquery("select");
+        $subBadges->select('COUNT(user_badge_id) as badge_count')->from('users as u');
+        $subBadges->join('user_badges as ub', 'u.user_id = ub.user_id');
+        // $subBadges->join('ratings as r', 'd.deck_id = r.deck_id');
+        $subBadges->where("u.user_id = '$userID'");
+        $this->subquery->end_subquery('badgeCount');
+
     	$this->db->from('users as u');
     	$this->db->where("u.user_id = '$userID'");
 
