@@ -1682,8 +1682,10 @@ div.options.open{
         background-position: 30% 45%;
     }
 }
-#vote .voted{
+#vote .voted, .voted{
     background-color: $main-blue;
-    @include borders();
+    @include borders(#0f3d48, #0f3d48, #0f3d48);
+    cursor: default;
+    &:hover { background:$main-blue; }
 }
 

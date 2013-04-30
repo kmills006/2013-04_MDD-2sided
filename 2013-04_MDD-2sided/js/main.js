@@ -49,19 +49,17 @@ var initValidation = function(){
 // User search functionality
 var initUserSearch = function(){
 	var focusCounter   =  -1,
-		numberOfItems  =  0
+		numberOfItems  =  0,
+		userSearch     =  $('#user-search')
 	;
 
-	$('#searchResults').hide();
-
-	$('#user-search').keyup(function(e){
+	userSearch.keyup(function(e){
 		numberOfItems = 0;
 
-		$('#searchResults').show();
-
-		var search = $(this).val();
-		var userArea = $('#users ul');
-		var newUsers = '';
+		var search    =  $(this).val(),
+			userArea  =  $('#users ul'),
+			newUsers  =  ''
+		;
 
 		$.ajax({
 			url: base + 'index.php/user/userSearch',
@@ -88,18 +86,20 @@ var initUserSearch = function(){
 	});
 }; // End of initUserSearch
 
-
-
 //Search functionality
 var initSearch = function(){
-	var focusCounter = -1;
-	var numberOfItems = 0;
+	var focusCounter = -1,
+		numberOfItems = 0,
+		searchResults = $('#searchResults'),
+		search = $('nav #search'),
+		doc = $(document)
+	;
 
-	$('#searchResults').hide();
+	searchResults.hide();
 
-	$('nav #search').keyup(function(e){
+	search.keyup(function(e){
 		numberOfItems = 0;
-		$('#searchResults').show();
+		searchResults.show();
 		var search = $(this).val();
 		$.ajax({
 			url: base + "index.php/decks/search",
@@ -108,18 +108,18 @@ var initSearch = function(){
 			success: function(response){
 				console.log(response);
 				if(response == 'No Search Resultsnull'){
-					$('#searchResults').html('');
-					$('#searchResults').hide();
+					searchResults.html('');
+					searchResults.hide();
 				}else{
 					var r = JSON.parse(response);
 					numberOfItems = r.length;
 					if($('nav input').val().length === 0){
-						$('#searchResults').html('');
-						$('#searchResults').hide();
+						searchResults.html('');
+						searchResults.hide();
 					}else{
-						$('#searchResults').html('');
+						searchResults.html('');
 						for (var i = 0; i < 5; i++) {
-							$('#searchResults').append('<li class="result"><a class="res" href="' + base + 'index.php/cards/getCards/' + r[i].userID + "/" +r[i].deckID+'">' + r[i].deckTitle + '</a></li>');
+							searchResults.append('<li class="result"><a class="res" href="' + base + 'index.php/cards/getCards/' + r[i].userID + "/" +r[i].deckID+'">' + r[i].deckTitle + '</a></li>');
 						}
 					}
 				}
@@ -127,7 +127,7 @@ var initSearch = function(){
 		});
 	});
 
-	$(document).keydown(function(e){
+	doc.keydown(function(e){
 		if(numberOfItems >= 6)numberOfItems = 5;
 
 		if(e.keyCode == 40){
@@ -154,20 +154,20 @@ var initSearch = function(){
 				return false;
 			}
 		}
-	});
-	$(document).on('click', function(e){
-		if($(e.target).parent().attr('class') != 'result'){
-			$('#searchResults').hide();
-		}
+	}).on('click', function(e){
+		if($(e.target).parent().attr('class') != 'result') $('#searchResults').hide();
 	});
 };//End search
 
 // Adding and deleting tags to a deck when adding a deck
 var initTags = function(){
 
-	var tags = [];
+	var tags        =  [],
+		tagInput    =  $('#tagInput'),
+		createDeck  =  $('#create-deck-btn')
+	;
 
-	$('#tagInput').keypress(function(e){
+	tagInput.keypress(function(e){
 		var that  =  $(this),
 			tg    =  $.trim(that.val())
 		;
@@ -188,7 +188,7 @@ var initTags = function(){
 		}
 	});
 
-	$('#create-deck-btn').click(function(e){
+	createDeck.click(function(e){
 		var title    =  $("#deckTitle").val(),
 			privacy  =  $(".privacy:checked").val()
 		;
@@ -203,20 +203,18 @@ var initTags = function(){
 				tags: tags
 			},
 			success: function(response){
-				window.location.replace("../cards/getCards/" + response.deckID);
-				console.log(response);
 				window.location.replace("../cards/getCards/" +response.userID + "/" + response.deckID);
 			},
 			error: function(response){
 				console.log(response.responseText);
 			}
 		});
-
 		return false;
 	});
 
 	var delTag = function(){
-		$('.del').on('click', function(e){
+		var del = $('.del');
+		del.on('click', function(e){
 			$(this).parent().remove();
 		});
 	};

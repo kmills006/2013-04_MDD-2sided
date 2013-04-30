@@ -1947,8 +1947,11 @@ div.options.open {
     #vote a {
       background-position: 30% 45%; } }
 
-#vote .voted {
+#vote .voted, .voted {
   background-color: #366774;
-  border-top: solid 1px black;
-  border-right: solid 1px black;
-  border-left: solid 1px black; }
+  border-top: solid 1px #0f3d48;
+  border-right: solid 1px #0f3d48;
+  border-left: solid 1px #0f3d48;
+  cursor: default; }
+  #vote .voted:hover, .voted:hover {
+    background: #366774; }
