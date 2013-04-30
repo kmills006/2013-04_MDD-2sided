@@ -60,7 +60,7 @@ class UserModel extends CI_Model {
         $this->subquery->end_subquery('badgeCount');
 
         $subProfileCount = $this->subquery->start_subquery("select");
-        $subProfileCount->select('COUNT(count) as profile_count')->from('profile_views');
+        $subProfileCount->select('count')->from('profile_views');
         // $subProfileCount->join('user_badges as ub', 'u.user_id = ub.user_id');
         $subProfileCount->where("user_id = '$userID'");
         $this->subquery->end_subquery('profileCount');
@@ -188,6 +188,7 @@ class UserModel extends CI_Model {
 
             $this->db->insert('profile_views', $newProfileView);
 
+
             // Adding new page view for logged in user
             $newPageView = array(
                             'pages_id' => uniqid(),
@@ -197,6 +198,7 @@ class UserModel extends CI_Model {
             );
 
             $this->db->insert('pages', $newPageView);
+
         }
 
     }
