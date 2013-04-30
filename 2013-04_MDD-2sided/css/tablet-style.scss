@@ -662,10 +662,11 @@ div.options.open{
 /* -Profile STYLES - */
 /* ----------------- */
 #info{
-    border-top: solid 1px #254750;
+    border-top: none;
     width: 100%;
     padding-top: 20px;
     overflow: hidden;
+    position: relative;
     @media screen and (max-width: 742px) {
         width: 490px;
         margin: 0 auto;
@@ -730,15 +731,22 @@ div.options.open{
     height: 78px;
     background-color: $main-blue;
     border: solid 1px $dark-blue;
-    float: right;
+    float: left;
     text-align: center;
+    margin-top: 20px;
     @include corners;
+    @media screen and (max-width: 742px) {
+        width: 462px;
+    }
 }
 #quickInfo li{
     width: 98px;
     height: 78px;
     float: left;
     border-right: solid 1px $dark-blue;
+    @media screen and (max-width: 742px) {
+        width: 91px;
+    }
 }
 #quickInfo h1{
     margin-top: 15px;
@@ -754,6 +762,8 @@ div.options.open{
 #bgroup{
     float: right; 
     margin-top: 10px;
+    position: absolute;
+    right: 10px;
 }
 #bgroup .button a:first-child{
     width: 110px;
@@ -783,6 +793,7 @@ div.options.open{
     font-size: .9em;
     text-transform: uppercase;
     @include textshadow;
+    margin-left: 10px;
 }
 #activity li{
     height: 70px;
@@ -792,9 +803,10 @@ div.options.open{
     background-color: black;
     float: left;
     margin-top: 10px;
+    margin-left: 10px;
 }
 #activity p{
-    width: 850px;
+    width: 80%;
     float: left;
     margin-top: 15px;
     margin-left: 10px;
@@ -804,6 +816,7 @@ div.options.open{
     font-weight: 500;  
     letter-spacing: 1px;
     display: block;
+    font-size: .9em;
 }
 #activity .date{
     font-size: .8em;  

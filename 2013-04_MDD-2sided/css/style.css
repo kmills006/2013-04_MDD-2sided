@@ -606,7 +606,8 @@ div.options.open {
   border-top: solid 1px #254750;
   width: 100%;
   padding-top: 20px;
-  overflow: hidden; }
+  overflow: hidden;
+  position: relative; }
 
 #info a {
   display: inline; }
@@ -672,6 +673,10 @@ div.options.open {
   text-align: center;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px; }
+  @media screen and (max-width: 970px) {
+    #quickInfo {
+      float: left;
+      margin-top: 20px; } }
 
 #quickInfo li {
   width: 98px;
@@ -695,6 +700,10 @@ div.options.open {
 #bgroup {
   float: right;
   margin-top: 10px; }
+  @media screen and (max-width: 970px) {
+    #bgroup {
+      position: absolute;
+      right: 0px; } }
 
 #bgroup .button {
   margin-top: 10px; }
@@ -739,7 +748,7 @@ div.options.open {
   margin-top: 10px; }
 
 #activity p {
-  width: 850px;
+  width: 90%;
   float: left;
   margin-top: 15px;
   margin-left: 10px;
@@ -749,6 +758,9 @@ div.options.open {
   font-weight: 500;
   letter-spacing: 1px;
   display: block; }
+  @media screen and (max-width: 970px) {
+    #activity p {
+      font-size: .9em; } }
 
 #activity .date {
   font-size: .8em;

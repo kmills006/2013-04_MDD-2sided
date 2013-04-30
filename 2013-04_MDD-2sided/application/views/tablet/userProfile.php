@@ -21,11 +21,6 @@
 				
 				<div class="button"><? echo anchor("decks/userDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></div>
 				
-				<ul class="profileLinks">
-					<li><? echo anchor("user/friendList/{$userInfo['user_id']}", 'Friends', 'View all of friends'); ?></li>
-					<li><? echo anchor("user/badgeList/{$userInfo['user_id']}", 'Badges', 'View all badges'); ?></li>
-					<li class="last"><a href="Tags">Tags</a></li>
-				</ul>
 			</section>
 			
 			<section id="profileInfo">
@@ -53,6 +48,7 @@
 
 						// var_dump($friendRequests);
 						
+
 						if($this->session->userdata('isLoggedIn') == 1 && $userInfo['user_id'] && $friendRequests == true){ ?>
 							
 							<!-- user has friend requests to check -->	
@@ -95,12 +91,12 @@
 		<div class="dbbg"><div class="sizer"><h1>Activity</h1></div></div>
 		<div class="sizer">
 			<ul>
-				<li><img src="" alt="" width="50" height="50"><p>New Deck! Kristy123 created a new deck called Spelling ABC.</p><p class="date">12/12/12</p></li>
-				<li><img src="" alt="" width="50" height="50"><p>New Friend! Kristy123 and Kolby99 are now friends.</p><p class="date">12/12/12</p></li>
-				<li><img src="" alt="" width="50" height="50"><p>New Badge! Kristy123 recieved the badge Deck Master.</p><p class="date">12/12/12</p></li>
-				<li><img src="" alt="" width="50" height="50"><p>New Deck! Kristy123 created a new deck called Spelling ABC.</p><p class="date">12/12/12</p></li>
-				<li><img src="" alt="" width="50" height="50"><p>New Friend! Kristy123 and Kolby99 are now friends.</p><p class="date">12/12/12</p></li>
-				<li><img src="" alt="" width="50" height="50"><p>New Deck! Kristy123 created a new deck called Spelling ABC.</p><p class="date">12/12/12</p></li>
+				<li><div class="sizer"><img src="" alt="" width="50" height="50"><p>New Deck! Kristy123 created a new deck called Spelling ABC.</p><p class="date">12/12/12</p></div></li>
+				<li><div class="sizer"><img src="" alt="" width="50" height="50"><p>New Friend! Kristy123 and Kolby99 are now friends.</p><p class="date">12/12/12</p></div></li>
+				<li><div class="sizer"><img src="" alt="" width="50" height="50"><p>New Badge! Kristy123 recieved the badge Deck Master.</p><p class="date">12/12/12</p></div></li>
+				<li><div class="sizer"><img src="" alt="" width="50" height="50"><p>New Deck! Kristy123 created a new deck called Spelling ABC.</p><p class="date">12/12/12</p></div></li>
+				<li><div class="sizer"><img src="" alt="" width="50" height="50"><p>New Friend! Kristy123 and Kolby99 are now friends.</p><p class="date">12/12/12</p></div></li>
+				<li><div class="sizer"><img src="" alt="" width="50" height="50"><p>New Deck! Kristy123 created a new deck called Spelling ABC.</p><p class="date">12/12/12</p></div></li>
 			</ul>
 		</div>
 	</div>

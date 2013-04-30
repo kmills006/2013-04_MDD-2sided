@@ -546,6 +546,7 @@ div.options.open{
     width: 100%;
     padding-top: 20px;
     overflow: hidden;
+    position: relative;
 }
 #info a{
     display: inline;
@@ -608,6 +609,10 @@ div.options.open{
     float: right;
     text-align: center;
     @include corners;
+    @media screen and (max-width: $break-large) {
+        float: left;
+        margin-top: 20px;
+    }
 }
 #quickInfo li{
     width: 98px;
@@ -629,6 +634,10 @@ div.options.open{
 #bgroup{
     float: right; 
     margin-top: 10px;
+    @media screen and (max-width: $break-large) {
+        position: absolute;
+        right: 0px;
+    }
 }
 #bgroup .button{
     margin-top: 10px;  
@@ -669,7 +678,7 @@ div.options.open{
     margin-top: 10px;
 }
 #activity p{
-    width: 850px;
+    width: 90%;
     float: left;
     margin-top: 15px;
     margin-left: 10px;
@@ -679,6 +688,9 @@ div.options.open{
     font-weight: 500;  
     letter-spacing: 1px;
     display: block;
+    @media screen and (max-width: $break-large) {
+        font-size: .9em;
+    }
 }
 #activity .date{
     font-size: .8em;  
