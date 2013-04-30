@@ -164,28 +164,29 @@ var initTags = function(){
 
 	var tags        =  [],
 		tagInput    =  $('#tagInput'),
-		createDeck  =  $('#create-deck-btn')
+		createDeck  =  $('#create-deck-btn'),
+		form        =  $('#deckForm')
 	;
 
 	tagInput.keypress(function(e){
+		console.log(e.which);
 		var that  =  $(this),
 			tg    =  $.trim(that.val())
 		;
 
-		if(e.which == 32 && that.val().length<2) return false;
+		if(e.which == 13 && that.val().length<2) return false;
 
-		if(e.which == 32 && that.val().length>1){
-
+		if(e.which == 13 && that.val().length>1){
 			tags.push(tg);
-
 			$('#tagArea').append('<h1>' + tg + '<span class="del"></span></h1>');
-
 			that.val('');
-
 			delTag();
-
 			return false;
 		}
+	});
+
+	$('form').on('sumbit', function(e){
+		return false;
 	});
 
 	createDeck.click(function(e){
