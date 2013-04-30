@@ -8,10 +8,6 @@
 		$userInfo = $deckInfo;
 	} */
 
-	// echo "<pre>";
-	// print_r($deckInfo);
-	// echo "</pre>";
-
 ?>
 		<div id="info">
 			<div class="sizer">

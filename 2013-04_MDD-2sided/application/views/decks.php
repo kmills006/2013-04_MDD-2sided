@@ -32,7 +32,7 @@
 					<? foreach($topUsers as $topUser){ ?>
 						<li>
 							<div class="badge"></div>
-							<h2><? echo $topUser['username']; ?></h2>
+							<h2><? echo anchor("user/profilePage/{$topUser["user_id"]}", $topUser['username'], 'title="View profile"'); ?></h2>
 						</li>
 
 					<? } ?>
@@ -42,7 +42,7 @@
 				<!-- looping through all the decks and presenting them in order of top rated -->
 				<? foreach($decks as $deck){ ?>
 					<article class="deck">
-						<h1 class="username"><? echo anchor("user/profilePage/{$deck["user_id"]}", $deck['username'], 'title="View all of users decks"'); ?></h1>
+						<h1 class="username"><? echo anchor("user/profilePage/{$deck["user_id"]}", $deck['username'], 'title="View profile"'); ?></h1>
 						<h1 class="votes"><? echo $deck['rating'] ?></h1>
 						<h1 class="deckname"><? echo anchor("cards/getCards/{$deck["user_id"]}/{$deck["deck_id"]}", $deck['title'], 'title="View Deck"'); ?></h1>
 					</article>

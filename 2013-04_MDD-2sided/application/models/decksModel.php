@@ -189,8 +189,6 @@ class DecksModel extends CI_Model {
 
 			$query = $this->db->get('decks as d');
 
-			var_dump($query);
-
 			/* if($query->num_rows == 1){
 				// Users receives the 'Newb' badge for registering
 	            $badgeParams = array('badgeID' => '517efd184e31b');
