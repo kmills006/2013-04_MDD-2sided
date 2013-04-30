@@ -36,14 +36,17 @@
 			header.load(base + 'index.php/mobile/loadHeader .sizer', function() {
 				initNav();
 				initUserButtons();
+				initSearch();
 			});
 		}else if(win.innerWidth() <= 768){
 			header.load(base + 'index.php/tablet/loadHeader .sizer', function() {
 				initNav();
+				initSearch();
 			});
 		}else{
 			header.load(base + 'index.php/pc/loadHeader .sizer', function() {
 				initNav();
+				initSearch();
 			});
 		}
 	};

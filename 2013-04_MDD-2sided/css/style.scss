@@ -1343,6 +1343,36 @@ div.options.open{
 .sortby.decks li{
     padding: 0 7px;
 }
+
+#searchResults{
+    background-color: $egg-white;
+    width: 270px;
+    position: absolute;
+    z-index: 20;
+    left: 310px;
+    top: 50px;
+    border-top: solid 1px #617378;
+    border-left: solid 1px #88a1a8;
+    border-right: solid 1px #88a1a8;
+    @include shadow();
+    @media screen and (max-width: $break-large) {
+        left: 320px;
+    }
+}
+.result{
+    border-top: solid 1px #f4f5f3;
+    border-bottom: solid 1px #617378;
+    width: 100%;
+    height: 45px;
+    line-height: 45px;
+    color: $main-orange;
+    text-indent: 10px;
+}
+.result:hover{
+    background-color: #ecece7;
+}
+
+
 footer{
     height: 200px;
     width: 100%;

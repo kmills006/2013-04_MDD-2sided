@@ -335,5 +335,30 @@ class DecksModel extends CI_Model {
 		}
 	}
 
+	// Search Deck
+	public function search($searchQuery){
+		$search = $searchQuery["title"];
+
+		$this->db->distinct();
+		$this->db->select("decks.deck_id, decks.title, decks.user_id");
+		$this->db->join("tags", "decks.deck_id = tags.deck_id");
+		$this->db->like("decks.title", $search);
+		$this->db->or_like("tags.tagName", $search);
+		$q = $this->db->get("decks");
+
+	 	if($q->num_rows() > 0){
+   			 foreach ($q->result() as $row)
+			{	
+				$data_results[] = array("userID" => $row->user_id,
+									  "deckID" => $row->deck_id,
+									  "deckTitle" => $row->title);
+			}
+
+			return $data_results;
+    	}else{
+    		echo "No Search Results";
+    	}
+	}
+
 
 } // end of Decks class
