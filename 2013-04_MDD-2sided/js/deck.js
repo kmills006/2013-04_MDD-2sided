@@ -25,7 +25,7 @@ var initDeck = function(){
 
 		shade.css('display', 'block');
 		modal.css('top', '50%');
-		close.on('click', function(e){ modal.css('top', '0%'); shade.css('display', 'none'); });
+		close.on('click', function(e){ modal.css('top', '-100%'); shade.css('display', 'none'); });
 	};
 
 	//Edit Deck Title
@@ -62,7 +62,7 @@ var initDeck = function(){
 				}
 			});
 
-			modal.css('top', '0%');
+			modal.css('top', '-200px');
 			shade.css('display', 'none');
 			options.removeClass('open');
 			title.html(titleInput.val());

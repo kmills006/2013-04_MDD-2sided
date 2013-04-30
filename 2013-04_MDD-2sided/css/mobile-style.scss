@@ -545,14 +545,13 @@ div.options.open{
 #editModal, #privacyModal, #deleteModal{
     position: fixed;
     left: 50%;
-    top: 0%;
+    top: -200px;
     height: 180px;
-    width: 400px;
+    width: 200px;
     background-color: $egg-white;
     z-index: 2;
     text-align: center;
-    margin-left: -200px;
-    margin-top: -200px;
+    margin-left: -100px;
     @include corners();
     @include shadow(0px, 2px, 2px, $main-orange);
     @include transition(1s);
@@ -564,10 +563,14 @@ div.options.open{
     font-size: 1em;
     @include textshadow(1px, 1px, #fff);
 }
+#privacyModal h1, #deleteModal h1{
+    padding-top: 30px;
+}
 #editModal input{
     @include input;
     background-image: none;
     margin-top: 20px;
+    width: 90%;
 }
 #editModal button, #privacyModal button, #deleteModal button{
     width: 150px;
