@@ -701,8 +701,8 @@ div.options.open {
   margin-bottom: 20px; }
 
 #forms {
-  width: 600px;
-  height: 330px;
+  width: 310px;
+  height: 600px;
   background-color: #ecece7;
   margin: 0 auto;
   position: relative;
@@ -714,7 +714,7 @@ div.options.open {
 #loginForm {
   width: 220px;
   margin-left: 52px;
-  height: 100%;
+  height: 230px;
   float: left;
   margin-top: 25px; }
 
@@ -768,7 +768,8 @@ div.options.open {
   width: 28px;
   height: 297px;
   float: left;
-  margin-left: 10px; }
+  margin-left: 10px;
+  display: none; }
 
 #registerForm {
   width: 220px;

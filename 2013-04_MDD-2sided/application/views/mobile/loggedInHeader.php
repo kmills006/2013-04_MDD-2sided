@@ -4,7 +4,7 @@
 
 <header>
 	<div class="sizer">
-		<div id="logout"><? echo anchor("authentication", "Log Out", 'title="User Log Out"'); ?></div>
+		<div id="logout"><? echo anchor("authentication/userLogout", "Log Out", 'title="User Log Out"'); ?></div>
 		<div id="logo"><a href="<? echo base_url(); ?>"><img src="<? echo base_url(); ?>imgs/logo.png" alt="2sided Logo" width="66" height="43" /></a></div>
 		<div id="research"></div>	
 		<nav>
