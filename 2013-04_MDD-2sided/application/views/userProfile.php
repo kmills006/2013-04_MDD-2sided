@@ -41,7 +41,7 @@
 					<li><h1><? echo $userInfo['friendsCount']; ?></h1><h2>Friends</h2></li>
 					<li><h1><? echo $userInfo['decksCount']; ?></h1><h2>Decks</h2></li>
 					<li><h1><? echo $userInfo['cardsCount']; ?></h1><h2>Cards</h2></li>
-					<li><h1>101</h1><h2>Comments</h2></li>
+					<li><h1>3</h1><h2>Badges</h2></li>
 					<li class="last"><h1><? echo $userInfo['tagsCount']; ?></h1><h2>Tags</h2></li>
 				</ul>
 			</section>

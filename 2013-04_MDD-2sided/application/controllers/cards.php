@@ -4,8 +4,10 @@ class Cards extends CI_Controller {
 
 	function __construct(){
 		parent:: __construct();
+
 		$this->load->model('userModel');
 		$this->load->model('cardsModel');
+		$this->load->model('decksModel');
 	}
 
 
@@ -16,12 +18,16 @@ class Cards extends CI_Controller {
 		$deckInfo['userID'] = $userID;
 
 		$data['view'] = "viewCards";
-		$data['profileInfo'] = $this->userModel->getProfile($userID);
+
+		$data['deckInfo'] = $this->decksModel->getDeck($userID, $deckID);
+		// $data['profileInfo'] = $this->userModel->getProfile($userID);
 		$data['cards'] = $this->cardsModel->getCards($deckInfo);
 		$data['userID'] = $userID;
 		$data['deckID'] = $deckID;
 
-		// var_dump($data);
+		// echo '<pre>';
+		// print_r($data);
+		// echo '</pre>';
 
 		// Checking if there is a valid user session and load appropriate header
 		if($this->session->userdata("isLoggedIn") == 1){

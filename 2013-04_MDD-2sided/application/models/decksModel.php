@@ -4,6 +4,8 @@ class DecksModel extends CI_Model {
 
     function __construct(){
         parent::__construct();
+
+        $this->load->helper('objectToArray.php');
     }
 
     // getAllDecks
@@ -104,6 +106,37 @@ class DecksModel extends CI_Model {
 		}
 
 	}  
+
+
+	// getDeck
+	// Retrieve all the information on a select deck
+	function getDeck($userID, $deckID){
+		$this->db->select('d.deck_id, u.username, COUNT(r.rating) as ratingCount, date_created, date_edited, u.profile_img');
+		$this->db->join('users as u', 'u.user_id = d.user_id');
+		$this->db->join('ratings as r', 'd.deck_id = r.deck_id');
+		$this->db->where('u.user_id', $userID);
+		$this->db->where('d.deck_id', $deckID);
+
+		$query = $this->db->get('decks as d');
+
+		if($query->num_rows()){
+
+			foreach($query->result() as $data){
+				$dataResults = objectToArray($data);
+			}
+
+
+			$dateCreated = strtotime($dataResults['date_created']);
+			$dataResults['date_created'] = date("M d, Y", $dateCreated);
+
+			$dateEdited = strtotime($dataResults['date_edited']);
+			$dataResults['date_edited'] = date("M d, Y", $dateEdited);
+
+			return $dataResults;
+		}else{
+			return false;
+		}
+	}
 
 
 

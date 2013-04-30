@@ -4,22 +4,22 @@
 
 
 
-	if(!isMulti($profileInfo)){
+	/* if(!isMulti($deckInfo)){
 		// No
 	}else{
-		$userInfo = $profileInfo[0];
-	}
+		$userInfo = $deckInfo;
+	} */
 
 	// echo "<pre>";
-	// print_r($cards);
+	// print_r($deckInfo);
 	// echo "</pre>";
 
 ?>
 		<div id="info">
 			<div class="sizer">
 				<section id="picture">
-					<? if($userInfo['profile_img']){
-						echo img('imgs/profile_imgs/'.$userInfo['profile_img']); 
+					<? if($deckInfo['profile_img']){
+						echo img('imgs/profile_imgs/'.$deckInfo['profile_img']); 
 					}else{
 						echo img('imgs/profile_imgs/profile-img_placeholder.png'); 
 					} ?>
@@ -32,10 +32,16 @@
 				</section>
 				
 				<section id="profileInfo">
-					<h1><? echo $userInfo['username'] ?></h1>
-					<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
+					<h1><? echo $deckInfo['username'] ?></h1>
+
+					<? 
+						if($deckInfo['date_edited'] != "Nov 30, -0001" && $deckInfo['date_edited'] != $deckInfo['date_created']){ ?>
+							<h2>Edited: <? echo $deckInfo['date_edited']; ?></h2>
+						<? }else{ ?>
+							<h2>Created: <? echo $deckInfo['date_created']; ?></h2>
+						<? } ?>
 					<h2>12 Profile Views</h2>
-					<h3 class="rating"><? echo $userInfo['ratingsCount'] ?></h3>
+					<h3 class="rating"><? echo $deckInfo['ratingCount'] ?></h3>
 				</section>
 
 

@@ -81,27 +81,27 @@ class AuthenticationModel extends CI_Model {
 			);
 
             // Users receives the 'Newb' badge for registering
-            $badgeParams = array('badgeID' => '51797a502cf4a');
-            $this->load->library('userbadges.php', $badgeParams);
+            // $badgeParams = array('badgeID' => '51797a502cf4a');
+            // $this->load->library('userbadges.php', $badgeParams);
 
 
-            if($this->userbadges->badgeInfo){
-                $badgeInfo = $this->userbadges->badgeInfo;
+            // if($this->userbadges->badgeInfo){
+            //     $badgeInfo = $this->userbadges->badgeInfo;
 
-                $badgeInfo = objectToArray($badgeInfo);
+            //     $badgeInfo = objectToArray($badgeInfo);
 
-                $dateIssued = date('Y/m/d h:i:s', time());
+            //     $dateIssued = date('Y/m/d h:i:s', time());
 
-                $newBadge = array(
-                                'user_badge_id' => uniqid(),
-                                'user_id' => $userID,
-                                'badge_id' => $badgeInfo['badge_id'],
-                                'date_issued' => $dateIssued
-                );
+            //     $newBadge = array(
+            //                     'user_badge_id' => uniqid(),
+            //                     'user_id' => $userID,
+            //                     'badge_id' => $badgeInfo['badge_id'],
+            //                     'date_issued' => $dateIssued
+            //     );
 
-                $this->db->insert('user_badges', $newBadge);
+            //     $this->db->insert('user_badges', $newBadge);
 
-            }
+            // } 
 
 		}else{
 			return false;
