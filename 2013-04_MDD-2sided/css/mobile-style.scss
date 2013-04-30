@@ -788,8 +788,18 @@ div.options.open{
 }
 #profileInfo h3{
     margin-top: 3px;
-    @media screen and (max-width: 460px) {
-        font-size: .9em;
+    font-size: 1.1em;
+}
+.rating{
+    background-image: url("../imgs/icon-check-orange.png");
+    background-repeat: no-repeat;
+    text-indent: 25px;
+    font-weight: 800;
+}
+#users .userList .rating{
+    background-position: 0px -4px;
+    @media screen and (max-width: 580px) {
+        background-image: url("../imgs/icon-check-white.png");
     }
 }
 .profileLinks{
@@ -966,6 +976,9 @@ div.options.open{
         width: 96%;
         margin: 0 2%;
     }
+}
+.sortby .last{
+    padding-right: 0px;
 }
 .sortby h1{
     font-size: .9em;
@@ -1330,7 +1343,7 @@ div.options.open{
     position: absolute;
     left: 0;
     background-image: url("../imgs/card-front-blur.png");
-    @media screen and (max-width: 460px) {
+    @media screen and (max-width: 500px) {
         background-image: url("../imgs/mobile/card-front-blur.png");
         display: none;
     }
@@ -1343,7 +1356,7 @@ div.options.open{
     position: absolute;
     right: 0;
     background-image: url("../imgs/card-front-blur.png");
-    @media screen and (max-width: 460px) {
+    @media screen and (max-width: 500px) {
         background-image: url("../imgs/mobile/card-front-blur.png");
         display: none;
     }
@@ -1659,5 +1672,17 @@ div.options.open{
     margin-top: -70px;
     @include transition(.3s);
 }
-
+#vote a{
+    background-image: url("../imgs/icon-check-white.png");
+    background-repeat: no-repeat;
+    background-position: 36% 45%;
+    text-indent: 20px;
+    @media screen and (max-width: 460px) {
+        background-position: 30% 45%;
+    }
+}
+#vote .voted{
+    background-color: $main-blue;
+    @include borders();
+}
 

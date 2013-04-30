@@ -47,7 +47,7 @@
 							<? if($user['ratingCount'] == 0){
 								// User has no upvotes yet, do not display rating on users page
 							}else{ ?>
-								<h3><? echo $user["ratingCount"] ?>Checks</h3>
+								<h3 class="rating"><? echo $user["ratingCount"] ?></h3>
 							<? } ?>
 							
 							<div class="button"><? echo anchor("user/profilePage/{$user["user_id"]}", "Visit Profile", 'title="View all of users decks"'); ?></div>

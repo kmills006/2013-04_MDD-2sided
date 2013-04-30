@@ -893,8 +893,11 @@ div.options.open {
 
 #users .space {
   float: left;
-  width: 60%;
+  width: 70%;
   height: 20px; }
+
+#users .rating {
+  background-position: 0px -2px; }
 
 /* ----------------- */
 /* -ADD DECK STYLES- */
@@ -1477,6 +1480,20 @@ div.options.open {
 
 .dontdoit {
   margin-right: 0; }
+
+.addDeck a {
+  width: 200px;
+  position: absolute;
+  top: 46px;
+  left: 50%;
+  margin-left: -115px; }
+  @media screen and (max-width: 970px) {
+    .addDeck a {
+      width: 100px;
+      margin-left: -58px; } }
+
+.sortby.decks li {
+  padding: 0 7px; }
 
 footer {
   height: 200px;
