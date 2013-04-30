@@ -123,6 +123,9 @@ class Decks extends CI_Controller {
 	public function deleteDeck(){
 		$r = $this->decksModel->deleteDeck($_POST);	
 	}
-
-
+	public function search(){
+		$r = $this->decksModel->search($_POST);
+		
+		echo json_encode($r);
+	}
 }

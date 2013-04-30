@@ -39,7 +39,7 @@
 					<li class="about"><? echo anchor('about', 'About', 'About 2sided') ?></li>
 				</ul>
 
-				<input type="text" id="search"/>
+				<input type="text" id="search" autocomplete="off"/>
 
 				<ul id="searchResults"></ul>
 				

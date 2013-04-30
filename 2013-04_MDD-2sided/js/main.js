@@ -88,6 +88,80 @@ var initUserSearch = function(){
 	});
 }; // End of initUserSearch
 
+
+
+//Search functionality
+var initSearch = function(){
+	var focusCounter = -1;
+	var numberOfItems = 0;
+
+	$('#searchResults').hide();
+
+	$('nav #search').keyup(function(e){
+		numberOfItems = 0;
+		$('#searchResults').show();
+		var search = $(this).val();
+		$.ajax({
+			url: base + "index.php/decks/search",
+			type: "post",
+			data: {title: search},
+			success: function(response){
+				console.log(response);
+				if(response == 'No Search Resultsnull'){
+					$('#searchResults').html('');
+					$('#searchResults').hide();
+				}else{
+					var r = JSON.parse(response);
+					numberOfItems = r.length;
+					if($('nav input').val().length === 0){
+						$('#searchResults').html('');
+						$('#searchResults').hide();
+					}else{
+						$('#searchResults').html('');
+						for (var i = 0; i < 5; i++) {
+							$('#searchResults').append('<li class="result"><a class="res" href="' + base + 'index.php/cards/getCards/' + r[i].userID + "/" +r[i].deckID+'">' + r[i].deckTitle + '</a></li>');
+						}
+					}
+				}
+			}
+		});
+	});
+
+	$(document).keydown(function(e){
+		if(numberOfItems >= 6)numberOfItems = 5;
+
+		if(e.keyCode == 40){
+			if(focusCounter != numberOfItems-1){
+
+				focusCounter ++;
+
+				$('.res')[focusCounter].focus();
+				console.log(focusCounter);
+				return false;
+			}
+			return false;
+		}
+
+		if(e.keyCode == 38){
+			if(focusCounter >= 0){
+				focusCounter --;
+				if(focusCounter == -1){
+					$('#searchIni').focus();
+				}else{
+					$('.res')[focusCounter].focus();
+				}
+				console.log(focusCounter);
+				return false;
+			}
+		}
+	});
+	$(document).on('click', function(e){
+		if($(e.target).parent().attr('class') != 'result'){
+			$('#searchResults').hide();
+		}
+	});
+};//End search
+
 // Adding and deleting tags to a deck when adding a deck
 var initTags = function(){
 
