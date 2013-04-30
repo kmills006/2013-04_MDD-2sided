@@ -31,7 +31,14 @@
 			<section id="profileInfo">
 				<h1><? echo $userInfo['username'] ?></h1>
 				<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
-				<h2>12 Profile Views</h2>
+
+				<? 
+					if($userInfo['profileCount'] == 0){
+						// Noone has viewed this profile yet, do not include profile count
+					}else{ ?>
+						<h2><? echo $userInfo['profileCount']; ?> Profile Views</h2>
+					<? } ?>
+
 				<h3 class="rating"><? echo $userInfo['ratingsCount'] ?></h3>
 			</section>
 

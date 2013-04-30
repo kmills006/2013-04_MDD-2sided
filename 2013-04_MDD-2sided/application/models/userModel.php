@@ -56,9 +56,14 @@ class UserModel extends CI_Model {
         $subBadges = $this->subquery->start_subquery("select");
         $subBadges->select('COUNT(user_badge_id) as badge_count')->from('users as u');
         $subBadges->join('user_badges as ub', 'u.user_id = ub.user_id');
-        // $subBadges->join('ratings as r', 'd.deck_id = r.deck_id');
         $subBadges->where("u.user_id = '$userID'");
         $this->subquery->end_subquery('badgeCount');
+
+        $subProfileCount = $this->subquery->start_subquery("select");
+        $subProfileCount->select('COUNT(count) as profile_count')->from('profile_views');
+        // $subProfileCount->join('user_badges as ub', 'u.user_id = ub.user_id');
+        $subProfileCount->where("user_id = '$userID'");
+        $this->subquery->end_subquery('profileCount');
 
     	$this->db->from('users as u');
     	$this->db->where("u.user_id = '$userID'");
@@ -95,10 +100,14 @@ class UserModel extends CI_Model {
     function increaseUserViewCount($viewerID, $profileOwnerID){
         $profileID = uniqid();
 
+        // Select profile view by the ownersID
         $this->db->select();
         $this->db->where('user_id', $profileOwnerID);
         $query = $this->db->get('profile_views');
 
+        // If it already has a profile view
+        // Add count depending on if and when
+        // the viewer last visited
         if($query->num_rows() > 0){
             $row = objectToArray($query->result());
             
@@ -109,49 +118,47 @@ class UserModel extends CI_Model {
             $this->db->limit(1);
             $result = $this->db->get('pages');
 
-            echo "<pre>";
-            print_r($result->result());
-            echo "</pre>";
-
             if($result->num_rows() > 0 ){
                 // User has viewed this profile before
                 // check if in a 24 hour period
                 // only update count if past 24 hours
                 
                 $lastVote = objectToArray($result->result());
-                
-                // $lastVoteDate = strtotime($lastVote[0]['view_date']);
-                // $currentDate = strtotime(date('Y/m/d h:i:s', time()));
-                echo '</br>';
-                //echo $currentDate;
 
                 // Create two new DateTime-objects...
                 $date1 = new DateTime($lastVote[0]['view_date']);
                 $date2 = new DateTime(date('Y/m/d h:i:s', time()));
 
-                var_dump($date2);
-
                 // The diff-methods returns a new DateInterval-object...
                 $diff = $date2->diff($date1);
 
-                // var_dump($diff);
 
                 // Call the format method on the DateInterval-object
-                //echo $diff->format('%d Day and %h hours');
-
+                $timeDiff = $diff->format('%h');
                 
-                $newPageView = array(
-                                'pages_id' => uniqid(),
-                                'profile_id' => $row[0]['profile_id'],
-                                'user_id' => $viewerID,
-                                'view_date' => date('Y/m/d h:i:s', time())
-                );
+                if($timeDiff < 24){
+                    // User has viewed this profile in the past 24 hours,
+                    // do not update profile count
+                }else{
+                    // Add one new view from that user to 
+                    // pages table
+                    
+                    $newPageView = array(
+                                    'pages_id' => uniqid(),
+                                    'profile_id' => $row[0]['profile_id'],
+                                    'user_id' => $viewerID,
+                                    'view_date' => date('Y/m/d h:i:s', time())
+                    );
 
-                $this->db->insert('pages', $newPageView);
-                
+                    $this->db->insert('pages', $newPageView);
 
-                
-                echo "User has visited this profile before";
+                    // Add one new count to the profile view
+                    $this->db->query(
+                            'UPDATE profile_views
+                            SET count = count + 1
+                            WHERE profile_id = "'.$row[0]['profile_id'].'"'
+                    );
+                }
 
             }else{
                 // User has not viewed this profile before                
@@ -171,16 +178,17 @@ class UserModel extends CI_Model {
                 );
             }
         }else{
-            // echo 'No profile views in database';
 
+            // Adding new profile view 
             $newProfileView = array(
                                 'profile_id' => $profileID,
                                 'user_id' => $profileOwnerID,
                                 'count' => 1
             );
 
-            $test = $this->db->insert('profile_views', $newProfileView);
+            $this->db->insert('profile_views', $newProfileView);
 
+            // Adding new page view for logged in user
             $newPageView = array(
                             'pages_id' => uniqid(),
                             'profile_id' => $profileID,
