@@ -634,7 +634,7 @@ div.options.open {
 
 #profileInfo {
   float: left;
-  width: 200px; }
+  width: 500px; }
 
 #profileInfo h1 {
   text-shadow: 0px 2px 1px #1f3a42;
@@ -1526,6 +1526,11 @@ div.options.open {
 
 .result:hover {
   background-color: #ecece7; }
+
+.userlink a {
+  color: #e96151; }
+  .userlink a:hover {
+    color: #ff6a59; }
 
 footer {
   height: 200px;

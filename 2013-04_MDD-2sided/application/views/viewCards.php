@@ -27,7 +27,7 @@
 				
 				<section id="profileInfo">
 					<h1><? echo $deckInfo['title'] ?></h1>
-					<h2>By: <? echo anchor("user/profilePage/{$deckInfo["user_id"]}", $deckInfo['username'], 'title="View all of users decks"'); ?></h2>
+					<h2 class="userlink">By: <? echo anchor("user/profilePage/{$deckInfo["user_id"]}", $deckInfo['username'], 'title="View all of users decks"'); ?></h2>
 					
 
 					<? 

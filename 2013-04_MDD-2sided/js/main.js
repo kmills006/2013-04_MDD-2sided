@@ -169,7 +169,6 @@ var initTags = function(){
 	;
 
 	tagInput.keypress(function(e){
-		console.log(e.which);
 		var that  =  $(this),
 			tg    =  $.trim(that.val())
 		;

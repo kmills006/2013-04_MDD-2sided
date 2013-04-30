@@ -573,7 +573,7 @@ div.options.open{
 }
 #profileInfo{
     float: left;
-    width: 200px;
+    width: 500px;
 }
 #profileInfo h1{
     @include textshadow;
@@ -1374,7 +1374,10 @@ div.options.open{
 .result:hover{
     background-color: #ecece7;
 }
-
+.userlink a{
+    color: $main-orange;
+    &:hover { color:#ff6a59; }
+}
 
 footer{
     height: 200px;
