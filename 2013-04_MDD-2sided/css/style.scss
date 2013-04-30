@@ -317,6 +317,7 @@ nav input {
     color: $egg-white;
     font-size: 1.7em;
     font-weight: bold;
+    @include textshadow;
 }
 #topTags ul h1, #deckTags ul h1 {
     display: inline;
@@ -696,6 +697,7 @@ div.options.open{
     font-size: .9em;
     margin-top: 20px;
     margin-bottom: 10px;
+    @include textshadow;
 }
 .usearch input{
     @include input;
@@ -748,6 +750,7 @@ div.options.open{
     width: inhert;
     font-size: 1.2em;
     border-bottom: solid 1px $dark-blue;
+    @include textshadow;
 }
 #users h3{
     font-size: 1em;
@@ -756,6 +759,20 @@ div.options.open{
 #users .button{
     float: right;
     font-size: .8em;
+}
+#users .sizer .flHeader{
+    border: none;
+    margin: 0px;
+    margin-bottom: 30px;
+    font-size: 1.7em;
+    font-weight: bold;
+    letter-spacing: 1px;
+    font-weight: 400;
+}
+#users .space{
+    float: left;
+    width: 60%;
+    height: 20px;
 }
 /* ----------------- */
 /* -ADD DECK STYLES- */

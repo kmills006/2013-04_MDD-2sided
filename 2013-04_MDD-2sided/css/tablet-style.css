@@ -1073,6 +1073,20 @@ div.options.open {
   float: right;
   font-size: .8em; }
 
+#users .sizer .flHeader {
+  border: none;
+  margin: 0px;
+  margin-bottom: 30px;
+  font-size: 1.7em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-weight: 400; }
+
+#users .space {
+  display: block;
+  width: 300px;
+  height: 20px; }
+
 /* ----------------- */
 /* -ADD DECK STYLES- */
 /* ----------------- */

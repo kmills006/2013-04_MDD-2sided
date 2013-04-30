@@ -330,7 +330,9 @@ nav input {
   font-family: "Helvetica Neue";
   color: #ecece7;
   font-size: 1.7em;
-  font-weight: bold; }
+  font-weight: bold;
+  text-shadow: 0px 2px 1px #1f3a42;
+  filter: dropshadow(color=black, offx=0, offy=1); }
 
 #topTags ul h1, #deckTags ul h1 {
   display: inline;
@@ -765,7 +767,9 @@ div.options.open {
 .usearch h1 {
   font-size: .9em;
   margin-top: 20px;
-  margin-bottom: 10px; }
+  margin-bottom: 10px;
+  text-shadow: 0px 2px 1px #1f3a42;
+  filter: dropshadow(color=black, offx=0, offy=1); }
 
 .usearch input {
   color: #366774;
@@ -850,7 +854,9 @@ div.options.open {
   margin-left: 80px;
   width: inhert;
   font-size: 1.2em;
-  border-bottom: solid 1px #0f3d48; }
+  border-bottom: solid 1px #0f3d48;
+  text-shadow: 0px 2px 1px #1f3a42;
+  filter: dropshadow(color=black, offx=0, offy=1); }
 
 #users h3 {
   font-size: 1em;
@@ -859,6 +865,20 @@ div.options.open {
 #users .button {
   float: right;
   font-size: .8em; }
+
+#users .sizer .flHeader {
+  border: none;
+  margin: 0px;
+  margin-bottom: 30px;
+  font-size: 1.7em;
+  font-weight: bold;
+  letter-spacing: 1px;
+  font-weight: 400; }
+
+#users .space {
+  float: left;
+  width: 60%;
+  height: 20px; }
 
 /* ----------------- */
 /* -ADD DECK STYLES- */

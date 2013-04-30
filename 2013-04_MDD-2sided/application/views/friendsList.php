@@ -27,7 +27,7 @@
 
 		<section id="users">
 			<div class="sizer">
-				<h1> <? echo $userInfo[0]['username']?>'s Friends</h1>
+				<h1 class="flHeader"> <? echo $userInfo[0]['username']?>'s Friends</h1>
 
 				<? 
 					if(isset($friendsList) == ""){ ?>
@@ -50,7 +50,8 @@
 										} ?>
 
 										<h1><? echo $friend[0]["username"] ?></h1>
-										
+										<div class="space"></div>
+
 										<div class="button"><? echo anchor("user/profilePage/{$friend[0]["user_id"]}", "Visit Profile", 'title="View all of users decks"'); ?></div>
 									</li>
 							<? } ?>
