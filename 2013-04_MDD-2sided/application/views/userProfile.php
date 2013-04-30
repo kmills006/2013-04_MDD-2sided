@@ -30,7 +30,6 @@
 			
 			<section id="profileInfo">
 				<h1><? echo $userInfo['username'] ?></h1>
-				<!-- <h2>Orlando, FL</h2> -->
 				<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
 				<h2>12 Profile Views</h2>
 				<h3 class="rating"><? echo $userInfo['ratingsCount'] ?></h3>
@@ -78,7 +77,7 @@
 						<? }if($loggedInUser == $areFriends[0]['user_id'] && $areFriends[0]['active'] == 0){ ?>
 
 							<!-- logged in user has already sent a friend request and is waiting to be accepted -->
-							<button>Pending Request</button>	
+							<button class="voted">Pending Request</button>	
 						
 						<? } else{ 
 							// echo "userProfile/areFriends/else";

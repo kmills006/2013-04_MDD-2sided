@@ -203,14 +203,13 @@ class UserModel extends CI_Model {
                 //}
             //}
         }else{
-            echo 'No profile views in database';
             $newProfileView = array(
                                 'profile_id' => $profileID,
                                 'user_id' => $profileOwnerID,
                                 'count' => 1
             );
 
-            $this->db->insert('profile_views', $newProfileView);
+            //$this->db->insert('profile_views', $newProfileView);
         }
 
     }
