@@ -7,6 +7,10 @@
 		$userInfo = $profileInfo[0];
 	}
 
+	echo '<pre>';
+	print_r($userInfo);
+	echo '</pre>';
+
 	$button = array('class' => 'button');
 ?>
 
@@ -55,8 +59,6 @@
 
 				<? 
 					if(isset($friendRequests)){
-
-						// var_dump($friendRequests);
 						
 						if($this->session->userdata('isLoggedIn') == 1 && $userInfo['user_id'] && $friendRequests == true){ ?>
 							
@@ -68,10 +70,6 @@
 						}
 
 					}if(isset($areFriends)){
-
-						// echo '<pre>';
-						// print_r($areFriends);
-						// echo '</pre>';
 
 						$loggedInUser = $this->session->userdata('userID');
 

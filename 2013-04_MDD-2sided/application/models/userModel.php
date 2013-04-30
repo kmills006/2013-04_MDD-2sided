@@ -61,7 +61,6 @@ class UserModel extends CI_Model {
 
         $subProfileCount = $this->subquery->start_subquery("select");
         $subProfileCount->select('count')->from('profile_views');
-        // $subProfileCount->join('user_badges as ub', 'u.user_id = ub.user_id');
         $subProfileCount->where("user_id = '$userID'");
         $this->subquery->end_subquery('profileCount');
 

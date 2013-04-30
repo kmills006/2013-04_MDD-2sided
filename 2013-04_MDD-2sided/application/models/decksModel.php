@@ -191,33 +191,6 @@ class DecksModel extends CI_Model {
 
 			$query = $this->db->get('decks as d');
 
-			/* if($query->num_rows == 1){
-				// Users receives the 'Newb' badge for registering
-	            $badgeParams = array('badgeID' => '517efd184e31b');
-	            $this->load->library('userbadges.php', $badgeParams);
-
-
-	            if($this->userbadges->badgeInfo){
-	                $badgeInfo = $this->userbadges->badgeInfo;
-
-	                $badgeInfo = objectToArray($badgeInfo);
-
-	                $dateIssued = date('Y/m/d h:i:s', time());
-
-	                $newBadge = array(
-	                                'user_badge_id' => uniqid(),
-	                                'user_id' => $userID,
-	                                'badge_id' => $badgeInfo['badge_id'],
-	                                'date_issued' => $dateIssued
-	                );
-
-	                $this->db->insert('user_badges', $newBadge);
-
-	            }
-			}else{
-				
-			} */
-
 			switch($query->num_rows()){
 				case 1:
 					// User receives a badge for creating their first deck
@@ -275,15 +248,14 @@ class DecksModel extends CI_Model {
 
 				$this->db->insert("tags", $tagData);
 
-				$deckInfo = array(
-								'deckID' => $deckID,
-								'deckTitle' => $newDeck['title']
-				);
-
-				return $deckInfo;
 			}
 
+			$deckInfo = array(
+							'deckID' => $deckID,
+							'deckTitle' => $newDeck['title']
+			);
 
+			return $deckInfo;
  		}
 	}
 

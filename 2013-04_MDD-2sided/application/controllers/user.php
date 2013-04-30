@@ -59,8 +59,7 @@ class User extends CI_Controller {
 			$this->load->view('includes/landingTemplate', $data);
 
 		}if($isLoggedIn == 1 && $uri == 'profilePage'){
-			/* User is logged in and coming straight from login screen, 
-			they either logged in via Facebook or through 2sided */
+			/* User is logged in and going to his/her profile page */
 
 			$userID = $this->session->userdata('userID');
 
