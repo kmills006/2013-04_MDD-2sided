@@ -104,6 +104,7 @@ button {
   cursor: pointer;
   border: none;
   margin: 0;
+  font-weight: 700;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -127,6 +128,7 @@ button {
   cursor: pointer;
   border: none;
   margin: 0;
+  font-weight: 700;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -153,7 +155,8 @@ header {
   width: 66px;
   height: 43px;
   position: absolute;
-  left: 40%; }
+  left: 40%;
+  top: 5px; }
 
 nav {
   clear: both;
@@ -179,6 +182,7 @@ nav {
   cursor: pointer;
   border: none;
   margin: 0;
+  font-weight: 700;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -276,6 +280,7 @@ nav input {
   cursor: pointer;
   border: none;
   margin: 0;
+  font-weight: 700;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -422,6 +427,7 @@ nav input {
   cursor: pointer;
   border: none;
   margin: 0;
+  font-weight: 700;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -1103,6 +1109,7 @@ div.options.open {
       cursor: pointer;
       border: none;
       margin: 0;
+      font-weight: 700;
       -webkit-border-radius: 5px 5px 5px 5px;
       border-radius: 5px 5px 5px 5px;
       border-top: solid 1px #f5bab3;

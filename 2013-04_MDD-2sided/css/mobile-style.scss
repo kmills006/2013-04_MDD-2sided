@@ -34,6 +34,7 @@ $dark-blue: #0f3d48;
     cursor:pointer;
     border: none;
     margin: 0;
+    font-weight: 700;
     //@include textshadow(1px, 0px, #a04338);
     @include corners;
     @include borders(#f5bab3, #ed7f72, #ed7f72);
@@ -175,7 +176,7 @@ header {
     height: 43px;
     position: absolute;
     left: 40%;
-    //top: 5px;
+    top: 5px;
 }
 nav {
     clear: both;
