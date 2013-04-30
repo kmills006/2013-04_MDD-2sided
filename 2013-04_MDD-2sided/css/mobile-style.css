@@ -153,8 +153,7 @@ header {
   width: 66px;
   height: 43px;
   position: absolute;
-  left: 40%;
-  top: 5px; }
+  left: 40%; }
 
 nav {
   clear: both;
@@ -207,7 +206,7 @@ header img {
   margin: 0; }
 
 #navigation li {
-  width: 24.5%;
+  width: 20.5%;
   height: 30px;
   float: left;
   margin-top: 10px;
@@ -217,7 +216,10 @@ header img {
   font-size: 14px;
   text-align: center;
   border-right: solid 1px #366774;
-  line-height: 30px; }
+  line-height: 30px;
+  padding-left: 2%;
+  padding-right: 2%;
+  overflow: hidden; }
   #navigation li:hover {
     color: #e96151; }
 
