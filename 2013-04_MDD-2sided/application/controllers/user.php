@@ -180,9 +180,9 @@ class User extends CI_Controller {
 		$data['badges'] = $this->badgeModel->getBadges($userID);
 		$data['view'] = 'badgeList';
 
-		// echo '<pre>';
-		// print_r($data);
-		// echo '</pre>';
+		echo '<pre>';
+		print_r($data);
+		echo '</pre>';
 		
 		echo uniqid();
 
