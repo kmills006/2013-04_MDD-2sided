@@ -22,19 +22,19 @@ $dark-blue: #0f3d48;
     filter: dropshadow(color=#000, offx=0, offy=1);
 }
 @mixin button() {
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica";
     color: $egg-white !important;
     display: inline;
     padding: 10px;
     background: $main-orange;
     font-size: .9em;
     white-space: nowrap;
-    -webkit-font-smoothing: antialiased;
     text-align: center;
     cursor:pointer;
     border: none;
     margin: 0;
-    font-weight: 700;
+    font-weight: 300;
+    letter-spacing: 1px;
     //@include textshadow(1px, 0px, #a04338);
     @include corners;
     @include borders(#f5bab3, #ed7f72, #ed7f72);
@@ -158,6 +158,11 @@ button{
 }
 .button a{
     @include button;
+}
+.space{
+    width: 99px;
+    height: 25px;
+    float: left;
 }
 /* ----------------- */
 /* - HEADER STYLES - */
@@ -1109,7 +1114,6 @@ div.options.open{
     float: left;
     position: relative;
 }
-
 #cards .aCard h1{
     font-family: "Helvetica Neue";
     color: #366774;
@@ -1166,6 +1170,7 @@ div.options.open{
     -webkit-box-shadow:  0px 1px 2px 0px #6b8e98;
     box-shadow:  0px 1px 2px 0px #6b8e98;
     border-top: solid 1px #13252a;
+    margin-bottom: 50px;
 }
 #p{
     width: 0%;
@@ -1188,6 +1193,9 @@ div.options.open{
     font-size: 1em;
     font-weight: bold;
     margin-bottom: 10px;
+}
+#mobileCardT{
+    display: none;
 }
 #cardT{
     width: 450px;
@@ -1339,7 +1347,10 @@ div.options.open{
     font-size: .8em;
     margin-top: 5px;
 }
-
+footer{
+    height: 200px;
+    width: 100%;
+}
 
 
 

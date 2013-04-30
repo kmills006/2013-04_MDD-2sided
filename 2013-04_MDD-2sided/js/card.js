@@ -41,13 +41,13 @@ var initCard = function(){
 	};
 
 	//ON CLICK FUNCTIONS FOR CARD TOOLS
-	$('#leftArrow').on('click', function(e){
+	$('#leftArrow, #arrowLeft').on('click', function(e){
 		if($('.activeCard').index() !== 0 && $('.cardedit')[0] === undefined)initCards($('.activeCard').index()-1);
 	});
-	$('#rightArrow').on('click', function(e){
+	$('#rightArrow, #arrowRight').on('click', function(e){
 		if($('.activeCard').index() != $('.aCard').length-1 && $('.cardedit')[0] === undefined)initCards($('.activeCard').index()+1);
 	});
-	$('#randomButton').on('click', function(e){
+	$('#randomButton, #shuffle').on('click', function(e){
 		if($('.cardedit')[0] === undefined){
 			var ind = shuffle[Math.floor(Math.random()*shuffle.length)];
 			shuffle.splice(shuffle.indexOf(ind),1);
@@ -124,7 +124,7 @@ var initCard = function(){
         that.addClass('activeCard');
         that.find('.question').html(currentCardTitle);
     };
-	$('#lilFLip').on('click', function(e){
+	$('#lilFLip, #flipCard').on('click', function(e){
 		if($('.cardedit')[0] === undefined){
 			$('.activeCard').rotate3Di('flip', 180, {direction: 'clockwise', sideChange: flipCard});
 			$('.activeCardBack').rotate3Di('unflip', 180, {direction: 'clockwise', sideChange: flipBack});
@@ -184,7 +184,7 @@ var initCard = function(){
 	});
 
 	//Delete Card
-	$('#deleteButton').on('click', function(e){
+	$('#deleteButton, #deleteMButton').on('click', function(e){
 		if($('#firstCard')[0] === undefined){
 			var cardID = $('.activeCard').attr("data-cardid");
 			$.ajax({
@@ -209,7 +209,7 @@ var initCard = function(){
 	});
 
 	//EditCard
-	$('#editButton').on('click', function(e){
+	$('#editButton, #editMButton').on('click', function(e){
 		var currentCardTitle = $('.activeCard').find('.question').text();
 
 		//Edit Question
@@ -244,6 +244,7 @@ var initCard = function(){
 		});
 
 		//Edit Answer
+
 		var currentCardAnswer = $('.activeCardBack').find('.answer').text();
 		$('.activeCardBack').find('.question').replaceWith('<input type="text" class="cardedit" value="' + currentCardAnswer +'"/>');
 		if($('.editHint').length === 0)$('.cardedit').after('<p class="editHint">Press Enter To Submit Changes.</p>');
@@ -276,6 +277,17 @@ var initCard = function(){
 			}
 		});
 	});
+
+	var initTools = function(){
+		var tools   =  $('#toolBox'),
+			extras  =  $('#extras')
+		;
+		tools.on('click', function(e){
+
+			extras.height() === 0 ?  extras.css('height','70px') : extras.css('height','0px');
+		});
+	};
+	initTools();
 	initKeys();
 	initShuffle();
 	initCards(0);

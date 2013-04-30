@@ -91,19 +91,19 @@ strong {
   color: #e96151 !important; }
 
 button {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica";
   color: #ecece7;
   display: inline;
   padding: 10px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
   text-align: center;
   cursor: pointer;
   border: none;
   margin: 0;
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: 1px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -115,19 +115,19 @@ button {
     background: #ff6a59; }
 
 .button a {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica";
   color: #ecece7;
   display: inline;
   padding: 10px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
   text-align: center;
   cursor: pointer;
   border: none;
   margin: 0;
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: 1px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -210,19 +210,19 @@ nav input {
   border-left: solid 1px #c0c0bc; }
 
 .active > a {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica";
   color: #ecece7;
   display: inline;
   padding: 10px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
   text-align: center;
   cursor: pointer;
   border: none;
   margin: 0;
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: 1px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -345,19 +345,19 @@ nav input {
   margin-right: 5px;
   font-size: .9em;
   cursor: pointer;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica";
   color: #ecece7;
   display: inline;
   padding: 10px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
   text-align: center;
   cursor: pointer;
   border: none;
   margin: 0;
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: 1px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -1014,19 +1014,19 @@ div.options.open {
   font-weight: lighter; }
 
 #tagArea h1 {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica";
   color: #ecece7;
   display: inline;
   padding: 10px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
   text-align: center;
   cursor: pointer;
   border: none;
   margin: 0;
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: 1px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -1247,6 +1247,9 @@ div.options.open {
   font-size: 1em;
   font-weight: bold;
   margin-bottom: 10px; }
+
+#mobileCardT {
+  display: none; }
 
 #cardT {
   width: 450px;
@@ -1474,3 +1477,7 @@ div.options.open {
 
 .dontdoit {
   margin-right: 0; }
+
+footer {
+  height: 200px;
+  width: 100%; }

@@ -91,19 +91,19 @@ strong {
   color: #e96151 !important; }
 
 button {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica";
   color: #ecece7;
   display: inline;
   padding: 10px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
   text-align: center;
   cursor: pointer;
   border: none;
   margin: 0;
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: 1px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -115,19 +115,19 @@ button {
     background-color: #ff6a59; }
 
 .button a {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica";
   color: #ecece7;
   display: inline;
   padding: 10px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
   text-align: center;
   cursor: pointer;
   border: none;
   margin: 0;
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: 1px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -137,6 +137,11 @@ button {
   box-shadow: 0px 1px 0px 0px #14262b; }
   .button a:hover {
     background-color: #ff6a59; }
+
+.space {
+  width: 99px;
+  height: 25px;
+  float: left; }
 
 /* ----------------- */
 /* - HEADER STYLES - */
@@ -169,19 +174,19 @@ nav {
   overflow: hidden; }
 
 #login a, #logout a {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica";
   color: #ecece7;
   display: inline;
   padding: 10px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
   text-align: center;
   cursor: pointer;
   border: none;
   margin: 0;
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: 1px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -267,19 +272,19 @@ nav input {
   float: left; }
 
 #research {
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica";
   color: #ecece7;
   display: inline;
   padding: 10px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
   text-align: center;
   cursor: pointer;
   border: none;
   margin: 0;
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: 1px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -414,19 +419,19 @@ nav input {
   margin-right: 5px;
   font-size: .9em;
   cursor: pointer;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica";
   color: #ecece7;
   display: inline;
   padding: 10px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
   text-align: center;
   cursor: pointer;
   border: none;
   margin: 0;
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: 1px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -890,19 +895,19 @@ div.options.open {
   height: 30px;
   line-height: 30px;
   float: left;
-  font-family: "Helvetica Neue";
+  font-family: "Helvetica";
   color: #ecece7;
   display: inline;
   padding: 10px;
   background: #e96151;
   font-size: .9em;
   white-space: nowrap;
-  -webkit-font-smoothing: antialiased;
   text-align: center;
   cursor: pointer;
   border: none;
   margin: 0;
-  font-weight: 700;
+  font-weight: 300;
+  letter-spacing: 1px;
   -webkit-border-radius: 5px 5px 5px 5px;
   border-radius: 5px 5px 5px 5px;
   border-top: solid 1px #f5bab3;
@@ -1159,19 +1164,19 @@ div.options.open {
   margin-bottom: 20px; }
   @media screen and (max-width: 580px) {
     #users li {
-      font-family: "Helvetica Neue";
+      font-family: "Helvetica";
       color: #ecece7;
       display: inline;
       padding: 10px;
       background: #e96151;
       font-size: .9em;
       white-space: nowrap;
-      -webkit-font-smoothing: antialiased;
       text-align: center;
       cursor: pointer;
       border: none;
       margin: 0;
-      font-weight: 700;
+      font-weight: 300;
+      letter-spacing: 1px;
       -webkit-border-radius: 5px 5px 5px 5px;
       border-radius: 5px 5px 5px 5px;
       border-top: solid 1px #f5bab3;
@@ -1442,15 +1447,23 @@ div.options.open {
   height: 400px;
   margin: 0px 5%;
   position: relative; }
+  @media screen and (max-width: 460px) {
+    #cards {
+      height: 280px;
+      width: 100%;
+      margin: 0 auto; } }
 
 .aCard {
   width: 449px;
   height: 289px;
   background-image: url("../imgs/card-front.png");
   background-repeat: no-repeat;
-  margin-top: 40px;
   float: left;
   position: relative; }
+  @media screen and (max-width: 460px) {
+    .aCard {
+      width: 310px;
+      height: 200px; } }
 
 #cards .aCard h1 {
   font-family: "Helvetica Neue";
@@ -1464,6 +1477,11 @@ div.options.open {
   text-align: center;
   margin-top: 110px;
   line-height: 30px; }
+  @media screen and (max-width: 460px) {
+    #cards .aCard h1 {
+      font-size: 1.1em;
+      margin-top: 72px;
+      line-height: 22px; } }
 
 .activeCard {
   z-index: 2;
@@ -1472,6 +1490,10 @@ div.options.open {
   margin-left: -224.5px;
   top: 10px;
   background-image: url("../imgs/card-front-active.png"); }
+  @media screen and (max-width: 460px) {
+    .activeCard {
+      background-image: url("../imgs/mobile/card-front-active.png");
+      margin-left: -155px; } }
 
 .activeCardBack {
   z-index: 2;
@@ -1480,11 +1502,19 @@ div.options.open {
   margin-left: -224.5px;
   top: 10px;
   background-image: url("../imgs/card-back-active.png"); }
+  @media screen and (max-width: 460px) {
+    .activeCardBack {
+      background-image: url("../imgs/mobile/card-back-active.png");
+      margin-left: -155px; } }
 
 .leftCard {
   position: absolute;
   left: 0;
   background-image: url("../imgs/card-front-blur.png"); }
+  @media screen and (max-width: 460px) {
+    .leftCard {
+      background-image: url("../imgs/mobile/card-front-blur.png");
+      display: none; } }
 
 #cards .leftCard h1, #cards .rightCard h1 {
   color: transparent;
@@ -1494,6 +1524,10 @@ div.options.open {
   position: absolute;
   right: 0;
   background-image: url("../imgs/card-front-blur.png"); }
+  @media screen and (max-width: 460px) {
+    .rightCard {
+      background-image: url("../imgs/mobile/card-front-blur.png");
+      display: none; } }
 
 .hideCard {
   display: none; }
@@ -1507,7 +1541,16 @@ div.options.open {
   border-radius: 5px;
   -webkit-box-shadow: 0px 1px 2px 0px #6b8e98;
   box-shadow: 0px 1px 2px 0px #6b8e98;
-  border-top: solid 1px #13252a; }
+  border-top: solid 1px #13252a;
+  margin-bottom: 50px; }
+  @media screen and (max-width: 460px) {
+    #prog {
+      position: absolute;
+      top: 600px;
+      width: 310px;
+      left: 50%;
+      margin-left: -155px;
+      margin-bottom: 0px; } }
 
 #p {
   width: 0%;
@@ -1530,12 +1573,30 @@ div.options.open {
   font-size: 1em;
   font-weight: bold;
   margin-bottom: 10px; }
+  @media screen and (max-width: 460px) {
+    #progNum {
+      color: #ecece7;
+      font-size: .7em;
+      font-weight: 500;
+      position: absolute;
+      top: 610px;
+      left: 45%;
+      z-index: 2; } }
+
+#mobileCardT {
+  display: none; }
+  @media screen and (max-width: 460px) {
+    #mobileCardT {
+      display: block; } }
 
 #cardT {
   width: 450px;
-  height: 55px;
+  height: 75px;
   margin: 0 auto;
   position: relative; }
+  @media screen and (max-width: 460px) {
+    #cardT {
+      display: none; } }
 
 #cardTools {
   width: 210px;
@@ -1624,6 +1685,12 @@ div.options.open {
   margin-top: 70px;
   margin-left: 70px;
   resize: none; }
+  @media screen and (max-width: 460px) {
+    .aCard textarea {
+      width: 265px;
+      height: 120px;
+      margin-left: 20px;
+      margin-top: 40px; } }
 
 .answer {
   display: none; }
@@ -1673,6 +1740,11 @@ div.options.open {
   font-family: "Helvetica Neue";
   color: #366774;
   font-size: 1.5em; }
+  @media screen and (max-width: 460px) {
+    .cardedit {
+      width: 80%;
+      margin-top: 80px;
+      margin-left: 12px; } }
 
 .editHint {
   text-align: center;
@@ -1680,3 +1752,174 @@ div.options.open {
   color: #366774;
   font-size: .8em;
   margin-top: 5px; }
+
+#mobileCardT {
+  width: 100%;
+  height: 70px;
+  background-color: #e96151;
+  overflow: hidden; }
+
+#toolBox {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  display: block;
+  padding: 0px;
+  border: none;
+  background: none;
+  margin: 0;
+  font-weight: 700;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  width: 21.8%;
+  height: 70px;
+  overflow: hidden;
+  float: left;
+  background-image: url("../imgs/mobile/icon-tools.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-right: solid 1px #c04e41;
+  z-index: 2;
+  cursor: pointer; }
+  #toolBox:hover {
+    background-color: #ff6a59; }
+
+#arrowLeft {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  display: block;
+  padding: 0px;
+  border: none;
+  background: none;
+  margin: 0;
+  font-weight: 700;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  width: 12.5%;
+  height: 70px;
+  float: left;
+  background-image: url("../imgs/mobile/icon-leftArrow.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-right: solid 1px #c04e41; }
+  #arrowLeft:hover {
+    background-color: #ff6a59; }
+
+#flipCard {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  display: block;
+  padding: 0px;
+  border: none;
+  background: none;
+  margin: 0;
+  font-weight: 700;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  width: 31.1%;
+  height: 70px;
+  float: left;
+  border-right: solid 1px #c04e41; }
+  #flipCard:hover {
+    background-color: #ff6a59; }
+
+#arrowRight {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  display: block;
+  padding: 0px;
+  border: none;
+  background: none;
+  margin: 0;
+  font-weight: 700;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  width: 12.5%;
+  height: 70px;
+  float: left;
+  background-image: url("../imgs/mobile/icon-rightArrow.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%;
+  border-right: solid 1px #c04e41; }
+  #arrowRight:hover {
+    background-color: #ff6a59; }
+
+#shuffle {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  display: block;
+  padding: 0px;
+  border: none;
+  background: none;
+  margin: 0;
+  font-weight: 700;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  width: 21.8%;
+  height: 70px;
+  overflow: hidden;
+  float: left;
+  background-image: url("../imgs/mobile/icon-shuffle.png");
+  background-repeat: no-repeat;
+  background-position: 50% 50%; }
+  #shuffle:hover {
+    background-color: #ff6a59; }
+
+#editMButton {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  display: block;
+  padding: 0px;
+  border: none;
+  background: none;
+  margin: 0;
+  font-weight: 700;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #e96151;
+  width: 100%;
+  height: 35px;
+  background-color: #ecece7;
+  border-bottom: solid 1px #c04e41; }
+  #editMButton:hover {
+    background-color: #ff6a59; }
+  #editMButton:hover {
+    color: #ecece7; }
+
+#deleteMButton {
+  -webkit-border-radius: 0px;
+  border-radius: 0px;
+  display: block;
+  padding: 0px;
+  border: none;
+  background: none;
+  margin: 0;
+  font-weight: 700;
+  border: none;
+  -webkit-box-shadow: none;
+  box-shadow: none;
+  color: #e96151;
+  width: 100%;
+  height: 35px;
+  background-color: #ecece7;
+  border-bottom: solid 1px #c04e41; }
+  #deleteMButton:hover {
+    background-color: #ff6a59; }
+  #deleteMButton:hover {
+    color: #ecece7; }
+
+#extras {
+  height: 0px;
+  width: 100px;
+  position: absolute;
+  z-index: 3;
+  overflow: hidden;
+  margin-top: -70px;
+  transition: width 0.3s;
+  -webkit-transition: 0.3s;
+  /* Safari */ }

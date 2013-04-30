@@ -22,24 +22,38 @@ $dark-blue: #0f3d48;
     filter: dropshadow(color=#000, offx=0, offy=1);
 }
 @mixin button() {
-    font-family: "Helvetica Neue";
+    font-family: "Helvetica";
     color: $egg-white;
     display: inline;
     padding: 10px;
     background: $main-orange;
     font-size: .9em;
     white-space: nowrap;
-    -webkit-font-smoothing: antialiased;
     text-align: center;
     cursor:pointer;
     border: none;
     margin: 0;
-    font-weight: 700;
+    font-weight: 300;
+    letter-spacing: 1px;
     //@include textshadow(1px, 0px, #a04338);
     @include corners;
     @include borders(#f5bab3, #ed7f72, #ed7f72);
     @include shadow(1px, 0px, 0px, #14262b);
     &:hover { background-color:#ff6a59; }
+}
+@mixin unbutton() {
+    -webkit-border-radius: 0px;
+    border-radius: 0px;
+    display: block;
+    padding: 0px;
+    border: none;
+    background: none;
+    margin: 0;
+    font-weight: 700;
+    border: none;
+    -webkit-box-shadow:  none;
+    box-shadow:  none;
+    &:hover { background-color: #ff6a59; }
 }
 @mixin input(){
     color: $main-blue;
@@ -158,6 +172,11 @@ button{
 }
 .button a{
     @include button;
+}
+.space{
+    width: 99px;
+    height: 25px;
+    float: left;
 }
 /* ----------------- */
 /* - HEADER STYLES - */
@@ -1246,15 +1265,24 @@ div.options.open{
     height: 400px;    
     margin: 0px 5%;
     position: relative;
+    @media screen and (max-width: 460px) {
+        height: 280px;
+        width: 100%;
+        margin: 0 auto;
+    }
+
 }
 .aCard{
     width:449px;
     height: 289px;
     background-image: url("../imgs/card-front.png");
     background-repeat: no-repeat;
-    margin-top: 40px;
     float: left;
     position: relative;
+    @media screen and (max-width: 460px) {
+        width: 310px;
+        height: 200px;
+    }
 }
 #cards .aCard h1{
     font-family: "Helvetica Neue";
@@ -1268,6 +1296,11 @@ div.options.open{
     text-align: center;
     margin-top: 110px;
     line-height: 30px;
+    @media screen and (max-width: 460px) {
+        font-size: 1.1em;
+        margin-top: 72px;  
+        line-height: 22px; 
+    }
 }
 .activeCard{
     z-index: 2;
@@ -1276,6 +1309,10 @@ div.options.open{
     margin-left: -224.5px;
     top: 10px;
     background-image: url("../imgs/card-front-active.png");
+    @media screen and (max-width: 460px) {
+        background-image: url("../imgs/mobile/card-front-active.png");
+        margin-left: -155px;
+    }
 }
 .activeCardBack{
     z-index: 2;
@@ -1284,11 +1321,19 @@ div.options.open{
     margin-left: -224.5px;
     top: 10px;
     background-image: url("../imgs/card-back-active.png");
+    @media screen and (max-width: 460px) {
+        background-image: url("../imgs/mobile/card-back-active.png");
+        margin-left: -155px;
+    }
 }
 .leftCard{
     position: absolute;
     left: 0;
     background-image: url("../imgs/card-front-blur.png");
+    @media screen and (max-width: 460px) {
+        background-image: url("../imgs/mobile/card-front-blur.png");
+        display: none;
+    }
 }
 #cards .leftCard h1, #cards .rightCard h1{
     color: transparent;
@@ -1298,6 +1343,10 @@ div.options.open{
     position: absolute;
     right: 0;
     background-image: url("../imgs/card-front-blur.png");
+    @media screen and (max-width: 460px) {
+        background-image: url("../imgs/mobile/card-front-blur.png");
+        display: none;
+    }
 }
 .hideCard{
     display: none;
@@ -1312,6 +1361,15 @@ div.options.open{
     -webkit-box-shadow:  0px 1px 2px 0px #6b8e98;
     box-shadow:  0px 1px 2px 0px #6b8e98;
     border-top: solid 1px #13252a;
+    margin-bottom: 50px;
+    @media screen and (max-width: 460px) {
+        position: absolute;
+        top: 600px;
+        width: 310px;
+        left: 50%;
+        margin-left: -155px;
+        margin-bottom: 0px;
+    }
 }
 #p{
     width: 0%;
@@ -1334,12 +1392,30 @@ div.options.open{
     font-size: 1em;
     font-weight: bold;
     margin-bottom: 10px;
+    @media screen and (max-width: 460px) {
+        color: $egg-white;
+        font-size: .7em;
+        font-weight: 500;
+        position: absolute;
+        top: 610px;
+        left: 45%;
+        z-index: 2;
+    }
+}
+#mobileCardT{
+    display: none;
+    @media screen and (max-width: 460px) {
+        display: block;
+    }
 }
 #cardT{
     width: 450px;
-    height: 55px;
+    height: 75px;
     margin: 0 auto;
     position: relative;
+    @media screen and (max-width: 460px) {
+        display: none;
+    }
 }
 #cardTools{
     width: 210px;
@@ -1428,6 +1504,12 @@ div.options.open{
     margin-top: 70px;
     margin-left: 70px;
     resize: none;
+    @media screen and (max-width: 460px) {
+        width: 265px;
+        height: 120px;
+        margin-left: 20px;
+        margin-top: 40px;
+    }
 }
 .answer{
     display: none;
@@ -1477,6 +1559,11 @@ div.options.open{
     font-family: "Helvetica Neue";
     color: #366774;
     font-size: 1.5em;
+    @media screen and (max-width: 460px) {
+        width: 80%;
+        margin-top: 80px;
+        margin-left: 12px;
+    }
 }
 .editHint{
     text-align: center;
@@ -1486,8 +1573,91 @@ div.options.open{
     margin-top: 5px;
 }
 
+#mobileCardT{
+    width: 100%; 
+    height: 70px;
+    background-color: $main-orange;
+    overflow: hidden;
+}
+#toolBox{
+    @include unbutton();
+    width: 21.8%;
+    height: 70px;
+    overflow: hidden;
+    float: left;
+    background-image: url("../imgs/mobile/icon-tools.png");
+    background-repeat: no-repeat;
+    background-position:  50% 50%;
+    border-right: solid 1px #c04e41;
+    z-index: 2;
+    cursor: pointer;
+}
+#arrowLeft{
+    @include unbutton();
+    width: 12.5%;
+    height: 70px;
+    float: left;
+    background-image: url("../imgs/mobile/icon-leftArrow.png");
+    background-repeat: no-repeat;
+    background-position:  50% 50%;
+    border-right: solid 1px #c04e41;
+}
+#flipCard{
+    @include unbutton();
+    width: 31.1%;
+    height: 70px;
+    float: left;
+    border-right: solid 1px #c04e41;
+}
 
+#arrowRight{
+    @include unbutton();
+    width: 12.5%;
+    height: 70px;
+    float: left;
+    background-image: url("../imgs/mobile/icon-rightArrow.png");
+    background-repeat: no-repeat;
+    background-position:  50% 50%;
+    border-right: solid 1px #c04e41;
+}
+#shuffle{
+    @include unbutton();
+    width: 21.8%;
+    height: 70px;
+    overflow: hidden;
+    float: left;
+    background-image: url("../imgs/mobile/icon-shuffle.png");
+    background-repeat: no-repeat;
+    background-position:  50% 50%;
+}
 
+#editMButton{
+    @include unbutton();
+    color: $main-orange;
+    width: 100%;
+    height: 35px;
+    background-color: $egg-white;
+    border-bottom: solid 1px #c04e41;
+    &:hover { color: $egg-white; }
+}
 
+#deleteMButton{
+    @include unbutton();
+    color: $main-orange;
+    width: 100%;
+    height: 35px;
+    background-color: $egg-white;
+    border-bottom: solid 1px #c04e41;
+    &:hover { color: $egg-white; }
+}
+#extras{
+    height: 0px;
+    width: 100px;
+    position: absolute;
+    z-index: 3;
+    overflow: hidden;
+    margin-top: -70px;
+    @include transition(.3s);
+}
 
 

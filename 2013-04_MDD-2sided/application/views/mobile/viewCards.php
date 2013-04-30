@@ -71,6 +71,7 @@
 					<div class="space"></div>
 				<? }
     		?>
+
 			<div id="cardTools">
 				<div id="toolButtons">
 					<div id="leftArrow"></div>
@@ -81,34 +82,12 @@
 			<button type="button" id="randomButton">Random</button>
 		</section>
 
-		<section id="mobileCardT">
-			<ul>
-				<ul id="toolBox">
-					<li id="extras">
-						<? //hides or shows the edit and delete button.
-				    		if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){ ?>
-								<button type="button" id="editMButton">Edit</button>
-								<button type="button" id="deleteMButton">Delete</button>
-
-							<? }else{ ?>
-								<div class="space"></div>
-							<? }
-			    		?>
-	    			</li>
-	    		</ul>
-    			<li><button id="arrowLeft"></button></li>
-				<li><button id="flipCard">Flip Card</button></li>
-				<li><button id="arrowRight"></button></li>
-				<li><button id="shuffle"></button></li>
-			</ul>
-		</section>
-
 		<p id="progNum"></p>
 		<div id="prog">
 			<div id="p"></div>
 		</div>
 
-
+	
 
     <!-- Jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
