@@ -1,11 +1,7 @@
 <?
-	$this->load->helper('objectToArray.php');
 	$this->load->helper('isMulti.php');
 
-	// converting results from query from StdObject to array
-	$decks = objectToArray($decks);
-	$topTags = objectToArray($topTags);
-	$topUsers = objectToArray($topUsers);
+	// var_dump($decks);
 ?>
 
 	<div id="content">

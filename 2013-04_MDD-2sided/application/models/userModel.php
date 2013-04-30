@@ -196,9 +196,7 @@ class UserModel extends CI_Model {
                 $dataResults[] = $row;
             }
 
-            // echo "<pre>";
-            // print_r($dataResults);
-            // echo "</pre>";
+            $dataResults = objectToArray($dataResults);
 
             return $dataResults;
         }else{

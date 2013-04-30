@@ -33,7 +33,9 @@ class DecksModel extends CI_Model {
 			// No Results Found
 		}
 
-		if($dataResults){
+		if(isset($dataResults)){
+			$dataResults = objectToArray($dataResults);
+
 			return $dataResults;
 		}else{
 			return false;

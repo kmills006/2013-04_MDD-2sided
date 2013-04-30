@@ -42,7 +42,7 @@
 								echo img('imgs/profile_imgs/70x70_profile.png'); 
 							} ?>
 
-							<h1><? echo $user["username"] ?></h1>
+							<h1><? echo anchor("user/profilePage/{$user["user_id"]}", $user['username'], 'title="View profile"'); ?></h1>
 
 							<? if($user['ratingCount'] == 0){
 								// User has no upvotes yet, do not display rating on users page
