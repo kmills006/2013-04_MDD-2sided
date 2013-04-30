@@ -141,11 +141,11 @@ class UserModel extends CI_Model {
                 );
             }
 
-            $this->db->query(
+            /* $this->db->query(
                         'UPDATE profile_views
                         SET count = count + 1
                         WHERE profile_id = "'.$row[0]['profile_id'].'"'
-            );
+            ); */
 
            /* foreach($query->result() as $row){
                 $row = objectToArray($row);
