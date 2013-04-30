@@ -170,7 +170,6 @@ nav {
 .sizer {
   width: 100%;
   margin: 0 auto;
-  position: relative;
   overflow: hidden; }
 
 #login a, #logout a {
@@ -812,7 +811,8 @@ div.options.open {
   width: 100%;
   padding-top: 20px;
   overflow: hidden;
-  position: relative; }
+  position: relative;
+  height: 400px; }
   @media screen and (max-width: 742px) {
     #info {
       width: 462px;
@@ -822,10 +822,11 @@ div.options.open {
     #info {
       padding-left: 0px;
       width: 303px;
-      margin: 0 auto; } }
+      margin: 0 auto;
+      height: 360px; } }
 
 #info.decksPage {
-  height: 250px; }
+  height: auto; }
 
 #info a {
   display: inline; }
@@ -842,18 +843,27 @@ div.options.open {
   border: solid 5px #0f3d48;
   margin-bottom: 5px; }
 
+#picture .button {
+  width: 93%;
+  height: 40px;
+  margin-top: 40px; }
+
 #picture .button a {
-  width: 94.3%;
+  width: 93%;
   height: 40px;
   line-height: 40px;
   font-size: 18px;
   text-align: center;
   float: left;
+  margin-top: 20px;
   margin-bottom: 10px;
   position: absolute;
-  top: 250px; }
+  top: 270px;
+  z-index: 2;
+  display: block; }
   @media screen and (max-width: 460px) {
     #picture .button a {
+      top: 225px;
       width: 92%; } }
 
 #info.decksPage .button a {
@@ -862,7 +872,7 @@ div.options.open {
 #profileInfo {
   float: left;
   width: 200px;
-  height: 380px; }
+  height: auto; }
   @media screen and (max-width: 460px) {
     #profileInfo {
       width: 140px; } }
@@ -902,7 +912,7 @@ div.options.open {
   top: 320px; }
 
 .profileLinks li {
-  width: 27%;
+  width: 26.6%;
   height: 30px;
   line-height: 30px;
   float: left;
@@ -926,19 +936,21 @@ div.options.open {
   border-left: solid 1px #ed7f72;
   -webkit-box-shadow: 0px 1px 0px 0px #14262b;
   box-shadow: 0px 1px 0px 0px #14262b;
-  margin-right: 2%; }
+  margin-right: 2%;
+  margin-top: 20px; }
   .profileLinks li:hover {
     background-color: #ff6a59; }
   @media screen and (max-width: 460px) {
     .profileLinks li {
-      width: 24.5%; } }
+      width: 24.5%;
+      margin-top: 0px; } }
 
 #quickInfo {
-  width: 99%;
+  width: 98%;
   height: 78px;
-  left: 0px;
+  left: 1%;
   position: absolute;
-  top: 160px;
+  top: 180px;
   background-color: #366774;
   border: solid 1px #0f3d48;
   float: right;
@@ -947,8 +959,8 @@ div.options.open {
   border-radius: 5px 5px 5px 5px; }
   @media screen and (max-width: 460px) {
     #quickInfo {
-      top: 160px;
-      width: 300px;
+      top: 180px;
+      width: 298px;
       height: 50px; } }
 
 #quickInfo li {
@@ -959,7 +971,7 @@ div.options.open {
   @media screen and (max-width: 460px) {
     #quickInfo li {
       height: 50px;
-      width: 59px; } }
+      width: 58px; } }
 
 #quickInfo h1 {
   margin-top: 10px;

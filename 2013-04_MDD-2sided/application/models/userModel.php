@@ -173,22 +173,22 @@ class UserModel extends CI_Model {
         }else{
             // echo 'No profile views in database';
 
-            $newProfileView = array(
-                                'profile_id' => $profileID,
-                                'user_id' => $profileOwnerID,
-                                'count' => 1
-            );
+            // $newProfileView = array(
+            //                     'profile_id' => $profileID,
+            //                     'user_id' => $profileOwnerID,
+            //                     'count' => 1
+            // );
 
-            $test = $this->db->insert('profile_views', $newProfileView);
+            // $test = $this->db->insert('profile_views', $newProfileView);
 
-            $newPageView = array(
-                            'pages_id' => uniqid(),
-                            'profile_id' => $profileID,
-                            'user_id' => $viewerID,
-                            'view_date' => date('Y/m/d h:i:s', time())
-            );
+            // $newPageView = array(
+            //                 'pages_id' => uniqid(),
+            //                 'profile_id' => $profileID,
+            //                 'user_id' => $viewerID,
+            //                 'view_date' => date('Y/m/d h:i:s', time())
+            // );
 
-            $this->db->insert('pages', $newPageView);
+            // $this->db->insert('pages', $newPageView);
         }
 
     }
