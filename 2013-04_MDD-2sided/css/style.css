@@ -157,7 +157,8 @@ header {
 #logo {
   width: 66px;
   height: 43px;
-  float: left; }
+  float: left;
+  margin-top: 5px; }
 
 nav {
   height: 60px;
@@ -245,6 +246,8 @@ nav input {
   width: 80px;
   height: 60px;
   padding: 0;
+  font-size: .7em;
+  font-weight: 700;
   background-color: #dcdcd7;
   margin: 0;
   text-align: center; }
