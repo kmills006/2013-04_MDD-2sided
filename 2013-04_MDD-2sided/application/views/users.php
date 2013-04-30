@@ -28,10 +28,6 @@
 				<ul>
 					<? foreach($users as $user){
 
-						echo '<pre>';
-						print_r($user);
-						echo '</pre>';
-
 						$imgProperties  = array(
 											'src' => 'imgs/profile_imgs/'.$user['profile_img'],
 											'height' => '70',
