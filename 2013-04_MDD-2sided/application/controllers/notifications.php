@@ -7,6 +7,7 @@ class Notifications extends CI_Controller {
 
 		$this->load->model('userModel');
 		$this->load->model('friendsModel');
+		
 	}
 
 	public function index(){

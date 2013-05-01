@@ -1,8 +1,6 @@
 <?
 
 	$profileInfo = $profileInfo[0];
-
-
 ?>
 
 

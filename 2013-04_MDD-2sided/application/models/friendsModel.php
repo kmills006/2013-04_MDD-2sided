@@ -93,7 +93,7 @@ class FriendsModel extends CI_Model {
 
 	    	foreach($requesters as $requester => $r){
 
-				$this->db->select('u.username, u.user_id');
+				$this->db->select('u.username, u.user_id, u.profile_img');
 				$this->db->from('users as u');
 				$this->db->join('user_friends as uf', 'u.user_id = uf.user_id');
 				$this->db->where("uf.user_id =", $r['requester']);
@@ -106,6 +106,8 @@ class FriendsModel extends CI_Model {
 					foreach($query->result() as $row){
 						$dataResults[] = $row;
 					}
+
+                    $dataResults = objectToArray($dataResults);
 
 				}else{
 
