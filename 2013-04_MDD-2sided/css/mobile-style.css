@@ -311,7 +311,6 @@ nav input {
 /* - DECKS  STYLES - */
 /* ----------------- */
 #content {
-  border-top: solid 1px #254750;
   width: 100%;
   overflow: auto;
   height: inherit; }
@@ -2027,6 +2026,7 @@ div.options.open {
   @media screen and (max-width: 460px) {
     .tagList {
       width: 39%;
+      height: 40px;
       margin: 10px 2% 0px; } }
 
 .tagList:nth-child(even) {
@@ -2034,3 +2034,7 @@ div.options.open {
 
 .tagList h1 {
   margin-top: 15px; }
+  @media screen and (max-width: 460px) {
+    .tagList h1 {
+      font-size: 1.2em;
+      margin-top: 0px; } }

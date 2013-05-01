@@ -352,7 +352,6 @@ nav input {
 /* - DECKS  STYLES - */
 /* ----------------- */
 #content {
-  border-top: solid 1px #254750;
   width: 100%;
   overflow: auto;
   height: inherit; }

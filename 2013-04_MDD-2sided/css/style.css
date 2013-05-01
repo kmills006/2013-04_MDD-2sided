@@ -271,7 +271,6 @@ nav input {
 /* - DECKS  STYLES - */
 /* ----------------- */
 #content {
-  border-top: solid 1px #254750;
   width: 100%;
   overflow: auto;
   height: inherit; }
@@ -1201,7 +1200,8 @@ div.options.open {
   left: 50%;
   margin-left: -224.5px;
   top: 10px;
-  background-image: url("../imgs/card-front-active.png"); }
+  background-image: url("../imgs/sprite-cards.png");
+  background-position: 0px -299px; }
 
 .activeCardBack {
   z-index: 2;
@@ -1209,7 +1209,8 @@ div.options.open {
   left: 50%;
   margin-left: -224.5px;
   top: 10px;
-  background-image: url("../imgs/card-back-active.png"); }
+  background-image: url("../imgs/sprite-cards.png");
+  background-position: 0px 0px; }
 
 .leftCard {
   position: absolute;
