@@ -4,12 +4,15 @@
 	if(!isMulti($profileInfo)){
 		// No
 	}else{
-		$userInfo = $profileInfo[0];
+		//$userInfo = $profileInfo[0];
 	}
 
 	// echo '<pre>';
-	// print_r($userInfo);
+	// print_r($profileInfo);
 	// echo '</pre>';
+
+	$userInfo = $profileInfo['userInfo'];
+
 
 	$button = array('class' => 'button');
 ?>
@@ -54,22 +57,22 @@
 				<h1><? echo $userInfo['username'] ?></h1>
 				<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
 
-				<? if($userInfo['profileCount'] == 0){
+				<? if($profileInfo['profileViews'] == 0){
 					// Noone has viewed this profile yet, do not include profile count
 				}else{ ?>
-					<h2><? echo $userInfo['profileCount']; ?> Profile Views</h2>
+					<h2><? echo $profileInfo['profileViews']; ?> Profile Views</h2>
 				<? } ?>
 
-				<h3 class="rating"><? echo $userInfo['ratingsCount'] ?></h3>
+				<h3 class="rating"><? echo $profileInfo['ratingCount'] ?></h3>
 			</section>
 
 			<section id="quickInfo">
 				<ul>
-					<li><h1><? echo $userInfo['friendsCount']; ?></h1><h2>Friends</h2></li>
-					<li><h1><? echo $userInfo['decksCount']; ?></h1><h2>Decks</h2></li>
-					<li><h1><? echo $userInfo['cardsCount']; ?></h1><h2>Cards</h2></li>
-					<li><h1><? echo $userInfo['badgeCount']; ?></h1><h2>Badges</h2></li>
-					<li class="last"><h1><? echo $userInfo['tagsCount']; ?></h1><h2>Tags</h2></li>
+					<li><h1><? echo $profileInfo['friendCount']; ?></h1><h2>Friends</h2></li>
+					<li><h1><? echo $profileInfo['deckCount']; ?></h1><h2>Decks</h2></li>
+					<li><h1><? echo $profileInfo['cardCount']; ?></h1><h2>Cards</h2></li>
+					<li><h1><? echo $profileInfo['badgeCount']; ?></h1><h2>Badges</h2></li>
+					<li class="last"><h1><? echo $profileInfo['tagCount']; ?></h1><h2>Tags</h2></li>
 				</ul>
 			</section>
 

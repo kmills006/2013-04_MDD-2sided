@@ -7,12 +7,12 @@
 	if(!isMulti($profileInfo)){
 		// No
 	}else{
-		$userInfo = $profileInfo[0];
+		$userInfo = $profileInfo['userInfo'];
 	}
 
 
 	// echo "<pre>";
-	// print_r($decks);
+	// print_r($userInfo);
 	// echo "</pre>";
 
 	$profileImg = null;
@@ -23,6 +23,7 @@
 		$userID = $decks['user_id'];
 		$profileImg = $decks['profile_img'];
 	}else{
+
 		$username = $decks[0]['username'];
 		$userID = $decks[0]['user_id'];
 		$profileImg = $decks[0]['profile_img'];
@@ -59,13 +60,13 @@
 				
 				<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
 
-				<? if($userInfo['profileCount'] == 0){
+				<? if($profileInfo['profileViews'] == 0){
 					// Noone has viewed this profile yet, do not include profile count
 				}else{ ?>
-					<h2><? echo $userInfo['profileCount']; ?> Profile Views</h2>
+					<h2><? echo $profileInfo['profileViews']; ?> Profile Views</h2>
 				<? } ?>
 
-				<h3 class="rating"><? echo $userInfo['ratingsCount'] ?></h3>
+				<h3 class="rating"><? echo $profileInfo['ratingCount'] ?></h3>
 			</section>
 
 		</div> <!-- end of sizer -->

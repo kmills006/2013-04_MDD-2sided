@@ -47,6 +47,10 @@ class Decks extends CI_Controller {
 
 		$data['view'] = 'userDecks';
 
+		// echo '<pre>';
+		// print_r($data);
+		// echo '</pre>';
+
 		// Checking if there is a valid user session and load appropriate header
 		if($this->session->userdata("isLoggedIn") == 1){
 

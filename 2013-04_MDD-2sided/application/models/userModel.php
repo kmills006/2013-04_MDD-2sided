@@ -12,72 +12,133 @@ class UserModel extends CI_Model {
     // getProfile 
     // Get all of users information and load their profile page
     function getProfile($userID){
-    	
-    	$this->load->library('subquery');
+        $this->db->select("u.user_id, u.username, u.date_of_reg, u.profile_img");
+        $this->db->from('users as u');
+        $this->db->where("u.user_id", $userID);          
+        $q1 = $this->db->get();
 
-    	$this->db->select("u.user_id, u.username, u.date_of_reg, u.profile_img");
-	 
-	   	$subDecks = $this->subquery->start_subquery("select");
-		$subDecks->select('COUNT(d.deck_id) as deck_count')->from('users as u');
-		$subDecks->join('decks as d', 'u.user_id = d.user_id');
-		$subDecks->where("u.user_id = '$userID'");
-		$this->subquery->end_subquery('decksCount');
-
-    	$subCards = $this->subquery->start_subquery("select");
-    	$subCards->select('COUNT(c.card_id) as card_count')->from('users as u');
-    	$subCards->join('decks as d', 'u.user_id = d.user_id');
-    	$subCards->join('cards as c', 'd.deck_id = c.deck_id');
-		$subCards->where("u.user_id = '$userID'");
-    	$this->subquery->end_subquery('cardsCount');
-
-    	$subTags = $this->subquery->start_subquery("select");
-    	$subTags->select('COUNT(t.tag_id) as tag_count')->from('users as u');
-    	$subTags->join('decks as d', 'u.user_id = d.user_id');
-    	$subTags->join('tags as t', 'd.deck_id = t.deck_id');
-		$subTags->where("u.user_id = '$userID'");
-    	$this->subquery->end_subquery('tagsCount');
-
-    	$subFriends = $this->subquery->start_subquery("select");
-    	$subFriends->select('COUNT(uf.friend_id) as friend_count')->from('users as u');
-    	$subFriends->join('user_friends as uf', 'u.user_id = uf.user_id');
-		$subFriends->where("u.user_id = ", $userID);
-        $subFriends->where('uf.active', "1");
-        $subFriends->or_where('uf.friend_id', $userID);
-        $subFriends->where('uf.active', 1);
-    	$this->subquery->end_subquery('friendsCount');
-
-    	$subRatings = $this->subquery->start_subquery("select");
-    	$subRatings->select('COUNT(r.rating_id) as rating_count')->from('users as u');
-    	$subRatings->join('decks as d', 'u.user_id = d.user_id');
-    	$subRatings->join('ratings as r', 'd.deck_id = r.deck_id');
-		$subRatings->where("u.user_id = '$userID'");
-    	$this->subquery->end_subquery('ratingsCount');
-
-        $subBadges = $this->subquery->start_subquery("select");
-        $subBadges->select('COUNT(user_badge_id) as badge_count')->from('users as u');
-        $subBadges->join('user_badges as ub', 'u.user_id = ub.user_id');
-        $subBadges->where("u.user_id = '$userID'");
-        $this->subquery->end_subquery('badgeCount');
-
-        $subProfileCount = $this->subquery->start_subquery("select");
-        $subProfileCount->select('count')->from('profile_views');
-        $subProfileCount->where("user_id = '$userID'");
-        $this->subquery->end_subquery('profileCount');
-
-    	$this->db->from('users as u');
-    	$this->db->where("u.user_id = '$userID'");
-
-		$query = $this->db->get();
-
-
-    	 if($query->num_rows > 0){
-    		foreach($query->result() as $row){
-    			$dataResults[] = $row;
+    	if($q1->num_rows > 0){
+    		foreach($q1->result() as $row){
+    			$userInfo[] = $row;
     		}
     	}else{
     		// No Results Found
     		echo "No Results";
     	}
+
+        $dataResults['userInfo'] = objectToArray($userInfo[0]);
+
+        $this->db->select('COUNT(c.card_id) as cardsCount, COUNT(d.deck_id) as deckCount');
+        $this->db->from('users as u');
+        $this->db->join('decks as d', 'u.user_id = d.user_id');
+        $this->db->join('cards as c', 'd.deck_id = c.deck_id');
+        $this->db->where('u.user_id', $userID);
+        $q2 = $this->db->get();
+
+        if($q2->num_rows > 0){
+            foreach($q2->result() as $row){
+                $deckInfo[] = $row;
+            }
+        }else{
+            // No Results Found
+            echo "No Results";
+        }
+
+        $dataResults['deckCount'] = objectToArray($deckInfo[0]->deckCount);
+        $dataResults['cardCount'] = objectToArray($deckInfo[0]->cardsCount);
+
+
+        $this->db->select('COUNT(t.tag_id) as tagsCount');
+        $this->db->from('users as u');
+        $this->db->join('decks as d', 'u.user_id = d.user_id');
+        $this->db->join('tags as t', 'd.deck_id = t.deck_id');
+        $this->db->where('u.user_id', $userID);
+        $q3 = $this->db->get();
+
+        if($q3->num_rows > 0){
+            foreach($q3->result() as $row){
+                $tagCount[] = $row;
+            }
+        }else{
+            // No Results Found
+            echo "No Results";
+        }
+
+        $dataResults['tagCount'] = objectToArray($tagCount[0]->tagsCount);
+
+
+        $this->db->select('COUNT(r.rating_id) as ratingsCount');
+        $this->db->from('users as u');
+        $this->db->join('decks as d', 'u.user_id = d.user_id');
+        $this->db->join('ratings as r', 'd.deck_id = r.deck_id');
+        $this->db->where('u.user_id', $userID);
+        $q3 = $this->db->get();
+
+         if($q3->num_rows > 0){
+            foreach($q3->result() as $row){
+                $ratingCount[] = $row;
+            }
+        }else{
+            // No Results Found
+            echo "No Results";
+        }
+
+        $dataResults['ratingCount'] = objectToArray($ratingCount[0]->ratingsCount);
+
+        $this->db->select('COUNT(uf.friend_id) as friendsCount');
+        $this->db->from('users as u');
+        $this->db->join('user_friends as uf', 'u.user_id = uf.user_id');
+        $this->db->where('u.user_id', $userID);
+        $this->db->where('uf.active', 1);
+        $this->db->or_where('uf.friend_id', $userID);
+        $this->db->where('uf.active', 1);
+        $q3 = $this->db->get();
+
+         if($q3->num_rows > 0){
+            foreach($q3->result() as $row){
+                $friendCount[] = $row;
+            }
+        }else{
+            // No Results Found
+            echo "No Results";
+        }
+
+        $dataResults['friendCount'] = objectToArray($friendCount[0]->friendsCount);
+
+
+        $this->db->select('COUNT(ub.badge_id) as badgeCount');
+        $this->db->from('users as u');
+        $this->db->join('user_badges as ub', 'u.user_id = ub.user_id');
+        $this->db->where('u.user_id', $userID);
+        $q4 = $this->db->get();
+
+         if($q4->num_rows > 0){
+            foreach($q4->result() as $row){
+                $badgeCount[] = $row;
+            }
+        }else{
+            // No Results Found
+            echo "No Results";
+        }
+
+        $dataResults['badgeCount'] = objectToArray($badgeCount[0]->badgeCount);
+
+        $this->db->select('pv.count as profileViews');
+        $this->db->from('users as u');
+        $this->db->join('profile_views as pv', 'u.user_id = pv.user_id');
+        $this->db->where('u.user_id', $userID);
+        $q5 = $this->db->get();
+
+         if($q5->num_rows > 0){
+            foreach($q5->result() as $row){
+                $profileViews[] = $row;
+            }
+        }else{
+            // No Results Found
+            echo "No Results";
+        }
+
+        $dataResults['profileViews'] = objectToArray($profileViews[0]->profileViews);
 
         // echo '<pre>';
         // print_r($dataResults);
@@ -85,13 +146,13 @@ class UserModel extends CI_Model {
 
     	if(isset($dataResults)){
 
-            $dataResults = objectToArray($dataResults);
+            //$dataResults['userInfo'] = objectToArray($userInfo);
 
     		return $dataResults;
 
     	}else{
     		return false;
-    	} 
+    	}
     }
 
 
