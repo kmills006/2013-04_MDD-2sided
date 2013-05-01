@@ -143,6 +143,12 @@ button {
   height: 25px;
   float: left; }
 
+:focus {
+  outline: none; }
+
+::-moz-focus-inner {
+  border: 0; }
+
 /* ----------------- */
 /* - HEADER STYLES - */
 /* ----------------- */
@@ -1535,6 +1541,80 @@ div.options.open {
   color: #e96151; }
   .userlink a:hover {
     color: #ff6a59; }
+
+label.filebutton, .sub {
+  width: 149px;
+  overflow: hidden;
+  font-family: "Helvetica";
+  color: #ecece7;
+  display: inline;
+  padding: 10px;
+  background: #e96151;
+  font-size: .9em;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 1px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  border-top: solid 1px #f5bab3;
+  border-right: solid 1px #ed7f72;
+  border-left: solid 1px #ed7f72;
+  -webkit-box-shadow: 0px 1px 0px 0px #14262b;
+  box-shadow: 0px 1px 0px 0px #14262b;
+  padding: 0px;
+  height: 30px;
+  line-height: 30px;
+  float: left;
+  margin-top: 0px;
+  margin-bottom: 10px;
+  position: relative; }
+  label.filebutton:hover, .sub:hover {
+    background: #ff6a59; }
+
+#uploadSubmit {
+  float: left;
+  overflow: hidden;
+  font-family: "Helvetica";
+  color: #ecece7;
+  display: inline;
+  padding: 10px;
+  background: #e96151;
+  font-size: .9em;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 1px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  border-top: solid 1px #f5bab3;
+  border-right: solid 1px #ed7f72;
+  border-left: solid 1px #ed7f72;
+  -webkit-box-shadow: 0px 1px 0px 0px #14262b;
+  box-shadow: 0px 1px 0px 0px #14262b; }
+  #uploadSubmit:hover {
+    background: #ff6a59; }
+
+label span input {
+  z-index: 999;
+  line-height: 0;
+  font-size: 50px;
+  position: absolute;
+  top: -2px;
+  left: -700px;
+  opacity: 0;
+  filter: alpha(opacity=0);
+  -ms-filter: "alpha(opacity=0)";
+  cursor: pointer;
+  _cursor: hand;
+  margin: 0;
+  padding: 0; }
 
 footer {
   height: 200px;

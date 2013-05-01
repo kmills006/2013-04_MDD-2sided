@@ -1115,8 +1115,9 @@ div.options.open{
 /* -ADD DECK STYLES- */
 /* ----------------- */
 #newDeck{
-    width: 660px;
-    height: 500px;
+    width: 80%;
+    height: auto;
+    overflow: hidden;
     background-color: #ecece7;
     -webkit-border-radius: 5px;
     border-radius: 5px;
@@ -1131,10 +1132,10 @@ div.options.open{
     margin-top: 20px;
 }
 #deckForm{
-    width: 275px;
+    width: 100%;
     height: 100%;
     float: left;
-    padding-left: 15px;
+    padding: 0px;
     position: relative;
 }
 #deckForm .error{
@@ -1164,7 +1165,7 @@ div.options.open{
     font-weight: bold;
 }
 #deckForm input:not([type="radio"]){
-    width: 250px;
+    width: 98.6%;
     height: 30px;
     font-family: "Helvetica Neue";
     font-size: .9em;
@@ -1178,6 +1179,9 @@ div.options.open{
     padding-left: 5px;
     margin-right: 10px;
     margin-top: 5px;
+    @media screen and (max-width: 460px) {
+        width: 95.5%;
+    }
 }
 #public{
     margin-top: 10px;
@@ -1188,7 +1192,7 @@ div.options.open{
 }
 #tagArea{
     margin-top: 5px;
-    width: 255px;
+    width: 100%;
     height: 110px;
     background-color: white;
     -webkit-box-shadow: 0px 0px 3px 0px #707070;
@@ -1197,21 +1201,21 @@ div.options.open{
 }
 #deckForm button{
     font-size: 1.3em;
-    width: 255px;
+    width: 100%;
 }
 #deckForm .cancel{
     font-size: .7em;
     text-decoration: underline;
-    margin-left: 100px;
+    text-align: center;
     margin-top: 5px;
 }
 #newDeck section{
-    width: 330px;
-    height: 100%;
-    float: right;
-    padding-left: 40px;
-    background-image: url("../imgs/form-line2.png");
-    background-repeat: no-repeat;
+     width: 100%;
+    float: left;
+    clear: both;
+    margin-top: 40px;
+    background-image: none;
+    padding: 0px;
 }
 #newDeck section h1{
     font-family: "Helvetica Neue";
@@ -1675,6 +1679,18 @@ div.options.open{
     background-color: $egg-white;
     border-bottom: solid 1px #c04e41;
     &:hover { color: $egg-white; }
+}
+#reportMButton{
+    @include unbutton();
+    color: $main-orange;
+    width: 100%;
+    height: 70px;
+    background-color: $egg-white;
+    border-bottom: solid 1px #c04e41;
+    &:hover { color: $egg-white; }
+}
+#reportMButton p{
+    font-size: .6em;
 }
 #extras{
     height: 0px;

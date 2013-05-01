@@ -29,8 +29,7 @@
 				<h1><? echo $deckInfo['title'] ?></h1>
 				<h2 class="userlink">By: <? echo anchor("user/profilePage/{$deckInfo["user_id"]}", $deckInfo['username'], 'title="View all of users decks"'); ?></h2>
 				
-
-				<? 
+					<? 
 					if($deckInfo['date_edited'] != "Nov 30, -0001" && $deckInfo['date_edited'] != $deckInfo['date_created']){ ?>
 						<h2>Edited: <? echo $deckInfo['date_edited']; ?></h2>
 					<? }else{ ?>
@@ -91,7 +90,7 @@
 							<button type="button" id="deleteMButton">Delete</button>
 
 						<? }else{ ?>
-							<div class="space"></div>
+							<button type="button" id="reportMButton">Report<p>Offensive Deck</p></button>
 						<? }
 		    		?>
     			</li>

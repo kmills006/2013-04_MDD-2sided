@@ -1133,8 +1133,9 @@ div.options.open {
 /* -ADD DECK STYLES- */
 /* ----------------- */
 #newDeck {
-  width: 660px;
-  height: 500px;
+  width: 90%;
+  height: auto;
+  overflow: hidden;
   background-color: #ecece7;
   -webkit-border-radius: 5px;
   border-radius: 5px;
@@ -1146,14 +1147,20 @@ div.options.open {
 
 .newDeckTitle {
   text-align: center;
-  margin-top: 20px; }
+  margin-top: 20px;
+  text-shadow: 0px 2px 1px #1f3a42;
+  filter: dropshadow(color=black, offx=0, offy=1); }
 
 #deckForm {
-  width: 275px;
+  width: 50%;
   height: 100%;
   float: left;
   padding-left: 15px;
   position: relative; }
+  @media screen and (max-width: 658px) {
+    #deckForm {
+      width: 100%;
+      padding: 0px; } }
 
 #deckForm .error {
   width: 190px;
@@ -1182,7 +1189,7 @@ div.options.open {
   font-weight: bold; }
 
 #deckForm input:not([type="radio"]) {
-  width: 250px;
+  width: 95%;
   height: 30px;
   font-family: "Helvetica Neue";
   font-size: .9em;
@@ -1206,7 +1213,7 @@ div.options.open {
 
 #tagArea {
   margin-top: 5px;
-  width: 255px;
+  width: 96%;
   height: 110px;
   background-color: white;
   -webkit-box-shadow: 0px 0px 3px 0px #707070;
@@ -1215,21 +1222,29 @@ div.options.open {
 
 #deckForm button {
   font-size: 1.3em;
-  width: 255px; }
+  width: 97%; }
 
 #deckForm .cancel {
   font-size: .7em;
   text-decoration: underline;
-  margin-left: 100px;
+  text-align: center;
   margin-top: 5px; }
 
 #newDeck section {
-  width: 330px;
+  width: 40%;
   height: 100%;
   float: right;
   padding-left: 40px;
   background-image: url("../imgs/form-line2.png");
   background-repeat: no-repeat; }
+  @media screen and (max-width: 658px) {
+    #newDeck section {
+      width: 100%;
+      float: left;
+      clear: both;
+      margin-top: 40px;
+      background-image: none;
+      padding: 0px; } }
 
 #newDeck section h1 {
   font-family: "Helvetica Neue";

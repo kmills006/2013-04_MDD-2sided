@@ -23,16 +23,23 @@
 					echo img('imgs/profile_imgs/profile-img_placeholder.png'); 
 				} 
 
-				if(isset($uploadImage)){
-						
-						echo form_open_multipart('upload/do_upload');
+				if(isset($uploadImage)){ ?>
+					
+					<? echo form_open_multipart("upload/do_upload"); ?>
 
-						echo form_upload('userfile'); 
+						<label class="filebutton">
+		                	Change Image
+		                	<span><input id="uploadButton"type="file" name="userfile" size="20" /></span>
+		            	</label>
+		            	<label class="filebutton" style="display: none;">
+		               		Upload Image
+		               		<span><input id="uploadSubmit" type="submit" value="upload" /></span>
+		            	</label>
+		            	
+					<? echo form_close(); 
+				}?>
 
-						echo form_submit('profileImgSubmit', 'Upload');
 
-						echo form_close();
-				} ?>
 				
 				<div class="button"><? echo anchor("decks/userDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></div>
 				
@@ -127,3 +134,4 @@
 	<script type="text/javascript" src="<? echo base_url(); ?>js/main.js"></script>
 
 	<!-- Inits -->
+	<script>initUpload();</script>

@@ -295,8 +295,11 @@ var initCard = function(){
 			extras  =  $('#extras')
 		;
 		tools.on('click', function(e){
-
-			extras.height() === 0 ?  extras.css('height','70px') : extras.css('height','0px');
+			if(extras.height() === 0){
+				extras.css('height','70px');
+			}else{
+				extras.css('height','0px');
+			}
 		});
 	};
 	initTools();

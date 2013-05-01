@@ -276,3 +276,10 @@ var initVoting = function(){
 		return false;
 	});
 };
+
+var initUpload = function(){
+	$('.filebutton').change(function(e){
+		$('.filebutton').eq(0).css('display', 'none');
+		$('.filebutton').eq(1).css('display', 'block');
+	});
+};

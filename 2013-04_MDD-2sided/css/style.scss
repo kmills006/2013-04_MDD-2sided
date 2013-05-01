@@ -169,6 +169,8 @@ button{
     height: 25px;
     float: left;
 }
+:focus {outline:none;}
+::-moz-focus-inner {border:0;}
 /* ----------------- */
 /* - HEADER STYLES - */
 /* ----------------- */
@@ -1383,6 +1385,84 @@ div.options.open{
     color: $main-orange;
     &:hover { color:#ff6a59; }
 }
+
+
+
+
+
+
+
+
+
+label.filebutton, .sub {
+    width: 149px;
+    overflow:hidden;
+    @include button();
+    padding: 0px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    margin-top: 0px;
+    margin-bottom: 10px;
+    position: relative;
+}
+#uploadSubmit{
+    float: left;
+    overflow:hidden;
+    @include button();
+}
+
+label span input {
+    z-index: 999;
+    line-height: 0;
+    font-size: 50px;
+    position: absolute;
+    top: -2px;
+    left: -700px;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -ms-filter: "alpha(opacity=0)";
+    cursor: pointer;
+    _cursor: hand;
+    margin: 0;
+    padding:0;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 footer{
     height: 200px;
