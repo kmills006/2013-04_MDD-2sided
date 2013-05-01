@@ -1,5 +1,11 @@
 (function($) {
 
+	var clientInfo = {
+		browserWidth: $(window).width()
+	};
+
+	document.cookie = "_clientInfo=" + JSON.stringify(clientInfo);
+
 	var win      =  $(window),
 		sizer    =  $('.sizer'),
 		header   =  $('header'),

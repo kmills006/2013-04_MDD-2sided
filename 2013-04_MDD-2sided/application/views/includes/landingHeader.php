@@ -24,7 +24,7 @@
 	<![endif]-->
 
 	<script>
-		var base = "<?php echo base_url(); ?>"
+		var base = "<?php echo base_url(); ?>";
 	</script>
 </head>	
 <body>
