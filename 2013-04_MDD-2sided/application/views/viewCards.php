@@ -28,7 +28,6 @@
 			<section id="profileInfo">
 				<h1><? echo $deckInfo['title'] ?></h1>
 				<h2 class="userlink">By: <? echo anchor("user/profilePage/{$deckInfo["user_id"]}", $deckInfo['username'], 'title="View all of users decks"'); ?></h2>
-				
 					<? 
 					if($deckInfo['date_edited'] != "Nov 30, -0001" && $deckInfo['date_edited'] != $deckInfo['date_created']){ ?>
 						<h2>Edited: <? echo $deckInfo['date_edited']; ?></h2>
@@ -46,9 +45,13 @@
     <section id="cards">
         <ul>
         	<?
-        		if(!isMulti($cards)){
-					echo "No Cards";
-				}else{
+        		if(!isMulti($cards)){ ?>
+					<li class="aCard">
+            			<h1 class="question">No Cards</h1>
+            			<h1 class="answer">No Cards</h1>
+            		</li>
+
+				<?}else{
 					foreach($cards as $card){ ?>
 	            		<li class="aCard" data-cardid="<? echo $card['card_id'] ?>">
 	            			<h1 class="question"><? echo $card['question']?></h1>

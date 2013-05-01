@@ -143,12 +143,6 @@ button {
   height: 25px;
   float: left; }
 
-:focus {
-  outline: none; }
-
-::-moz-focus-inner {
-  border: 0; }
-
 /* ----------------- */
 /* - HEADER STYLES - */
 /* ----------------- */
