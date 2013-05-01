@@ -65,6 +65,7 @@ class User extends CI_Controller {
 
 			// Getting logged in users profile information
 			$data['profileInfo'] = $this->userModel->getProfile($userID);
+			$data['uploadImage'] = true;
 
 			// Check for any new friend requests
 			$data['friendRequests'] = $this->friendsModel->checkFriendRequests($userID);
@@ -91,9 +92,6 @@ class User extends CI_Controller {
 		}else{
 
 		}
-
-		// var_dump($uri);
-		// var_dump($this->session->userdata('userID'));
 
 		if($isLoggedIn == 1 && $uri != 'profilePage'){
 			// echo "Viewing someone else's profile.";

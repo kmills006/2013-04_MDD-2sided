@@ -94,6 +94,30 @@ class UserModel extends CI_Model {
     	} 
     }
 
+
+    // uploadImage
+    // User can upload their own profile picture
+    function uploadImage($data){   
+        // echo '<pre>';
+        // print_r($data);
+        // echo '</pre>';
+
+        $newProfileImage = array(
+                            'profile_img' => $data['file_name']
+        );
+
+        $this->db->where('user_id', $data['raw_name']);
+        $query = $this->db->update('users', $newProfileImage);
+
+        if(!$query){
+            return false;
+        }else{
+            return true;
+        }
+    }
+
+
+
     // increaseUserViewCount
     // Everytime someone views a users profile, increase their profile view count
     function increaseUserViewCount($viewerID, $profileOwnerID){

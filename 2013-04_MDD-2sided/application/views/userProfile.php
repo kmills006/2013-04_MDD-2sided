@@ -7,9 +7,9 @@
 		$userInfo = $profileInfo[0];
 	}
 
-	echo '<pre>';
-	print_r($userInfo);
-	echo '</pre>';
+	// echo '<pre>';
+	// print_r($userInfo);
+	// echo '</pre>';
 
 	$button = array('class' => 'button');
 ?>
@@ -21,6 +21,17 @@
 					echo img('imgs/profile_imgs/'.$userInfo['profile_img']); 
 				}else{
 					echo img('imgs/profile_imgs/profile-img_placeholder.png'); 
+				} 
+
+				if(isset($uploadImage)){
+						
+						echo form_open_multipart('upload/do_upload');
+
+						echo form_upload('userfile'); 
+
+						echo form_submit('profileImgSubmit', 'Upload');
+
+						echo form_close();
 				} ?>
 				
 				<div class="button"><? echo anchor("decks/userDecks/{$userInfo['user_id']}", 'View Decks', 'View Decks');?></div>
