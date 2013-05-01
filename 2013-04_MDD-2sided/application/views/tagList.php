@@ -29,7 +29,7 @@
 					<? foreach($tags as $tag){ ?>
 						<li class="userList" data-userid="<?echo $tag["tagName"]?>">
 
-							<h1><? echo anchor("tags/viewTags/{$tag["user_id"]}", $tag['tagName'], 'title="View all tags with this name"'); ?></h1>
+							<h1><? echo anchor("tags/viewTags/{$tag["user_id"]}/{$tag["tagName"]}", $tag['tagName'], 'title="View all tags with this name"'); ?></h1>
 							<h2>x <? echo $tag['numberOfTags']; ?> </h2>
 			
 						</li>

@@ -65,5 +65,31 @@ class TagsModel extends CI_Model {
       
    }
 
+    function viewTags($data){
+      $this->db->select('u.user_id, t.tagName, d.deck_id, d.title');
+      $this->db->join('decks as d', 't.deck_id = d.deck_id');
+      $this->db->join('users as u', 'd.user_id = u.user_id');
+      $this->db->where('d.privacy', 0);
+      $this->db->where('u.user_id', $data['userID']);
+      $this->db->where('t.tagName', $data['tagName']);
+
+      $query = $this->db->get('tags as t');
+
+      if($query->num_rows() > 0){
+        foreach($query->result() as $row){
+          $dataResults[] = $row;
+        }
+
+        $dataResults = objectToArray($dataResults);
+
+        return $dataResults;
+
+      }else{
+
+        return false;
+
+      }
+    }
+
 
 } // end of tags model

@@ -192,8 +192,6 @@ class User extends CI_Controller {
 		echo '<pre>';
 		print_r($data);
 		echo '</pre>';
-		
-		echo uniqid();
 
 		// Checking whether user is logged in or not to determine which header to use
 		switch($this->session->userdata('isLoggedIn')){
