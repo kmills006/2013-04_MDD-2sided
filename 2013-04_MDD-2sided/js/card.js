@@ -63,6 +63,15 @@ var initCard = function(){
 		}
 	});
 
+	//SWIPE EVENTS
+	var cards = $('#cards .aCard');
+
+	cards.off('swiperight').on('swiperight', function(e){
+		if($('.activeCard').index() !== 0 && $('.cardedit')[0] === undefined)initCards($('.activeCard').index()-1);
+	}).off('swiftleft').on('swipeleft', function(e){
+		if($('.activeCard').index() != $('.aCard').length-1 && $('.cardedit')[0] === undefined)initCards($('.activeCard').index()+1);
+	});
+
 	//ON KEYDOWN FUNCTIONS FOR CARD TOOLS
 	var initKeys = function(){
 		$(document).keydown(function(e){

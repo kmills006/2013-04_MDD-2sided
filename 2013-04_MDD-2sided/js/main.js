@@ -231,7 +231,7 @@ var initVoting = function(){
 		dataType: "json",
 		data: {deckID: deckID},
 		success: function(response){
-			response !== false ? voteButton.find('a').addClass('voted').html('unlike deck') : console.log("no vote");
+			if(response !== false) voteButton.find('a').addClass('voted').html('unlike deck');
 		}
 	});
 
