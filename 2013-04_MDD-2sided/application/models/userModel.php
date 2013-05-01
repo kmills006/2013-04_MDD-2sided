@@ -134,19 +134,20 @@ class UserModel extends CI_Model {
                 $profileViews[] = $row;
             }
         }else{
-            // No Results Found
-            echo "No Results";
+            $profileViews = 0;
         }
 
-        $dataResults['profileViews'] = objectToArray($profileViews[0]->profileViews);
+        if($profileViews == 0){
+            $dataResults['profileViews'] = $profileViews;
+        }else{
+             $dataResults['profileViews'] = objectToArray($profileViews[0]->profileViews);
+        }
 
         // echo '<pre>';
         // print_r($dataResults);
         // echo '</pre>';
 
     	if(isset($dataResults)){
-
-            //$dataResults['userInfo'] = objectToArray($userInfo);
 
     		return $dataResults;
 
@@ -210,11 +211,14 @@ class UserModel extends CI_Model {
                 $date2 = new DateTime(date('Y/m/d h:i:s', time()));
 
                 // The diff-methods returns a new DateInterval-object...
-                $diff = $date2->diff($date1);
+                $diff = date_diff($date1, $date2);
+
 
 
                 // Call the format method on the DateInterval-object
                 $timeDiff = $diff->format('%h');
+
+                var_dump($timeDiff);
                 
                 if($timeDiff < 24){
                     // User has viewed this profile in the past 24 hours,
