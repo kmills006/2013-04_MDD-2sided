@@ -44,9 +44,9 @@
 
 							<h1><? echo anchor("user/profilePage/{$user["user_id"]}", $user['username'], 'title="View profile"'); ?></h1>
 
-							<? if($user['ratingCount'] == 0){
-								// User has no upvotes yet, do not display rating on users page
-							}else{ ?>
+							<? if($user['ratingCount'] == 0){?>
+								<h3 class="rating">0</h3>
+							<?}else{ ?>
 								<h3 class="rating"><? echo $user["ratingCount"] ?></h3>
 							<? } ?>
 							
