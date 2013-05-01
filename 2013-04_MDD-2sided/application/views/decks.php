@@ -4,7 +4,7 @@
 	// echo "<pre>";
 	// print_r($decks);
 	// echo "</pre>";
-	//echo $decks[0]['username'];
+
 ?>
 
 	<!-- <section id="filters" class="decksPage">

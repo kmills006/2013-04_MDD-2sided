@@ -28,10 +28,11 @@ class UserModel extends CI_Model {
 
         $dataResults['userInfo'] = objectToArray($userInfo[0]);
 
-        $this->db->select('COUNT(c.card_id) as cardsCount, COUNT(d.deck_id) as deckCount');
+
+        // Getting the total amount of decks
+        $this->db->select('COUNT(d.deck_id) as deckCount');
         $this->db->from('users as u');
         $this->db->join('decks as d', 'u.user_id = d.user_id');
-        $this->db->join('cards as c', 'd.deck_id = c.deck_id');
         $this->db->where('u.user_id', $userID);
         $q2 = $this->db->get();
 
@@ -45,9 +46,28 @@ class UserModel extends CI_Model {
         }
 
         $dataResults['deckCount'] = objectToArray($deckInfo[0]->deckCount);
-        $dataResults['cardCount'] = objectToArray($deckInfo[0]->cardsCount);
+
+        // Getting the total amount of cards
+        $this->db->select('COUNT(c.card_id) as cardsCount');
+        $this->db->from('users as u');
+        $this->db->join('decks as d', 'u.user_id = d.user_id');
+        $this->db->join('cards as c', 'd.deck_id = c.deck_id');
+        $this->db->where('u.user_id', $userID);
+        $q6 = $this->db->get();
+
+        if($q6->num_rows > 0){
+            foreach($q6->result() as $row){
+                $cardCount[] = $row;
+            }
+        }else{
+            // No Results Found
+            echo "No Results";
+        }
+
+        $dataResults['cardCount'] = objectToArray($cardCount[0]->cardsCount);
 
 
+        // Getting the total amount of tags
         $this->db->select('COUNT(t.tag_id) as tagsCount');
         $this->db->from('users as u');
         $this->db->join('decks as d', 'u.user_id = d.user_id');
@@ -67,6 +87,7 @@ class UserModel extends CI_Model {
         $dataResults['tagCount'] = objectToArray($tagCount[0]->tagsCount);
 
 
+        // Getting the total amount of ratings
         $this->db->select('COUNT(r.rating_id) as ratingsCount');
         $this->db->from('users as u');
         $this->db->join('decks as d', 'u.user_id = d.user_id');
@@ -85,6 +106,8 @@ class UserModel extends CI_Model {
 
         $dataResults['ratingCount'] = objectToArray($ratingCount[0]->ratingsCount);
 
+
+        // Getting the total amount of friends
         $this->db->select('COUNT(uf.friend_id) as friendsCount');
         $this->db->from('users as u');
         $this->db->join('user_friends as uf', 'u.user_id = uf.user_id');
@@ -210,20 +233,7 @@ class UserModel extends CI_Model {
                 $date1 = new DateTime($lastVote[0]['view_date']);
                 $date2 = new DateTime(date('Y/m/d h:i:s', time()));
 
-                // The diff-methods returns a new DateInterval-object...
-                $diff = date_diff($date1, $date2);
-
-
-
-                // Call the format method on the DateInterval-object
-                $timeDiff = $diff->format('%h');
-
-                var_dump($timeDiff);
-                
-                if($timeDiff < 24){
-                    // User has viewed this profile in the past 24 hours,
-                    // do not update profile count
-                }else{
+                if($date2 < $date1){
                     // Add one new view from that user to 
                     // pages table
                     
@@ -242,6 +252,9 @@ class UserModel extends CI_Model {
                             SET count = count + 1
                             WHERE profile_id = "'.$row[0]['profile_id'].'"'
                     );
+                }else{
+                    // User has viewed this profile in the past 24 hours,
+                    // do not update profile count
                 }
 
             }else{

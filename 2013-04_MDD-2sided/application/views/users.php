@@ -34,12 +34,18 @@
 											'width' => '70'
 						); 
 
+						$imgPlaceholderProps = array(
+											'src' => 'imgs/profile_imgs/profile-img_placeholder.png',
+											'height' => '70',
+											'width' => '70'
+						); 
+
 					?>
 						<li class="userList" data-userid="<?echo $user["user_id"]?>">
 							<? if($user['profile_img']){
 								echo img($imgProperties); 
 							}else{
-								echo img('imgs/profile_imgs/70x70_profile.png'); 
+								echo img($imgPlaceholderProps); 
 							} ?>
 
 							<h1><? echo anchor("user/profilePage/{$user["user_id"]}", $user['username'], 'title="View profile"'); ?></h1>
