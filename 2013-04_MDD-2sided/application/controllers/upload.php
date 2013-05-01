@@ -27,7 +27,7 @@ class Upload extends CI_Controller {
 		if (!$this->upload->do_upload()){
 			$error = array('error' => $this->upload->display_errors());
 
-			// echo $error["error"];
+			echo $error["error"];
 
 		}else{
 			$data = array('upload_data' => $this->upload->data());

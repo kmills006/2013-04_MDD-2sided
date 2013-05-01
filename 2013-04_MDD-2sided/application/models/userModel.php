@@ -97,11 +97,7 @@ class UserModel extends CI_Model {
 
     // uploadImage
     // User can upload their own profile picture
-    function uploadImage($data){   
-        // echo '<pre>';
-        // print_r($data);
-        // echo '</pre>';
-
+    function uploadImage($data){ 
         $newProfileImage = array(
                             'profile_img' => $data['file_name']
         );

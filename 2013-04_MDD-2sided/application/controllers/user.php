@@ -8,6 +8,7 @@ class User extends CI_Controller {
 		$this->load->model('userModel');
 		$this->load->model('friendsModel');
 		$this->load->model('badgeModel');
+		$this->load->model('tagsModel');
 	}
 
 	public function index(){
@@ -193,6 +194,33 @@ class User extends CI_Controller {
 		echo '</pre>';
 		
 		echo uniqid();
+
+		// Checking whether user is logged in or not to determine which header to use
+		switch($this->session->userdata('isLoggedIn')){
+			case 0:
+				$this->load->view('includes/landingTemplate', $data);
+			break;
+
+			case 1:
+				$this->load->view('includes/loggedInTemplate', $data);
+			break;
+
+			default:
+
+			break;
+		};
+	}
+
+
+	// tagList
+	// View a list of all of a users tags on their decks
+	public function tagList($userID){
+		$data['tags'] = $this->tagsModel->getTags($userID);
+		$data['view'] = 'tagList';
+
+		// echo '<pre>';
+		// print_r($data);
+		// echo '</pre>';
 
 		// Checking whether user is logged in or not to determine which header to use
 		switch($this->session->userdata('isLoggedIn')){
