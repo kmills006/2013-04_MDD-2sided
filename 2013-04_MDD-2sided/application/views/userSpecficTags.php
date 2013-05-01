@@ -2,32 +2,9 @@
 	
 	$this->load->helper('isMulti.php');
 
-	/* $this->load->helper('objectToArray.php');
-	
-	$decks = objectToArray($decks);
-	
-	if(!isMulti($profileInfo)){
-		// No
-	}else{
-		$userInfo = $profileInfo[0];
-	}
-
-	$profileImg = null;
-
-
-	if(isset($decks['username'])){
-		$username = $decks['username'];
-		$userID = $decks['user_id'];
-		$profileImg = $decks['profile_img'];
-	}else{
-		$username = $decks[0]['username'];
-		$userID = $decks[0]['user_id'];
-		$profileImg = $decks[0]['profile_img'];
-	} */
-
-	/* echo '<pre>';
-	print_r($tags);
-	echo '</pre>'; */
+	//  echo '<pre>';
+	// print_r($tags);
+	// echo '</pre>'; 
 
 	$profileInfo = $profileInfo[0];
 ?>

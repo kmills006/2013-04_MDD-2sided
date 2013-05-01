@@ -213,7 +213,9 @@ class User extends CI_Controller {
 	// tagList
 	// View a list of all of a users tags on their decks
 	public function tagList($userID){
+
 		$data['tags'] = $this->tagsModel->getTags($userID);
+		$data['profileInfo'] = $this->userModel->getProfile($userID);
 		$data['view'] = 'tagList';
 
 		// echo '<pre>';
