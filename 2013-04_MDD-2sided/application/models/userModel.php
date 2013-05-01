@@ -26,7 +26,14 @@ class UserModel extends CI_Model {
     		echo "No Results";
     	}
 
-        $dataResults['userInfo'] = objectToArray($userInfo[0]);
+        $userInfo = objectToArray($userInfo);
+
+        // Formatting registration date
+        $dateOfReg = strtotime($userInfo[0]['date_of_reg']);
+        $userInfo[0]['date_of_reg'] = date("M d, Y", $dateOfReg);
+
+
+        $dataResults['userInfo'] = $userInfo[0];
 
 
         // Getting the total amount of decks

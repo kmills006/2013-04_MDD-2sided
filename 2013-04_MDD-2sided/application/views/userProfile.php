@@ -55,7 +55,7 @@
 			
 			<section id="profileInfo">
 				<h1><? echo $userInfo['username'] ?></h1>
-				<h2>Joined <? echo $userInfo['date_of_reg']; ?></h2>
+				<h2>Joined: <? echo $userInfo['date_of_reg']; ?></h2>
 
 				<? if($profileInfo['profileViews'] == 0){
 					// Noone has viewed this profile yet, do not include profile count
