@@ -64,11 +64,14 @@ var initCard = function(){
 	});
 
 	//SWIPE EVENTS
-	var cards = $('#cards .aCard');
+	var cardsright = $('#cards'),
+		cardsleft = $('#cards .aCard')
+	;
 
-	cards.off('swiperight').on('swiperight', function(e){
+	cardsright.on('swiperight', function(e){
 		if($('.activeCard').index() !== 0 && $('.cardedit')[0] === undefined)initCards($('.activeCard').index()-1);
-	}).off('swiftleft').on('swipeleft', function(e){
+	});
+	cardsleft.on('swipeleft', function(e){
 		if($('.activeCard').index() != $('.aCard').length-1 && $('.cardedit')[0] === undefined)initCards($('.activeCard').index()+1);
 	});
 
