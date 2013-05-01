@@ -1996,3 +1996,41 @@ div.options.open {
   cursor: default; }
   #vote .voted:hover, .voted:hover {
     background: #366774; }
+
+.tagList {
+  width: 40%;
+  height: 70px;
+  font-family: "Helvetica";
+  color: #ecece7;
+  display: inline;
+  padding: 10px;
+  background: #e96151;
+  font-size: .9em;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 1px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  border-top: solid 1px #f5bab3;
+  border-right: solid 1px #ed7f72;
+  border-left: solid 1px #ed7f72;
+  -webkit-box-shadow: 0px 1px 0px 0px #14262b;
+  box-shadow: 0px 1px 0px 0px #14262b;
+  float: left;
+  margin: 10px 2% 0px; }
+  .tagList:hover {
+    background-color: #ff6a59; }
+  @media screen and (max-width: 460px) {
+    .tagList {
+      width: 39%;
+      margin: 10px 2% 0px; } }
+
+.tagList:nth-child(even) {
+  float: right; }
+
+.tagList h1 {
+  margin-top: 15px; }

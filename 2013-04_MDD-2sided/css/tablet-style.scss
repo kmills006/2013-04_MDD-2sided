@@ -1405,6 +1405,23 @@ footer{
     width: 100%;
 }
 
+.tagList{
+    width: 45%;
+    height: 70px;
+    @include button();
+    float: left;
+    margin-top: 10px;
+}
+
+.tagList:nth-child(even){
+    float: right;
+}
+
+
+.tagList h1{
+    margin-top: 15px;
+}
+
 
 
 

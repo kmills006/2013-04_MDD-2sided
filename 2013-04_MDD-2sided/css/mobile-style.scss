@@ -1717,3 +1717,25 @@ div.options.open{
     &:hover { background:$main-blue; }
 }
 
+.tagList{
+    width: 40%;
+    height: 70px;
+    @include button();
+    float: left;
+    margin: 10px 2% 0px;
+    @media screen and (max-width: 460px) {
+        width: 39%;
+        margin: 10px 2% 0px;
+    }
+}
+
+.tagList:nth-child(even){
+    float: right;
+}
+
+
+.tagList h1{
+    margin-top: 15px;
+}
+
+
