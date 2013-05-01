@@ -23,9 +23,7 @@
 		$username = $decks[0]['username'];
 		$userID = $decks[0]['user_id'];
 		$profileImg = $decks[0]['profile_img'];
-	}
-
-	// $addDeckButton = array('class' => 'addDeckButton'); */
+	} */
 
 	/* echo '<pre>';
 	print_r($tags);
@@ -43,6 +41,7 @@
 				}else{
 					echo img('imgs/profile_imgs/'.$profileInfo['profile_img']); 
 				} ?>
+
 			</section>
 			
 			<section id="profileInfo">
