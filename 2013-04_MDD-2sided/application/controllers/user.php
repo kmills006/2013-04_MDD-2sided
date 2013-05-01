@@ -187,6 +187,7 @@ class User extends CI_Controller {
 	// View a list of all of a users badges
 	public function badgeList($userID){
 		$data['badges'] = $this->badgeModel->getBadges($userID);
+		$data['profileInfo'] = $this->userModel->getProfile($userID);
 		$data['view'] = 'badgeList';
 
 		echo '<pre>';
