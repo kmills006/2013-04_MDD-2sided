@@ -1060,7 +1060,7 @@ div.options.open{
     border-bottom: solid 1px $main-blue;
     text-align: left;
     @media screen and (max-width: 580px) {
-        border-bottom: solid 1px #ff6a59;
+        border-bottom: none;
         font-weight: 800;
         font-size: 1em;
         margin-left: 45px;

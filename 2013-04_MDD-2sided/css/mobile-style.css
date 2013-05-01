@@ -1237,7 +1237,7 @@ div.options.open {
   text-align: left; }
   @media screen and (max-width: 580px) {
     #users h1 {
-      border-bottom: solid 1px #ff6a59;
+      border-bottom: none;
       font-weight: 800;
       font-size: 1em;
       margin-left: 45px; } }
