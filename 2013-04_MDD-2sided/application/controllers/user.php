@@ -156,6 +156,7 @@ class User extends CI_Controller {
 		$data['view'] = 'friendsList';
 		
 		$data['userInfo'] = getUserInfo($userID);
+		$data['profileInfo'] = $this->userModel->getProfile($userID);
 
 		if($this->friendsModel->getFriendsList($userID)){
 			$data['friendsList'] = $this->friendsModel->getFriendsList($userID);			

@@ -8,6 +8,31 @@ class DecksModel extends CI_Model {
         $this->load->helper('objectToArray.php');
     }
 
+
+    // decksCount
+    // Get the total count of all public decks
+    function getDecksCount(){
+    	$this->db->select('COUNT(d.deck_id');
+    	$this->db->from('decks as d');
+    	$this->db->where('d.privacy', 0);
+
+    	$query = $this->db->get();
+
+    	if($query->num_rows > 0){
+
+			foreach($query->result() as $row){
+				$dataResults[] = $row;
+			}
+
+			echo '<pre>';
+			print_r($dataResults);
+			echo '</pre>';
+
+		}else{
+			// No Results Found
+		}
+    }
+
     // getAllDecks
     // Retrieving all public decks for the browse page
 	function getAllDecks(){

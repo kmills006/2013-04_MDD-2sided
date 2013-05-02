@@ -51,35 +51,33 @@ class Authentication extends CI_Controller {
 				}
 
 			}else{
-					$data = $this->authenticationModel->registerFromFacebook($fbUser);
+				$data = $this->authenticationModel->registerFromFacebook($fbUser);
 
-					if(!$data){
+				if(!$data){
 
-						// Could not add user to the database
-						// Present error message
-						// If username is already taken in the database, have user select a different username
+					// Could not add user to the database
+					// Present error message
+					// If username is already taken in the database, have user select a different username
 
-						echo "Username already exists in DB";
+					echo "Username already exists in DB";
 
+				}else{
+
+					$result = $this->authenticationModel->loginFbUser($fbUser);
+					
+					if(!$result){
+						// No user found
 					}else{
-						$result = $this->authenticationModel->loginFbUser($fbUser);
-						
-						if(!$result){
-							// No user found
-						}else{
 
-							// Send user to logged in screen
-							redirect('user/profilePage');
-						}						
+						// Send user to logged in screen
+						redirect('user/profilePage');
+					}				
 
-					}
+				}
 			}
 
 		}
 	}
-
-
-
 
 	// checkLogin
 	public function checkLogin(){

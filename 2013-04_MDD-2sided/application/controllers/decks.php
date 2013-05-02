@@ -12,6 +12,8 @@ class Decks extends CI_Controller {
 
 	public function index(){
 
+		$this->decksModel->getDecksCount();
+
 		$data['decks'] = $this->decksModel->getAllDecks();
 		$data['topTags'] = $this->tagsModel->getTopTags();
 		$data['topUsers'] = $this->userModel->getTopUsers();
