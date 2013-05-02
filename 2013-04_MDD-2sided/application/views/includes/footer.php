@@ -29,8 +29,12 @@
 					<li><? echo anchor('user/viewAll/top', 'Users', 'Search by users') ?></li>
 					<li><? echo anchor('about', 'About', 'About 2sided') ?></li>
 
-					<? echo $isLoggedIn; ?>
-					<li><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
+					<? if(!$isLoggedIn){ ?>
+						<li><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
+					<? }else{ ?>
+						<li><? echo anchor('authentication/userLogout', "Log Out", 'title="User Logout"'); ?></li>
+					<? } ?>
+
 					<li><? echo anchor('', "Support", 'title="Support"'); ?></li>
 					<li><? echo anchor('about/contact', "Contact Us", 'title="Contact the designer and developer"'); ?></li>
 				</ul>
