@@ -13,12 +13,12 @@
 			<section id="footerNav">
 				<h1>Site Navigation</h1>
 				<ul>
-					<li>Browse Decks</li>
-					<li>Browse Users</li>
-					<li>About 2sided</li>
-					<li>Sign Up | Log In</li>
-					<li>Support</li>
-					<li>Contact Us</li>
+					<li><? echo anchor('decks', 'Decks', 'Browse all decks') ?></li>
+					<li><? echo anchor('user/viewAll/top', 'Users', 'Search by users') ?></li>
+					<li><? echo anchor('about', 'About', 'About 2sided') ?></li>
+					<li><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
+					<li><? echo anchor('', "Support", 'title="Support"'); ?></li>
+					<li><? echo anchor('about/contact', "Contact Us", 'title="Contact the designer and developer"'); ?></li>
 				</ul>
 			</section>
 		</div>
