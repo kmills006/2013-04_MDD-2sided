@@ -2,31 +2,10 @@
 	$this->load->helper('isMulti.php');
 
 	// echo "<pre>";
-	// print_r($decks);
+	// print_r($topTags);
 	// echo "</pre>";
 
 ?>
-
-	<!-- <section id="filters" class="decksPage">
-		<div class="sizer">
-			<div class="usearch">
-				<h1>Filter with tags</h1>
-				<input type="text" id="user-search"/>
-				<ul id="searchResults"></ul>
-			</div>
-			<div class="addDeck button"><? echo anchor("decks/addNewDeck", 'Add A Deck', 'Add New Deck');?></div>
-
-			<div class="sortby decks">
-				<h1>Sort By</h1>
-				<ul>
-					<li>Score</li>
-					<li>Newest Deck</li>
-					<li class="last">Oldest Deck</li>
-				</ul>
-			</div>
-		</div>
-	</section> -->
-
 	<div id="content">
 		<div class="sizer">
 			<section id="topDeck">
@@ -39,7 +18,7 @@
 				<ul>
 					<? foreach($topTags as $topTag){ ?>
 						<li>
-							<h1><? echo $topTag['tagName']; ?></h1>
+							<h1><? echo anchor("tags/getDecks/{$topTag["tagName"]}", $topTag['tagName'], 'title="View tags"'); ?></h1>
 							<h2>X <? echo $topTag['tagCount']; ?></h2>
 						</li>
 					<? } ?>

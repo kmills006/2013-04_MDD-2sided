@@ -92,4 +92,34 @@ class TagsModel extends CI_Model {
     }
 
 
+      function getTopDecks($tagName){
+      $this->db->select('u.user_id, t.tagName, d.deck_id, d.title');
+      $this->db->join('decks as d', 't.deck_id = d.deck_id');
+      $this->db->join('users as u', 'd.user_id = u.user_id');
+      $this->db->where('d.privacy', 0);
+      $this->db->where('t.tagName', $tagName);
+
+      $query = $this->db->get('tags as t');
+
+      if($query->num_rows() > 0){
+        foreach($query->result() as $row){
+          $dataResults[] = $row;
+        }
+
+        $dataResults = objectToArray($dataResults);
+
+        // echo '<pre>';
+        // print_r($dataResults);
+        // echo '</pre>';
+
+        return $dataResults;
+
+      }else{
+
+        return false;
+
+      }
+    }
+
+
 } // end of tags model

@@ -39,7 +39,7 @@
 
 		<section id="tags">
 			<ul class="sizer">
-				<? if(isset($friendsList) == ""){ ?>
+				<? if(isset($tags) == ""){ ?>
 					<h2>No Tags yet</h2>
 				<? }else{ ?>
 					<? foreach($tags as $tag){ ?>
