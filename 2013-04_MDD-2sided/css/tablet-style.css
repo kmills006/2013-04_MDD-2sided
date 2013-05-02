@@ -1403,7 +1403,8 @@ div.options.open {
   background-repeat: no-repeat;
   margin-top: 40px;
   float: left;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
 
 #cards .aCard h1 {
   font-family: "Helvetica Neue";
@@ -1424,7 +1425,8 @@ div.options.open {
   left: 50%;
   margin-left: -224.5px;
   top: 10px;
-  background-image: url("../imgs/card-front-active.png"); }
+  background-image: url("../imgs/card-front-active.png");
+  overflow: hidden; }
 
 .activeCardBack {
   z-index: 2;
@@ -1432,12 +1434,14 @@ div.options.open {
   left: 50%;
   margin-left: -224.5px;
   top: 10px;
-  background-image: url("../imgs/card-back-active.png"); }
+  background-image: url("../imgs/card-back-active.png");
+  overflow: hidden; }
 
 .leftCard {
   position: absolute;
   left: 0;
-  background-image: url("../imgs/card-front-blur.png"); }
+  background-image: url("../imgs/card-front-blur.png");
+  overflow: hidden; }
 
 #cards .leftCard h1, #cards .rightCard h1 {
   color: transparent;
@@ -1446,7 +1450,8 @@ div.options.open {
 .rightCard {
   position: absolute;
   right: 0;
-  background-image: url("../imgs/card-front-blur.png"); }
+  background-image: url("../imgs/card-front-blur.png");
+  overflow: hidden; }
 
 .hideCard {
   display: none; }

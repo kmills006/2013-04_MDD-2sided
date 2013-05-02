@@ -1043,6 +1043,7 @@ div.options.open{
     margin-top: 40px;
     float: left;
     position: relative;
+    overflow: hidden;
 }
 #cards .aCard h1{
     font-family: "Helvetica Neue";
@@ -1065,6 +1066,7 @@ div.options.open{
     top: 10px;
     background-image: url("../imgs/sprite-cards.png");
     background-position: 0px -299px;
+    overflow: hidden;
 }
 .activeCardBack{
     z-index: 2;
@@ -1073,12 +1075,14 @@ div.options.open{
     margin-left: -224.5px;
     top: 10px;
     background-image: url("../imgs/sprite-cards.png");
+    overflow: hidden;
     background-position: 0px 0px;
 }
 .leftCard{
     position: absolute;
     left: 0;
     background-image: url("../imgs/card-front-blur.png");
+    overflow: hidden;
 }
 #cards .leftCard h1, #cards .rightCard h1{
     color: transparent;
@@ -1088,6 +1092,7 @@ div.options.open{
     position: absolute;
     right: 0;
     background-image: url("../imgs/card-front-blur.png");
+    overflow: hidden;
 }
 .hideCard{
     display: none;
@@ -1647,7 +1652,6 @@ footer .buttonbg{
 .badgeList h2{
     display: none;
 }
-
 #notifications{
     width: 100%;
     min-height: 400px;
@@ -1695,12 +1699,3 @@ footer .buttonbg{
 .notilist .button:nth-child(even){
     bottom: 50px;
 }
-
-
-
-
-
-
-
-
-

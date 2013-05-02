@@ -1345,6 +1345,7 @@ div.options.open{
     background-repeat: no-repeat;
     float: left;
     position: relative;
+    overflow: hidden;
     @media screen and (max-width: 460px) {
         width: 310px;
         height: 200px;
@@ -1375,6 +1376,7 @@ div.options.open{
     margin-left: -224.5px;
     top: 10px;
     background-image: url("../imgs/card-front-active.png");
+    overflow: hidden;
     @media screen and (max-width: 460px) {
         background-image: url("../imgs/mobile/card-front-active.png");
         margin-left: -155px;
@@ -1387,6 +1389,7 @@ div.options.open{
     margin-left: -224.5px;
     top: 10px;
     background-image: url("../imgs/card-back-active.png");
+    overflow: hidden;
     @media screen and (max-width: 460px) {
         background-image: url("../imgs/mobile/card-back-active.png");
         margin-left: -155px;
@@ -1396,6 +1399,7 @@ div.options.open{
     position: absolute;
     left: 0;
     background-image: url("../imgs/card-front-blur.png");
+    overflow: hidden;
     @media screen and (max-width: 500px) {
         background-image: url("../imgs/mobile/card-front-blur.png");
         display: none;
@@ -1409,6 +1413,7 @@ div.options.open{
     position: absolute;
     right: 0;
     background-image: url("../imgs/card-front-blur.png");
+    overflow: hidden;
     @media screen and (max-width: 500px) {
         background-image: url("../imgs/mobile/card-front-blur.png");
         display: none;

@@ -1554,7 +1554,8 @@ div.options.open {
   background-image: url("../imgs/card-front.png");
   background-repeat: no-repeat;
   float: left;
-  position: relative; }
+  position: relative;
+  overflow: hidden; }
   @media screen and (max-width: 460px) {
     .aCard {
       width: 310px;
@@ -1584,7 +1585,8 @@ div.options.open {
   left: 50%;
   margin-left: -224.5px;
   top: 10px;
-  background-image: url("../imgs/card-front-active.png"); }
+  background-image: url("../imgs/card-front-active.png");
+  overflow: hidden; }
   @media screen and (max-width: 460px) {
     .activeCard {
       background-image: url("../imgs/mobile/card-front-active.png");
@@ -1596,7 +1598,8 @@ div.options.open {
   left: 50%;
   margin-left: -224.5px;
   top: 10px;
-  background-image: url("../imgs/card-back-active.png"); }
+  background-image: url("../imgs/card-back-active.png");
+  overflow: hidden; }
   @media screen and (max-width: 460px) {
     .activeCardBack {
       background-image: url("../imgs/mobile/card-back-active.png");
@@ -1605,7 +1608,8 @@ div.options.open {
 .leftCard {
   position: absolute;
   left: 0;
-  background-image: url("../imgs/card-front-blur.png"); }
+  background-image: url("../imgs/card-front-blur.png");
+  overflow: hidden; }
   @media screen and (max-width: 500px) {
     .leftCard {
       background-image: url("../imgs/mobile/card-front-blur.png");
@@ -1618,7 +1622,8 @@ div.options.open {
 .rightCard {
   position: absolute;
   right: 0;
-  background-image: url("../imgs/card-front-blur.png"); }
+  background-image: url("../imgs/card-front-blur.png");
+  overflow: hidden; }
   @media screen and (max-width: 500px) {
     .rightCard {
       background-image: url("../imgs/mobile/card-front-blur.png");
