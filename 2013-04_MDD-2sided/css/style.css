@@ -386,6 +386,7 @@ nav input {
   float: left; }
 
 #decks {
+  clear: both;
   margin-left: -4px;
   overflow: auto;
   margin-bottom: 50px;
