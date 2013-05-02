@@ -23,7 +23,7 @@
 			</section>
 		</div>
 		<section id="bottomFooter">
-			<p>Copyright &copy; 2013 Kolby Sisk & Kristy Miller. All rights reserved.</p>
+			<p>Copyright &copy; 2013 Kolby Sisk & Kristy Miller.</p>
 		</section>
 	</footer>	
 	<script type="text/javascript" src="<? echo base_url(); ?>js/responsive.js"></script>

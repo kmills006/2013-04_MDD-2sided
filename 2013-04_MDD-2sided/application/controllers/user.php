@@ -191,9 +191,9 @@ class User extends CI_Controller {
 		$data['profileInfo'] = $this->userModel->getProfile($userID);
 		$data['view'] = 'badgeList';
 
-		echo '<pre>';
-		print_r($data);
-		echo '</pre>';
+		// echo '<pre>';
+		// print_r($data);
+		// echo '</pre>';
 
 		// Checking whether user is logged in or not to determine which header to use
 		switch($this->session->userdata('isLoggedIn')){

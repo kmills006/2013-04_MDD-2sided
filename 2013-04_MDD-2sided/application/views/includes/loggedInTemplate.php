@@ -23,7 +23,11 @@
 	// Main Content
 	$this->load->view($view);
 
-	// Footer
-	$this->load->view("includes/footer.php");
+	//Footer
+	if($view == 'viewCards'){
+
+	}else{
+		$this->load->view("includes/footer.php");
+	}
 
 ?>	

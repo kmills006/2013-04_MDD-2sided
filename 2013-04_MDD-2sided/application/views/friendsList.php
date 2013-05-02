@@ -38,41 +38,35 @@
 		</div> <!-- end of info -->
 
 		<section id="users">
-			<div class="sizer">
-				<? 
-					if(isset($friendsList) == ""){ ?>
-						<h2>No friends yet</h2>
-					<? }else{ ?> 
-						<ul>
-							<? foreach($friendsList as $friend){
+			<ul  class="sizer">
+				<? if(isset($friendsList) == ""){ ?>
+					<h2>No friends yet</h2>
+				<? }else{ ?> 
+					<? foreach($friendsList as $friend){
 
-								$imgProperties  = array(
-													'src' => 'imgs/profile_imgs/'.$friend[0]['profile_img'],
-													'height' => '70',
-													'width' => '70'
-								); ?>
+						$imgProperties  = array(
+											'src' => 'imgs/profile_imgs/'.$friend[0]['profile_img'],
+											'height' => '70',
+											'width' => '70'
+						); ?>
 
-									<li class="userList" data-userid="<?echo $friend[0]["user_id"]?>">
-										<? if($friend[0]['profile_img']){
-											echo img($imgProperties); 
-										}else{
-											echo img('imgs/profile_imgs/70x70_profile.png'); 
-										} ?>
+							<li class="userList" data-userid="<?echo $friend[0]["user_id"]?>">
+								<? if($friend[0]['profile_img']){
+									echo img($imgProperties); 
+								}else{
+									echo img('imgs/profile_imgs/70x70_profile.png'); 
+								} ?>
 
-										<h1><? echo $friend[0]["username"] ?></h1>
-										<div class="space"></div>
+								<h1><? echo $friend[0]["username"] ?></h1>
+								<div class="space"></div>
 
-										<div class="button"><? echo anchor("user/profilePage/{$friend[0]["user_id"]}", "Visit Profile", 'title="View all of users decks"'); ?></div>
-									</li>
-							<? } ?>
-
-						</ul>
-
+								<div class="button"><? echo anchor("user/profilePage/{$friend[0]["user_id"]}", "Visit Profile", 'title="View all of users decks"'); ?></div>
+							</li>
 					<? } ?>
-				
-				</div>
-			</section>
-		</div> <!-- End Content -->
+				<? } ?>
+			</ul>
+		</section>
+	</div> <!-- End Content -->
 
 	<!-- Jquery -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

@@ -325,7 +325,7 @@ nav input {
 #content {
     width: 100%;
     overflow: auto;
-    height: inherit;
+    min-height: 300px;
     margin-bottom: 50px;
     @media screen and (max-width: 658px) {
         width: 464px;
@@ -458,9 +458,11 @@ nav input {
     clear: left;
     width: 462px;
     margin: 0 auto;
+    margin-bottom: 50px;
     @media screen and (max-width: 460px) {
         width: 306px;
         margin: 0 auto;
+        margin-bottom: 50px;
         overflow: hidden;
     }
 }
@@ -522,6 +524,7 @@ nav input {
     font-weight: bold;
     clear: both;
     width: 90%;
+    height: 100%;
     max-height: 70px;
     margin: 0 auto;
     text-align: center;
@@ -533,6 +536,11 @@ nav input {
         margin-top: 31px;
         line-height: 20px;
     }
+}
+.deckname a{
+    display: block;
+    width: 100%;
+    height: 100%;
 }
 div.private{
     width: 37px;
@@ -927,7 +935,7 @@ div.options.open{
     right: 10px;
     top: 35px;
     @media screen and (max-width: 460px) {
-        top: 125px;
+        top: 142px;
         left: 160px;
         font-size: .9em;
     }
@@ -1280,31 +1288,12 @@ div.options.open{
     font-weight: lighter;
 }
 #tagArea h1{
-    color: #ecece7;
+    @include button;
     display: inline;
-    font-family: "Helvetica Neue";
     padding: 5px;
-    padding-left: 10px;
-    padding-right: 5px;
-    background: #ffb4a4; /* Old browsers */
-    background: -moz-linear-gradient(top,  #ffb4a4 0%, #e96151 44%, #e96151 100%); /* FF3.6+ */
-    background: -webkit-gradient(linear, left top, left bottom, color-stop(0%,#ffb4a4), color-stop(44%,#e96151), color-stop(100%,#e96151)); /* Chrome,Safari4+ */
-    background: -webkit-linear-gradient(top,  #ffb4a4 0%,#e96151 44%,#e96151 100%); /* Chrome10+,Safari5.1+ */
-    background: -o-linear-gradient(top,  #ffb4a4 0%,#e96151 44%,#e96151 100%); /* Opera 11.10+ */
-    background: -ms-linear-gradient(top,  #ffb4a4 0%,#e96151 44%,#e96151 100%); /* IE10+ */
-    background: linear-gradient(to bottom,  #ffb4a4 0%,#e96151 44%,#e96151 100%); /* W3C */
-    filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ffb4a4', endColorstr='#e96151',GradientType=0 ); /* IE6-9 */
-    -webkit-border-radius: 5px;
-    border-radius: 5px;
-    -webkit-box-shadow:  0px 1px 2px 0px #13252a;
-    box-shadow:  0px 1px 2px 0px #13252a;
-    border-top: solid 1px #f5bab3;
     float: left;
     margin: 2px;
     font-size: .8em;
-    border-left: solid 1px #ed7f72;
-    border-right: solid 1px #ed7f72;
-    cursor:pointer; 
 }
 .del{
     width: 14px;
@@ -1314,7 +1303,7 @@ div.options.open{
     display: block;
     float: right;
     margin-left: 7px;
-    margin-top: 2px;
+    margin-top: 4px;
 }
 .del:hover{
     background-image: url("../imgs/icon-del-hover.png");
@@ -1896,7 +1885,11 @@ footer .buttonbg{
     font-size: .7em;
     color: $main-blue;
     margin-top: 5px;
-    width: 100%;
+    width: 50%;
+    float: left;
+}
+#footerNav li:nth-child(even), #footerNav a:nth-child(even){
+    float: right;
 }
 #bottomFooter{
     clear: both;
@@ -2029,3 +2022,99 @@ footer .buttonbg{
     padding: 7px;
     margin: 0px;
 }
+
+label.filebutton, .sub {
+    width: 120px;
+    overflow:hidden;
+    @include button();
+    padding: 0px;
+    height: 30px;
+    line-height: 30px;
+    float: left;
+    margin-top: -50px;
+    margin-bottom: 10px;
+    margin-left: 13px;
+    position: relative;
+    opacity: .5;
+}
+#uploadSubmit{
+    float: left;
+    overflow:hidden;
+    @include button();
+    opacity: .5;
+}
+label span input {
+    z-index: 999;
+    line-height: 0;
+    font-size: 50px;
+    position: absolute;
+    top: -2px;
+    left: -700px;
+    opacity: 0;
+    filter: alpha(opacity = 0);
+    -ms-filter: "alpha(opacity=0)";
+    cursor: pointer;
+    _cursor: hand;
+    margin: 0;
+    padding:0;
+}
+#notifications{
+    width: 90%;
+    min-height: 400px;
+    overflow: auto;
+    padding: 3%;
+}
+.notilist{
+    width: 45%;
+    height: 93px;
+    border-bottom: solid 1px $dark-blue; 
+    overflow: hidden;
+    position: relative;
+    float: left;
+    @media screen and (max-width: 550px) {
+        height: 140px;
+    }
+}
+.notilist:nth-child(even){
+    float: right;
+}
+.notilist img{
+    width: 50px;
+    height: 50px;
+    float: left;
+    border: solid 2px $dark-blue;
+    margin-right: 5px;
+}
+.notilist h1{
+    float: left;
+    margin-top: 1px;
+    margin-right: 5px;
+    width: auto;
+    height: 10px;;
+    font-size: .9em;
+    color: $main-orange;
+    margin-bottom: 5px;
+}
+.notlist h2{
+    float: left;
+    font-size: .8em;
+}
+.notilist .button{
+    float: left;
+    margin-top: 20px;
+    @media screen and (max-width: 550px) {
+        clear: left;
+        float: right;
+        margin-left: 5px;
+    }
+}
+.notilist .button a{
+    padding: 7px 6px;
+    font-size: .7em;
+}
+.notilist .button:nth-child(even){
+    margin-right: 5px;
+}
+
+
+

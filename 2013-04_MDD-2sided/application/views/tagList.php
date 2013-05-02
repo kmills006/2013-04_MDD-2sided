@@ -9,50 +9,49 @@
 	<div id="content" class="userPage">
 		<div id="info" class="decksPage">
 			<div class="sizer">
-			
-			<section id="picture">
-
-				<? if($userInfo['profile_img'] == null){
-					echo img('imgs/profile_imgs/profile-img_placeholder.png');
-				}else{
-					echo img('imgs/profile_imgs/'.$userInfo['profile_img']); 
-				} ?>
-
-			</section>
-			
-			<section id="profileInfo">
-				<h1><? echo $userInfo['username'] ?></h1>
 				
-				<h2>Joined: <? echo $userInfo['date_of_reg']; ?></h2>
+				<section id="picture">
 
-				<? if($profileInfo['profileViews'] == 0){
-					// Noone has viewed this profile yet, do not include profile count
-				}else{ ?>
-					<h2><? echo $profileInfo['profileViews']; ?> Profile Views</h2>
-				<? } ?>
+					<? if($userInfo['profile_img'] == null){
+						echo img('imgs/profile_imgs/profile-img_placeholder.png');
+					}else{
+						echo img('imgs/profile_imgs/'.$userInfo['profile_img']); 
+					} ?>
 
-				<h3 class="rating"><? echo $profileInfo['ratingCount'] ?></h3>
-			</section>
+				</section>
+				
+				<section id="profileInfo">
+					<h1><? echo $userInfo['username'] ?></h1>
+					
+					<h2>Joined: <? echo $userInfo['date_of_reg']; ?></h2>
 
-		</div> <!-- end of sizer -->
-	</div> <!-- end of info -->
+					<? if($profileInfo['profileViews'] == 0){
+						// Noone has viewed this profile yet, do not include profile count
+					}else{ ?>
+						<h2><? echo $profileInfo['profileViews']; ?> Profile Views</h2>
+					<? } ?>
+
+					<h3 class="rating"><? echo $profileInfo['ratingCount'] ?></h3>
+				</section>
+
+			</div> <!-- end of sizer -->
+		</div> <!-- end of info -->
 
 		<section id="tags">
-			<div class="sizer">
-				<ul>
+			<ul class="sizer">
+				<? if(isset($friendsList) == ""){ ?>
+					<h2>No Tags yet</h2>
+				<? }else{ ?>
 					<? foreach($tags as $tag){ ?>
-						<li class="tagList" data-userid="<?echo $tag["tagName"]?>">
-
+						<li class="tagList" data-tagid="<?echo $tag["tagName"]?>">
 							<h1><? echo anchor("tags/viewTags/{$tag["user_id"]}/{$tag["tagName"]}", $tag['tagName'], 'title="View all tags with this name"'); ?></h1>
 							<h2>x <? echo $tag['numberOfTags']; ?> </h2>
-			
 						</li>
 					<? } ?>
-				</ul>
-			
-			</div>
+				<? } ?>
+			</ul>
 		</section>
-	</div> <!-- End Content -->
+	</div>
 
 	<!-- Jquery -->
 	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>

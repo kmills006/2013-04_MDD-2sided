@@ -266,6 +266,7 @@ nav input {
 /* ----------------- */
 #content {
   width: 100%;
+  min-height: 500px;
   overflow: auto;
   height: inherit;
   margin-bottom: 50px; }
@@ -385,10 +386,10 @@ nav input {
   float: left; }
 
 #decks {
-  clear: both;
   margin-left: -4px;
-  overflow: hidden;
-  margin-bottom: 50px; }
+  overflow: auto;
+  margin-bottom: 50px;
+  min-height: 100%; }
 
 #decks .deck {
   width: 229px;
@@ -427,12 +428,18 @@ nav input {
   font-weight: bold;
   clear: both;
   width: 90%;
+  height: 100%;
   max-height: 70px;
   margin: 0 auto;
   text-align: center;
   margin-top: 71px;
   line-height: 15px;
   word-wrap: break-word; }
+
+.deckname a {
+  display: block;
+  width: 100%;
+  height: 100%; }
 
 div.private {
   width: 37px;
@@ -1789,7 +1796,7 @@ footer .buttonbg {
 
 #footerNav {
   width: 25%;
-  height: 144px;
+  height: 100%;
   float: right; }
 
 #footerNav li, #footerNav a {
@@ -1797,7 +1804,11 @@ footer .buttonbg {
   font-size: .7em;
   color: #366774;
   margin-top: 5px;
-  width: 100%; }
+  width: 50%;
+  float: left; }
+
+#footerNav li:nth-child(even), #footerNav a:nth-child(even) {
+  float: right; }
 
 #bottomFooter {
   clear: both;
@@ -1858,3 +1869,78 @@ footer .buttonbg {
   margin: 0px; }
   #pagination a:hover, #pagination strong:hover {
     background: #ff6a59; }
+
+/* ----------------- */
+/* - Badge  STYLES - */
+/* ----------------- */
+#badges {
+  width: 100%;
+  min-height: 400px;
+  overflow: auto;
+  padding-top: 5px; }
+
+.badgeList {
+  width: 70px;
+  height: 50px;
+  background-color: rgba(15, 61, 72, 0.3);
+  text-align: center;
+  padding: 1.5%;
+  float: left;
+  margin-right: 10px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  -webkit-box-shadow: 0px 0px 2px 1px #0a272e;
+  box-shadow: 0px 0px 2px 1px #0a272e; }
+
+.badgeList h1 {
+  font-size: .8em; }
+
+.badgeList h2 {
+  display: none; }
+
+#notifications {
+  width: 100%;
+  min-height: 400px;
+  overflow: auto;
+  padding-top: 20px; }
+
+.notilist {
+  width: 45%;
+  height: 70px;
+  border-bottom: solid 1px #0f3d48;
+  overflow: hidden;
+  position: relative;
+  float: left; }
+
+.notilist:nth-child(even) {
+  float: right; }
+
+.notilist img {
+  width: 70px;
+  height: 70px;
+  float: left;
+  border: solid 2px #0f3d48; }
+
+.notilist h1 {
+  float: left;
+  margin-left: 5px;
+  margin-top: 1px;
+  margin-right: 5px;
+  width: auto;
+  height: 10px;
+  font-size: .9em;
+  color: #e96151; }
+
+.notlist h2 {
+  float: left; }
+
+.notilist .button {
+  float: left;
+  margin-top: 20px;
+  margin-left: 5px; }
+
+.notilist .button a {
+  padding: 7px 7px; }
+
+.notilist .button:nth-child(even) {
+  bottom: 50px; }
