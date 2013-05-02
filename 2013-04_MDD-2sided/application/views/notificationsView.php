@@ -41,8 +41,11 @@
 			<?if(isset($friendRequests)){
 				foreach($friendRequests as $requester){ ?>
 					<li class="notilist">
-					
-						<? echo img('imgs/profile_imgs/'.$requester['profile_img']) ?>
+						<? if($requester['profile_img'] == null){
+						echo img('imgs/profile_imgs/profile-img_placeholder.png');
+						}else{
+							echo img('imgs/profile_imgs/'.$requester['profile_img']); 
+						} ?>
 						<h1><? echo anchor("user/profilePage/{$requester["user_id"]}", $requester['username'], 'View users profile');?></h1>
 						<h2>wants to be your friend!</h2>
 						<div class="button"><? echo anchor("friends/acceptRequest/{$requester["user_id"]}/{$userID}", 'Accept', 'Accept friend request') ?></div>

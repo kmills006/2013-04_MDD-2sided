@@ -37,7 +37,7 @@
 
 		<section id="badges">
 			<ul class="sizer">
-				<? if(isset($friendsList) == ""){ ?>
+				<? if(isset($badges) == ""){ ?>
 					<h2>No Badges yet</h2>
 				<? }else{ ?>
 					<? foreach($badges as $badge){ ?>
