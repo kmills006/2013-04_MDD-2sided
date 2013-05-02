@@ -1661,7 +1661,7 @@ div.options.open {
   border-left: solid 1px #0f3d48;
   cursor: default; }
   #vote .voted:hover, .voted:hover {
-    background: #366774; }
+    background-color: #366774; }
 
 .addDeck a {
   position: absolute;

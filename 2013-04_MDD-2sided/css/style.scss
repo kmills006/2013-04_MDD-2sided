@@ -1304,7 +1304,7 @@ div.options.open{
     background-color: $main-blue;
     @include borders(#0f3d48, #0f3d48, #0f3d48);
     cursor: default;
-    &:hover { background:$main-blue; }
+    &:hover { background-color:$main-blue; }
 }
 .rating{
     background-image: url("../imgs/icon-check-orange.png");
