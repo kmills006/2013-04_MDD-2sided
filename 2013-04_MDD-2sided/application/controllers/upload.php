@@ -15,8 +15,8 @@ class Upload extends CI_Controller {
 		$config['upload_path'] = './imgs/profile_imgs/';
 		$config['allowed_types'] = 'gif|jpg|png|jpeg';
 		$config['max_width']  = '0';
-		$config['max_width']  = '1024';
-		$config['max_height']  = '1000';
+		$config['max_width']  = '3264';
+		$config['max_height']  = '2448';
 		$config["file_name"]  = $userID;
 		$config["overwrite"] = true;
 		
