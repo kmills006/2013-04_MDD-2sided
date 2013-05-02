@@ -482,6 +482,12 @@ nav input {
         background-image: url("../imgs/mobile/card-smaller.png");
     }
 }
+#decks .deck:nth-child(even){
+    @media screen and (max-width: 460px) {
+        float: right;
+        margin-right: 0px;
+    }
+}
 #decks.userDecksPage .deck:nth-child(even){
     @media screen and (max-width: 460px) {
         margin-right: 0px;
