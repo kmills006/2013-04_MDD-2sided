@@ -50,6 +50,7 @@
 				initSearch();
 			});
 		}else{
+			if($('#mSearch')) $('#mSearch').remove(); $('#searchResults').remove();
 			header.load(base + 'index.php/pc/loadHeader .sizer', function() {
 				initNav();
 				initSearch();
