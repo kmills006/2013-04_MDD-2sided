@@ -762,9 +762,9 @@ div.options.open {
   border: none; }
 
 #activity img {
-  background-color: black;
+  /*background-color: black;*/
   float: left;
-  margin-top: 10px; }
+  margin-top: 14px; }
 
 #activity p {
   width: 90%;
