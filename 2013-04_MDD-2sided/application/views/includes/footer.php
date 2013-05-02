@@ -1,3 +1,11 @@
+<? 
+	if($this->session->userdata('isLoggedIn') == 1){
+		$isLoggedIn = true;
+	}else{
+		$isLoggedIn = false;
+	} 
+?>	
+
 	<div class="bgPoint"></div>
 	<footer>
 		<div class="sizer">
@@ -20,6 +28,8 @@
 					<li><? echo anchor('decks', 'Decks', 'Browse all decks') ?></li>
 					<li><? echo anchor('user/viewAll/top', 'Users', 'Search by users') ?></li>
 					<li><? echo anchor('about', 'About', 'About 2sided') ?></li>
+
+					<? echo $isLoggedIn; ?>
 					<li><? echo anchor('authentication', "Log In", 'title="User Login"'); ?></li>
 					<li><? echo anchor('', "Support", 'title="Support"'); ?></li>
 					<li><? echo anchor('about/contact', "Contact Us", 'title="Contact the designer and developer"'); ?></li>
