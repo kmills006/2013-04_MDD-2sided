@@ -8,7 +8,11 @@
 			</section>
 
 			<div class="buttonbg"></div>
-			<button>Add A Deck</button>
+			<?if($this->session->userdata('userID')){ ?>
+				<div class="button"><? echo anchor("decks/addNewDeck", 'Add Deck', 'Add New Deck');?></div>
+			<? }else{?>
+				<div class="button"><? echo anchor("authentication", 'Add Deck', 'Add New Deck');?></div>
+			<?}?>
 
 			<section id="footerNav">
 				<h1>Site Navigation</h1>

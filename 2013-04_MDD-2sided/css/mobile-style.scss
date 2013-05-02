@@ -1818,10 +1818,12 @@ footer h1{
     width: 100%;
     border-bottom: solid 1px #0a1a1f;
 }
-footer button{
+footer .button a{
+    padding: 0px;
     position: absolute;
     width: 200px;
     height: 50px;
+    line-height: 50px;
     left: 50%;
     bottom: 77px;
     margin-left: -100px;
