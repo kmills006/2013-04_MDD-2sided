@@ -2002,3 +2002,30 @@ footer .buttonbg{
 .aboutPage #mobileCardT{
     margin-top: 10px;
 }
+
+#pagination{
+    width: 100%;
+    height: 70px;
+    background-color: $dark-blue;
+    overflow: hidden;
+    -webkit-box-shadow: inset 0px 1px 2px 0px #0f272d;
+    box-shadow: inset 0px 1px 2px 0px #0f272d;
+    margin-top: -40px;
+}
+.pagg{
+    width: auto;
+    float: right;
+    height: 40px;
+    margin-top: 20px;
+    margin-right: 20px;
+}
+#pagination a, #pagination strong{
+    @include button();
+    font-size: .7em;
+    font-wight: 800;
+    width: auto;
+    height: 10px;
+    dispay: block;
+    padding: 7px;
+    margin: 0px;
+}

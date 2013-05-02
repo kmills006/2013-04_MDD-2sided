@@ -72,8 +72,6 @@
 		</div> <!-- end of sizer -->
 	</div> <!-- end of info -->
 
-	
-
 	<? if(!isMulti($decks)){ ?>
 	
 	<? }else{ ?>

@@ -1669,7 +1669,6 @@ label span input {
   margin-top: 15px; }
 
 .bgPoint {
-  clear: both;
   width: 100%;
   height: 10px;
   background: url("../imgs/bg-arrow.png");
@@ -1692,7 +1691,8 @@ footer {
   background-color: blue;
   background: url("../imgs/bg-footer.jpg");
   padding-top: 30px;
-  position: relative; }
+  position: relative;
+  z-index: 2; }
 
 footer h1 {
   background-image: url("../imgs/icon-check-white.png");
@@ -1811,3 +1811,50 @@ footer .buttonbg {
   font-size: .9em;
   font-weight: 400;
   letter-spacing: 1px; }
+
+#pagination {
+  width: 100%;
+  height: 70px;
+  background-color: #0f3d48;
+  overflow: hidden;
+  -webkit-box-shadow: inset 0px 1px 2px 0px #0f272d;
+  box-shadow: inset 0px 1px 2px 0px #0f272d;
+  margin-top: -60px; }
+
+.pagg {
+  width: auto;
+  float: right;
+  height: auto;
+  margin-top: 20px;
+  margin-right: 20px; }
+
+#pagination a, #pagination strong {
+  font-family: "Helvetica";
+  color: #ecece7;
+  display: inline;
+  padding: 10px;
+  background: #e96151;
+  font-size: .9em;
+  white-space: nowrap;
+  text-align: center;
+  cursor: pointer;
+  border: none;
+  margin: 0;
+  font-weight: 300;
+  letter-spacing: 1px;
+  -webkit-border-radius: 5px 5px 5px 5px;
+  border-radius: 5px 5px 5px 5px;
+  border-top: solid 1px #f5bab3;
+  border-right: solid 1px #ed7f72;
+  border-left: solid 1px #ed7f72;
+  -webkit-box-shadow: 0px 1px 0px 0px #14262b;
+  box-shadow: 0px 1px 0px 0px #14262b;
+  font-size: .7em;
+  font-wight: 800;
+  width: auto;
+  height: 10px;
+  dispay: block;
+  padding: 7px;
+  margin: 0px; }
+  #pagination a:hover, #pagination strong:hover {
+    background: #ff6a59; }
