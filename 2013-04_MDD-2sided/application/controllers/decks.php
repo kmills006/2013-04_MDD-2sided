@@ -28,7 +28,7 @@ class Decks extends CI_Controller {
 		$config = array();
         $config["base_url"] = base_url()."/index.php/decks/getAllDecks";
         $config["total_rows"] = $this->decksModel->getDecksCount();
-        $config["per_page"] = 10;
+        $config["per_page"] = 13;
         $config["uri_segment"] = 3;
 
         $this->pagination->initialize($config);
