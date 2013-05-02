@@ -66,7 +66,9 @@
 						<h1 class="votes"><? echo $decks[$i]['rating'] ?></h1>
 						<h1 class="deckname"><? echo anchor("cards/getCards/{$decks[$i]["user_id"]}/{$decks[$i]["deck_id"]}", $decks[$i]['title'], 'title="View Deck"'); ?></h1>
 					</article>
-				<? } ?>
+				<? } 
+					echo $links;
+				?>
 			</section> <!-- end of decks -->
 
 		</div> <!-- end of sizer -->

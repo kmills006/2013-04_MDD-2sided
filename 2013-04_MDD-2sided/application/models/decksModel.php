@@ -12,21 +12,40 @@ class DecksModel extends CI_Model {
     // decksCount
     // Get the total count of all public decks
     function getDecksCount(){
-    	$this->db->select('COUNT(d.deck_id');
-    	$this->db->from('decks as d');
-    	$this->db->where('d.privacy', 0);
+    	$this->db->select('COUNT(deck_id) as totalDeckCount');
+    	$this->db->from('decks');
+    	$this->db->where('privacy', 0);
 
-    	$query = $this->db->get();
+    	return $this->db->count_all_results();
+    }
 
-    	if($query->num_rows > 0){
+    // fetchDecks
+    function fetchDecks($limit, $start){
+    	$this->db->select('decks.deck_id, COUNT(rating) as rating, users.user_id, users.username, decks.title');
+		$this->db->from('decks');
+		$this->db->join('users', 'decks.user_id = users.user_id');
+		$this->db->join('ratings', 'decks.deck_id = ratings.deck_id');
+		$this->db->where('decks.privacy', 0);
+		$this->db->where('rating', 1);
+		$this->db->group_by('deck_id');
+		$this->db->order_by('rating', 'desc');
+		$this->db->limit($limit, $start);
+
+		$query = $this->db->get();
+
+		if($query->num_rows > 0){
 
 			foreach($query->result() as $row){
 				$dataResults[] = $row;
 			}
 
-			echo '<pre>';
-			print_r($dataResults);
-			echo '</pre>';
+			$dataResults = objectToArray($dataResults);
+
+			// echo '<pre>';
+			// print_r($dataResults);
+			// echo '</pre>';
+
+			return $dataResults;
 
 		}else{
 			// No Results Found
