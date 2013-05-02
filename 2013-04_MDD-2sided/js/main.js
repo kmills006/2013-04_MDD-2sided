@@ -66,6 +66,8 @@ var initUserSearch = function(){
 			type: 'post',
 			data: { user: search },
 			success: function(response){
+				console.log(response);
+				
 				var r = $.parseJSON(response);
 				$.each(r, function(key, value){
 					if(!value["profile_img"]) value["profile_img"] = 'profile-img_placeholder.png';
