@@ -15,28 +15,74 @@ class Decks extends CI_Controller {
 
 	public function index(){
 
+		$this->getAllDecks();
+
+		// $totalDecks = $this->decksModel->getDecksCount();
+
+		// $config = array();
+  //       $config["base_url"] = base_url()."/index.php/decks/";
+  //       $config["total_rows"] = $this->decksModel->getDecksCount();
+  //       $config["per_page"] = 10;
+  //       $config["uri_segment"] = 3;
+
+  //       $this->pagination->initialize($config);
+
+
+  //       $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
+
+  //       var_dump($this->uri->segment(3));
+  //       var_dump($page);
+
+  //       $data['decks'] = $this->decksModel->fetchDecks($config["per_page"], 0);
+
+  //       $data["links"] = $this->pagination->create_links();
+
+		// // $data['decks'] = $this->decksModel->getAllDecks();
+		// $data['topTags'] = $this->tagsModel->getTopTags();
+		// $data['topUsers'] = $this->userModel->getTopUsers();
+
+		// // Setting the main content view to decks
+		// $data['view'] = 'decks';
+
+		// // echo '<pre>';
+		// // print_r($data);
+		// // echo '</pre>';
+
+		// // Checking if there is a valid user session and load appropriate header
+		// if($this->session->userdata("isLoggedIn") == 1){
+
+		// 	// User is logged in, load loggedInHeader/Footer
+		// 	$this->load->view('includes/loggedInTemplate', $data);
+
+		// }else{
+			
+		// 	// User is not logged in, load landingHeader/Footer
+		// 	$this->load->view('includes/landingTemplate', $data);
+		// }
+
+	}
+
+
+	public function getAllDecks(){
 		$totalDecks = $this->decksModel->getDecksCount();
 
 		$config = array();
-        $config["base_url"] = base_url()."user/";
+        $config["base_url"] = base_url()."/index.php/decks/getAllDecks";
         $config["total_rows"] = $this->decksModel->getDecksCount();
         $config["per_page"] = 10;
         $config["uri_segment"] = 3;
+        // $config['anchor_class'] = 'pagination';
 
         $this->pagination->initialize($config);
-
-
+       
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
-        var_dump($this->uri->segment(2));
+        // var_dump($this->uri->segment(3));
+        // var_dump($page);
 
         $data['decks'] = $this->decksModel->fetchDecks($config["per_page"], $page);
 
         $data["links"] = $this->pagination->create_links();
-
-
-			// $this->getAllDecks();
-
 
 		// $data['decks'] = $this->decksModel->getAllDecks();
 		$data['topTags'] = $this->tagsModel->getTopTags();
@@ -60,7 +106,6 @@ class Decks extends CI_Controller {
 			// User is not logged in, load landingHeader/Footer
 			$this->load->view('includes/landingTemplate', $data);
 		}
-
 	}
 
 

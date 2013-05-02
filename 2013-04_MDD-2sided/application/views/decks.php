@@ -67,8 +67,12 @@
 						<h1 class="deckname"><? echo anchor("cards/getCards/{$decks[$i]["user_id"]}/{$decks[$i]["deck_id"]}", $decks[$i]['title'], 'title="View Deck"'); ?></h1>
 					</article>
 				<? } 
-					echo $links;
+
+					 echo $links;
+
 				?>
+
+
 			</section> <!-- end of decks -->
 
 		</div> <!-- end of sizer -->
