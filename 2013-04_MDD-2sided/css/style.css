@@ -274,7 +274,8 @@ nav input {
 #topDeck {
   width: 456px;
   height: 291px;
-  background-image: url("../imgs/pc/card-front.png");
+  background-image: url("../imgs/sprite-cards.png");
+  background-position: 0px -299px;
   background-repeat: no-repeat;
   margin-top: 40px;
   float: left;
