@@ -1084,16 +1084,19 @@ div.options.open{
     left: 0;
     background-image: url("../imgs/card-front-blur.png");
     overflow: hidden;
+    background-position: 0px 0px;
 }
 #cards .leftCard h1, #cards .rightCard h1{
     color: transparent;
     text-shadow: #366774 0 0 3px;
 }
 .rightCard{
+    width:449px;
+    height: 289px;
     position: absolute;
     right: 0;
     background-image: url("../imgs/card-front-blur.png");
-    overflow: hidden;
+    background-position: 0px 0px;
 }
 .hideCard{
     display: none;
