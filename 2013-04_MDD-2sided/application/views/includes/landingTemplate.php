@@ -6,7 +6,7 @@
 			$json = $_COOKIE['_clientInfo'];
 			$obj = json_decode(stripslashes($json));
 
-  			if($obj->{'browserWidth'} > 767){
+  			if($obj->{'browserWidth'} > 768){
 
   				$this->load->view("includes/landingHeader.php");
 
