@@ -52,7 +52,7 @@ class AuthenticationModel extends CI_Model {
     	$un = $this->security->xss_clean($fbUser['username']);
     	$email = $this->security->xss_clean($fbUser['email']);
     	$fbID = $this->security->xss_clean($fbUser['id']);
-    	$dateOfReg = date("Y-m-d");
+    	$dateOfReg = date('Y/m/d h:i:s', time());
 		$userID = uniqid();
 
 		$exi = $this->checkIfUsernameExists('username', $un);
@@ -123,7 +123,7 @@ class AuthenticationModel extends CI_Model {
     	$username = $this->security->xss_clean($this->input->post("username"));
     	$email = $this->security->xss_clean($this->input->post("r-email"));
     	$password = $this->security->xss_clean($this->input->post("password"));
-    	$dateOfReg = date("Y-m-d");
+    	$dateOfReg = date('Y/m/d h:i:s', time());
 		$userID = uniqid();
 
 		$exi = $this->checkIfUsernameExists('username', $username);
