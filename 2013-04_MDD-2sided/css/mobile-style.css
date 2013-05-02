@@ -388,7 +388,8 @@ nav input {
 #topDeck {
   width: 456px;
   height: 291px;
-  background-image: url("../imgs/mobile/card-front.png");
+  background-image: url("../imgs/mobile/sprite-cards.png");
+  background-position: 0px 0px;
   background-repeat: no-repeat;
   margin-top: 30px;
   float: left;
@@ -1551,7 +1552,8 @@ div.options.open {
 .aCard {
   width: 449px;
   height: 289px;
-  background-image: url("../imgs/card-front.png");
+  background-image: url("../imgs/mobile/sprite-cards.png");
+  background-position: 0px 0px;
   background-repeat: no-repeat;
   float: left;
   position: relative;
@@ -1589,7 +1591,8 @@ div.options.open {
   overflow: hidden; }
   @media screen and (max-width: 460px) {
     .activeCard {
-      background-image: url("../imgs/mobile/card-front-active.png");
+      background-image: url("../imgs/mobile/sprite-cards.png");
+      background-position: 0px 0px;
       margin-left: -155px; } }
 
 .activeCardBack {
@@ -1602,7 +1605,8 @@ div.options.open {
   overflow: hidden; }
   @media screen and (max-width: 460px) {
     .activeCardBack {
-      background-image: url("../imgs/mobile/card-back-active.png");
+      background-image: url("../imgs/mobile/sprite-cards.png");
+      background-position: 0px -208px;
       margin-left: -155px; } }
 
 .leftCard {
