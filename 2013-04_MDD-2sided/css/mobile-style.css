@@ -388,7 +388,7 @@ nav input {
 #topDeck {
   width: 456px;
   height: 291px;
-  background-image: url("../imgs/mobile/sprite-cards.png");
+  background-image: url("../imgs/mobile/card-front.png");
   background-position: 0px 0px;
   background-repeat: no-repeat;
   margin-top: 30px;
