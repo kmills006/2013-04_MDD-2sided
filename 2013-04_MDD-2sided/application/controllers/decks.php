@@ -66,34 +66,27 @@ class Decks extends CI_Controller {
 	public function getAllDecks(){
 		$totalDecks = $this->decksModel->getDecksCount();
 
+
+		// Setting up pagination
 		$config = array();
         $config["base_url"] = base_url()."/index.php/decks/getAllDecks";
         $config["total_rows"] = $this->decksModel->getDecksCount();
         $config["per_page"] = 10;
         $config["uri_segment"] = 3;
-        // $config['anchor_class'] = 'pagination';
 
         $this->pagination->initialize($config);
        
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
 
-        // var_dump($this->uri->segment(3));
-        // var_dump($page);
-
         $data['decks'] = $this->decksModel->fetchDecks($config["per_page"], $page);
-
         $data["links"] = $this->pagination->create_links();
 
-		// $data['decks'] = $this->decksModel->getAllDecks();
+        // Pulling both the top tags and top users for landing page display
 		$data['topTags'] = $this->tagsModel->getTopTags();
 		$data['topUsers'] = $this->userModel->getTopUsers();
 
 		// Setting the main content view to decks
 		$data['view'] = 'decks';
-
-		// echo '<pre>';
-		// print_r($data);
-		// echo '</pre>';
 
 		// Checking if there is a valid user session and load appropriate header
 		if($this->session->userdata("isLoggedIn") == 1){
