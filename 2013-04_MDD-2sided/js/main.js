@@ -98,14 +98,13 @@ var initSearch = function(){
 
 	searchResults.hide();
 
-
 	research.on('click', function(e){
 		var mSearch  =  $('#mSearch');
 
 		if(mSearch.length < 1){
-			var header   =  $('header');
+			var header     =  $('header');
 			header.after('<div id="mSearch"><input type="text" id="search" autocomplete="off"></div><ul id="searchResults" style="display: none;"></ul>');
-			search = $('#search');
+			search         =  $('#search');
 			searchResults  =  $('#searchResults');
 			initSearchKeyup();
 		}else{
