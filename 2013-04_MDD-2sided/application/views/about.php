@@ -20,7 +20,6 @@
 	        </ul>
 	    </section>
 	    		
-		<section id="cardT">
 			
 		<div id="cardTools">
 			<div id="toolButtons">
@@ -29,7 +28,6 @@
 				<div id="rightArrow"></div>
 			</div>
 		</div>
-	</section>
 
 	<section id="mobileCardT">
 		<ul>

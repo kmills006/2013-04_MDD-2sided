@@ -1917,3 +1917,11 @@ footer .buttonbg {
 
 .dontdoit {
   margin-right: 0; }
+
+.aboutPage #cardTools {
+  position: asbolute;
+  left: 50%;
+  margin: 0;
+  margin-left: -100px;
+  margin-bottom: 20px;
+  margin-top: -40px; }

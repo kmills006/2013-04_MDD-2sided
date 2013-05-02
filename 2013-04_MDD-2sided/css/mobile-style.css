@@ -2318,6 +2318,17 @@ footer .buttonbg {
   font-weight: 400;
   margin-bottom: 5px; }
 
+.aboutPage #cardTools {
+  position: asbolute;
+  left: 50%;
+  margin: 0;
+  margin-left: -100px;
+  margin-bottom: 20px;
+  margin-top: -40px; }
+  @media screen and (max-width: 460px) {
+    .aboutPage #cardTools {
+      display: none; } }
+
 .dontdoit {
   margin-right: 0; }
 
