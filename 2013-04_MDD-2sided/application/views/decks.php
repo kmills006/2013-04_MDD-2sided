@@ -9,7 +9,6 @@
 	<div id="content">
 		<div class="sizer">
 			<section id="topDeck">
-				<h1 class="username"><? echo anchor("user/profilePage/{$decks[0]["user_id"]}", $decks[0]['username'], 'title="View profile"'); ?></h1>
 				<h1 class="votes"><? echo $decks[0]['rating'] ?></h1>
 				<h1 class="deckname"><? echo anchor("cards/getCards/{$decks[0]["user_id"]}/{$decks[0]["deck_id"]}", $decks[0]['title'], 'title="View Deck"'); ?></h1>
 			</section>
@@ -41,7 +40,6 @@
 				<?
 					for ($i=1; $i < count($decks); $i++) { ?>
 					<article class="deck">
-						<h1 class="username"><? echo anchor("user/profilePage/{$decks[$i]["user_id"]}", $decks[$i]['username'], 'title="View profile"'); ?></h1>
 						<h1 class="votes"><? echo $decks[$i]['rating'] ?></h1>
 						<h1 class="deckname"><? echo anchor("cards/getCards/{$decks[$i]["user_id"]}/{$decks[$i]["deck_id"]}", $decks[$i]['title'], 'title="View Deck"'); ?></h1>
 					</article>
