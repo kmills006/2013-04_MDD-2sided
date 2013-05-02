@@ -1173,7 +1173,8 @@ div.options.open{
 .aCard{
     width:449px;
     height: 289px;
-    background-image: url("../imgs/card-front.png");
+    background-image: url("../imgs/sprite-cards.png");
+    background-position: 0px -299px;
     background-repeat: no-repeat;
     margin-top: 40px;
     float: left;
@@ -1199,7 +1200,8 @@ div.options.open{
     left: 50%;
     margin-left: -224.5px;
     top: 10px;
-    background-image: url("../imgs/card-front-active.png");
+    background-image: url("../imgs/sprite-cards.png");
+    background-position: 0px -299px;
     overflow: hidden;
 }
 .activeCardBack{
@@ -1208,7 +1210,8 @@ div.options.open{
     left: 50%;
     margin-left: -224.5px;
     top: 10px;
-    background-image: url("../imgs/card-back-active.png");
+    background-image: url("../imgs/sprite-cards.png");
+    background-position: 0px 0px;
     overflow: hidden;
 }
 .leftCard{
