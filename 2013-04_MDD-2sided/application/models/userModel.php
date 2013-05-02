@@ -423,26 +423,42 @@ class UserModel extends CI_Model {
     // userSearch
     function userSearch($searchQuery){
 
-        $this->db->select('u.user_id, u.username, u.date_of_reg, u.profile_img ,COUNT(r.rating_id) as ratingCount');
-        $this->db->join('decks as d', 'u.user_id = d.user_id');
-        $this->db->join('ratings as r', 'd.deck_id = r.deck_id');
-        $this->db->group_by('u.user_id');
-        $this->db->order_by('ratingCount', 'desc');
+        $this->db->select('u.user_id, u.username, u.date_of_reg, u.profile_img');
         $this->db->like("u.username", $searchQuery['user']);
         $this->db->or_like('u.email', $searchQuery['user']);
+        $this->db->group_by('u.user_id');
         $query = $this->db->get("users as u");
 
         if($query->num_rows > 0){
             foreach($query->result() as $row){
-                $dataResults[] = $row;
-            }
+                // $dataResults['userInfo'] = $row;
+                 
+                // var_dump($row->user_id);
+                
+                $this->db->select('u.user_id, u.username, u.profile_img, COUNT(r.rating_id) as ratingCount');
+                $this->db->join('decks as d', 'u.user_id = d.user_id');
+                $this->db->join('ratings as r', 'd.deck_id = r.deck_id');
+                $this->db->where('u.user_id', $row->user_id);
 
+                $q = $this->db->get('users as u');
+
+                if(!$q->num_rows() == 0){
+                    foreach($q->result() as $r){
+                        $dataResults[] = $r;
+                    }
+                }else{
+                    $dataResults = false;
+                }
+            }
+            
+            
             // echo '<pre>';
             // print_r($dataResults);
             // echo '</pre>';
-            
+
             return $dataResults;
             
+
         }else{
             return false;
         }
