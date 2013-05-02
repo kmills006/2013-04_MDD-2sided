@@ -1444,6 +1444,7 @@ div.options.open {
   position: absolute;
   left: 0;
   background-image: url("../imgs/card-front-blur.png");
+  background-position: 0px 0px;
   overflow: hidden; }
 
 #cards .leftCard h1, #cards .rightCard h1 {
@@ -1453,8 +1454,9 @@ div.options.open {
 .rightCard {
   position: absolute;
   right: 0;
+  overflow: hidden;
   background-image: url("../imgs/card-front-blur.png");
-  overflow: hidden; }
+  background-position: 0px 0px; }
 
 .hideCard {
   display: none; }
