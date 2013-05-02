@@ -20,8 +20,10 @@
 
 				<? if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){ ?>
 					<div id="addCard" class="button"><a href="#"> Add New Card</a></div>
-				<? }else{ ?>
+				<? }else if($isLoggedIn == 1){ ?>
 					<div id="vote" class="button"><a href="#">Like Deck</a></div>
+				<? }else{ ?>
+					<div class="button"><? echo anchor("authentication", 'like deck', 'Like this deck');?></div>
 				<? } ?>
 			</section>
 			
