@@ -21,15 +21,7 @@
 	    </section>
 	    		
 		<section id="cardT">
-		<? //hides or shows the edit and delete button.
-    		if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){ ?>
-				<button type="button" id="editButton">Edit</button>
-				<button type="button" id="deleteButton">Delete</button>
-
-			<? }else{ ?>
-				<div class="space"></div>
-			<? }
-		?>
+			
 		<div id="cardTools">
 			<div id="toolButtons">
 				<div id="leftArrow"></div>
