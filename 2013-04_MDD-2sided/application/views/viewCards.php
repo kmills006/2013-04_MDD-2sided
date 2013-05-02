@@ -110,6 +110,8 @@
 		<div id="p"></div>
 	</div>
 
+	<div class="space"></div>
+		
     <!-- Jquery -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="<? echo base_url(); ?>js/libs/jquery-1.9.1.min.js"><\/script>')</script>
@@ -121,6 +123,8 @@
     <!-- Scripts -->
     <script type="text/javascript" src="<? echo base_url(); ?>js/main.js"></script>
 	<script type="text/javascript" src="<? echo base_url(); ?>js/card.js"></script>
+	<script type="text/javascript" src="<? echo base_url(); ?>js/responsive.js"></script>
+
 
     <!-- Inits -->
     <script type="text/javascript">initCard();</script>

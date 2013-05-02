@@ -267,7 +267,8 @@ nav input {
 #content {
   width: 100%;
   overflow: auto;
-  height: inherit; }
+  height: inherit;
+  margin-bottom: 50px; }
 
 #topDeck {
   width: 456px;
@@ -385,7 +386,9 @@ nav input {
 
 #decks {
   clear: both;
-  margin-left: -4px; }
+  margin-left: -4px;
+  overflow: hidden;
+  margin-bottom: 50px; }
 
 #decks .deck {
   width: 229px;
@@ -722,7 +725,9 @@ div.options.open {
 #activity {
   clear: both;
   background-color: #ecece7;
-  margin-top: 30px; }
+  margin-top: 30px;
+  padding-bottom: 30px;
+  margin-bottom: 0px; }
 
 .dbbg {
   background-color: #0f3d48;
@@ -744,6 +749,9 @@ div.options.open {
 #activity li {
   height: 70px;
   border-bottom: solid 1px #b2c4c5; }
+
+#activity li:last-child {
+  border: none; }
 
 #activity img {
   background-color: black;
@@ -1224,6 +1232,7 @@ div.options.open {
   display: none; }
 
 #prog {
+  clear: both;
   width: 90%;
   height: 30px;
   background-color: #0f3d48;
@@ -1232,7 +1241,8 @@ div.options.open {
   border-radius: 5px;
   -webkit-box-shadow: 0px 1px 2px 0px #6b8e98;
   box-shadow: 0px 1px 2px 0px #6b8e98;
-  border-top: solid 1px #13252a; }
+  border-top: solid 1px #13252a;
+  margin-bottom: 50px; }
 
 #p {
   width: 0%;
@@ -1255,6 +1265,10 @@ div.options.open {
   font-size: 1em;
   font-weight: bold;
   margin-bottom: 10px; }
+
+.decksPage .space {
+  width: 100%;
+  height: 300px; }
 
 #mobileCardT {
   display: none; }
@@ -1436,14 +1450,23 @@ div.options.open {
 /* ----------------- */
 /* - About  STYLES - */
 /* ----------------- */
+#content.aboutPage {
+  margin-bottom: 0px; }
+
 #btf {
+  margin-top: 20px;
   border-top: solid 5px #0f3d48;
-  height: 230px;
+  height: auto;
   width: 100%;
   overflow: hidden;
   background-color: #2d2d2d;
   -webkit-box-shadow: inset 0px 2px 2px 0px #13242a;
-  box-shadow: inset 0px 2px 2px 0px #13242a; }
+  box-shadow: inset 0px 2px 2px 0px #13242a;
+  padding-bottom: 30px; }
+
+@media screen and (max-width: 970px) {
+  #btf .sizer {
+    width: 485px; } }
 
 .arts {
   width: 230px;
@@ -1650,7 +1673,10 @@ label span input {
   width: 100%;
   height: 10px;
   background: url("../imgs/bg-arrow.png");
-  margin-top: 50px; }
+  margin-top: -10px; }
+
+.aboutPage .bgPoint {
+  margin-top: 0px; }
 
 footer {
   height: 220px;

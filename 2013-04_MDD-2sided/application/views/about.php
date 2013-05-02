@@ -1,4 +1,4 @@
-	<div id="content">
+	<div id="content" class="aboutPage">
 	    <section id="cards">
 	        <ul>
 	            <li class="aCard" data-cardid="50f94ca069af1">
@@ -21,16 +21,51 @@
 	    </section>
 	    		
 		<section id="cardT">
-			<div class="space"></div>
-			<div id="cardTools" class="aboutTools">
-				<div id="toolButtons">
-					<div id="leftArrow"></div>
-					<button type="button" id="lilFLip">Flip Card</button>
-					<div id="rightArrow"></div>
-				</div>
-			</div>
-		</section>
+		<? //hides or shows the edit and delete button.
+    		if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){ ?>
+				<button type="button" id="editButton">Edit</button>
+				<button type="button" id="deleteButton">Delete</button>
 
+			<? }else{ ?>
+				<div class="space"></div>
+			<? }
+		?>
+		<div id="cardTools">
+			<div id="toolButtons">
+				<div id="leftArrow"></div>
+				<button type="button" id="lilFLip">Flip Card</button>
+				<div id="rightArrow"></div>
+			</div>
+		</div>
+	</section>
+
+	<section id="mobileCardT">
+		<ul>
+			<ul id="toolBox">
+				<li id="extras">
+					<? //hides or shows the edit and delete button.
+			    		if($isLoggedIn == 1 && $userID == $this->session->userdata('userID')){ ?>
+							<button type="button" id="editMButton">Edit</button>
+							<button type="button" id="deleteMButton">Delete</button>
+
+						<? }else{ ?>
+							<button type="button" id="reportMButton">No Options</p></button>
+						<? }
+		    		?>
+    			</li>
+    		</ul>
+			<li><button id="arrowLeft"></button></li>
+			<li><button id="flipCard">Flip Card</button></li>
+			<li><button id="arrowRight"></button></li>
+			<li><button id="shuffle"></button></li>
+		</ul>
+	</section>
+		
+		<p id="progNum"></p>
+		<div id="prog">
+			<div id="p"></div>
+		</div>
+	
 		<section id="btf">
 			<div class="sizer">
 				<article class="arts">

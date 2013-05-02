@@ -34,6 +34,10 @@
 	}
 
 	//Footer
-	$this->load->view("includes/footer.php");
+	if($view == 'viewCards'){
+
+	}else{
+		$this->load->view("includes/footer.php");
+	}
 
 ?>	
