@@ -90,62 +90,44 @@ var initUserSearch = function(){
 
 //Search functionality
 var initSearch = function(){
-	var focusCounter   =  -1,
-		numberOfItems  =  0,
-		searchResults  =  $('#searchResults'),
-		search         =  $('#search'),
-		doc            =  $(document),
-		research       =  $('#research')
+	var focusCounter = -1,
+		numberOfItems = 0,
+		searchResults = $('#searchResults'),
+		search = $('nav #search'),
+		doc = $(document)
 	;
 
 	searchResults.hide();
 
-
-	research.on('click', function(e){
-		var mSearch  =  $('#mSearch');
-
-		if(mSearch.length < 1){
-			var header   =  $('header');
-			header.after('<div id="mSearch"><input type="text" id="search" autocomplete="off"></div><ul id="searchResults" style="display: none;"></ul>');
-			search = $('#search');
-			searchResults  =  $('#searchResults');
-			initSearchKeyup();
-		}else{
-			mSearch.remove();
-		}
-	});
-
-	var initSearchKeyup = function(){
-		search.keyup(function(e){
-			numberOfItems = 0;
-			searchResults.show();
-			var search = $(this).val();
-			$.ajax({
-				url: base + "index.php/decks/search",
-				type: "post",
-				data: {title: search},
-				success: function(response){
-					console.log(response);
-					if(response == 'No Search Resultsnull'){
+	search.keyup(function(e){
+		numberOfItems = 0;
+		searchResults.show();
+		var search = $(this).val();
+		$.ajax({
+			url: base + "index.php/decks/search",
+			type: "post",
+			data: {title: search},
+			success: function(response){
+				console.log(response);
+				if(response == 'No Search Resultsnull'){
+					searchResults.html('');
+					searchResults.hide();
+				}else{
+					var r = JSON.parse(response);
+					numberOfItems = r.length;
+					if($('nav input').val().length === 0){
 						searchResults.html('');
 						searchResults.hide();
 					}else{
-						var r = JSON.parse(response);
-						numberOfItems = r.length;
-						if($('#search').val().length === 0){
-							searchResults.html('');
-							searchResults.hide();
-						}else{
-							searchResults.html('');
-							for (var i = 0; i < 5; i++) {
-								searchResults.append('<li class="result"><a class="res" href="' + base + 'index.php/cards/getCards/' + r[i].userID + "/" +r[i].deckID+'">' + r[i].deckTitle + '</a></li>');
-							}
+						searchResults.html('');
+						for (var i = 0; i < 5; i++) {
+							searchResults.append('<li class="result"><a class="res" href="' + base + 'index.php/cards/getCards/' + r[i].userID + "/" +r[i].deckID+'">' + r[i].deckTitle + '</a></li>');
 						}
 					}
 				}
-			});
+			}
 		});
-	};
+	});
 
 	doc.keydown(function(e){
 		if(numberOfItems >= 6)numberOfItems = 5;
@@ -177,7 +159,6 @@ var initSearch = function(){
 	}).on('click', function(e){
 		if($(e.target).parent().attr('class') != 'result') $('#searchResults').hide();
 	});
-	initSearchKeyup();
 };//End search
 
 // Adding and deleting tags to a deck when adding a deck
